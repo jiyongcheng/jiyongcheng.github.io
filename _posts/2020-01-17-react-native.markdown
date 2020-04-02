@@ -17,7 +17,7 @@ Then I realized the another issue prompted:
 After googling, I got answer:
 
 ```bash
-export ANDROID_HOME=/Users/{yourusername}/Library/Android/sdk
+export ANDROID_HOME=/Users/aron/Library/Android/sdk
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/tools:$PATH
 ```
