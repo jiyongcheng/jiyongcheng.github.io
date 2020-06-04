@@ -5,7 +5,7 @@ date:   2020-01-17 10:18:00 +1100
 categories: react native
 ---
 
-I want to follow [this article](https://developer.okta.com/blog/2018/12/26/react-native-android-play-store) to learn creating apps with react native. But I met several issues:
+I wwwant to follow [this article](https://developer.okta.com/blog/2018/12/26/react-native-android-play-store) to learn creating apps with react native. But I met several issues:
 > error Failed to launch emulator. Reason: No emulators found as an output of `emulator -list-avds`.
 warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
 info Installing the app...
