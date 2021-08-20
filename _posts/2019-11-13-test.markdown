@@ -1,8 +1,0 @@
----
-layout: post
-title:  "hello world!"
-date:   2019-11-13 06:10:40 +0000
-categories: jekyll update
----
-
-Like every programming language does, the first thing is to show `hello world!`.
