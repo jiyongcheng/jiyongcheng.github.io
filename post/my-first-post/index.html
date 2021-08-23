@@ -1,0 +1,18 @@
+<!doctype html><html><body><div id=content>
+<h1>Android app with react native</h1>
+<p>I want to follow <a href=https://developer.okta.com/blog/2018/12/26/react-native-android-play-store>this article</a> to learn creating apps with react native. But I met several issues:</p>
+<blockquote>
+<p>error Failed to launch emulator. Reason: No emulators found as an output of <code>emulator -list-avds</code>.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED</p>
+</blockquote>
+<p>Then I realized the another issue prompted:
+<code>/bin/sh: adb: command not found</code></p>
+<p>After googling, I got answer:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export ANDROID_HOME<span style=color:#f92672>=</span>/Users/aron/Library/Android/sdk
+export PATH<span style=color:#f92672>=</span>$ANDROID_HOME/platform-tools:$PATH
+export PATH<span style=color:#f92672>=</span>$ANDROID_HOME/tools:$PATH
+</code></pre></div><p>and I ran it again, it works. But I think you should also have created an AVD as well.</p>
+</div></body>
+</html>
