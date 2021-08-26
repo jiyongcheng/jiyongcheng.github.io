@@ -33,10 +33,10 @@
 <h1 class="text-center my-4"><a href=https://jiyongcheng.dev/post/render-code-block-in-bootstrap-5/ class=link-dark>Render Code Block in Bootstrap 5</a></h1>
 <div class=m-3><h1 id=issue-found>Issue found:</h1>
 <p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.</p>
-<p><img src=../../static/image/codeblock-bootstrap/issue-rendering-my-code-block-in-bootstrap-5.png alt="Alt text" title="a title"></p>
+<p><img src=image/codeblock-bootstrap/issue-rendering-my-code-block-in-bootstrap-5.png alt="Alt text"></p>
 <h1 id=why>Why?</h1>
 <p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:</p>
-<p><img src=../../static/image/codeblock-bootstrap/render-code-block-in-bootstrap-5.gif alt="Alt text"></p>
+<p><img src=image/codeblock-bootstrap/render-code-block-in-bootstrap-5.gif alt="Alt text"></p>
 <p>My code block looks like this:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>  &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;highlight&#34;</span>&gt;
     &lt;<span style=color:#f92672>pre</span> <span style=color:#a6e22e>tabindex</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;0&#34;</span> <span style=color:#a6e22e>style</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;</span>&gt;
@@ -56,7 +56,7 @@
   &lt;/<span style=color:#f92672>div</span>&gt;
 &lt;/<span style=color:#f92672>div</span>&gt;
 </code></pre></div><p>then the issue happens:</p>
-<p><img src=../../static/image/codeblock-bootstrap/issue-with-code-block.png alt="Alt text"></p>
+<p><img src=image/codeblock-bootstrap/issue-with-code-block.png alt="Alt text"></p>
 <p>So I know the issue happen when I use <code>class="d-grid"</code>, and checked again the class <code>d-grid</code> using this style:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css>.<span style=color:#a6e22e>d-grid</span> {
     <span style=color:#66d9ef>display</span>: <span style=color:#66d9ef>grid</span> <span style=color:#75715e>!important</span>;
@@ -69,11 +69,9 @@
     <span style=color:#66d9ef>overflow</span>: <span style=color:#66d9ef>auto</span>;
     <span style=color:#66d9ef>font-size</span>: <span style=color:#ae81ff>.875</span><span style=color:#66d9ef>em</span>;
 }
-</code></pre></div><p>If I tick off class <code>d-grid</code> display style, it will render correctly.
-If I add a style <code>overflow:auto</code> to class <code>d-grid</code>, it will render correctly with a scroll bar under the code block.</p>
-<p><img src=../../static/image/codeblock-bootstrap/scroll-bar-show-with-overflow-auto.png alt="Alt text"></p>
+</code></pre></div><p>If I tick off class <code>d-grid</code> display style, it will render correctly.</p>
 <h1 id=how-to-solve-it>How to solve it</h1>
-<p>Either remove the class <code>d-grid</code> or add <code>overflow:auto</code> to this class if keep it.</p>
+<p>remove the class <code>d-grid</code></p>
 </div>
 <p class="text-end me-5"><a href=#>read more</a></p>
 </article>
