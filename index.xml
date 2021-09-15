@@ -164,13 +164,13 @@ align="center"
 &lt;img
 class="img-fluid"
 width="600px"
-src="image/codeblock-bootstrap/issue-rendering-my-code-block-in-bootstrap-5.png"
+src="../image/codeblock-bootstrap/issue-rendering-my-code-block-in-bootstrap-5.png"
 />
 &lt;/figure>
 &lt;h2 id="why">Why?&lt;/h2>
 &lt;p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:&lt;/p>
 &lt;p align="center">
-&lt;img src="image/codeblock-bootstrap/render-code-block-in-bootstrap-5.gif" class="img-fluid" width="600px">
+&lt;img src="../image/codeblock-bootstrap/render-code-block-in-bootstrap-5.gif" class="img-fluid" width="600px">
 &lt;/p>
 &lt;p>My code block looks like this:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -220,7 +220,7 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>then the issue happens:&lt;/p>
 &lt;p align="center">
-&lt;img src="image/codeblock-bootstrap/issue-with-code-block.png" class="img-fluid" width="600px">
+&lt;img src="../image/codeblock-bootstrap/issue-with-code-block.png" class="img-fluid" width="600px">
 &lt;/p>
 &lt;p>So I know the issue happen when I use &lt;code>class=&amp;quot;d-grid&amp;quot;&lt;/code>, and checked again the class &lt;code>d-grid&lt;/code> using this style:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -258,7 +258,7 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
 &lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
-&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/my-first-post/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/my-first-post/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
 &lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
 &lt;blockquote>
 &lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.

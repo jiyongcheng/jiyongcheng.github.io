@@ -3,7 +3,7 @@
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
 &lt;li>Why isn&amp;rsquo;t every type of object serializable?&lt;/li>
-&lt;/ul></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/my-first-post/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/my-first-post/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;/ul></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
 &lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
 &lt;blockquote>
 &lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
