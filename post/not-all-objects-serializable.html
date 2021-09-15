@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>What, Why, How</title>
+<title>Not All Objects Serializable - What, Why, How</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
 <meta name=MobileOptimized content="width">
@@ -14,21 +14,41 @@
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=mobile-web-app-capable content="yes">
 <meta name=author content="Aaron Ji">
-<meta name=description content="Aaron's personal website">
+<meta name=description content="The question I have I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:
+ Why PDO isn&amp;rsquo;t serializable? Why isn&amp;rsquo;t every type of object serializable? ">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life">
 <meta name=generator content="Hugo 0.87.0">
-<link rel=canonical href=https://jiyongcheng.dev/>
-<link href=/index.xml rel=alternate type=application/rss+xml title="What, Why, How">
+<link rel=canonical href=https://jiyongcheng.dev/post/not-all-objects-serializable.html>
 <link rel=icon href=/favicon.ico>
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
-<meta property="og:title" content="What, Why, How">
-<meta property="og:description" content="Aaron's personal website">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jiyongcheng.dev/">
-<meta itemprop=name content="What, Why, How">
-<meta itemprop=description content="Aaron's personal website"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="What, Why, How">
-<meta name=twitter:description content="Aaron's personal website"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta property="og:title" content="Not All Objects Serializable">
+<meta property="og:description" content="The question I have
+I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:
+
+Why PDO isn&rsquo;t serializable?
+Why isn&rsquo;t every type of object serializable?
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/not-all-objects-serializable.html"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-08-27T16:21:52+10:00">
+<meta property="article:modified_time" content="2021-08-27T16:21:52+10:00">
+<meta itemprop=name content="Not All Objects Serializable">
+<meta itemprop=description content="The question I have
+I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:
+
+Why PDO isn&rsquo;t serializable?
+Why isn&rsquo;t every type of object serializable?
+"><meta itemprop=datePublished content="2021-08-27T16:21:52+10:00">
+<meta itemprop=dateModified content="2021-08-27T16:21:52+10:00">
+<meta itemprop=wordCount content="354">
+<meta itemprop=keywords content="react,react-native,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Not All Objects Serializable">
+<meta name=twitter:description content="The question I have
+I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:
+
+Why PDO isn&rsquo;t serializable?
+Why isn&rsquo;t every type of object serializable?
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
@@ -146,12 +166,9 @@ What, Why, How
 <main id=main class="main bg-llight">
 <div class=content-wrapper>
 <div id=content class="content container">
-<section id=posts class=posts>
 <article class="post bg-white">
 <header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/not-all-objects-serializable.html>Not All Objects Serializable</a>
-</h1>
+<h1 class=post-title>Not All Objects Serializable</h1>
 <div class=post-meta>
 <time datetime=2021-08-27 class=post-time>
 2021-08-27
@@ -162,45 +179,70 @@ What, Why, How
 </div>
 <span class=more-meta> 354 words </span>
 <span class=more-meta> 2 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/not-all-objects-serializable.html#disqus_thread>Comments</a> </span>
 </div>
 </header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Table of Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#the-question-i-have>The question I have</a></li>
+<li><a href=#the-answer>The answer</a></li>
+<li><a href=#why-the-test-written-by-the-author-can-work>Why the test written by the author can work</a></li>
+<li><a href=#my-understanding>My understanding</a></li>
+</ul>
+</nav>
+</div>
+</div>
 <div class=post-content>
-<div class=post-summary>
 <h2 id=the-question-i-have>The question I have</h2>
 <p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
 <ul>
 <li>Why PDO isn&rsquo;t serializable?</li>
 <li>Why isn&rsquo;t every type of object serializable?</li>
 </ul>
+<h2 id=the-answer>The answer</h2>
+<p>After some search, I found some useful information as follows. <a href=https://stackoverflow.com/a/25435734>check this for details</a></p>
+<blockquote>
+<p>A PDO object contains state that cannot be represented in the serialization format. For example, the PDO object contains an open connection to a database server.</p>
+</blockquote>
+<p>And I copied the answer from <a href=https://stackoverflow.com/a/1309686>here</a>:</p>
+<p>Some objects encapsulate resources like file pointers or network sockets that can&rsquo;t be deserialized to the state they were in when you serialized the object that contained them.</p>
+<pre><code>Example: you shouldn't deserialize an object that serves as an authenticated database connection, because to do so, you'd need the serialized form to contain a plaintext password. This would not be a good practice, because someone might get a hold of the saved serialized form. You also have no idea when you deserialize that the database server is still running, can be accessed, the authentication credentials still valid, etc.
+</code></pre>
+<h2 id=why-the-test-written-by-the-author-can-work>Why the test written by the author can work</h2>
+<p>Test code is here:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>class</span> <span class=nc>NotSerializable</span> <span class=k>implements</span> <span class=nx>Serializable</span>
+<span class=p>{</span>
+  <span class=k>public</span> <span class=k>function</span> <span class=nf>serialize</span><span class=p>()</span>
+  <span class=p>{</span>
+    <span class=k>throw</span> <span class=k>new</span> <span class=nx>LogicException</span><span class=p>(</span><span class=s1>&#39;You cannot serialize or unserialize NotSerializable instances&#39;</span><span class=p>);</span>
+  <span class=p>}</span>
+
+  <span class=k>public</span> <span class=k>function</span> <span class=nf>unserialize</span><span class=p>(</span><span class=nv>$serialized</span><span class=p>)</span>
+  <span class=p>{</span>
+    <span class=k>throw</span> <span class=k>new</span> <span class=nx>LogicException</span><span class=p>(</span><span class=s1>&#39;You cannot serialize or unserialize NotSerializable instances&#39;</span><span class=p>);</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
 </div>
-<div class=read-more>
-<a href=/post/not-all-objects-serializable.html class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/php-magic-method-invoke.html>Php Magic Method Invoke</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/programming-language.html> Programming Language </a>
-<a href=https://jiyongcheng.dev/categories/php.html> PHP </a>
-</div>
-<span class=more-meta> 159 words </span>
-<span class=more-meta> 1 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/php-magic-method-invoke.html#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=what-did-i-see>What did I see?</h2>
-<p>I saw in a PHP class using this method <code>__invoke</code></p>
+</div><p>If you write a test code like this:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -209,58 +251,89 @@ What, Why, How
 </span><span class=lnt>4
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>public</span> <span class=k>function</span> <span class=fm>__invoke</span><span class=p>(</span><span class=nx>int</span> <span class=nv>$errorNumber</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorString</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorFile</span><span class=p>,</span> <span class=nx>int</span> <span class=nv>$errorLine</span><span class=p>)</span><span class=o>:</span> <span class=nx>bool</span>
-<span class=p>{</span>
-    <span class=o>...</span>
-<span class=p>}</span>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$a</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>NotSerializable</span><span class=p>();</span>
+
+<span class=k>echo</span> <span class=nx>serialize</span><span class=p>(</span><span class=nv>$a</span><span class=p>);</span>
+
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=why-using-this-method>Why using this method?</h2>
-<p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.</p>
+</div><p>It will throw the error:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>PHP</span> <span class=nx>Fatal</span> <span class=nx>error</span><span class=o>:</span>  <span class=nx>Uncaught</span> <span class=nx>LogicException</span><span class=o>:</span> <span class=nx>You</span> <span class=nx>cannot</span> <span class=nx>serialize</span> <span class=k>or</span> <span class=nx>unserialize</span> <span class=nx>NotSerializable</span> <span class=nx>instances</span> <span class=nx>in</span> <span class=o>/</span><span class=nx>home</span><span class=o>/</span><span class=nx>jdoodle</span><span class=o>.</span><span class=nx>php</span><span class=o>:</span><span class=mi>7</span>
+<span class=nx>Stack</span> <span class=nx>trace</span><span class=o>:</span>
+<span class=c1>#0 [internal function]: NotSerializable-&gt;serialize()
+</span><span class=c1>#1 /home/jdoodle.php(23): serialize(Object(NotSerializable))
+</span><span class=c1>#2 {main}
+</span><span class=c1></span>  <span class=nx>thrown</span> <span class=nx>in</span> <span class=o>/</span><span class=nx>home</span><span class=o>/</span><span class=nx>jdoodle</span><span class=o>.</span><span class=nx>php</span> <span class=nx>on</span> <span class=nx>line</span> <span class=mi>7</span>
+<span class=nx>Command</span> <span class=nx>exited</span> <span class=nx>with</span> <span class=nx>non</span><span class=o>-</span><span class=nx>zero</span> <span class=nx>status</span> <span class=mi>255</span>
+</code></pre></td></tr></table>
 </div>
-<div class=read-more>
-<a href=/post/php-magic-method-invoke.html class=read-more-link>Read more</a>
+</div><h2 id=my-understanding>My understanding</h2>
+<p>Because the <code>serialize()</code> function should return string or null to represent the object&rsquo;s state, but it throws an Exception which isn&rsquo;t it&rsquo;s state. Thus in this scenario the object of class <code>NotSerializable</code> is not serializable even though it implements the <code>Serializable</code> interface.</p>
+<h1 id=reference>Reference</h1>
+<p>[^1] <a href=http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html>PHP Serialization, Stack Traces, and Exceptions</a></p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>Aaron Ji</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-08-27
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=/image/yongcheng_wechat.jpeg>
+<span>Wechat</span>
+</label>
 </div>
 </div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/render-code-block-in-bootstrap-5.html>Render Code Block in Bootstrap 5</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-26 class=post-time>
-2021-08-26
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/frontend.html> Frontend </a>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=https://jiyongcheng.dev/tags/react.html>react</a>
+<a href=https://jiyongcheng.dev/tags/react-native.html>react-native</a>
 </div>
-<span class=more-meta> 212 words </span>
-<span class=more-meta> 1 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/render-code-block-in-bootstrap-5.html#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=issue-found>Issue found:</h2>
-<p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.</p>
-</div>
-<div class=read-more>
-<a href=/post/render-code-block-in-bootstrap-5.html class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-</section>
-<nav class=pagination>
-<ul>
-<li class=active>
-<a href=/>1</a>
-</li>
-<li>
-<a href=/page/2.html>2</a>
-</li>
-</ul>
+<nav class=post-nav>
+<a class=next href=/post/php-magic-method-invoke.html>
+<span class="next-text nav-default">Php Magic Method Invoke</span>
+<span class="prev-text nav-mobile">Next</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
+</i>
+</a>
 </nav>
+</footer>
+</article>
+<div class=disqus-comment>
+<div class=disqus-button id=load_disqus onclick=load_disqus()>
+Show Disqus Comments
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>var disqus_config=function(){this.page.url="https://jiyongcheng.dev/post/not-all-objects-serializable.html"};function load_disqus(){var a,b;if(console.log('loading disqus'),window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='jiyongcheng',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a),$('#load_disqus').remove()}</script>
+<noscript>Please enable JavaScript to view the
+<a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a>
+</noscript>
+</div>
 </div>
 </div>
 </main>
