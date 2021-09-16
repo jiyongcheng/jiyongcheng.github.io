@@ -191,27 +191,10 @@ What, Why, How
 <div class=post-content>
 <h2 id=issue-found>Issue found:</h2>
 <p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.</p>
-<link rel=stylesheet href=/css/hugo-easy-gallery.css>
-<div class=box>
-<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
-<div class=img>
-<img itemprop=thumbnail src=issue-rendering-my-code-block-in-bootstrap-5.png>
-</div>
-<a href=issue-rendering-my-code-block-in-bootstrap-5.png itemprop=contentUrl></a>
-</figure>
-</div>
+<p><img src=issue-rendering-my-code-block-in-bootstrap-5.png alt=issue-rendering-my-code-block-in-bootstrap-5></p>
 <h2 id=why>Why?</h2>
 <p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:</p>
-<p align=center>
-<div class=box>
-<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
-<div class=img>
-<img itemprop=thumbnail src=render-code-block-in-bootstrap-5.gif>
-</div>
-<a href=render-code-block-in-bootstrap-5.gif itemprop=contentUrl></a>
-</figure>
-</div>
-</p>
+<p><img src=render-code-block-in-bootstrap-5.gif alt="render code block in bootstrap 5"></p>
 <p>My code block looks like this:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -259,16 +242,7 @@ What, Why, How
 </code></pre></td></tr></table>
 </div>
 </div><p>then the issue happens:</p>
-<p align=center>
-<div class=box>
-<figure itemprop=associatedMedia itemscope itemtype=http://schema.org/ImageObject>
-<div class=img>
-<img itemprop=thumbnail src=issue-with-code-block.png>
-</div>
-<a href=issue-with-code-block.png itemprop=contentUrl></a>
-</figure>
-</div>
-</p>
+<p><img src=issue-with-code-block.png alt="issue with code block"></p>
 <p>So I know the issue happen when I use <code>class="d-grid"</code>, and checked again the class <code>d-grid</code> using this style:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
