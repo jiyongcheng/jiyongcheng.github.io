@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>Php Magic Method Invoke - What, Why, How</title>
+<title>Android app with react native - What, Why, How</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
 <meta name=MobileOptimized content="width">
@@ -14,105 +14,65 @@
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=mobile-web-app-capable content="yes">
 <meta name=author content="Aaron Ji">
-<meta name=description content="What did I see? I saw in a PHP class using this method __invoke
-1 2 3 4  public function __invoke(int $errorNumber, string $errorString, string $errorFile, int $errorLine): bool { ... }   Why using this method? This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.
+<meta name=description content="Issue I met I want to follow this article to learn creating apps with react native. But I met several issues:
+ error Failed to launch emulator. Reason: No emulators found as an output of emulator -list-avds. warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch. info Installing the app&amp;hellip; Task :app:installDebug FAILED
 ">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life">
 <meta name=generator content="Hugo 0.87.0">
-<link rel=canonical href=https://jiyongcheng.dev/post/php-magic-method-invoke/>
+<link rel=canonical href=https://jiyongcheng.dev/post/2021/android-app-with-react-native/>
 <link rel=icon href=/favicon.ico>
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
-<meta property="og:title" content="Php Magic Method Invoke">
-<meta property="og:description" content="What did I see?
-I saw in a PHP class using this method __invoke
+<meta property="og:title" content="Android app with react native">
+<meta property="og:description" content="Issue I met
+I want to follow this article to learn creating apps with react native. But I met several issues:
 
-
-1
-2
-3
-4
-
-
-public function __invoke(int $errorNumber, string $errorString, string $errorFile, int $errorLine): bool
-{
-    ...
-}
-
-
-Why using this method?
-This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.">
+error Failed to launch emulator. Reason: No emulators found as an output of emulator -list-avds.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED
+">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jiyongcheng.dev/post/php-magic-method-invoke/"><meta property="og:image" content="https://jiyongcheng.dev/post-cover-php.jpeg"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-08-27T15:33:52+10:00">
-<meta property="article:modified_time" content="2021-08-27T15:33:52+10:00">
-<meta itemprop=name content="Php Magic Method Invoke">
-<meta itemprop=description content="What did I see?
-I saw in a PHP class using this method __invoke
+<meta property="og:url" content="https://jiyongcheng.dev/post/2021/android-app-with-react-native/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-01-17T10:18:00+00:00">
+<meta property="article:modified_time" content="2021-09-15T17:18:00+00:00">
+<meta itemprop=name content="Android app with react native">
+<meta itemprop=description content="Issue I met
+I want to follow this article to learn creating apps with react native. But I met several issues:
 
+error Failed to launch emulator. Reason: No emulators found as an output of emulator -list-avds.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED
+"><meta itemprop=datePublished content="2020-01-17T10:18:00+00:00">
+<meta itemprop=dateModified content="2021-09-15T17:18:00+00:00">
+<meta itemprop=wordCount content="107"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=keywords content="react,react-native,"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta name=twitter:title content="Android app with react native">
+<meta name=twitter:description content="Issue I met
+I want to follow this article to learn creating apps with react native. But I met several issues:
 
-1
-2
-3
-4
-
-
-public function __invoke(int $errorNumber, string $errorString, string $errorFile, int $errorLine): bool
-{
-    ...
-}
-
-
-Why using this method?
-This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks."><meta itemprop=datePublished content="2021-08-27T15:33:52+10:00">
-<meta itemprop=dateModified content="2021-08-27T15:33:52+10:00">
-<meta itemprop=wordCount content="159"><meta itemprop=image content="https://jiyongcheng.dev/post-cover-php.jpeg">
-<meta itemprop=keywords content="PHP,magic method,"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://jiyongcheng.dev/post-cover-php.jpeg">
-<meta name=twitter:title content="Php Magic Method Invoke">
-<meta name=twitter:description content="What did I see?
-I saw in a PHP class using this method __invoke
-
-
-1
-2
-3
-4
-
-
-public function __invoke(int $errorNumber, string $errorString, string $errorFile, int $errorLine): bool
-{
-    ...
-}
-
-
-Why using this method?
-This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+error Failed to launch emulator. Reason: No emulators found as an output of emulator -list-avds.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="Php Magic Method Invoke">
-<meta property="og:description" content="What did I see?
-I saw in a PHP class using this method __invoke
+<meta property="og:title" content="Android app with react native">
+<meta property="og:description" content="Issue I met
+I want to follow this article to learn creating apps with react native. But I met several issues:
 
-
-1
-2
-3
-4
-
-
-public function __invoke(int $errorNumber, string $errorString, string $errorFile, int $errorLine): bool
-{
-    ...
-}
-
-
-Why using this method?
-This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.">
+error Failed to launch emulator. Reason: No emulators found as an output of emulator -list-avds.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED
+">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jiyongcheng.dev/post/php-magic-method-invoke/"><meta property="og:image" content="https://jiyongcheng.dev/post-cover-php.jpeg"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-08-27T15:33:52+10:00">
-<meta property="article:modified_time" content="2021-08-27T15:33:52+10:00">
+<meta property="og:url" content="https://jiyongcheng.dev/post/2021/android-app-with-react-native/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-01-17T10:18:00+00:00">
+<meta property="article:modified_time" content="2021-09-15T17:18:00+00:00">
 </head>
 <body>
 <div id=mobile-navbar class=mobile-navbar>
@@ -229,16 +189,16 @@ What, Why, How
 <div id=content class="content container">
 <article class="post bg-white">
 <header class=post-header>
-<h1 class=post-title>Php Magic Method Invoke</h1>
+<h1 class=post-title>Android app with react native</h1>
 <div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
+<time datetime=2020-01-17 class=post-time>
+2020-01-17
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/programming-language/> Programming Language </a>
-<a href=https://jiyongcheng.dev/categories/php/> PHP </a>
+<a href=https://jiyongcheng.dev/categories/react/> react </a>
+<a href=https://jiyongcheng.dev/categories/native/> native </a>
 </div>
-<span class=more-meta> 159 words </span>
+<span class=more-meta> 107 words </span>
 <span class=more-meta> 1 min read </span>
 </div>
 </header>
@@ -247,92 +207,38 @@ What, Why, How
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#what-did-i-see>What did I see?</a></li>
-<li><a href=#why-using-this-method>Why using this method?</a></li>
-<li><a href=#how-do-people-use-it>How do people use it?</a></li>
+<li><a href=#issue-i-met>Issue I met</a></li>
+<li><a href=#how-to-solve>How to solve</a></li>
 </ul>
 </nav>
 </div>
 </div>
 <div class=post-content>
-<h2 id=what-did-i-see>What did I see?</h2>
-<p>I saw in a PHP class using this method <code>__invoke</code></p>
+<h2 id=issue-i-met>Issue I met</h2>
+<p>I want to follow <a href=https://developer.okta.com/blog/2018/12/26/react-native-android-play-store>this article</a> to learn creating apps with react native. But I met several issues:</p>
+<blockquote>
+<p>error Failed to launch emulator. Reason: No emulators found as an output of <code>emulator -list-avds</code>.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&mldr;
+Task :app:installDebug FAILED</p>
+</blockquote>
+<p>Then I realized the another issue prompted:
+<code>/bin/sh: adb: command not found</code></p>
+<h2 id=how-to-solve>How to solve</h2>
+<p>After googling, I got answer:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span><span class=lnt>4
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>public</span> <span class=k>function</span> <span class=fm>__invoke</span><span class=p>(</span><span class=nx>int</span> <span class=nv>$errorNumber</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorString</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorFile</span><span class=p>,</span> <span class=nx>int</span> <span class=nv>$errorLine</span><span class=p>)</span><span class=o>:</span> <span class=nx>bool</span>
-<span class=p>{</span>
-    <span class=o>...</span>
-<span class=p>}</span>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>ANDROID_HOME</span><span class=o>=</span>/Users/aron/Library/Android/sdk
+<span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$ANDROID_HOME</span>/platform-tools:<span class=nv>$PATH</span>
+<span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$ANDROID_HOME</span>/tools:<span class=nv>$PATH</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=why-using-this-method>Why using this method?</h2>
-<p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.</p>
-<h2 id=how-do-people-use-it>How do people use it?</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>class</span> <span class=nc>Invokable</span>
-<span class=p>{</span>
-    <span class=sd>/**
-</span><span class=sd>     * This method will be called if object will be executed like a function:
-</span><span class=sd>     *
-</span><span class=sd>     * $invokable();
-</span><span class=sd>     *
-</span><span class=sd>     * Args will be passed as in regular method call.
-</span><span class=sd>     */</span>
-    <span class=k>public</span> <span class=k>function</span> <span class=fm>__invoke</span><span class=p>(</span><span class=nv>$arg</span><span class=p>,</span> <span class=nv>$arg</span><span class=p>,</span> <span class=o>...</span><span class=p>)</span>
-    <span class=p>{</span>
-        <span class=nx>print_r</span><span class=p>(</span><span class=nx>func_get_args</span><span class=p>());</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-
-<span class=c1>// Example:
-</span><span class=c1></span><span class=nv>$invokable</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Invokable</span><span class=p>();</span>
-<span class=nv>$invokable</span><span class=p>([</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]);</span>
-
-<span class=c1>// optputs:
-</span><span class=c1></span><span class=k>Array</span>
-<span class=p>(</span>
-    <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=&gt;</span> <span class=mi>1</span>
-    <span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=&gt;</span> <span class=mi>2</span>
-    <span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>=&gt;</span> <span class=mi>3</span>
-<span class=p>)</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+</div><p>and I ran it again, it works. But I think you should also have created an AVD as well.</p>
 </div>
 <div class=addthis_inline_share_toolbox_taj0></div>
 <div class=post-copyright>
@@ -343,7 +249,7 @@ What, Why, How
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-08-27
+2021-09-15
 </span>
 </p>
 <p class=copyright-item>
@@ -363,31 +269,22 @@ What, Why, How
 </div>
 <footer class=post-footer>
 <div class=post-tags>
-<a href=https://jiyongcheng.dev/tags/php/>PHP</a>
-<a href=https://jiyongcheng.dev/tags/magic-method/>magic method</a>
+<a href=https://jiyongcheng.dev/tags/react/>react</a>
+<a href=https://jiyongcheng.dev/tags/react-native/>react-native</a>
 </div>
 <nav class=post-nav>
-<a class=prev href=/post/not-all-objects-serializable/>
+<a class=prev href=/post/2021/render-code-block-in-bootstrap-5/>
 <i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
 </i>
-<span class="prev-text nav-default">Not All Objects Serializable</span>
+<span class="prev-text nav-default">Render Code Block in Bootstrap 5</span>
 <span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/post/render-code-block-in-bootstrap-5/>
-<span class="next-text nav-default">Render Code Block in Bootstrap 5</span>
-<span class="prev-text nav-mobile">Next</span>
-<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
-</i>
 </a>
 </nav>
 </footer>
 </article>
 <div class=disqus-comment>
-<div class=disqus-button id=load_disqus onclick=load_disqus()>
-Show Disqus Comments
-</div>
 <div id=disqus_thread></div>
-<script type=text/javascript>var disqus_loaded=!1,disqus_config=function(){this.page.url="https://jiyongcheng.dev/post/php-magic-method-invoke/"};function load_disqus(){var a,b;disqus_loaded=!0,a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='jiyongcheng',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a),$('#load_disqus').remove()}window.onscroll=function(a){window.innerHeight+window.scrollY>=document.body.offsetHeight&&disqus_loaded==!1&&load_disqus()}</script>
+<script type=text/javascript>load_disqus();var disqus_config=function(){this.page.url="https://jiyongcheng.dev/post/2021/android-app-with-react-native/"};function load_disqus(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='jiyongcheng',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a),$('#load_disqus').remove()}window.onscroll=function(a){window.innerHeight+window.scrollY>=document.body.offsetHeight&&disqus_loaded==!1&&load_disqus()}</script>
 <noscript>Please enable JavaScript to view the
 <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a>
 </noscript>

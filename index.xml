@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 27 Aug 2021 16:21:52 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 27 Aug 2021 16:21:52 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/2021/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
 &lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
@@ -81,7 +81,7 @@
 &lt;/div>&lt;h2 id="my-understanding">My understanding&lt;/h2>
 &lt;p>Because the &lt;code>serialize()&lt;/code> function should return string or null to represent the object&amp;rsquo;s state, but it throws an Exception which isn&amp;rsquo;t it&amp;rsquo;s state. Thus in this scenario the object of class &lt;code>NotSerializable&lt;/code> is not serializable even though it implements the &lt;code>Serializable&lt;/code> interface.&lt;/p>
 &lt;h1 id="reference">Reference&lt;/h1>
-&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>Php Magic Method Invoke</title><link>https://jiyongcheng.dev/post/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
+&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/2021/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
 &lt;p>I saw in a PHP class using this method &lt;code>__invoke&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -156,21 +156,30 @@
 &lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
+&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/2021/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
 &lt;p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.&lt;/p>
-&lt;figure
-align="center"
->
-&lt;img
-class="img-fluid"
-width="600px"
-src="../image/codeblock-bootstrap/issue-rendering-my-code-block-in-bootstrap-5.png"
-/>
+&lt;link rel="stylesheet" href="https://jiyongcheng.dev/css/hugo-easy-gallery.css" />
+&lt;div class="box">
+&lt;figure itemprop="associatedMedia"
+itemscope itemtype="http://schema.org/ImageObject" >
+&lt;div class="img">
+&lt;img itemprop="thumbnail" src="issue-rendering-my-code-block-in-bootstrap-5.png" />
+&lt;/div>
+&lt;a href="issue-rendering-my-code-block-in-bootstrap-5.png" itemprop="contentUrl">&lt;/a>
 &lt;/figure>
+&lt;/div>
 &lt;h2 id="why">Why?&lt;/h2>
 &lt;p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:&lt;/p>
 &lt;p align="center">
-&lt;img src="../image/codeblock-bootstrap/render-code-block-in-bootstrap-5.gif" class="img-fluid" width="600px">
+&lt;div class="box">
+&lt;figure itemprop="associatedMedia"
+itemscope itemtype="http://schema.org/ImageObject" >
+&lt;div class="img">
+&lt;img itemprop="thumbnail" src="render-code-block-in-bootstrap-5.gif" />
+&lt;/div>
+&lt;a href="render-code-block-in-bootstrap-5.gif" itemprop="contentUrl">&lt;/a>
+&lt;/figure>
+&lt;/div>
 &lt;/p>
 &lt;p>My code block looks like this:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -220,7 +229,15 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>then the issue happens:&lt;/p>
 &lt;p align="center">
-&lt;img src="../image/codeblock-bootstrap/issue-with-code-block.png" class="img-fluid" width="600px">
+&lt;div class="box">
+&lt;figure itemprop="associatedMedia"
+itemscope itemtype="http://schema.org/ImageObject" >
+&lt;div class="img">
+&lt;img itemprop="thumbnail" src="issue-with-code-block.png" />
+&lt;/div>
+&lt;a href="issue-with-code-block.png" itemprop="contentUrl">&lt;/a>
+&lt;/figure>
+&lt;/div>
 &lt;/p>
 &lt;p>So I know the issue happen when I use &lt;code>class=&amp;quot;d-grid&amp;quot;&lt;/code>, and checked again the class &lt;code>d-grid&lt;/code> using this style:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -258,7 +275,7 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
 &lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
-&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/2021/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/2021/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
 &lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
 &lt;blockquote>
 &lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
