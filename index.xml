@@ -1,4 +1,298 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 27 Aug 2021 16:21:52 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/2021/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 22 Sep 2021 14:31:07 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>We have a list of &lt;code>IDs&lt;/code> generated into a file &lt;code>F&lt;/code> with this format:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">2f9921bc-a4c9-419a-b069-f8f23c7727f7
+26bf5cc3-73de-425e-9a6b-b70223387314
+30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>We want to generate a &lt;code>JSON&lt;/code> object from the &lt;code>IDs&lt;/code> with this structure:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;users&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="nt">&amp;#34;organisation_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">123&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;user-type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="the-way-we-do-it">The way we do it&lt;/h2>
+&lt;h3 id="we-use-jq">we use &lt;code>jq&lt;/code>&lt;/h3>
+&lt;ul>
+&lt;li>what is &lt;code>jq&lt;/code>
+&lt;ul>
+&lt;li>&lt;code>jq&lt;/code> is a lightweight and flexible command-line JSON processor. 轻量级的命令行JSON处理器，非常灵活&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>what are the main features
+&lt;ul>
+&lt;li>&lt;code>jq&lt;/code> is like &lt;code>sed&lt;/code> for &lt;code>JSON&lt;/code> data
+&lt;ul>
+&lt;li>你可以方便的使用它对结构化的数据进行&lt;code>slice&lt;/code> and &lt;code>filter&lt;/code> and &lt;code>map&lt;/code> and &lt;code>transform&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>jq&lt;/code> is written in portable C, and it has zero runtime dependencies.
+&lt;ul>
+&lt;li>它没有运行时的依赖&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://stedolan.github.io/jq/tutorial/">Tutorial&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stedolan.github.io/jq/manual/">Manual&lt;/a> or you can run &lt;code>man jq&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="how-do-we-do-it">How do we do it&lt;/h2>
+&lt;p>the following is the code&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash"> &lt;span class="nv">USER_IDS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>jq -Rn &lt;span class="s1">&amp;#39;
+&lt;/span>&lt;span class="s1"> def assemble_user($user_id): {
+&lt;/span>&lt;span class="s1"> &amp;#34;user_id&amp;#34;: $user_id
+&lt;/span>&lt;span class="s1"> };
+&lt;/span>&lt;span class="s1"> [
+&lt;/span>&lt;span class="s1"> inputs
+&lt;/span>&lt;span class="s1"> | select(length&amp;gt;0)
+&lt;/span>&lt;span class="s1"> | assemble_user(.)
+&lt;/span>&lt;span class="s1"> ]&amp;#39;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&amp;lt;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$USER_IDS&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;span class="nv">USER_JSON&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span> jq -n &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> --argjson user_ids &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$USER_IDS&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> --arg organisation_id &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$ORGANISATION_ID&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> --arg user_type &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$USER_TYPE&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> &lt;span class="s1">&amp;#39;{organisation_id: $organisation_id, user_type: $user_type, users: $user_ids}&amp;#39;&lt;/span> &lt;span class="k">)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$USER_JSON&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="syntax-of-jq">Syntax of jq&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&amp;ndash;raw-input/-R:
+&lt;strong>Don&amp;rsquo;t parse the input as JSON&lt;/strong>. Instead, each line of text is &lt;strong>passed to the filter as a &lt;code>string&lt;/code>&lt;/strong>. If combined with &amp;ndash;slurp, then the entire input is passed to the filter as a single long string.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&amp;ndash;null-input/-n:
+Don&amp;rsquo;t read any input at all! Instead, the filter is run once using null as the input. This is useful when using jq as a simple calculator or to construct JSON data from scratch.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>input&lt;/code> and &lt;code>inputs&lt;/code>, that read from the same sources (e.g., stdin, files named on the command-line) as jq itself.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>input&lt;/code> Outputs one new input.&lt;/li>
+&lt;li>&lt;code>inputs&lt;/code> Outputs all remaining inputs, one by one.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="explaination-of-the-process">Explaination of the process&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>-R&lt;/code> means jq will treat the anything it gets as a string not a JSON. if you don&amp;rsquo;t use &lt;code>-R&lt;/code> and pass a string as input, it will throw error.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>-n&lt;/code> means jq will not read any input. so it can work together with &lt;code>inputs&lt;/code> to construct a JSON data.&lt;/p>
+&lt;ul>
+&lt;li>if you do this &lt;code>echo '1\n2\n3' | jq -R '[inputs]'&lt;/code> you will only get &lt;code>[&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]&lt;/code>. why? because without &lt;code>-n&lt;/code> jq will read a input, which is &lt;code>1&lt;/code>, then the &lt;code>inputs&lt;/code> will ouputs the &lt;strong>remaining&lt;/strong> inputs, which are &lt;code>2\n3&lt;/code>.&lt;/li>
+&lt;li>if you do this &lt;code>echo '1\n2\n3' | jq -Rn '[inputs]'&lt;/code>, you will get &lt;code>[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]&lt;/code>. why? because with &lt;code>-n&lt;/code> jq will &lt;strong>not&lt;/strong> read a input, so the &lt;code>inputs&lt;/code> will outputs the &lt;strong>remaining&lt;/strong> inputs, which are &lt;code>1\n2\n3&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>select(length&amp;gt;0)&lt;/code> for each input, it will filter out the empty input&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>assemble_user(.)&lt;/code> for each input, it will call the def &lt;code>assemble_user&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>def assemble_user($user_id): {&amp;quot;user_id&amp;quot;: $user_id}&lt;/code> for each input like &lt;code>123&lt;/code>, it will return a object like &lt;code>{&amp;quot;user_id&amp;quot;: 123}&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>&amp;lt;&amp;lt;&amp;lt;&lt;/code> this symbol means &lt;code>Here string&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;&amp;lt;&amp;lt;&lt;/code> is known as here-string. Instead of typing in text, you give a pre-made string of text to a program. For example, with such program as bc we can do bc &amp;laquo;&amp;lt; 5&lt;em>4 to just get output for that specific case, no need to run bc interactively. Think of it as the equivalent of echo &amp;lsquo;5&lt;/em>4&amp;rsquo; | bc.&lt;/li>
+&lt;/ul>
+&lt;p>check the difference between &lt;code>&amp;lt;,&amp;lt;&amp;lt;,&amp;lt;&amp;lt;&amp;lt;&lt;/code> &lt;a href="https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash">here&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>--argjson&lt;/code> means it has a JSON data as the argument.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>--arg&lt;/code> means it has a string data as the argument&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>jq -n --argjson user_ids &amp;quot;$USER_IDS&amp;quot; --arg organisation_id &amp;quot;$ORGANISATION_ID&amp;quot; &lt;/code> you can structure a JSON data easily.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-result">The result&lt;/h2>
+&lt;ul>
+&lt;li>So first step I get the array with objects.
+&lt;ul>
+&lt;li>if you do this quickly&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;2f9921bc-a4c9-419a-b069-f8f23c7727f7\n26bf5cc3-73de-425e-9a6b-b70223387314\n30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> jq -Rn &lt;span class="s1">&amp;#39;
+&lt;/span>&lt;span class="s1"> def assemble_users($user_id): {&amp;#34;user_id&amp;#34;: $user_id};
+&lt;/span>&lt;span class="s1"> [
+&lt;/span>&lt;span class="s1"> inputs
+&lt;/span>&lt;span class="s1"> | select(length&amp;gt;0)
+&lt;/span>&lt;span class="s1"> | assemble_users(.)
+&lt;/span>&lt;span class="s1"> ]&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>you will get:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;26bf5cc3-73de-425e-9a6b-b70223387314&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Second, I assemble them together as a object. you will get&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;users&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;26bf5cc3-73de-425e-9a6b-b70223387314&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="nt">&amp;#34;organisation_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">123&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;user-type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Finish runner-up 什么意思</title><link>https://jiyongcheng.dev/post/2021/2021-09-21/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/2021-09-21/</guid><description>&lt;p>最近在看澳洲的一个综艺节目 &lt;code>The Bachelor 2021&lt;/code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：&lt;/p>
+&lt;blockquote>
+&lt;p>“There’s something that someone has said … And I think it’s gonna surprise you because it surprised me when I heard it,” the random girl hesitates. “Um, the person that said it … I know for a fact you have something very strong with … Jay said she would like to finish runner-up because she heard that they do better (on Instagram).”&lt;/p>
+&lt;/blockquote>
+&lt;p>然后Jimmy很惊讶，然后说&lt;/p>
+&lt;blockquote>
+&lt;p>“I’ve been massively blindsided. I’m shocked,” he rubs his brow. “The stuff about Steph, I saw it coming. What I didn’t see coming was the information I heard about Jay. It’s a massive blow for me.”&lt;/p>
+&lt;/blockquote>
+&lt;p>我不明白为什么这个让他很惊讶，所以我想明白她说的finish runner-up到底是什么意思，一开始我听成finish round-up， 根本找不到一个合理的解释放在这个语境中，后来我知道是runner-up，查了这个词的意思，就是在比赛中的第二名。&lt;/p>
+&lt;p>那这又怎么会让他那么惊讶呢？因为我理解Jay的意思是我宁愿当第二名，因为她们做的比我好。这个我想很正常，她觉得别的女孩做的比她更好。&lt;/p>
+&lt;p>为了明白这里到底是什么意思，我上网搜索了相关的评论，终于在&lt;a href="https://www.news.com.au/entertainment/tv/reality-tv/the-bachelor/james-weir-recaps-the-bachelor-australia-2021-episode-9/news-story/7743e2dbc575d3ebecbec9ad5602971c">这里&lt;/a>找到了解释.&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>No! Get out! Someone’s only here for Instagram followers! That’s preposterous. You should be ashamed of yourself for even suggesting that, random girl.&lt;/li>
+&lt;li>It’s been 24 hours since that random girl went and told Jimmy that Jay’s only on the show for Instagram followers.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>这里我就明白了，为什么Jimmy听到那个女孩这样说Jay他那么震惊，因为如果Jay只是为了Instagram的粉丝数量过来参加这个节目的话，那么就显得太荒谬了。&lt;/p></description></item><item><title>Software Architecture</title><link>https://jiyongcheng.dev/resources/architecture/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resources/architecture/</guid><description>&lt;ul>
+&lt;li>&lt;a href="https://drive.google.com/file/d/1wfF7ZIPtY-TSzF8ZNmSOD5A2-5WVL9vo/view?usp=sharing">Software architecture patterns&lt;/a>&lt;/li>
+&lt;li>search #softwarearchitecture on youtube&lt;/li>
+&lt;li>c4 Model &lt;a href="https://c4model.com/">https://c4model.com/&lt;/a>&lt;/li>
+&lt;li>DDD &lt;a href="https://github.com/heynickc/awesome-ddd">https://github.com/heynickc/awesome-ddd&lt;/a>&lt;/li>
+&lt;li>example about hexagonal architecture.
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=ujb_O6myknY">https://www.youtube.com/watch?v=ujb_O6myknY&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/tedyoung/kid-bank">https://github.com/tedyoung/kid-bank&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.twitch.tv/videos/663668992">https://www.twitch.tv/videos/663668992&lt;/a>&lt;/li>
+&lt;li>related to hexagonal architecture: &lt;a href="https://www.jianshu.com/p/c2a361c2406c">https://www.jianshu.com/p/c2a361c2406c&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>architecture decision record: &lt;a href="https://adr.github.io/">https://adr.github.io/&lt;/a>&lt;/li>
+&lt;li>archunit is a java tool to help enforcing architecture, for php there is one as well &lt;a href="https://github.com/j6s/phparch">https://github.com/j6s/phparch&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://icyfenix.cn/">凤凰架构-构筑可靠的大型分布式系统&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h1 id="aws">AWS&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c">https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://app.cloudcraft.co">Draw AWS diagram&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
 &lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
@@ -81,7 +375,7 @@
 &lt;/div>&lt;h2 id="my-understanding">My understanding&lt;/h2>
 &lt;p>Because the &lt;code>serialize()&lt;/code> function should return string or null to represent the object&amp;rsquo;s state, but it throws an Exception which isn&amp;rsquo;t it&amp;rsquo;s state. Thus in this scenario the object of class &lt;code>NotSerializable&lt;/code> is not serializable even though it implements the &lt;code>Serializable&lt;/code> interface.&lt;/p>
 &lt;h1 id="reference">Reference&lt;/h1>
-&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/2021/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
+&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
 &lt;p>I saw in a PHP class using this method &lt;code>__invoke&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -156,7 +450,7 @@
 &lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/2021/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
+&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
 &lt;p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.&lt;/p>
 &lt;p>&lt;img src="issue-rendering-my-code-block-in-bootstrap-5.png" alt="issue-rendering-my-code-block-in-bootstrap-5">&lt;/p>
 &lt;h2 id="why">Why?&lt;/h2>
@@ -246,7 +540,7 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
 &lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
-&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/2021/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/2021/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
 &lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
 &lt;blockquote>
 &lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
@@ -374,13 +668,4 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>晚上Gary和Delia过来，他们是Eloi的朋友，以前在大连住，过完年准备搬到苏州，所以Eloi介绍给我认识，我们在一起吃饭。在吃饭前Gary问我是如何信主的，我又把我的信主经历谈了一遍，虽然Gary能够用中文和我们交流，但是估计我这个南方口音让他有很多话没有听清楚。无论如何，我把我的信主经历讲完了，只是我觉得讲得不好。&lt;/p>
 &lt;p>快要分别的时候，有一个小小的时间我和Gary特别的交流了一下，他和我分享了他传福音的方式，以及一些分析，我觉得很有道理，对我的帮助也很大。所以我们约定以后有机会见面一起学习圣经，并且帮助别人。也很感谢神，他们将要去苏州居住，我希望把我弟弟介绍给他们，让他们帮助我弟弟的信仰成长，也是上帝格外的恩典，帮助我的弟弟可以更多认识信仰。求神帮助让他们的住处能够和我弟弟的地方离的比较近。&lt;/p>
 &lt;p>晚上分别的时候Eloi把上次macort要给我的子良的CD给了我，原来他也是个基督徒，而且这张CD上有很多是他自己创作的赞美诗的钢琴曲，她希望这些真的能够帮助我们的学生，所以我也要想办法看如何去帮助。&lt;/p>
-&lt;p>送joanna回宿舍，坐117回到学校，给家里打个电话告诉他们我什么时候回去，然后给李作威打了电话，他现在希望去读神学，但是他的父母亲不同意，他找西塔教会的牧师，牧师建议他去并说会推荐他。打电话给张学军牧师，张牧师也建议他去。并他的美国朋友也赞成，所以他也问我，我希望他更多等待神，并和他有些交流，求神帮助他，亲自的带领他前面的道路。&lt;/p></description></item><item><title>给国梅买火车票</title><link>https://jiyongcheng.dev/post/2008/2008-01-11/</link><pubDate>Fri, 11 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-11/</guid><description>&lt;p>今天要给国梅买火车票，所以早上早早就起来了，当时醒的时候是5点半，看外面漆黑的一片，于是到6：10决定必须起来了。走出1舍发现学校里面静悄悄的，我想学生们都在睡大觉呢吧，有几个人在跑步，然后出校门的时候看到有学生背着书包进校门，想起来还有学生在为着考研或者其他在奋斗。到了校外看到路上已经有很多车了，车站也站了很多人，除了上班的，还有一些人是准备过年回家的，所以很容易见到很多人拿着行李。索性看了一眼站牌，216从早上5：30就开始开车了。&lt;/p>
-&lt;p>到了火车站已经人满为患了，呵呵。昨天国梅和我讲去2楼都是卖学生票的，所以今天我就上了2楼，看到那边已经站了很多人，都是学生的面孔。于是选择一个看似不多的人排队。7：20多开始等到7：40多开始卖票。到我的时候已经8：30多了，本来担心买不到1036的坐票的。没想到还有，所以给国梅买了2张22号的1036和1张k190。也帮助后面的东北大学的学生买了张到杭州的1036，他能买到坐票很兴奋。问一下我想做的T158，说22号的没有座位了。郁闷，明天我要早点过来排队，如果没有座位，我就坐K190回家，虽然时间长，不过应该还会有我的同学和我一起走。&lt;/p>
-&lt;p>这两天觉得心火很大，晚上总是做梦，然后火气冲着嗓门那里感觉很不舒服。也还有三件事情没有做，一个就是学术报告心得体会，一个是对于AR国外研究情况的了解，一个是ppt还没有完全准备好。&lt;/p></description></item><item><title>托运东西去上海</title><link>https://jiyongcheng.dev/post/2008/2008-01-10/</link><pubDate>Thu, 10 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-10/</guid><description>&lt;p>今天把一些东西托运去上海，我请姜丹丹到时候帮我拿一下，事先我问了一下，中铁快运到上海市4.7元一公斤，天哪，这么贵，没办法。回到寝室把那个编织袋里面的东东又拿出来了一些，感觉轻了不少。拿到托运那边一量11公斤，花了我53块钱。下次估计还要托运我的被褥。差不多也得花这么多钱，或许更多，如果他们能够送到姜丹丹的家那边就好了，这样就会省很多事情。今天趁着量行李重量的时候我站到秤上面，63公斤。差不多，估计去掉身上的衣服就不剩下几斤了：）&lt;/p>
-&lt;p>下午国梅把她和她老乡的学生证给我，让我帮她买22号回家的火车票。&lt;/p>
-&lt;p>晚上去了于洋那边，每个周四的晚上都希望见到K，在他那边学习。很多的时候都会让我对圣经，对信仰有更深的认识。今晚也是我最后一次在他们那边学习，坐在那边想到这个问题的时候，我就想要是在上海我也能遇到这样的人教我学习圣经该多好啊。交托给上帝吧，求神为我预备！&lt;/p>
-&lt;p>我们因为一个问题讨论了很多，就是约翰福音里讲到，那些犹太人不信主，所以圣经上讲到以赛亚说的话“主使他们耳朵发沉…”，我们就想是不是主不让一些人信主呢？后来K又帮助我们翻倒马太福音，那里也有相关的，讲人们不愿意去听。后来我想，是不是神给人选择听或者不听福音的自由，如果人选择无论怎样也不听的时候，神就任由他们。这个问题我们又牵扯到当初上帝把吃了禁果的亚当夏娃赶出了伊甸园，好像创世纪有讲以防他们吃了生命树上的果子又如同神一样。我们讨论神到底为什么要把他们赶走，神到底是不是预定一些人是要得救或者沉沦的。K让我们看了两处圣经提摩太前书2：4，彼得后书3：9里有讲到神愿万人都得救。这样的讨论我们很喜欢，觉得让我们的知识和认识长进了很多，我也很喜欢这样的讨论。&lt;/p></description></item><item><title>我做了恶梦</title><link>https://jiyongcheng.dev/post/2008/2008-01-09/</link><pubDate>Wed, 09 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-09/</guid><description>&lt;p>昨天晚上我做了恶梦，睡梦中清楚地感觉到一个人进来了，然后拿着一个刀站在我的床边，当时把握吓坏了，想动弹也动弹不了，也不敢动弹。但是头脑清晰的告诉我自己，今天晚上我要死了。后来一下子醒了，起身看看周围，黑漆漆的。又躺下来，很恐惧，早上蒙蒙胧胧的听到了乔的敲门声，我赶紧起来给他开门，一开门的时候，他一手拿着一百块钱，递给我。说；还你100块钱。他那个动作吓我一跳。&lt;/p>
-&lt;p>……回到床上继续睡觉。&lt;/p>
-&lt;p>晚上请建明还有文力吃了饺子，他们还没去过恩赐饺子馆。之前我把以前师兄留下的冰鞋送给了建明，因为我想我要是卖给冰刀王也就十几二十块钱，（我以前那双冰鞋就是被我同学这样卖掉的）而像建明他们以后买的话要花七八十块钱，所以还不如把冰鞋送给他呢。&lt;/p>
-&lt;p>回来后接到了爸爸打来的电话，他说已经把钱汇到卡里面了，我可以把欠王英的1000块钱还给她。前一阵子孔姨给我的500块钱我还给了国梅，这样我在沈阳这边就不欠别人钱了。&lt;/p>
-&lt;p>妈妈说昨天他们买了一张床，花了1300多块。天哪，我说还不如我爸以前自己做的那个床呢。简直太贵了。有点舍不得，呵呵，不过倒是很期待回家看看。我妈说那个床我先回去住，然后要留给弟弟的，我说啊，我就住几天阿，哈哈。和妈妈开了个玩笑。不过他们也说到好久没有我弟弟的消息了，因为他的手机停机了。上次元旦的时候我给弟弟打电话就因为停机没有打通。于是我昨天晚上我给他女朋友打电话，让她告诉我弟弟一声有时间给家里去个电话。&lt;/p></description></item></channel></rss>
+&lt;p>送joanna回宿舍，坐117回到学校，给家里打个电话告诉他们我什么时候回去，然后给李作威打了电话，他现在希望去读神学，但是他的父母亲不同意，他找西塔教会的牧师，牧师建议他去并说会推荐他。打电话给张学军牧师，张牧师也建议他去。并他的美国朋友也赞成，所以他也问我，我希望他更多等待神，并和他有些交流，求神帮助他，亲自的带领他前面的道路。&lt;/p></description></item></channel></rss>
