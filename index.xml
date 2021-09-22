@@ -280,8 +280,8 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;p>The righteous persons may have many troubles, but the Lord delivers him from them all;&lt;/p>
 &lt;/blockquote>
 &lt;p>今天早上我们提及到要录Team的介绍视频，这是公司的要求，因为最近我们公司收购了questionmark这一家公司，所以希望每个Team有这样的介绍视频，通过观看视频可以大概熟悉和了解每个Team的人员情况。&lt;/p>
-&lt;p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。
-&lt;video width="640" height="480" preload controls>&lt;/p>
+&lt;p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。&lt;/p>
+&lt;video width="640" height="480" preload controls>
 &lt;source src="self_introduction.mp4" type="video/mp4">
 Your browser does not support the video tag.
 &lt;/video>
