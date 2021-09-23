@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 22 Sep 2021 14:31:07 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 23 Sep 2021 20:27:26 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>一直工作不代表有效的解决了问题</title><link>https://jiyongcheng.dev/post/diary/2021/2021-09-23/</link><pubDate>Thu, 23 Sep 2021 20:27:26 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2021/2021-09-23/</guid><description>&lt;h2 id="joshua-2415">Joshua 24:15&lt;/h2>
+&lt;blockquote>
+&lt;p>But as for me and my family, we will serve the Lord.&lt;/p>
+&lt;/blockquote>
+&lt;p>不同的家庭有不同的选择如何在一起生活，约书亚警告了自己民族的人不要去拜偶像，他说即使你们选择这样去做，但是我和我的家要坚定的服侍主。&lt;/p>
+&lt;p>这是一个勇敢的宣告，因为要带领一个家庭去完全的依靠上帝也是一件不容易的事情。我们成人都有自己的想法和选择，你无法要求另一个人怎样去生活。而如何能改变一个人去完全依靠上帝呢？&lt;/p>
+&lt;h2 id="早晨">早晨&lt;/h2>
+&lt;p>早上站立会议的时候有点走神，因为现在在家工作，视频会议的时候只有一张脸显示在屏幕上，有时候我就走神去看别的东西。&lt;/p>
+&lt;p>凑巧今天leader不能参加站立会议，他后来跟我说能不能让我给他简短介绍一下站立会议的内容，我心里咯噔一下，怎么在我今天走神的时·候问我呢。&lt;/p>
+&lt;p>我就翻看了项目看板，每个人的项目，努力回忆他们都说了什么，比较好的是，大部人都会在他们的ticket下面记录下来他们的进展或者问题，这样我浏览这些的时候帮助我了解了他们站立会议时所说的内容。&lt;/p>
+&lt;p>而后我集中精神去做了我的任务，进展不错，所做的事情有进展心情也跟着变好：）&lt;/p>
+&lt;p>昨天晚上看手机的视频，总不断的跳出广告，让我很心烦。&lt;/p>
+&lt;h2 id="下午">下午&lt;/h2>
+&lt;p>和leader一起看一个Elastic Search的问题。&lt;/p>
+&lt;p>我的收获是&lt;/p>
+&lt;ul>
+&lt;li>不要害怕问问题
+&lt;ul>
+&lt;li>当我们问问题的时候我们的大脑是在思考&lt;/li>
+&lt;li>当我们和别人就某个问题交流的时候，增进了对问题的理解&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>不要一直坐在那边解决问题
+&lt;ul>
+&lt;li>走开让自己的头脑跳出思维的固定模式，喝杯水，做点别的事情，&lt;/li>
+&lt;li>其实我们的大脑是不会放弃思考的，而当我们做别的事情的时候，往往给我们意想不到的灵感，反而帮助我们解决了问题。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>坚持是习惯最好的伴侣</title><link>https://jiyongcheng.dev/post/diary/2021/2021-09-22/</link><pubDate>Wed, 22 Sep 2021 21:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2021/2021-09-22/</guid><description>&lt;h2 id="psalm-3419">Psalm 34:19&lt;/h2>
+&lt;blockquote>
+&lt;p>The righteous persons may have many troubles, but the Lord delivers him from them all;&lt;/p>
+&lt;/blockquote>
+&lt;p>今天早上我们提及到要录Team的介绍视频，这是公司的要求，因为最近我们公司收购了questionmark这一家公司，所以希望每个Team有这样的介绍视频，通过观看视频可以大概熟悉和了解每个Team的人员情况。&lt;/p>
+&lt;p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。&lt;/p>
+&lt;video width="320" height="240" preload controls>
+&lt;source src="self_introduction.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;/video>
+今天Olivia约了和Mia带着孩子们去Bobbin head去玩。Bella留在家里爷爷来照顾。上午的时候她表现的还挺好，没怎么哭闹，自己睡了一大觉。但是下午就睡了一小会，然后整个人心情也不好，加上poo了好几次，不知道是冲的奶粉过夜了出问题，还是她着凉了。小屁股红红的，每次给她搽屁股，她就大哭。爷爷抱着不行，所以我就照顾她，工作上没有什么进展。
+&lt;p>明天要补上工作上欠下的。&lt;/p>
+&lt;p>我今天也写了一个文章关于如何使用&lt;code>jq&lt;/code>解决我们工作中的一个小问题，发现在写文章能帮助我去思考一些问题，因为我会换位到读者的角度看待这片文章，这样就可能有一些潜在的问题。&lt;/p>
+&lt;p>为了回答这些潜在的问题，我查阅了资料，自己也仔细的看了文档，所以我对问题的认知是加深的。&lt;/p>
+&lt;p>下午5点多的时候，美恩她们终于回来了，据说鲨鲨跌进了泥坑里面。但是她们玩的很开心。&lt;/p>
+&lt;p>我补做了锻炼，虽然白天没有时间做，心里面也有一个声音说今天可以不做。但是我还是觉得找时间做。很高心我做了，坚持！&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>We have a list of &lt;code>IDs&lt;/code> generated into a file &lt;code>F&lt;/code> with this format:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -275,22 +318,7 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;ul>
 &lt;li>&lt;a href="https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c">https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://app.cloudcraft.co">Draw AWS diagram&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>坚持是习惯最好的伴侣</title><link>https://jiyongcheng.dev/post/2021/2021-09-22/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/2021-09-22/</guid><description>&lt;h2 id="psalm-3419">Psalm 34:19&lt;/h2>
-&lt;blockquote>
-&lt;p>The righteous persons may have many troubles, but the Lord delivers him from them all;&lt;/p>
-&lt;/blockquote>
-&lt;p>今天早上我们提及到要录Team的介绍视频，这是公司的要求，因为最近我们公司收购了questionmark这一家公司，所以希望每个Team有这样的介绍视频，通过观看视频可以大概熟悉和了解每个Team的人员情况。&lt;/p>
-&lt;p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。&lt;/p>
-&lt;video width="640" height="480" preload controls>
-&lt;source src="self_introduction.mp4" type="video/mp4">
-Your browser does not support the video tag.
-&lt;/video>
-今天Olivia约了和Mia带着孩子们去Bobbin head去玩。Bella留在家里爷爷来照顾。上午的时候她表现的还挺好，没怎么哭闹，自己睡了一大觉。但是下午就睡了一小会，然后整个人心情也不好，加上poo了好几次，不知道是冲的奶粉过夜了出问题，还是她着凉了。小屁股红红的，每次给她搽屁股，她就大哭。爷爷抱着不行，所以我就照顾她，工作上没有什么进展。
-&lt;p>明天要补上工作上欠下的。&lt;/p>
-&lt;p>我今天也写了一个文章关于如何使用&lt;code>jq&lt;/code>解决我们工作中的一个小问题，发现在写文章能帮助我去思考一些问题，因为我会换位到读者的角度看待这片文章，这样就可能有一些潜在的问题。&lt;/p>
-&lt;p>为了回答这些潜在的问题，我查阅了资料，自己也仔细的看了文档，所以我对问题的认知是加深的。&lt;/p>
-&lt;p>下午5点多的时候，美恩她们终于回来了，据说鲨鲨跌进了泥坑里面。但是她们玩的很开心。&lt;/p>
-&lt;p>我补做了锻炼，虽然白天没有时间做，心里面也有一个声音说今天可以不做。但是我还是觉得找时间做。很高心我做了，坚持！&lt;/p></description></item><item><title>Finish runner-up 什么意思</title><link>https://jiyongcheng.dev/post/2021/2021-09-21/</link><pubDate>Tue, 21 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/post/2021/2021-09-21/</guid><description>&lt;p>最近在看澳洲的一个综艺节目 &lt;code>The Bachelor 2021&lt;/code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：&lt;/p>
+&lt;/ul></description></item><item><title>Finish runner-up 什么意思</title><link>https://jiyongcheng.dev/post/diary/2021/2021-09-21/</link><pubDate>Tue, 21 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2021/2021-09-21/</guid><description>&lt;p>最近在看澳洲的一个综艺节目 &lt;code>The Bachelor 2021&lt;/code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：&lt;/p>
 &lt;blockquote>
 &lt;p>“There’s something that someone has said … And I think it’s gonna surprise you because it surprised me when I heard it,” the random girl hesitates. “Um, the person that said it … I know for a fact you have something very strong with … Jay said she would like to finish runner-up because she heard that they do better (on Instagram).”&lt;/p>
 &lt;/blockquote>
@@ -579,7 +607,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item><item><title>鸡毛蒜皮</title><link>https://jiyongcheng.dev/post/2008/2008-04-03/</link><pubDate>Thu, 03 Apr 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-04-03/</guid><description>&lt;p>前两天回了趟家，这是我七年来第一次在春天的时候回到家乡。在路上看到那些金黄的油菜花，还有一片片绿色遮盖大地的时候，觉得这一切好美。&lt;/p>
+&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item><item><title>鸡毛蒜皮</title><link>https://jiyongcheng.dev/post/diary/2008/2008-04-03/</link><pubDate>Thu, 03 Apr 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-04-03/</guid><description>&lt;p>前两天回了趟家，这是我七年来第一次在春天的时候回到家乡。在路上看到那些金黄的油菜花，还有一片片绿色遮盖大地的时候，觉得这一切好美。&lt;/p>
 &lt;p>但是不太搭配的是自己灰色的心情，因为在上海的日子一开始并不如意。白天我的同学和朋友都去上班，只有我一个人在住的地方，就会觉得很闷。偌大的一个上海好似有很多好玩的地方，但是我对道路又不是很熟悉，所以也不是很愿意出去走一走。&lt;/p>
 &lt;p>刚来的时候一切都没有规律，尤其是饮食。休息的也不是很好，所以我的身体变得软弱，再加上心灵里的疲乏，使得我浑身没有力气，那个时候心里有个念头总是和自己说，好累阿。&lt;/p>
 &lt;p>当初也很想早一点过来上海，因为可以看到我主内的家人，很想念他们。希望和他们一起同工，一起学习。三月份主要的任务就落在复活节上了，我很开心能够在活动和敬拜的事工上一起和他们做事情，看到主耶稣藉着复活节来感动更多的人，吸引更多的人。&lt;/p>
@@ -592,7 +620,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>昨天晚上我去参加小组查经的时候，我在地铁上看圣经，我就看到马太福音6:14-15节那边说：“你们饶恕人的过犯，你们的天父也必饶恕你们的过犯。你们不饶恕人的过犯，你们的天父也必不饶恕你们的过犯。”&lt;/p>
 &lt;p>那个时候我说，神阿，我饶恕他们。因为我在你面前的过犯甚多。&lt;/p>
 &lt;p>我们的生活中有很多的鸡毛蒜皮的事情，我们的生活中也有很多软弱的时候。这可能就是真实的我们，真实的生活。&lt;/p>
-&lt;p>在小事情上爱神，他也要将大事情放在我们的肩上。&lt;/p></description></item><item><title>最好的礼物是，在别人每次看到的时候，能够有一段美好的回忆</title><link>https://jiyongcheng.dev/post/2008/2008-01-23/</link><pubDate>Wed, 23 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-23/</guid><description>&lt;p>急急忙忙的赶到了火车站，也上了火车。我后来觉得花25元让火车站的人运东西很不值得。吃一亏长一智。以后不要做这样的事了。&lt;/p>
+&lt;p>在小事情上爱神，他也要将大事情放在我们的肩上。&lt;/p></description></item><item><title>最好的礼物是，在别人每次看到的时候，能够有一段美好的回忆</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-23/</link><pubDate>Wed, 23 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-23/</guid><description>&lt;p>急急忙忙的赶到了火车站，也上了火车。我后来觉得花25元让火车站的人运东西很不值得。吃一亏长一智。以后不要做这样的事了。&lt;/p>
 &lt;p>在火车上的时间还是过得满快的，就是在徐州站等了5个小时很烦人，火车晚点了1个多小时。&lt;/p>
 &lt;p>好不容易回到了家，这期间最麻烦得就是我要左右手各拎着很沉的东西，真是受罪，左手拎着机箱和显示器，右手拎着大行李包。&lt;/p>
 &lt;p>还好终于到家了，可以轻松了。 也可以享受这最后一个寒假了。&lt;/p>
@@ -614,10 +642,10 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>蒙神恩典，进入了省重点高中。&lt;/p>
 &lt;p>那个时候总听广播，里面就讲到了&lt;/p>
 &lt;p>多一点快乐，少一点烦恼，不论事情有多少，只要每天开心的笑，累了就睡觉，醒了就微笑，生活是什么滋味，有老爸全照料，受到我的信息请开心的笑：） 阿牛 1-17 21：28&lt;/p>
-&lt;p>最好的礼物是在别人每次看到的时候能够有一段美好的回忆。&lt;/p></description></item><item><title>修改开题报告</title><link>https://jiyongcheng.dev/post/2008/2008-01-22/</link><pubDate>Tue, 22 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-22/</guid><description>&lt;p>上午去把东西找到一个五院旁边的物流公司，托运到上海姜丹丹姊妹那了。下午大左要我帮她托运东西，我到那边正帮忙搬运东西的时候，赵文给我打了电话，说我的论文有问题，要我过去修改。听到这个消息把我郁闷坏了，怎么搞的。&lt;/p>
+&lt;p>最好的礼物是在别人每次看到的时候能够有一段美好的回忆。&lt;/p></description></item><item><title>修改开题报告</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-22/</link><pubDate>Tue, 22 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-22/</guid><description>&lt;p>上午去把东西找到一个五院旁边的物流公司，托运到上海姜丹丹姊妹那了。下午大左要我帮她托运东西，我到那边正帮忙搬运东西的时候，赵文给我打了电话，说我的论文有问题，要我过去修改。听到这个消息把我郁闷坏了，怎么搞的。&lt;/p>
 &lt;p>到那知道我的论文题目和我开题的题目不一样，所以要改一些东西。黄老师给我打电话要送我一些吃的东西，用在火车上。我说正好黄老师我的开题报告有地方需要您修改一下，黄老师答应我过实验室一趟，很快他就来了。后来我有点后悔了，早知道我自己跑过去一趟好了，还让他亲自跑过来。&lt;/p>
 &lt;p>修改完了交上了。就收拾行李，晚上又帮赵姐搬电脑。我想找时间见一下Eloi，但是还是没见着，给她打电话的时候她还在外面，我也是想去她那边拿ruth给我留的卡片。但是现在拿不了了，以后再说吧。也好不用安排去她那我就可以有时间自己买点车上吃的东西了：）&lt;/p>
-&lt;p>在超市里面慢慢的畅游了一会。&lt;/p></description></item><item><title>一起在年三十吃晚饭</title><link>https://jiyongcheng.dev/post/2008/2008-01-21/</link><pubDate>Mon, 21 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-21/</guid><description>&lt;p>今天把装订论文的事情搞定了，也把天成送到了车站。感觉答辩完了以后倒是更忙了，好像有做不完的事情。我和大佐一点多的时候去的印刷厂，回来帮他们转PDF格式的文件。&lt;/p>
+&lt;p>在超市里面慢慢的畅游了一会。&lt;/p></description></item><item><title>一起在年三十吃晚饭</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-21/</link><pubDate>Mon, 21 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-21/</guid><description>&lt;p>今天把装订论文的事情搞定了，也把天成送到了车站。感觉答辩完了以后倒是更忙了，好像有做不完的事情。我和大佐一点多的时候去的印刷厂，回来帮他们转PDF格式的文件。&lt;/p>
 &lt;p>晚上同学把我们装订好的论文拿了回来，我们就直接交给了答辩的秘书，并且填了相关的材料。还没弄好，这边莹莹打电话过来说已经到了，我就把事情交给大左，让她帮我办。&lt;/p>
 &lt;p>晚上和佟帅一家，还有国梅，莹莹一起在年三十吃了晚饭。以前在唱诗班的姜玲玲姊妹不能过来了，不过她托佟帅带过来了一个中英文的圣经。我们在吃饭快结束的时候，我和佟帅谈到了我想在沈阳开个书店的想法，我征求了他们的意见，他们给了我很好的建议，也真的是上帝的恩典。希望神带领我，如果我这样的想法合乎神的心意，愿神帮助我，因为这其中还有很多的事情要去做。&lt;/p>
 &lt;p>不好意思我这颇手机，信息内容一多就啥也看不到了，刚才给我发短信了吧！哈哈！ 1-21 10：53 天成&lt;/p>
@@ -625,7 +653,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>恭喜呀，答辩结束，学生生涯就要划句号了。愿神继续恩待你，虽走天路，以马内利的神必赐你平安。2008.1.21 14：12 荣花&lt;/p>
 &lt;p>答辩结果出来了吗？相信你一定很棒的！ 1-21 20：17 海杰&lt;/p>
 &lt;p>你是神所大爱的孩子！我们相信你的路径必滴满主恩典的脂油！我们也会在心里为你默默地祝福！在灵里常相聚！ 1-21 7：55 张弟兄&lt;/p>
-&lt;p>希望现在回信息不算晚，谢谢你的祝愿，为我正在做的努力增加了动力，也祝愿永成哥哥能一如既往的用爱和热情感染身边的人 1-20 16：03 邱仁艳&lt;/p></description></item><item><title>答辩</title><link>https://jiyongcheng.dev/post/2008/2008-01-20/</link><pubDate>Sun, 20 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-20/</guid><description>&lt;p>早上我早早的到了答辩的教室综合楼311，发现昨天晚上也没睡好。于是我就把暴风影音2装了上去，一看好用。但是还是不放心就把第二套方案也拷贝进去了。&lt;/p>
+&lt;p>希望现在回信息不算晚，谢谢你的祝愿，为我正在做的努力增加了动力，也祝愿永成哥哥能一如既往的用爱和热情感染身边的人 1-20 16：03 邱仁艳&lt;/p></description></item><item><title>答辩</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-20/</link><pubDate>Sun, 20 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-20/</guid><description>&lt;p>早上我早早的到了答辩的教室综合楼311，发现昨天晚上也没睡好。于是我就把暴风影音2装了上去，一看好用。但是还是不放心就把第二套方案也拷贝进去了。&lt;/p>
 &lt;p>看到两个都好用后我就放心了，等待答辩的开始。&lt;/p>
 &lt;p>轮到我的时候我有点紧张，不过上台之后就好多了，也发现自己的声音还是蛮大的，呵呵。&lt;/p>
 &lt;p>到那个录像的时候我点击没有反应，一下子有点慌。&lt;/p>
@@ -636,7 +664,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>他问我使用改人家的工具包有没有侵权行为，我说是开源的。还有他问我们现在是不是已经有成型的软件开发出来了，我说是的。&lt;/p>
 &lt;p>答辩完了以后很轻松，在答辩的教室听了一会。中午听同学说那个赵老师把我的成绩打了A。我很高兴。&lt;/p>
 &lt;p>我论文有两处错误，回来做了修改。剩下的就是装订了。&lt;/p>
-&lt;p>公布成绩了，我的成绩是良，也知道王英的成绩是中，虽然不是特别好，但是很感谢上帝带领她走过这一阵子。&lt;/p></description></item><item><title>视频不能播放</title><link>https://jiyongcheng.dev/post/2008/2008-01-19/</link><pubDate>Sat, 19 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-19/</guid><description>&lt;p>这两天就是忙着毕业答辩前的最后的准备，记忆犹新的就是下午到综合楼去拷贝第二天答辩用的ppt.&lt;/p>
+&lt;p>公布成绩了，我的成绩是良，也知道王英的成绩是中，虽然不是特别好，但是很感谢上帝带领她走过这一阵子。&lt;/p></description></item><item><title>视频不能播放</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-19/</link><pubDate>Sat, 19 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-19/</guid><description>&lt;p>这两天就是忙着毕业答辩前的最后的准备，记忆犹新的就是下午到综合楼去拷贝第二天答辩用的ppt.&lt;/p>
 &lt;p>因为我准备的ppt里面需要用一段录像，所以我特意留到最后看看ppt中的视频是否可以顺利的播放，不顺利的是我的视频不论我怎样调整都不能播放.&lt;/p>
 &lt;p>后来汪海洋借我装了暴风影音3，但是还是不好用。&lt;/p>
 &lt;p>我很着急，因为明天是我第二个讲，如果晚上回去赶不好，明天就要砸锅了，而且我们是3个人按照一个顺序讲的，如果我的顺序乱了，也会把老师给我们安排好的顺序搞乱了。&lt;/p>
@@ -649,7 +677,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>第一套还是使用原来的ppt，但是明天一大早我在那台机器上安装一个暴风影音2，&lt;/p>
 &lt;p>第二套方案就是把这个没有经过压缩的录像也带过去，&lt;/p>
 &lt;p>第三套方案如果这两个方案的录像都不能用，我就放弃录像直接用图片来说明问题，就是把幻灯片做适当的调整，&lt;/p>
-&lt;p>整理完三套方案算是小松了一口气，不过心里依然没底。&lt;/p></description></item><item><title>师兄弟之间的关系</title><link>https://jiyongcheng.dev/post/2008/2008-01-18/</link><pubDate>Fri, 18 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-18/</guid><description>&lt;p>早上看到雅各书第一章，说我们当中若有缺少智慧的就当求那厚赐与众人的神……我们不单要听道，也要行道。听道而不行道的人像对着镜子照看到自己的本相，然后走了就忘记了自己本来的样子。……&lt;/p>
+&lt;p>整理完三套方案算是小松了一口气，不过心里依然没底。&lt;/p></description></item><item><title>师兄弟之间的关系</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-18/</link><pubDate>Fri, 18 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-18/</guid><description>&lt;p>早上看到雅各书第一章，说我们当中若有缺少智慧的就当求那厚赐与众人的神……我们不单要听道，也要行道。听道而不行道的人像对着镜子照看到自己的本相，然后走了就忘记了自己本来的样子。……&lt;/p>
 &lt;p>9：00钟黄老师听我们的ppt，我没来得及仔细的改动，所以ppt比较匆忙，讲的时候也感觉不是很好，等我讲完了老师说我没有亮点，也让别的同学帮我提缺点，然后又告诉我怎样去讲。&lt;/p>
 &lt;p>后来李丹讲，王璐没怎么讲黄老师就不听了，把他的想法讲给我们听，应该怎样3个人合作把问题讲清楚。&lt;/p>
 &lt;p>黄老师今天特意和我们讲了师兄弟之间应该是很好的关系，但是他感觉我们之间的合作不多，都当作竞争了，而且有的时候关系不怎么好。&lt;/p>
@@ -659,19 +687,18 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;p>其实一个好的管理者可以把一个不好的小组管理成很好的小组。&lt;/p>
 &lt;p>这就需要智慧，而我没有，求神帮助我，赐给我这样的智慧，让我在一个小组中就能够把一个小组团结起来，互相的合作，而不是拆散和放任。&lt;/p>
 &lt;p>中午请了王老师吃饭，一起去吃了吉野家。&lt;/p>
-&lt;p>下午回去休息了一阵子，觉得最近有点累，躺在床上还睡不着。告诉自己3点钟就过来修改论文和ppt。下午干了一下午，实际上也就2个小时吧，不过觉得蛮充实的。&lt;/p></description></item><item><title>越洋电话</title><link>https://jiyongcheng.dev/post/2008/2008-01-17/</link><pubDate>Thu, 17 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-17/</guid><description>&lt;p>我们的毕业论文是风风波波，昨天还说今天要打印装订呢，今天又不要了。&lt;/p>
-&lt;p>晚上接了冯海棠从里昂打过来的电话，聊了能有2个小时，我发现每个人都有不同的事情和目标。她的母亲要她2010年结婚，她估计2009年毕业，然后要在那里找工作。&lt;/p></description></item><item><title>给Ruth送行</title><link>https://jiyongcheng.dev/post/2008/2008-01-16/</link><pubDate>Wed, 16 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-16/</guid><description>&lt;p>晚上和同学去我的寝室同学家里，因为他的父亲去世了。所以我们一起去看望，本来准备晚上去给Ruth送行的，因为今天她就要回家了，她在北京找到了工作，所以以后可能就很少能够见到她，但是我又想安排在今天和杨丹见面。也是在我考虑的时候，我的同学告诉我，我们寝室邢通的父亲去世了。那个时候我和培武还有天成一起在老九路吃午饭。&lt;/p>
+&lt;p>下午回去休息了一阵子，觉得最近有点累，躺在床上还睡不着。告诉自己3点钟就过来修改论文和ppt。下午干了一下午，实际上也就2个小时吧，不过觉得蛮充实的。&lt;/p></description></item><item><title>越洋电话</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-17/</link><pubDate>Thu, 17 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-17/</guid><description>&lt;p>我们的毕业论文是风风波波，昨天还说今天要打印装订呢，今天又不要了。&lt;/p>
+&lt;p>晚上接了冯海棠从里昂打过来的电话，聊了能有2个小时，我发现每个人都有不同的事情和目标。她的母亲要她2010年结婚，她估计2009年毕业，然后要在那里找工作。&lt;/p></description></item><item><title>给Ruth送行</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-16/</link><pubDate>Wed, 16 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-16/</guid><description>&lt;p>晚上和同学去我的寝室同学家里，因为他的父亲去世了。所以我们一起去看望，本来准备晚上去给Ruth送行的，因为今天她就要回家了，她在北京找到了工作，所以以后可能就很少能够见到她，但是我又想安排在今天和杨丹见面。也是在我考虑的时候，我的同学告诉我，我们寝室邢通的父亲去世了。那个时候我和培武还有天成一起在老九路吃午饭。&lt;/p>
 &lt;p>回到寝室收到了eloi发来的短信：Becka sent us chocolates from America . can you tonights study to get them and to say goodbye to Ruth. Today is her last day in shenyang coz she got a job in Beijing. Please reply yes or no if ur coming or not 4 me to know . we meet at 6 in my house.tnx&lt;/p>
 &lt;p>我回复了eloi说，sorry，我还有另外的事情要处理，可能那个时候就不过去了，但是我会给Ruth电话，向她道别的。&lt;/p>
 &lt;p>早上和下午给Ruth电话，她都关机。晚上她给我回了电话，我祝福他一路平安，也希望以后有机会再见面。她说给我留了卡片要我去eloi那里去取。&lt;/p>
 &lt;p>从同学家回来后，我直接去了家乐福，想在里面暖和一下，然后给杨丹打电话，一起出来聊聊天。不巧在家乐福里碰到了我3年没见面的大学同学包海玲，我是凭第一感觉人出来的。呵呵，她现在和以前有点不一样。我们聊了聊彼此的情况，然后互留了手机号码和qq号，要我回去前提前给她打电话，她要过来送我。我说不用了。有机会找沈阳的同学一起吃饭：）&lt;/p>
-&lt;p>和杨丹在一个火锅店吃了点东西，我的离开让她伤感。送给了我一个手机。&lt;/p></description></item><item><title>黄老师请我们吃饭</title><link>https://jiyongcheng.dev/post/2008/2008-01-15/</link><pubDate>Tue, 15 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-15/</guid><description>&lt;p>今天中午黄老师请我们吃饭，在湘鄂城，觉得那里的菜还不错。导师给我们讲了答辩的情况，也分析了一下外请的专家。&lt;/p>
+&lt;p>和杨丹在一个火锅店吃了点东西，我的离开让她伤感。送给了我一个手机。&lt;/p></description></item><item><title>黄老师请我们吃饭</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-15/</link><pubDate>Tue, 15 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-15/</guid><description>&lt;p>今天中午黄老师请我们吃饭，在湘鄂城，觉得那里的菜还不错。导师给我们讲了答辩的情况，也分析了一下外请的专家。&lt;/p>
 &lt;p>下午杨丹给我打电话，想约个时间见面聊一聊，我特意把今天的时间留给她，为此我推托了小师弟们中午请吃饭，然后把黄老师请我们吃饭安排在中午。她说晚上她要去看她奶奶，因为她奶奶生病了。问有没有其他的时间，我一看自己的时间表，都排得满满的。电话我讲最近都没有时间，都已经安排出去了，她就不高兴了。我很希望满足每一个人的要求，但是后来我发现我做不到，所以一个人总要有一些原则，按照自己的原则去做就好。&lt;/p>
 &lt;p>晚上我想既然杨丹没有时间，我还没有别的安排，我就给马跃哥打电话，说想去看看他们。到他家里的时候，我看到了他们的小宝宝，叫路德。上次去教会的时候我还想呢，以前丹阳挺着个大肚子，现在怎么…呵呵，原来他们有小宝宝了。想想我也好久没去铁西教会去看他们了。马跃哥把那天在教会拍的相片给我了，然后我们坐在一起看泥土赞美乐队制作专辑的一些花絮。很喜欢他们的那种赞美方式，他们也说他们的歌曲是介于流行音乐和教堂圣乐之间，是他们的桥梁。不过在他们的歌曲中依然透露着生命的气息。&lt;/p>
 &lt;p>后来我和马跃哥一起分享，彼此鼓励。在这期间我接到了David从上海打过来的电话，是macort介绍他认识我的。他在上海交通大学学习汉语，是徐汇校区的。期望我们以后能够界面，很感谢神，让我能够认识那么多的弟兄姐妹。也在我手所作的事情上蒙受上帝的祝福和带领。&lt;/p>
-&lt;p>晚上回来的时候接到了杨丹的电话，那个时候快9点了，她刚回家。我们有一些聊天，谈到她的抑郁症，谈到她的想法，等等。觉得一个人当回过头来的时候会发现很多很多的事情，但是往往我们现在就是身处在事情之中，所以求神格外的给我们智慧，让我们知道就是现在我们的一些事情应该如何去做。就是现在就让我们学习用耶稣的方式去生活。&lt;/p></description></item><item><title>看电视连续剧《卧薪尝胆》</title><link>https://jiyongcheng.dev/post/2008/2008-01-14/</link><pubDate>Mon, 14 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-14/</guid><description>&lt;p>昨天晚上回到寝室和乔一勤一起看了电视连续剧《卧薪尝胆》，心里面跟自己说要早点休息，看看圣经。但是还是赖在电脑前看起了电视剧，一直到晚上一点多才睡觉。&lt;/p>
+&lt;p>晚上回来的时候接到了杨丹的电话，那个时候快9点了，她刚回家。我们有一些聊天，谈到她的抑郁症，谈到她的想法，等等。觉得一个人当回过头来的时候会发现很多很多的事情，但是往往我们现在就是身处在事情之中，所以求神格外的给我们智慧，让我们知道就是现在我们的一些事情应该如何去做。就是现在就让我们学习用耶稣的方式去生活。&lt;/p></description></item><item><title>看电视连续剧《卧薪尝胆》</title><link>https://jiyongcheng.dev/post/diary/2008/2008-01-14/</link><pubDate>Mon, 14 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/diary/2008/2008-01-14/</guid><description>&lt;p>昨天晚上回到寝室和乔一勤一起看了电视连续剧《卧薪尝胆》，心里面跟自己说要早点休息，看看圣经。但是还是赖在电脑前看起了电视剧，一直到晚上一点多才睡觉。&lt;/p>
 &lt;p>早上睁开眼的时候8点多，觉得心里面不舒服，我就把圣经拿出来看，当一看圣经的时候就想起来还有很多事情没有做，心里面又开始担心那些没做的事情。所以读圣经的时候静不下来心，很难受，最近的祷告也不好。求神怜悯我，改变我的状况。使我有个安静的心读圣经，也可以在神的面前静心祷告。&lt;/p>
 &lt;p>10点的时候和邱秋一起去学校把户籍证明复印件和打回原籍申请交给了杜老师。李作威给我打电话，说要见我。我们约定了中午一起吃午饭。我带他去了老九路那里吃了午饭，然后我们又一起在葡萄园聊了1个多小时。很感谢神，和他的聊天看到了他为上帝的心志，也和他聊了很多问题。彼此了解了很多。真的希望他的父母亲能够允许他去读神学，不过同样相信上帝的时间不错误。从他的身上我也学到了很多的东西，我看到了圣经话语的重要性，我也要在圣经上努力扎根了！&lt;/p>
 &lt;p>在和作威的聊天过程中接到了杨丹的电话，没想到是她，也没想到医生说她有中度的抑郁症。在电话过程中她说马跃哥要请我吃火锅，她说马跃哥说这是他给弟兄的承诺，谢谢马跃哥!&lt;/p>
-&lt;p>下午的时候和同学照了一些穿着硕士服的相片。&lt;/p></description></item><item><title>和唱诗班的弟兄姐妹道别</title><link>https://jiyongcheng.dev/post/2008/2008-01-13/</link><pubDate>Sun, 13 Jan 2008 17:54:06 +1000</pubDate><guid>https://jiyongcheng.dev/post/2008/2008-01-13/</guid><description>&lt;p>今天早上我去了铁西教会，和以前唱诗班的弟兄姐妹道别。感谢神，马跃哥今天虽然不知道我来但是却带来了数码相机，所以我有机会我唱诗班的弟兄姐妹合影留念。我在去之前也求圣灵在我们中间，感谢神，神总是奇妙的带领和安排，真的，在我们的路径上滴满了神所赐恩典的脂油。&lt;/p>
-&lt;p>也将国梅和丽娜奉献的500元钱给了顾姨。希望小约翰能够快乐健康的成长。今天下午右眼也在一直跳，不知道又有什么事情会发生，祈求神怜悯我，使我所行的道路不偏左右，也让我所做的一切在神的保守之下，真的害怕没有神的祝福。&lt;/p></description></item></channel></rss>
+&lt;p>下午的时候和同学照了一些穿着硕士服的相片。&lt;/p></description></item></channel></rss>
