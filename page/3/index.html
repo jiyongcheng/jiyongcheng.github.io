@@ -60,7 +60,7 @@
 </li><li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
 </li><li class=mobile-menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resources/>Resources</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
 </li>
 <li class=mobile-menu-item>
 <a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
@@ -141,7 +141,7 @@ What, Why, How
 <a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
 </li>
 <li class=menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resources/>Resources</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
 </li>
 <li class=menu-item>
 <a id=openSearch class="menu-item-link menu-item-search" href=#>
@@ -160,105 +160,129 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/programming-language/php/php-magic-method-invoke/>PHP Magic Method Invoke</a>
+<a class=post-link href=/post/devops/tool/jq/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
 </h1>
 <div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
+<time datetime=2021-09-22 class=post-time>
+2021-09-22
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/programming-language/> Programming Language </a>
-<a href=https://jiyongcheng.dev/categories/php/> PHP </a>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+<a href=https://jiyongcheng.dev/categories/tool/> Tool </a>
+<a href=https://jiyongcheng.dev/categories/jq/> jq </a>
 </div>
-<span class=more-meta> 159 words </span>
-<span class=more-meta> 1 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/#disqus_thread>Comments</a> </span>
+<span class=more-meta> 728 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/#disqus_thread>Comments</a> </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<h2 id=what-did-i-see>What did I see?</h2>
-<p>I saw in a PHP class using this method <code>__invoke</code></p>
+<h2 id=problem>Problem</h2>
+<p>We have a list of <code>IDs</code> generated into a file <code>F</code> with this format:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>2f9921bc-a4c9-419a-b069-f8f23c7727f7
+26bf5cc3-73de-425e-9a6b-b70223387314
+30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
+</code></pre></td></tr></table>
+</div>
+</div><p>We want to generate a <code>JSON</code> object from the <code>IDs</code> with this structure:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>public</span> <span class=k>function</span> <span class=fm>__invoke</span><span class=p>(</span><span class=nx>int</span> <span class=nv>$errorNumber</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorString</span><span class=p>,</span> <span class=nx>string</span> <span class=nv>$errorFile</span><span class=p>,</span> <span class=nx>int</span> <span class=nv>$errorLine</span><span class=p>)</span><span class=o>:</span> <span class=nx>bool</span>
-<span class=p>{</span>
-    <span class=o>...</span>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
+        <span class=p>}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;organisation_id&#34;</span><span class=p>:</span> <span class=mi>123</span><span class=p>,</span>
+    <span class=nt>&#34;user-type&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
 <span class=p>}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id=why-using-this-method>Why using this method?</h2>
-<p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.</p>
+</div>
 </div>
 <div class=read-more>
-<a href=/post/programming-language/php/php-magic-method-invoke/ class=read-more-link>Read more</a>
+<a href=/post/devops/tool/jq/create-array-with-object-from-list/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/web-development/css/render-code-block-in-bootstrap-5/>Render Code Block in Bootstrap 5</a>
+<a class=post-link href=/post/diary/2021/2021-09-21/>Finish runner-up 什么意思</a>
 </h1>
 <div class=post-meta>
-<time datetime=2021-08-26 class=post-time>
-2021-08-26
+<time datetime=2021-09-21 class=post-time>
+2021-09-21
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/frontend/> Frontend </a>
+<a href=https://jiyongcheng.dev/categories/%E7%94%9F%E6%B4%BB/> 生活 </a>
+<a href=https://jiyongcheng.dev/categories/%E6%97%A5%E8%AE%B0/> 日记 </a>
 </div>
-<span class=more-meta> 212 words </span>
-<span class=more-meta> 1 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/#disqus_thread>Comments</a> </span>
+<span class=more-meta> 590 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/diary/2021/2021-09-21/#disqus_thread>Comments</a> </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<h2 id=issue-found>Issue found:</h2>
-<p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.</p>
-</div>
-<div class=read-more>
-<a href=/post/web-development/css/render-code-block-in-bootstrap-5/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/mobile-app-development/android-app-with-react-native/>Android app with react native</a>
-</h1>
-<div class=post-meta>
-<time datetime=2020-01-17 class=post-time>
-2020-01-17
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/react/> react </a>
-<a href=https://jiyongcheng.dev/categories/native/> native </a>
-</div>
-<span class=more-meta> 107 words </span>
-<span class=more-meta> 1 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=issue-i-met>Issue I met</h2>
-<p>I want to follow <a href=https://developer.okta.com/blog/2018/12/26/react-native-android-play-store>this article</a> to learn creating apps with react native. But I met several issues:</p>
+<p>最近在看澳洲的一个综艺节目 <code>The Bachelor 2021</code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：</p>
 <blockquote>
-<p>error Failed to launch emulator. Reason: No emulators found as an output of <code>emulator -list-avds</code>.
-warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
-info Installing the app&mldr;
-Task :app:installDebug FAILED</p>
+<p>“There’s something that someone has said … And I think it’s gonna surprise you because it surprised me when I heard it,” the random girl hesitates. “Um, the person that said it … I know for a fact you have something very strong with … Jay said she would like to finish runner-up because she heard that they do better (on Instagram).”</p>
 </blockquote>
 </div>
 <div class=read-more>
-<a href=/post/mobile-app-development/android-app-with-react-native/ class=read-more-link>Read more</a>
+<a href=/post/diary/2021/2021-09-21/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/programming-language/php/not-all-objects-serializable/>Not All Objects Serializable</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-08-27 class=post-time>
+2021-08-27
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/frontend/> Frontend </a>
+<a href=https://jiyongcheng.dev/categories/react/> react </a>
+</div>
+<span class=more-meta> 354 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/#disqus_thread>Comments</a> </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=the-question-i-have>The question I have</h2>
+<p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
+<ul>
+<li>Why PDO isn&rsquo;t serializable?</li>
+<li>Why isn&rsquo;t every type of object serializable?</li>
+</ul>
+</div>
+<div class=read-more>
+<a href=/post/programming-language/php/not-all-objects-serializable/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
@@ -333,7 +357,7 @@ Task :app:installDebug FAILED</p>
 </a>
 </li>
 <li><a href=/page/4/>»</a></li>
-<li><a href=/page/48/>»»</a></li>
+<li><a href=/page/49/>»»</a></li>
 </ul>
 </nav>
 </div>

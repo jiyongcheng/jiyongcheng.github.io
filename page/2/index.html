@@ -60,7 +60,7 @@
 </li><li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
 </li><li class=mobile-menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resources/>Resources</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
 </li>
 <li class=mobile-menu-item>
 <a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
@@ -141,7 +141,7 @@ What, Why, How
 <a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
 </li>
 <li class=menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resources/>Resources</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
 </li>
 <li class=menu-item>
 <a id=openSearch class="menu-item-link menu-item-search" href=#>
@@ -160,129 +160,92 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/devops/tool/jq/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
+<a class=post-link href=/post/diary/2021/2021-09-24/>kazoo</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-24 class=post-time>
+2021-09-24
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/%E6%97%A5%E8%AE%B0/> 日记 </a>
+<a href=https://jiyongcheng.dev/categories/diary/> diary </a>
+</div>
+<span class=more-meta> 642 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/diary/2021/2021-09-24/#disqus_thread>Comments</a> </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=上午>上午</h2>
+<p>在站立会议上我们讨论了乐器，一位同事说他有kazoo，并且给我们展示了一下。我从没有听说过还有这个乐器，google了一下，如下图</p>
+</div>
+<div class=read-more>
+<a href=/post/diary/2021/2021-09-24/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/diary/2021/2021-09-23/>一直工作不代表有效的解决了问题</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-23 class=post-time>
+2021-09-23
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/%E6%97%A5%E8%AE%B0/> 日记 </a>
+<a href=https://jiyongcheng.dev/categories/diary/> diary </a>
+</div>
+<span class=more-meta> 636 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/diary/2021/2021-09-23/#disqus_thread>Comments</a> </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=joshua-2415>Joshua 24:15</h2>
+<blockquote>
+<p>But as for me and my family, we will serve the Lord.</p>
+</blockquote>
+<p>不同的家庭有不同的选择如何在一起生活，约书亚警告了自己民族的人不要去拜偶像，他说即使你们选择这样去做，但是我和我的家要坚定的服侍主。</p>
+<p>这是一个勇敢的宣告，因为要带领一个家庭去完全的依靠上帝也是一件不容易的事情。我们成人都有自己的想法和选择，你无法要求另一个人怎样去生活。而如何能改变一个人去完全依靠上帝呢？</p>
+</div>
+<div class=read-more>
+<a href=/post/diary/2021/2021-09-23/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/diary/2021/2021-09-22/>坚持是习惯最好的伴侣</a>
 </h1>
 <div class=post-meta>
 <time datetime=2021-09-22 class=post-time>
 2021-09-22
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
-<a href=https://jiyongcheng.dev/categories/tool/> Tool </a>
-<a href=https://jiyongcheng.dev/categories/jq/> jq </a>
-</div>
-<span class=more-meta> 728 words </span>
-<span class=more-meta> 2 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=problem>Problem</h2>
-<p>We have a list of <code>IDs</code> generated into a file <code>F</code> with this format:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>2f9921bc-a4c9-419a-b069-f8f23c7727f7
-26bf5cc3-73de-425e-9a6b-b70223387314
-30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
-</code></pre></td></tr></table>
-</div>
-</div><p>We want to generate a <code>JSON</code> object from the <code>IDs</code> with this structure:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
-        <span class=p>{</span>
-            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
-        <span class=p>}</span>
-    <span class=p>],</span>
-    <span class=nt>&#34;organisation_id&#34;</span><span class=p>:</span> <span class=mi>123</span><span class=p>,</span>
-    <span class=nt>&#34;user-type&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-</div>
-<div class=read-more>
-<a href=/post/devops/tool/jq/create-array-with-object-from-list/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/diary/2021/2021-09-21/>Finish runner-up 什么意思</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-09-21 class=post-time>
-2021-09-21
-</time>
-<div class=post-category>
 <a href=https://jiyongcheng.dev/categories/%E7%94%9F%E6%B4%BB/> 生活 </a>
 <a href=https://jiyongcheng.dev/categories/%E6%97%A5%E8%AE%B0/> 日记 </a>
 </div>
-<span class=more-meta> 590 words </span>
+<span class=more-meta> 574 words </span>
 <span class=more-meta> 2 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/diary/2021/2021-09-21/#disqus_thread>Comments</a> </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/diary/2021/2021-09-22/#disqus_thread>Comments</a> </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<p>最近在看澳洲的一个综艺节目 <code>The Bachelor 2021</code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：</p>
+<h2 id=psalm-3419>Psalm 34:19</h2>
 <blockquote>
-<p>“There’s something that someone has said … And I think it’s gonna surprise you because it surprised me when I heard it,” the random girl hesitates. “Um, the person that said it … I know for a fact you have something very strong with … Jay said she would like to finish runner-up because she heard that they do better (on Instagram).”</p>
+<p>The righteous persons may have many troubles, but the Lord delivers him from them all;</p>
 </blockquote>
+<p>今天早上我们提及到要录Team的介绍视频，这是公司的要求，因为最近我们公司收购了questionmark这一家公司，所以希望每个Team有这样的介绍视频，通过观看视频可以大概熟悉和了解每个Team的人员情况。</p>
+<p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。</p>
 </div>
 <div class=read-more>
-<a href=/post/diary/2021/2021-09-21/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/programming-language/php/not-all-objects-serializable/>Not All Objects Serializable</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/frontend/> Frontend </a>
-<a href=https://jiyongcheng.dev/categories/react/> react </a>
-</div>
-<span class=more-meta> 354 words </span>
-<span class=more-meta> 2 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=the-question-i-have>The question I have</h2>
-<p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
-<ul>
-<li>Why PDO isn&rsquo;t serializable?</li>
-<li>Why isn&rsquo;t every type of object serializable?</li>
-</ul>
-</div>
-<div class=read-more>
-<a href=/post/programming-language/php/not-all-objects-serializable/ class=read-more-link>Read more</a>
+<a href=/post/diary/2021/2021-09-22/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
@@ -357,7 +320,7 @@ What, Why, How
 </a>
 </li>
 <li><a href=/page/3/>»</a></li>
-<li><a href=/page/48/>»»</a></li>
+<li><a href=/page/49/>»»</a></li>
 </ul>
 </nav>
 </div>
