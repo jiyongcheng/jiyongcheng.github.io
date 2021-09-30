@@ -1,18 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 30 Sep 2021 20:56:40 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>美恩和好朋友Angelina的play date</title><link>https://jiyongcheng.dev/diary/2021/2021-09-30/</link><pubDate>Thu, 30 Sep 2021 20:56:40 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-30/</guid><description>&lt;h2 id="上午">上午&lt;/h2>
-&lt;p>今天我完成了购物，现在基本上我们一家一周的基本消费要到$200，主要是水果，零食，加上孩子们的奶粉，尿片，猫粮之类的东西。&lt;/p>
-&lt;p>早上早早的开始工作，因为昨天晚上留下来的问题，还没有完全摸透是怎么回事，所以想把它搞清楚。&lt;/p>
-&lt;p>也在群里把我的想法和问题问了我的同事，他们的帮助使我对问题有了进一步的认识。&lt;/p>
-&lt;p>尝试着问为什么，尝试着刨根问底。&lt;/p>
-&lt;p>峰回路转，把思路都捋清了以后，对问题的看法就更深入一些。&lt;/p>
-&lt;p>美恩今天去她好朋友Angelina家玩，她们是同班同学也是好朋友，两个人都喜爱dragon，喜欢画画。不过Angelina更户外型，美恩更室内型。不管怎样她们能够玩到一起去。&lt;/p>
-&lt;p>Olivia带鲨鲨去商场转了一圈，那个slide castle还在关闭。鲨鲨和我们分享她的祷告事项就是covid早点结束，她可以去那个玩滑滑梯。&lt;/p>
-&lt;h2 id="下午">下午&lt;/h2>
-&lt;p>从美恩回来的表情看，她肯定过了一个非常愉快的playdate。&lt;/p>
-&lt;p>我把我这两天碰到的问题写到我们公司的confluence页面里面，发现可能原来只是一个小问题，但是在那个情境中就有很多的问题。现在回过头来看，事情简单多了。&lt;/p></description></item><item><title>美恩打扫卫生</title><link>https://jiyongcheng.dev/diary/2021/2021-09-29/</link><pubDate>Wed, 29 Sep 2021 20:56:35 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-29/</guid><description>&lt;p>今天感觉好点了，没有昨天那么难受。&lt;/p>
-&lt;p>只剩下一些肌肉酸痛&lt;/p>
-&lt;p>美恩很兴奋她明天有playdate。&lt;/p>
-&lt;p>她晚上在做cleaning的时候，总喜欢在那边玩，到后面没时间了有赶着收拾，可是时间终究不够啊，所以她的工资要被扣，而且玩游戏的时间也减少了。&lt;/p>
-&lt;p>她知道这些后果，但是她就是不能控制。&lt;/p></description></item><item><title>Check Port Being Used</title><link>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</link><pubDate>Wed, 29 Sep 2021 12:45:41 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</guid><description>&lt;p>&lt;code>lsof&lt;/code> list open files&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 29 Sep 2021 12:45:41 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Check Port Being Used</title><link>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</link><pubDate>Wed, 29 Sep 2021 12:45:41 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</guid><description>&lt;p>&lt;code>lsof&lt;/code> list open files&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -30,99 +16,68 @@
 &lt;/div>&lt;p>&lt;code>-P and -n will make the lookup faster&lt;/code>&lt;/p>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;h3 id="list-only-files-that-listen-to-port-80">List only files that listen to port 80&lt;/h3>
-&lt;p>&lt;code>lsof -i:80 -P -n | grep LISTEN&lt;/code>&lt;/p></description></item><item><title>Side effects of the second does of vaccine</title><link>https://jiyongcheng.dev/diary/2021/2021-09-28/</link><pubDate>Tue, 28 Sep 2021 09:06:03 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-28/</guid><description>&lt;p>昨天一天都是昏昏沉沉的，而且身体许多关节，肌肉酸痛。&lt;/p>
-&lt;p>我的左耳垂里面的神经一条一条的，也有偏头痛的感觉。&lt;/p>
-&lt;p>晚上吃了两片Panadol，感觉好了点。&lt;/p>
-&lt;p>Olivia和我差不多一样，像是要发烧一样，也里面她说感觉到非常冷，让我给她灌了个暖水袋。&lt;/p>
-&lt;p>她自己又吃了两片Panadol。&lt;/p>
-&lt;p>IMAN保险回邮件说，如果已经在澳洲居住超过7天，就不能买他们的保险了，郁闷。&lt;/p>
-&lt;p>在澳洲因为疫情没能回国，继续申请了签证，当然居住时间超过7天啊。&lt;/p></description></item><item><title>Second dose of vaccine</title><link>https://jiyongcheng.dev/diary/2021/2021-09-27/</link><pubDate>Mon, 27 Sep 2021 19:58:36 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-27/</guid><description>&lt;p>今天下午4点钟左右我们去打了疫苗第二针，我们打的是辉瑞疫苗。上次第一针打完后我的左胳膊一直觉得酸痛，后来好了不少，但是感觉还是有一点，不知道胳膊在一个什么位置或者做一个什么动作，胳膊的肌肉会觉得不舒服。&lt;/p>
-&lt;p>今天去打疫苗的时候我护士说到这个情况，她说有人也报告说打完疫苗了胳膊有神经痛，她说打完第二针继续观察，如果还不好，影响到生活就来看GP。&lt;/p>
-&lt;p>第二针刚打完，胳膊不觉得酸痛。&lt;/p>
-&lt;p>现在晚上8点半，我感觉我的胳膊开始有点酸痛。Olivia有点咳嗽。&lt;/p></description></item><item><title>结婚照片</title><link>https://jiyongcheng.dev/diary/2021/2021-09-26/</link><pubDate>Sun, 26 Sep 2021 19:58:50 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-26/</guid><description>&lt;h2 id="上午">上午&lt;/h2>
-&lt;p>上午美恩有Bible class，他们最近在学习迦南的酒宴，所以老师让我们家长找一张我们结婚时候的照片。&lt;/p>
-&lt;p>我不知道我结婚时候的照片都放哪去了。&lt;/p>
-&lt;p>但是终于找到了那个时候拍的结婚照，我们并没有请摄影师，而是请我的师兄帮我们照相。&lt;/p>
-&lt;p>效果非常的好。&lt;/p>
-&lt;p>&lt;img src="wedding.jpg" alt="Wedding picture">&lt;/p>
-&lt;p>美恩的老师问她，在中国结婚的时候人们穿红色的衣服有什么含义吗？&lt;/p>
-&lt;p>美恩回答说：“在中国红色代表幸运（Luck）”&lt;/p>
-&lt;p>我觉得她回答的挺好的，我没有和她讲过这个，后来我问她如何知道的，她说她好像看过哪一本书上这样介绍的。&lt;/p>
-&lt;p>现在我们还是在lockdown中，所以聚会还是在线上进行。&lt;/p>
-&lt;p>我们教会有一个姐妹得了癌症，她最近一直在化疗。今天我们线上聚会的时候看到她带着帽子，求上帝帮助这位姐妹，赐给足够的力量去面对现在的挑战。&lt;/p>
-&lt;p>聚会结束后，传道人会让大家继续聊天，感觉大家也没什么聊的。&lt;/p>
-&lt;p>我最喜欢的就是某一天的晚上可以和一些弟兄姐妹聚会学习圣经，聊我们的生活日常，已经应用。但是这里大家都住的相对远，现在还没有这样的机会。&lt;/p>
-&lt;h2 id="下午">下午&lt;/h2>
-&lt;p>下午Olivia提议我们一起出去走走，她设定了一个目标地点lisgar garden。 但是当我们出门的时候，发现外面很冷，所以又回来拿了衣服，然后继续走了一会，
-我们把目标改到游泳馆附近，那边有一个playground，孩子们玩了一会我们就回来。回来的途中下起了小雨。&lt;/p>
-&lt;h2 id="晚上">晚上&lt;/h2>
-&lt;p>晚上和美恩一起打了游戏，super smash bro。 她选择的一个角色kerby非常小，但是我就是打不过她 :(&lt;/p></description></item><item><title>Bobbin Head的playground</title><link>https://jiyongcheng.dev/diary/2021/2021-09-25/</link><pubDate>Sat, 25 Sep 2021 20:27:26 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-25/</guid><description>&lt;p>上午我们去了苹果树湾，那边有一个地方是专门让人把船放到水里面的地方。孩子们在那个附近玩了水。&lt;/p>
-&lt;p>孩子们喜欢玩水，即使水还是有点凉。&lt;/p>
-&lt;p>不过今天有风，有一阵大风吹来，把我们的垫子都吹起来了。于是我们收拾好东西，去了Bobbin Head。&lt;/p>
-&lt;p>在Bobbin Head有一个playground，孩子们很喜欢在那边玩。&lt;/p>
-&lt;p>而且那边有一个地方可以爬石头，并且顺势可以爬到山上。这是孩子们上次新发掘的。&lt;/p>
-&lt;p>我们到了那里，发现有很多人，停车位差不多都停满了，很多人都在Kayaking，Paddling。&lt;/p>
-&lt;p>我们找到了一个地方停车，在那附近吃了午饭。&lt;/p>
-&lt;p>而后我和孩子们一起去爬山玩，玩了一会，带他们去了playground。&lt;/p>
-&lt;p>这里的playground最近翻新了，增加了一些更好玩的器材，比如说一个可以让孩子们爬高的。下面铺满了新的沙子，非常细，非常舒服。&lt;/p>
-&lt;p>孩子们这里面玩的很开心。&lt;/p>
-&lt;p>我们下午3点多点就回来了。&lt;/p>
-&lt;p>回家后孩子们看了&lt;code>My Little Pony: A New Generation (2021)&lt;/code> 电影。&lt;/p>
-&lt;p>晚上我看了脱口秀大会S4，有些被大家赋予希望的，没有表现的很好。相反有一些人的表演超出了预期。&lt;/p></description></item><item><title>kazoo</title><link>https://jiyongcheng.dev/diary/2021/2021-09-24/</link><pubDate>Fri, 24 Sep 2021 11:14:10 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-24/</guid><description>&lt;h2 id="上午">上午&lt;/h2>
-&lt;p>在站立会议上我们讨论了乐器，一位同事说他有kazoo，并且给我们展示了一下。我从没有听说过还有这个乐器，google了一下，如下图&lt;/p>
-&lt;p>&lt;img src="./feature.jpg" alt="Kazoo">&lt;/p>
-&lt;p>查看邮件，收到爸爸保险公司的邮件，说他之前的保险取消了，才意识到上次的保险买到九月22号，已经过期了。&lt;/p>
-&lt;p>我又在这个保险公司&lt;a href="https://www.austhealth.com/basic-visitor-cover">IMAN&lt;/a> 给他买了保险，之前的保险就是买了一个基本款，符合签证的要求，保险包含了医院，救护车。这一次我给他买了稍微好点的，增加了GP（诊所）这一项。&lt;/p>
-&lt;p>心里也有一些挣扎，要不要买这个贵的保险，还是买之前的基本款就好了。但是转念一想爸爸在这边帮我们很多忙，我应该尽最大的能力让他在这边住的开开心心，平平安安的。虽然我们现在的经济还是有点困难，但是这个钱我们花的是值得的，而且也是对我父亲的尊重。&lt;/p>
-&lt;p>Hannah一直要吃零食，Olivia给了她一些饮食，她看到别的还要别的零食，在客厅哭闹，我听到了就过去看一眼，Olivia已经开始发火了，所以我让Olivia到旁边。&lt;/p>
-&lt;p>我就把零食都收起来，对Hannah说上午是吃水果和面包的时间，如果你饿了，就吃这些。零食是下午吃的，如果你现在哭闹，就到你房间去，哭好了再出来。&lt;/p>
-&lt;p>过一会Hannah她也好好的了，我认为孩子就是要给她清楚的规则。她终究会学会按照规则去做事情。&lt;/p>
-&lt;p>我常听到大家说&lt;code>okey dokey&lt;/code>,感觉这里面比&lt;code>OK&lt;/code>含有更多的语气和情感。&lt;/p>
-&lt;h2 id="下午">下午&lt;/h2>
-&lt;p>集中精力在明白一个bug，但是fix却很棘手。因为我们希望拥有只读权限的用户去读主数据库，但是在abstract level我们会检查这个用户是否有写数据库的权限。&lt;/p></description></item><item><title>一直工作不代表有效的解决了问题</title><link>https://jiyongcheng.dev/diary/2021/2021-09-23/</link><pubDate>Thu, 23 Sep 2021 20:27:26 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-23/</guid><description>&lt;h2 id="joshua-2415">Joshua 24:15&lt;/h2>
-&lt;blockquote>
-&lt;p>But as for me and my family, we will serve the Lord.&lt;/p>
-&lt;/blockquote>
-&lt;p>不同的家庭有不同的选择如何在一起生活，约书亚警告了自己民族的人不要去拜偶像，他说即使你们选择这样去做，但是我和我的家要坚定的服侍主。&lt;/p>
-&lt;p>这是一个勇敢的宣告，因为要带领一个家庭去完全的依靠上帝也是一件不容易的事情。我们成人都有自己的想法和选择，你无法要求另一个人怎样去生活。而如何能改变一个人去完全依靠上帝呢？&lt;/p>
-&lt;h2 id="早晨">早晨&lt;/h2>
-&lt;p>早上站立会议的时候有点走神，因为现在在家工作，视频会议的时候只有一张脸显示在屏幕上，有时候我就走神去看别的东西。&lt;/p>
-&lt;p>凑巧今天leader不能参加站立会议，他后来跟我说能不能让我给他简短介绍一下站立会议的内容，我心里咯噔一下，怎么在我今天走神的时·候问我呢。&lt;/p>
-&lt;p>我就翻看了项目看板，每个人的项目，努力回忆他们都说了什么，比较好的是，大部人都会在他们的ticket下面记录下来他们的进展或者问题，这样我浏览这些的时候帮助我了解了他们站立会议时所说的内容。&lt;/p>
-&lt;p>而后我集中精神去做了我的任务，进展不错，所做的事情有进展心情也跟着变好：）&lt;/p>
-&lt;p>昨天晚上看手机的视频，总不断的跳出广告，让我很心烦。&lt;/p>
-&lt;h2 id="下午">下午&lt;/h2>
-&lt;p>和leader一起看一个Elastic Search的问题。&lt;/p>
-&lt;p>我的收获是&lt;/p>
-&lt;ul>
-&lt;li>不要害怕问问题
-&lt;ul>
-&lt;li>当我们问问题的时候我们的大脑是在思考.&lt;/li>
-&lt;li>当我们和别人就某个问题交流的时候，增进了对问题的理解.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>不要一直坐在那边解决问题
-&lt;ul>
-&lt;li>走开让自己的头脑跳出思维的固定模式，喝杯水，做点别的事情，&lt;/li>
-&lt;li>其实我们的大脑是不会放弃思考的，而当我们做别的事情的时候，往往给我们意想不到的灵感，反而帮助我们解决了问题。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>坚持是习惯最好的伴侣</title><link>https://jiyongcheng.dev/diary/2021/2021-09-22/</link><pubDate>Wed, 22 Sep 2021 21:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-22/</guid><description>&lt;h2 id="psalm-3419">Psalm 34:19&lt;/h2>
-&lt;blockquote>
-&lt;p>The righteous persons may have many troubles, but the Lord delivers him from them all;&lt;/p>
-&lt;/blockquote>
-&lt;p>今天早上我们提及到要录Team的介绍视频，这是公司的要求，因为最近我们公司收购了questionmark这一家公司，所以希望每个Team有这样的介绍视频，通过观看视频可以大概熟悉和了解每个Team的人员情况。&lt;/p>
-&lt;p>我想拖到什么时候都是要做的，所以我就花了一点时间，录制了我的介绍视频。&lt;/p>
-&lt;video width="320" height="240" preload controls>
-&lt;source src="self_introduction.mp4" type="video/mp4">
-Your browser does not support the video tag.
-&lt;/video>
-&lt;p>今天Olivia约了和Mia带着孩子们去Bobbin head去玩。Bella留在家里爷爷来照顾。上午的时候她表现的还挺好，没怎么哭闹，自己睡了一大觉。但是下午就睡了一小会，然后整个人心情也不好，加上poo了好几次，不知道是冲的奶粉过夜了出问题，还是她着凉了。小屁股红红的，每次给她搽屁股，她就大哭。爷爷抱着不行，所以我就照顾她，工作上没有什么进展。&lt;/p>
-&lt;p>明天要补上工作上欠下的。&lt;/p>
-&lt;p>我今天也写了一个文章关于如何使用&lt;code>jq&lt;/code>解决我们工作中的一个小问题，发现在写文章能帮助我去思考一些问题，因为我会换位到读者的角度看待这片文章，这样就可能有一些潜在的问题。&lt;/p>
-&lt;p>为了回答这些潜在的问题，我查阅了资料，自己也仔细的看了文档，所以我对问题的认知是加深的。&lt;/p>
-&lt;p>下午5点多的时候，美恩她们终于回来了，据说鲨鲨跌进了泥坑里面。但是她们玩的很开心。&lt;/p>
-&lt;p>我补做了锻炼，虽然白天没有时间做，心里面也有一个声音说今天可以不做。但是我还是觉得找时间做。很高心我做了，坚持！&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>&lt;code>lsof -i:80 -P -n | grep LISTEN&lt;/code>&lt;/p></description></item><item><title>Understanding Git</title><link>https://jiyongcheng.dev/post/devops/tool/git/understanding-git/</link><pubDate>Tue, 28 Sep 2021 15:35:23 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/git/understanding-git/</guid><description>&lt;h2 id="what-does-10064-mean-in-git">What does 10064 mean in Git?&lt;/h2>
+&lt;p>When you do &lt;code>git commit&lt;/code> command, you probably have seen this information&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback"> delete mode 100644 layouts/resource/index.html
+create mode 100644 layouts/resource/section.html
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>but what does this series of number mean?&lt;/p>
+&lt;p>The values shown are the 16-bit file modes as stored by Git, you can &lt;a href="https://github.com/git/git/blob/master/Documentation/technical/index-format.txt">check here&lt;/a> to know more:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback"> 32-bit mode, split into (high to low bits)
+4-bit object type
+valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
+3-bit unused
+9-bit unix permission. Only 0755 and 0644 are valid for regular files.
+Symbolic links and gitlinks have value 0 in this field.
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If the file doesn’t mention directories; they are represented using object type 0100.&lt;/p>
+&lt;p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">Type|---|Perm bits
+1000 000 111101101
+1 0 0 7 5 5
+1000 000 110100100
+1 0 0 6 4 4
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.&lt;/p>
+&lt;p>For files,&lt;/p>
+&lt;p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);&lt;/p>
+&lt;p>directories are 040000 (permissions are ignored),&lt;/p>
+&lt;p>symbolic links 120000.&lt;/p>
+&lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>We have a list of &lt;code>IDs&lt;/code> generated into a file &lt;code>F&lt;/code> with this format:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -447,24 +402,7 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;h1 id="icon">Icon&lt;/h1>
 &lt;ul>
 &lt;li>icon free download: &lt;a href="https://iconic.app/">https://iconic.app/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Finish runner-up 什么意思</title><link>https://jiyongcheng.dev/diary/2021/2021-09-21/</link><pubDate>Tue, 21 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/diary/2021/2021-09-21/</guid><description>&lt;p>最近在看澳洲的一个综艺节目 &lt;code>The Bachelor 2021&lt;/code>, 看到第九集的时候有一个地方我怎么都不能明白，就是一个女孩对Jimmy说：&lt;/p>
-&lt;blockquote>
-&lt;p>“There’s something that someone has said … And I think it’s gonna surprise you because it surprised me when I heard it,” the random girl hesitates. “Um, the person that said it … I know for a fact you have something very strong with … Jay said she would like to finish runner-up because she heard that they do better (on Instagram).”&lt;/p>
-&lt;/blockquote>
-&lt;p>然后Jimmy很惊讶，然后说&lt;/p>
-&lt;blockquote>
-&lt;p>“I’ve been massively blindsided. I’m shocked,” he rubs his brow. “The stuff about Steph, I saw it coming. What I didn’t see coming was the information I heard about Jay. It’s a massive blow for me.”&lt;/p>
-&lt;/blockquote>
-&lt;p>我不明白为什么这个让他很惊讶，所以我想明白她说的finish runner-up到底是什么意思，一开始我听成finish round-up， 根本找不到一个合理的解释放在这个语境中，后来我知道是runner-up，查了这个词的意思，就是在比赛中的第二名。&lt;/p>
-&lt;p>那这又怎么会让他那么惊讶呢？因为我理解Jay的意思是我宁愿当第二名，因为她们做的比我好。这个我想很正常，她觉得别的女孩做的比她更好。&lt;/p>
-&lt;p>为了明白这里到底是什么意思，我上网搜索了相关的评论，终于在&lt;a href="https://www.news.com.au/entertainment/tv/reality-tv/the-bachelor/james-weir-recaps-the-bachelor-australia-2021-episode-9/news-story/7743e2dbc575d3ebecbec9ad5602971c">这里&lt;/a>找到了解释.&lt;/p>
-&lt;blockquote>
-&lt;ul>
-&lt;li>No! Get out! Someone’s only here for Instagram followers! That’s preposterous. You should be ashamed of yourself for even suggesting that, random girl.&lt;/li>
-&lt;li>It’s been 24 hours since that random girl went and told Jimmy that Jay’s only on the show for Instagram followers.&lt;/li>
-&lt;/ul>
-&lt;/blockquote>
-&lt;p>这里我就明白了，为什么Jimmy听到那个女孩这样说Jay他那么震惊，因为如果Jay只是为了Instagram的粉丝数量过来参加这个节目的话，那么就显得太荒谬了。&lt;/p></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
+&lt;/ul></description></item><item><title>Diagram</title><link>https://jiyongcheng.dev/post/system-design/diagram/</link><pubDate>Thu, 16 Sep 2021 15:16:45 +1000</pubDate><guid>https://jiyongcheng.dev/post/system-design/diagram/</guid><description>&lt;p>&lt;img src="test.drawio.svg" alt="Example">&lt;/p></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
 &lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
@@ -547,4 +485,193 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;/div>&lt;h2 id="my-understanding">My understanding&lt;/h2>
 &lt;p>Because the &lt;code>serialize()&lt;/code> function should return string or null to represent the object&amp;rsquo;s state, but it throws an Exception which isn&amp;rsquo;t it&amp;rsquo;s state. Thus in this scenario the object of class &lt;code>NotSerializable&lt;/code> is not serializable even though it implements the &lt;code>Serializable&lt;/code> interface.&lt;/p>
 &lt;h1 id="reference">Reference&lt;/h1>
-&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
+&lt;p>I saw in a PHP class using this method &lt;code>__invoke&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__invoke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorNumber&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorString&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorFile&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorLine&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">bool&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="o">...&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="why-using-this-method">Why using this method?&lt;/h2>
+&lt;p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.&lt;/p>
+&lt;h2 id="how-do-people-use-it">How do people use it?&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">class&lt;/span> &lt;span class="nc">Invokable&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="sd">/**
+&lt;/span>&lt;span class="sd"> * This method will be called if object will be executed like a function:
+&lt;/span>&lt;span class="sd"> *
+&lt;/span>&lt;span class="sd"> * $invokable();
+&lt;/span>&lt;span class="sd"> *
+&lt;/span>&lt;span class="sd"> * Args will be passed as in regular method call.
+&lt;/span>&lt;span class="sd"> */&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__invoke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$arg&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">$arg&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">...&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nx">print_r&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">func_get_args&lt;/span>&lt;span class="p">());&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Example:
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nv">$invokable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Invokable&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;span class="nv">$invokable&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="c1">// optputs:
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">Array&lt;/span>
+&lt;span class="p">(&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">2&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">3&lt;/span>
+&lt;span class="p">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
+&lt;p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.&lt;/p>
+&lt;p>&lt;img src="issue-rendering-my-code-block-in-bootstrap-5.png" alt="issue-rendering-my-code-block-in-bootstrap-5">&lt;/p>
+&lt;h2 id="why">Why?&lt;/h2>
+&lt;p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:&lt;/p>
+&lt;p>&lt;img src="render-code-block-in-bootstrap-5.gif" alt="render code block in bootstrap 5">&lt;/p>
+&lt;p>My code block looks like this:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;highlight&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span> &lt;span class="na">tabindex&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0&amp;#34;&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;language-bash&amp;#34;&lt;/span> &lt;span class="na">data-lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;bash&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>export ANDROID_HOME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>/Users/aron/Library/Android/sdk&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>$ANDROID_HOME/platform-tools:$PATH
+export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>$ANDROID_HOME/tools:$PATH
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This doesn&amp;rsquo;t have issue, So I guess my html dom may have issue, so I copied my html dom just one more level up&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-grid&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;highlight&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span> &lt;span class="na">tabindex&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0&amp;#34;&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+...
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>then the issue happens:&lt;/p>
+&lt;p>&lt;img src="issue-with-code-block.png" alt="issue with code block">&lt;/p>
+&lt;p>So I know the issue happen when I use &lt;code>class=&amp;quot;d-grid&amp;quot;&lt;/code>, and checked again the class &lt;code>d-grid&lt;/code> using this style:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="p">.&lt;/span>&lt;span class="nc">d-grid&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">grid&lt;/span> &lt;span class="cp">!important&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and class &lt;code>pre&lt;/code> using this style&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">block&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">margin-top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">margin-bottom&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">overflow&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">auto&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">.875&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
+&lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
+&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
+&lt;blockquote>
+&lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&amp;hellip;
+Task :app:installDebug FAILED&lt;/p>
+&lt;/blockquote>
+&lt;p>Then I realized the another issue prompted:
+&lt;code>/bin/sh: adb: command not found&lt;/code>&lt;/p>
+&lt;h2 id="how-to-solve">How to solve&lt;/h2>
+&lt;p>After googling, I got answer:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ANDROID_HOME&lt;/span>&lt;span class="o">=&lt;/span>/Users/aron/Library/Android/sdk
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/platform-tools:&lt;span class="nv">$PATH&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item></channel></rss>

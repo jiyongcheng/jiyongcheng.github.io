@@ -54,8 +54,6 @@
 <li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
 </li><li class=mobile-menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/diary/>Diary</a>
-</li><li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
 </li><li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
@@ -134,9 +132,6 @@ What, Why, How
 <a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
 </li>
 <li class=menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/diary/>Diary</a>
-</li>
-<li class=menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
 </li>
 <li class=menu-item>
@@ -171,6 +166,9 @@ What, Why, How
 <time datetime=2021-09-29 class=post-time>
 2021-09-29
 </time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+</div>
 <span class=more-meta> 74 words </span>
 <span class=more-meta> 1 min read </span>
 <span class=more-meta> <a href=https://jiyongcheng.dev/post/devops/linux/check-port-being-used/#disqus_thread>Comments</a> </span>
@@ -188,6 +186,99 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/devops/tool/git/understanding-git/>Understanding Git</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-28 class=post-time>
+2021-09-28
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+</div>
+<span class=more-meta> 274 words </span>
+<span class=more-meta> 2 min read </span>
+<span class=more-meta> <a href=https://jiyongcheng.dev/post/devops/tool/git/understanding-git/#disqus_thread>Comments</a> </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=what-does-10064-mean-in-git>What does 10064 mean in Git?</h2>
+<p>When you do <code>git commit</code> command, you probably have seen this information</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> delete mode 100644 layouts/resource/index.html
+ create mode 100644 layouts/resource/section.html
+</code></pre></td></tr></table>
+</div>
+</div><p>but what does this series of number mean?</p>
+<p>The values shown are the 16-bit file modes as stored by Git, you can <a href=https://github.com/git/git/blob/master/Documentation/technical/index-format.txt>check here</a> to know more:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  32-bit mode, split into (high to low bits)
+
+    4-bit object type
+      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
+    
+    3-bit unused
+
+    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
+    
+    Symbolic links and gitlinks have value 0 in this field.
+</code></pre></td></tr></table>
+</div>
+</div><p>If the file doesn’t mention directories; they are represented using object type 0100.</p>
+<p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Type|---|Perm bits
+
+1000 000 111101101
+1 0   0   7  5  5
+
+1000 000 110100100
+1 0   0   6  4  4
+</code></pre></td></tr></table>
+</div>
+</div><p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.</p>
+<p>For files,</p>
+<p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);</p>
+<p>directories are 040000 (permissions are ignored),</p>
+<p>symbolic links 120000.</p>
+<p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).</p>
+</div>
+<div class=read-more>
+<a href=/post/devops/tool/git/understanding-git/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/devops/tool/jq/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
 </h1>
 <div class=post-meta>
@@ -196,8 +287,6 @@ What, Why, How
 </time>
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
-<a href=https://jiyongcheng.dev/categories/tool/> Tool </a>
-<a href=https://jiyongcheng.dev/categories/jq/> jq </a>
 </div>
 <span class=more-meta> 728 words </span>
 <span class=more-meta> 2 min read </span>
@@ -252,38 +341,6 @@ What, Why, How
 </div>
 </div>
 </article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/programming-language/php/not-all-objects-serializable/>Not All Objects Serializable</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/frontend/> Frontend </a>
-<a href=https://jiyongcheng.dev/categories/react/> react </a>
-</div>
-<span class=more-meta> 354 words </span>
-<span class=more-meta> 2 min read </span>
-<span class=more-meta> <a href=https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/#disqus_thread>Comments</a> </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=the-question-i-have>The question I have</h2>
-<p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
-<ul>
-<li>Why PDO isn&rsquo;t serializable?</li>
-<li>Why isn&rsquo;t every type of object serializable?</li>
-</ul>
-</div>
-<div class=read-more>
-<a href=/post/programming-language/php/not-all-objects-serializable/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
 </section>
 <nav class=pagination>
 <ul>
@@ -292,6 +349,9 @@ What, Why, How
 </li>
 <li>
 <a href=/page/2/>2</a>
+</li>
+<li>
+<a href=/page/3/>3</a>
 </li>
 </ul>
 </nav>
