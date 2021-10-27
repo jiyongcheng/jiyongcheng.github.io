@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 29 Sep 2021 12:45:41 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Check Port Being Used</title><link>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</link><pubDate>Wed, 29 Sep 2021 12:45:41 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</guid><description>&lt;p>&lt;code>lsof&lt;/code> list open files&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 11 Oct 2021 14:31:07 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker commands</title><link>https://jiyongcheng.dev/post/devops/tool/docker/docker-commands/</link><pubDate>Mon, 11 Oct 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/docker/docker-commands/</guid><description>&lt;h2 id="does-docker-build---no-cache-actually-download-and-refresh-the-base-image">Does Docker build &amp;ndash;no-cache actually download and refresh the base image&lt;/h2>
+&lt;p>The &amp;ndash;no-cache option will rebuild the image without using the local cached layers. However, the FROM line will reuse the already pulled base image if it exists on the build host (the from line itself may not be cached, but the image it pulls is). If you want to pull the base image again, you can use the &amp;ndash;pull option to the build command. E.g.&lt;/p>
+&lt;p>&lt;code>docker build --no-cache --pull -t new-image-name:latest .&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/52664744/does-docker-build-no-cache-actually-download-and-refresh-the-base-image#52666415">check more from here&lt;/a>&lt;/p></description></item><item><title>Data structures and algorithm</title><link>https://jiyongcheng.dev/resource/datastructure/</link><pubDate>Thu, 07 Oct 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/datastructure/</guid><description>&lt;h2 id="algorithm">Algorithm&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/williamfiset/Algorithms">https://github.com/williamfiset/Algorithms&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="practice">Practice&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/karan/Projects">https://github.com/karan/Projects&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>DBs</title><link>https://jiyongcheng.dev/resource/db/</link><pubDate>Thu, 07 Oct 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/db/</guid><description>&lt;h2 id="postgresql">PostgreSQL&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/faisalbasra/postgres_books">https://github.com/faisalbasra/postgres_books&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="mysql">Mysql&lt;/h2>
+&lt;ul>
+&lt;li>deadlocks &lt;a href="https://github.com/aneasystone/mysql-deadlocks">https://github.com/aneasystone/mysql-deadlocks&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Books</title><link>https://jiyongcheng.dev/resource/book/</link><pubDate>Wed, 06 Oct 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/book/</guid><description>&lt;ul>
+&lt;li>&lt;a href="https://github.com/stormtrooper96/books">https://github.com/stormtrooper96/books&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/AB1908/CS-Books">https://github.com/AB1908/CS-Books&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Check Port Being Used</title><link>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</link><pubDate>Wed, 29 Sep 2021 12:45:41 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/linux/check-port-being-used/</guid><description>&lt;p>&lt;code>lsof&lt;/code> list open files&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -344,26 +364,80 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;/ul></description></item><item><title>English</title><link>https://jiyongcheng.dev/resource/english/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/english/</guid><description>&lt;p>发音的本质是通过感官（耳朵+眼睛），协助嘴（口腔肌肉），养成正确的发音习惯。 眼（观察口型）+ 耳朵（辩音）+ 嘴（刻意练习）= 漂亮的音&lt;/p>
 &lt;ul>
 &lt;li>Master spoken english: &lt;a href="https://www.youtube.com/watch?v=ilrPvgs29v0&amp;amp;list=PL9YsEhi5oFAbjsAqP-3b-fAIip98pAsx9&amp;amp;index=3">https://www.youtube.com/watch?v=ilrPvgs29v0&amp;amp;list=PL9YsEhi5oFAbjsAqP-3b-fAIip98pAsx9&amp;amp;index=3&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Interesting</title><link>https://jiyongcheng.dev/resource/interesting/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/interesting/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>Interesting</title><link>https://jiyongcheng.dev/resource/interesting/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/interesting/</guid><description>&lt;h2 id="uncategorised">Uncategorised&lt;/h2>
+&lt;ul>
 &lt;li>&lt;a href="https://joelcalifa.com/work/">https://joelcalifa.com/work/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Programming language</title><link>https://jiyongcheng.dev/resource/programming-language/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/programming-language/</guid><description>&lt;h1 id="java">Java&lt;/h1>
+&lt;li>&lt;a href="https://github.com/laradock/laradock">https://github.com/laradock/laradock&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/google/eng-practices">https://github.com/google/eng-practices&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="blog">Blog&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hawx1993/tech-blog">https://github.com/hawx1993/tech-blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/mqyqingfeng/Blog">https://github.com/mqyqingfeng/Blog&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/singpenguin/ppt">https://github.com/singpenguin/ppt&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="magazine">Magazine&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/rogerzhu/MNWeeklyCategory">https://github.com/rogerzhu/MNWeeklyCategory&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="interview">Interview&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/monklof/Back-End-Developer-Interview-Questions">https://github.com/monklof/Back-End-Developer-Interview-Questions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sharu725/online-cv">https://github.com/sharu725/online-cv&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/yangshun/front-end-interview-handbook">https://github.com/yangshun/front-end-interview-handbook&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="courses">Courses&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/prakhar1989/awesome-courses">https://github.com/prakhar1989/awesome-courses&lt;/a>&lt;/li>
+&lt;li>computer science &lt;a href="https://github.com/1c7/Crash-Course-Computer-Science-Chinese">https://github.com/1c7/Crash-Course-Computer-Science-Chinese&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="math">Math&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://mathlets.org/mathlets/">https://mathlets.org/mathlets/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Programming language</title><link>https://jiyongcheng.dev/resource/programming-language/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/programming-language/</guid><description>&lt;h2 id="tools-for-programming-languages">Tools for programming languages&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://programming-idioms.org/about#about-block-all-idioms">https://programming-idioms.org/about#about-block-all-idioms&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="java">Java&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://programmingbydoing.com/">https://programmingbydoing.com/&lt;/a>&lt;/li>
 &lt;li>java-a-beginners-guide-eighth-edition: &lt;a href="https://pdfroom.com/books/java-a-beginners-guide-eighth-edition/PXn2GJrKgxV">https://pdfroom.com/books/java-a-beginners-guide-eighth-edition/PXn2GJrKgxV&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h1 id="python">Python&lt;/h1>
+&lt;h2 id="python">Python&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://realpython.com/">https://realpython.com/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://au1lib.org/book/5973705/f707f1?id=5973705&amp;amp;secret=f707f1">https://au1lib.org/book/5973705/f707f1?id=5973705&amp;amp;secret=f707f1&lt;/a> books for download&lt;/li>
 &lt;li>free books :https://github.com/pamoroso/free-python-books&lt;/li>
 &lt;/ul>
-&lt;h1 id="php">PHP&lt;/h1>
-&lt;h1 id="javascript">Javascript&lt;/h1>
+&lt;h2 id="php">PHP&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jiyongcheng/awesome-php">https://github.com/jiyongcheng/awesome-php&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/codeguy/php-the-right-way">https://github.com/codeguy/php-the-right-way&lt;/a>&lt;/li>
+&lt;li>Design pattern &lt;a href="https://github.com/DesignPatternsPHP/DesignPatternsPHP">https://github.com/DesignPatternsPHP/DesignPatternsPHP&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/PatrickLouys/professional-php-sample-code">https://github.com/PatrickLouys/professional-php-sample-code&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="framework">Framework&lt;/h3>
+&lt;ul>
+&lt;li>Simovative PRG-HTTP-Framework &lt;a href="https://github.com/Simovative/zeus">https://github.com/Simovative/zeus&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/microinginer/yii2-dropdown-action-column">https://github.com/microinginer/yii2-dropdown-action-column&lt;/a>&lt;/li>
+&lt;li>Symfony 4 &lt;a href="https://github.com/eko/docker-symfony">https://github.com/eko/docker-symfony&lt;/a>&lt;/li>
+&lt;li>Magento 1.9 &lt;a href="https://github.com/andreaskoch/dockerized-magento">https://github.com/andreaskoch/dockerized-magento&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="javascript">Javascript&lt;/h2>
 &lt;ul>
 &lt;li>Javascript &lt;a href="https://masteringjs.io/fundamentals">https://masteringjs.io/fundamentals&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="golang">GoLang&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/unknwon/the-way-to-go_ZH_CN">https://github.com/unknwon/the-way-to-go_ZH_CN&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>Shortcut</title><link>https://jiyongcheng.dev/resource/shortcuts/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/shortcuts/</guid><description>&lt;ul>
 &lt;li>&lt;a href="https://www.shortcutfoo.com/">https://www.shortcutfoo.com/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Software Architecture</title><link>https://jiyongcheng.dev/resource/architecture/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/architecture/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>Software Architecture and Infrastructure</title><link>https://jiyongcheng.dev/resource/architecture-and-infrastructure/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/architecture-and-infrastructure/</guid><description>&lt;h2 id="software-architecture">Software architecture&lt;/h2>
+&lt;ul>
 &lt;li>&lt;a href="https://drive.google.com/file/d/1wfF7ZIPtY-TSzF8ZNmSOD5A2-5WVL9vo/view?usp=sharing">Software architecture patterns&lt;/a>&lt;/li>
 &lt;li>search #softwarearchitecture on youtube&lt;/li>
 &lt;li>c4 Model &lt;a href="https://c4model.com/">https://c4model.com/&lt;/a>&lt;/li>
@@ -379,30 +453,51 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;li>architecture decision record: &lt;a href="https://adr.github.io/">https://adr.github.io/&lt;/a>&lt;/li>
 &lt;li>archunit is a java tool to help enforcing architecture, for php there is one as well &lt;a href="https://github.com/j6s/phparch">https://github.com/j6s/phparch&lt;/a>&lt;/li>
 &lt;li>&lt;a href="http://icyfenix.cn/">凤凰架构-构筑可靠的大型分布式系统&lt;/a>&lt;/li>
+&lt;li>explicit architecture &lt;a href="https://github.com/hgraca/explicit-architecture-php">https://github.com/hgraca/explicit-architecture-php&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="system-design">System Design&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance">https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.cloudsavvyit.com/9904/what-is-covariance-and-contravariance-in-programming/">https://www.cloudsavvyit.com/9904/what-is-covariance-and-contravariance-in-programming/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h1 id="aws">AWS&lt;/h1>
+&lt;h2 id="aws">AWS&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c">https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://app.cloudcraft.co">Draw AWS diagram&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://expeditedsecurity.com/aws-in-plain-english/">https://expeditedsecurity.com/aws-in-plain-english/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Web development</title><link>https://jiyongcheng.dev/resource/web-development/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/web-development/</guid><description>&lt;h1 id="html">HTML&lt;/h1>
+&lt;/ul>
+&lt;h2 id="salt">Salt&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hbokh/awesome-saltstack">https://github.com/hbokh/awesome-saltstack&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Web development</title><link>https://jiyongcheng.dev/resource/web-development/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/web-development/</guid><description>&lt;h2 id="frontend">Frontend&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jiyongcheng/fks">https://github.com/jiyongcheng/fks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/grab/front-end-guide">https://github.com/grab/front-end-guide&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="html">HTML&lt;/h2>
 &lt;ul>
 &lt;li>HTML head element explaination &lt;a href="https://github.com/joshbuchea/HEAD">https://github.com/joshbuchea/HEAD&lt;/a>&lt;/li>
 &lt;li>Every element I use for the basic structure of a HTML document &lt;a href="https://www.matuzo.at/blog/html-boilerplate/">https://www.matuzo.at/blog/html-boilerplate/&lt;/a>&lt;/li>
+&lt;li>CORS &lt;a href="https://jakearchibald.com/2021/cors/">https://jakearchibald.com/2021/cors/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h1 id="css">CSS&lt;/h1>
+&lt;h2 id="css">CSS&lt;/h2>
 &lt;ul>
 &lt;li>Google learn css course: &lt;a href="https://web.dev/learn/css/">https://web.dev/learn/css/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h1 id="icon">Icon&lt;/h1>
+&lt;h2 id="icon">Icon&lt;/h2>
 &lt;ul>
 &lt;li>icon free download: &lt;a href="https://iconic.app/">https://iconic.app/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Diagram</title><link>https://jiyongcheng.dev/post/system-design/diagram/</link><pubDate>Thu, 16 Sep 2021 15:16:45 +1000</pubDate><guid>https://jiyongcheng.dev/post/system-design/diagram/</guid><description>&lt;p>&lt;img src="test.drawio.svg" alt="Example">&lt;/p></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
+&lt;li>&lt;a href="https://openmoji.org/">https://openmoji.org/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="jquery">Jquery&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hayageek/jquery-upload-file">https://github.com/hayageek/jquery-upload-file&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="react">React&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jiyongcheng/react-collection">https://github.com/jiyongcheng/react-collection&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/wellyshen/react-cool-starter">https://github.com/wellyshen/react-cool-starter&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
 &lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
@@ -674,4 +769,7 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item></channel></rss>
+&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item><item><title/><link>https://jiyongcheng.dev/resource/computer-science/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/resource/computer-science/</guid><description>&lt;h2 id="computer-system">Computer system&lt;/h2>
+&lt;ul>
+&lt;li>A gentle introduction to computer systems &lt;a href="https://diveintosystems.org/book/index.html">https://diveintosystems.org/book/index.html&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
