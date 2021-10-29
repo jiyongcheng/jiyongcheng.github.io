@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Oct 2021 13:22:45 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Convert Sqlite to Mysql</title><link>https://jiyongcheng.dev/post/db/convert-sqlite-to-mysql/</link><pubDate>Thu, 28 Oct 2021 13:22:45 +1100</pubDate><guid>https://jiyongcheng.dev/post/db/convert-sqlite-to-mysql/</guid><description>&lt;h2 id="is-it-possible-to-convert-sqlite-to-mysql-as-is">Is it possible to convert SQLite to MySQL &amp;ldquo;as is&amp;rdquo;?&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Oct 2021 15:40:40 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Commands</title><link>https://jiyongcheng.dev/post/devops/git/commands/</link><pubDate>Thu, 28 Oct 2021 15:40:40 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/git/commands/</guid><description>&lt;h2 id="git-commands">Git commands&lt;/h2>
+&lt;p>list some commands often being used:&lt;/p>
+&lt;h2 id="delete-branch">Delete branch&lt;/h2>
+&lt;ul>
+&lt;li>Deleting local branches&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -d feature/add-new-feature
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Deleting remote branches in Git&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash"> git push origin --delete feature/add-new-feature
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="change-branch-name">Change branch name&lt;/h2>
+&lt;ul>
+&lt;li>change name of local branch&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout &amp;lt;branch&amp;gt;
+git branch -m &amp;lt;new_branch_name&amp;gt;
+&lt;span class="c1">##example&lt;/span>
+git checkout feature
+git branch -m quickfix
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>change name of remote branch
+&lt;ul>
+&lt;li>you have to change branch name locally first&lt;/li>
+&lt;li>then do the following:&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git push &amp;lt;remote&amp;gt; :&amp;lt;old_branch_name&amp;gt; &amp;lt;new_branch_name&amp;gt;
+&lt;span class="c1">#you have to set the upstream branch for the newly created branch using the “git upstream” command.&lt;/span>
+git push &amp;lt;remote&amp;gt; -u &amp;lt;new_branch_name&amp;gt;
+git push origin :feature quickfix
+git push origin -u quickfix
+&lt;span class="c1">## example&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Convert Sqlite to Mysql</title><link>https://jiyongcheng.dev/post/db/convert-sqlite-to-mysql/</link><pubDate>Thu, 28 Oct 2021 13:22:45 +1100</pubDate><guid>https://jiyongcheng.dev/post/db/convert-sqlite-to-mysql/</guid><description>&lt;h2 id="is-it-possible-to-convert-sqlite-to-mysql-as-is">Is it possible to convert SQLite to MySQL &amp;ldquo;as is&amp;rdquo;?&lt;/h2>
 &lt;p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:&lt;/p>
 &lt;ul>
 &lt;li>Export SQLite database to dump file using SQLite .dump command.&lt;/li>
@@ -47,6 +122,14 @@
 &lt;tr>
 &lt;td>&lt;code>BEGIN TRANSACTION; COMMIT;&lt;/code>&lt;/td>
 &lt;td>&lt;code> BEGIN; COMMIT&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CLOB&lt;/td>
+&lt;td>TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PRAGMA foreign_keys=OFF;&lt;/td>
+&lt;td>SET FOREIGN_KEY_CHECKS=0;&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Upstream and Downstream</title><link>https://jiyongcheng.dev/post/system-design/upstream-downstream/</link><pubDate>Thu, 28 Oct 2021 09:31:07 +1100</pubDate><guid>https://jiyongcheng.dev/post/system-design/upstream-downstream/</guid><description>&lt;p>In the &lt;code>LNMP&lt;/code> development process, we often configure the nginx, and we will set similar like this&lt;/p>
@@ -825,28 +908,4 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/div>
 &lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
 &lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
-&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/mobile-app-development/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
-&lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
-&lt;blockquote>
-&lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
-warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
-info Installing the app&amp;hellip;
-Task :app:installDebug FAILED&lt;/p>
-&lt;/blockquote>
-&lt;p>Then I realized the another issue prompted:
-&lt;code>/bin/sh: adb: command not found&lt;/code>&lt;/p>
-&lt;h2 id="how-to-solve">How to solve&lt;/h2>
-&lt;p>After googling, I got answer:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ANDROID_HOME&lt;/span>&lt;span class="o">=&lt;/span>/Users/aron/Library/Android/sdk
-&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/platform-tools:&lt;span class="nv">$PATH&lt;/span>
-&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item></channel></rss>
+&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item></channel></rss>
