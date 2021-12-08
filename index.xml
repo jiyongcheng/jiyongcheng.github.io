@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Oct 2021 15:40:40 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Commands</title><link>https://jiyongcheng.dev/post/devops/git/commands/</link><pubDate>Thu, 28 Oct 2021 15:40:40 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/git/commands/</guid><description>&lt;h2 id="git-commands">Git commands&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Dec 2021 12:11:03 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgresql Questions</title><link>https://jiyongcheng.dev/post/db/postgresql/questions/</link><pubDate>Wed, 08 Dec 2021 12:11:03 +1100</pubDate><guid>https://jiyongcheng.dev/post/db/postgresql/questions/</guid><description>&lt;p>I try to list out the questions during working on Postgresql here for the future reference.&lt;/p>
+&lt;h2 id="how-to-convert-date-string-to-timestamp-in-postgresql">How to convert date string to timestamp in postgresql?&lt;/h2>
+&lt;p>Use function &lt;a href="https://www.postgresqltutorial.com/postgresql-to_timestamp/">TO_TIMESTAMP&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TO_TIMESTAMP&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;2017-03-31 9:30:20&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s1">&amp;#39;YYYY-MM-DD HH:MI:SS&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">-- it will return as following:
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="mi">2017&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">03&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">31&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">09&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">30&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="mi">000000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="how-to-return-a-string-value-from-jsonb-in-postgresql">How to return a string value from jsonb in Postgresql?&lt;/h2>
+&lt;p>Use &lt;code>jsonb-&amp;gt;&amp;gt;key&lt;/code> operator, be carefuly if you use &lt;code>jsonb-&amp;gt;key&lt;/code> it will return back &lt;code>jsonb&lt;/code> type, not a string.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="k">select&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;{
+&lt;/span>&lt;span class="s1"> &amp;#34;first_name&amp;#34;: &amp;#34;Adam&amp;#34;,
+&lt;/span>&lt;span class="s1"> &amp;#34;last_name&amp;#34;: &amp;#34;Smith&amp;#34;,
+&lt;/span>&lt;span class="s1"> &amp;#34;created_at&amp;#34;: &amp;#34;2021-12-07 03:08:57&amp;#34;,
+&lt;/span>&lt;span class="s1"> &amp;#34;updated_at&amp;#34;: &amp;#34;2021-12-07 03:09:00&amp;#34;
+&lt;/span>&lt;span class="s1">}&amp;#39;&lt;/span>&lt;span class="p">::&lt;/span>&lt;span class="n">jsonb&lt;/span>&lt;span class="o">-&amp;gt;&amp;gt;&lt;/span>&lt;span class="s1">&amp;#39;first_name&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="c1">-- it will return `Adam`
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="can-i-extract-the-info-from-jsonb-in-postgresql">Can I extract the info from jsonb in postgresql?&lt;/h2>
+&lt;p>jsonb_extract_path ( from_json jsonb, VARIADIC path_elems text[] ) → jsonb&lt;/p>
+&lt;p>Extracts JSON sub-object at the specified path. (This is functionally equivalent to the #&amp;gt; operator, but writing the path out as a variadic list can be more convenient in some cases.)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="n">json_extract_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;{&amp;#34;f2&amp;#34;:{&amp;#34;f3&amp;#34;:1},&amp;#34;f4&amp;#34;:{&amp;#34;f5&amp;#34;:99,&amp;#34;f6&amp;#34;:&amp;#34;foo&amp;#34;}}&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;f4&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;f6&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">→&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Git Commands</title><link>https://jiyongcheng.dev/post/devops/git/commands/</link><pubDate>Thu, 28 Oct 2021 15:40:40 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/git/commands/</guid><description>&lt;h2 id="git-commands">Git commands&lt;/h2>
 &lt;p>list some commands often being used:&lt;/p>
 &lt;h2 id="delete-branch">Delete branch&lt;/h2>
 &lt;ul>
@@ -818,94 +866,4 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;span class="p">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/web-development/css/render-code-block-in-bootstrap-5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
-&lt;p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.&lt;/p>
-&lt;p>&lt;img src="issue-rendering-my-code-block-in-bootstrap-5.png" alt="issue-rendering-my-code-block-in-bootstrap-5">&lt;/p>
-&lt;h2 id="why">Why?&lt;/h2>
-&lt;p>I want to understand why this happend. So I just picked up a snippet which contains the code block and put into the bootstrap 5 example. Then the render result is like this:&lt;/p>
-&lt;p>&lt;img src="render-code-block-in-bootstrap-5.gif" alt="render code block in bootstrap 5">&lt;/p>
-&lt;p>My code block looks like this:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;span class="lnt">9
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;highlight&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span> &lt;span class="na">tabindex&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0&amp;#34;&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;language-bash&amp;#34;&lt;/span> &lt;span class="na">data-lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;bash&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>export ANDROID_HOME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>/Users/aron/Library/Android/sdk&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>$ANDROID_HOME/platform-tools:$PATH
-export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f92672&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>=&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>$ANDROID_HOME/tools:$PATH
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>This doesn&amp;rsquo;t have issue, So I guess my html dom may have issue, so I copied my html dom just one more level up&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;d-grid&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;highlight&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span> &lt;span class="na">tabindex&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;0&amp;#34;&lt;/span> &lt;span class="na">style&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-...
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>then the issue happens:&lt;/p>
-&lt;p>&lt;img src="issue-with-code-block.png" alt="issue with code block">&lt;/p>
-&lt;p>So I know the issue happen when I use &lt;code>class=&amp;quot;d-grid&amp;quot;&lt;/code>, and checked again the class &lt;code>d-grid&lt;/code> using this style:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="p">.&lt;/span>&lt;span class="nc">d-grid&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">grid&lt;/span> &lt;span class="cp">!important&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>and class &lt;code>pre&lt;/code> using this style&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">block&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">margin-top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">margin-bottom&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">overflow&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">auto&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">.875&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If I tick off class &lt;code>d-grid&lt;/code> display style, it will render correctly.&lt;/p>
-&lt;h2 id="how-to-solve-it">How to solve it&lt;/h2>
-&lt;p>remove the class &lt;code>d-grid&lt;/code>&lt;/p></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>
