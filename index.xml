@@ -36,7 +36,7 @@
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="can-i-extract-the-info-from-jsonb-in-postgresql">Can I extract the info from jsonb in postgresql?&lt;/h2>
-&lt;p>jsonb_extract_path ( from_json jsonb, VARIADIC path_elems text[] ) → jsonb&lt;/p>
+&lt;p>&lt;code>jsonb_extract_path ( from_json jsonb, VARIADIC path_elems text[] ) → jsonb&lt;/code>&lt;/p>
 &lt;p>Extracts JSON sub-object at the specified path. (This is functionally equivalent to the #&amp;gt; operator, but writing the path out as a variadic list can be more convenient in some cases.)&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
