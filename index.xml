@@ -1,4 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 08 Dec 2021 12:11:03 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Postgresql Questions</title><link>https://jiyongcheng.dev/post/db/postgresql/questions/</link><pubDate>Wed, 08 Dec 2021 12:11:03 +1100</pubDate><guid>https://jiyongcheng.dev/post/db/postgresql/questions/</guid><description>&lt;p>I try to list out the questions during working on Postgresql here for the future reference.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Dec 2021 16:18:49 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Mysql</title><link>https://jiyongcheng.dev/post/devops/docker/mysql/</link><pubDate>Fri, 17 Dec 2021 16:18:49 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/docker/mysql/</guid><description>&lt;p>docker-compose for mysql&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback"> mysql:
+image: mysql
+command: --default-authentication-plugin=mysql_native_password
+restart: always
+volumes:
+- ./.data/db:/var/lib/mysql
+ports:
+- 33069:3306
+environment:
+MYSQL_ROOT_PASSWORD: root
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this &lt;code>33069&lt;/code>.&lt;/p>
+&lt;p>Tnd then use the following parameters to connect the server.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">Host:127.0.0.1
+username:root
+password:root
+port:33069
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Nginx knowledge</title><link>https://jiyongcheng.dev/post/devops/nginx/</link><pubDate>Fri, 17 Dec 2021 14:21:19 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/nginx/</guid><description>&lt;p>Some knowledge or questions related to NGINX&lt;/p>
+&lt;h2 id="understanding-nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms&lt;/h2>
+&lt;p>&lt;a href="https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms">checkout this article&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>prefix string/ prefix location
+this means the location block has the &lt;code>/blabla&lt;/code> not the regex&lt;/li>
+&lt;/ul>
+&lt;h2 id="understand-the-nginx-config-for-php">Understand the nginx config for PHP&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">location ~ \.php$ {
+fastcgi_pass php:9000;
+fastcgi_param SCRIPT_FILENAME
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>The &lt;code>fastcig_param&lt;/code> directive sets the &lt;code>SCRIPT_FILENAME = $document_root$fastcgi_script_name&lt;/code>;&lt;/li>
+&lt;li>The &lt;code>fastcgi_param&lt;/code> directive sets the FastCGI parameter &lt;code>SCRIPT_FILENAME&lt;/code> to &lt;code>/srv/sinojobs/public/index.php&lt;/code>,and &lt;strong>the FastCGI server&lt;/strong> executes the file.&lt;/li>
+&lt;li>The variable &lt;code>$document_root&lt;/code> is equal to the value of the root directive and the variable &lt;code>$fastcgi_script_name&lt;/code> is equal to the request URI, i.e. &lt;code>/index.php&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="nginx-parse-the-uri-info-then-pass-to-php">Nginx parse the uri info then pass to php&lt;/h2>
+&lt;p>Nginx can parse the uri info then pass it to php, we can get the info from php variable &lt;code>$_SERVER[&amp;quot;PATH_INFO&amp;quot;]&lt;/code>&lt;/p></description></item><item><title>Commands</title><link>https://jiyongcheng.dev/post/devops/command/</link><pubDate>Mon, 13 Dec 2021 16:51:26 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/command/</guid><description>&lt;p>The commands that being used.&lt;/p>
+&lt;h2 id="tail-command-to-choose-specific-number-of-lines-instead-of-the-default-10">tail command to choose specific number of lines instead of the default 10.&lt;/h2>
+&lt;p>&lt;code>tail -n &amp;lt;number_of_lines&amp;gt; /path/to/file&lt;/code>&lt;/p>
+&lt;h2 id="head-command">head command&lt;/h2>
+&lt;ul>
+&lt;li>print first 10 lines.
+&lt;ul>
+&lt;li>&lt;code>head /etc/passwd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>print first two lines of a file.
+&lt;ul>
+&lt;li>&lt;code>head -n 2 /etc/passwd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>print all lines starting from a line number you specify
+&lt;ul>
+&lt;li>&lt;code>head -n -27 /etc/passwd&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>PHP</title><link>https://jiyongcheng.dev/post/programming-language/php/php/</link><pubDate>Mon, 13 Dec 2021 15:36:52 +1100</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/php/</guid><description>&lt;p>Some PHP general ideas or issues.&lt;/p>
+&lt;h2 id="error_reporting-level-in-different-environment">error_reporting level in different environment&lt;/h2>
+&lt;p>Usually PHP &lt;code>notice&lt;/code> error will be turned off in production while leave it in development environment.
+If the &lt;code>notice&lt;/code> is turned on in the dev environment, even though it&amp;rsquo;s a notice for php, it will still show to developer, so the developer can fix it.
+in production, if it&amp;rsquo;s truned off, the logic might get passed through the &lt;code>notice&lt;/code> and go to further, then will probably show different error with local dev environment.&lt;/p>
+&lt;p>So sometimes, turn off the &lt;code>notice&lt;/code> error_reporting level is a good way to understand the production issue.&lt;/p></description></item><item><title>General</title><link>https://jiyongcheng.dev/post/programming-language/general/</link><pubDate>Wed, 08 Dec 2021 17:30:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/programming-language/general/</guid><description>&lt;p>For the general programming knowledge.&lt;/p>
+&lt;h2 id="off-by-one-溢出">Off-By-One [溢出]&lt;/h2>
+&lt;ul>
+&lt;li>严格来说，off-by-one是一种特殊的溢出漏洞，off-by-one指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。&lt;/li>
+&lt;li>off-by-one，是指单字节缓冲区溢出，这种漏洞的产生往往与边界验证不严和字符串操作有关，也不排除写入的size正好就只多了一个字节的情况。&lt;/li>
+&lt;li>一般认为，单字节溢出是难以利用的，但是因为Linux的堆管理机制ptmalloc验证的松散性，基于Linux堆的off-by-one漏洞利用起来并不复杂，并且威力强大。&lt;/li>
+&lt;li>off-by-one是可以基于各种缓冲区的，比如栈、bss段等等，但是堆上（heap based）的off-by-one是CTF中比较常见的。&lt;/li>
+&lt;/ul></description></item><item><title>Postgresql Questions</title><link>https://jiyongcheng.dev/post/db/postgresql/questions/</link><pubDate>Wed, 08 Dec 2021 12:11:03 +1100</pubDate><guid>https://jiyongcheng.dev/post/db/postgresql/questions/</guid><description>&lt;p>I try to list out the questions during working on Postgresql here for the future reference.&lt;/p>
 &lt;h2 id="how-to-convert-date-string-to-timestamp-in-postgresql">How to convert date string to timestamp in postgresql?&lt;/h2>
 &lt;p>Use function &lt;a href="https://www.postgresqltutorial.com/postgresql-to_timestamp/">TO_TIMESTAMP&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -46,7 +149,14 @@
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="n">json_extract_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;{&amp;#34;f2&amp;#34;:{&amp;#34;f3&amp;#34;:1},&amp;#34;f4&amp;#34;:{&amp;#34;f5&amp;#34;:99,&amp;#34;f6&amp;#34;:&amp;#34;foo&amp;#34;}}&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;f4&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;f6&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">→&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Git Commands</title><link>https://jiyongcheng.dev/post/devops/git/commands/</link><pubDate>Thu, 28 Oct 2021 15:40:40 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/git/commands/</guid><description>&lt;h2 id="git-commands">Git commands&lt;/h2>
+&lt;/div>&lt;h2 id="how-to-put-log-in-stored-procedures">How to put log in stored procedures?&lt;/h2>
+&lt;p>You need to change the config file &lt;code>postgresql.conf&lt;/code> and set &lt;code>log_min_messages = notice&lt;/code>, there are some options you can choose, check the config file.&lt;/p>
+&lt;h2 id="is-not-null-work-with-composite-type-data">IS NOT NULL work with composite type data&lt;/h2>
+&lt;p>If you have a value something that is a composite type, for example a row of a table, something &lt;code>IS NOT NULL&lt;/code> is only true if none of the attributes of the composite are NULL.
+&lt;a href="https://www.postgresonline.com/journal/archives/373-Composite-data-types-why-IS-NOT-NULL-is-not-the-same-as-NOT-IS-NULL.html">check more details here&lt;/a>&lt;/p>
+&lt;h2 id="how-to-save-24hours-time-format">How to save 24hours time format&lt;/h2>
+&lt;p>if you see some error like this &lt;code>Postgresql ERROR: hour &amp;quot;16&amp;quot; is invalid for the 12-hour clock&lt;/code>
+you could do this &lt;code>TO_TIMESTAMP(i_test_date -&amp;gt;&amp;gt; 'created_at', 'YYYY-MM-DD HH24:MI:SS')&lt;/code> to save the time as 24hours format&lt;/p></description></item><item><title>Git Commands</title><link>https://jiyongcheng.dev/post/devops/git/commands/</link><pubDate>Thu, 28 Oct 2021 15:40:40 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/git/commands/</guid><description>&lt;h2 id="git-commands">Git commands&lt;/h2>
 &lt;p>list some commands often being used:&lt;/p>
 &lt;h2 id="delete-branch">Delete branch&lt;/h2>
 &lt;ul>
@@ -207,7 +317,7 @@ server php-fpm:9000&lt;span class="p">;&lt;/span>
 &lt;li>Dependency Rule: each item depends on all the items upstream from its viewpoint&lt;/li>
 &lt;li>Value Rule: moving downstream, each step adds more value to the product&lt;/li>
 &lt;/ul>
-&lt;/blockquote></description></item><item><title>Docker commands</title><link>https://jiyongcheng.dev/post/devops/tool/docker/docker-commands/</link><pubDate>Mon, 11 Oct 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/docker/docker-commands/</guid><description>&lt;h2 id="does-docker-build---no-cache-actually-download-and-refresh-the-base-image">Does Docker build &amp;ndash;no-cache actually download and refresh the base image&lt;/h2>
+&lt;/blockquote></description></item><item><title>Docker commands</title><link>https://jiyongcheng.dev/post/devops/docker/docker-commands/</link><pubDate>Mon, 11 Oct 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/docker/docker-commands/</guid><description>&lt;h2 id="does-docker-build---no-cache-actually-download-and-refresh-the-base-image">Does Docker build &amp;ndash;no-cache actually download and refresh the base image&lt;/h2>
 &lt;p>The &amp;ndash;no-cache option will rebuild the image without using the local cached layers.&lt;/p>
 &lt;p>However, the FROM line will reuse the already pulled base image if it exists on the build host (the from line itself may not be cached, but the image it pulls is).&lt;/p>
 &lt;p>If you want to pull the base image again, you can use the &amp;ndash;pull option to the build command. E.g.&lt;/p>
@@ -247,7 +357,7 @@ server php-fpm:9000&lt;span class="p">;&lt;/span>
 &lt;/div>&lt;p>&lt;code>-P and -n will make the lookup faster&lt;/code>&lt;/p>
 &lt;h2 id="example">Example&lt;/h2>
 &lt;h3 id="list-only-files-that-listen-to-port-80">List only files that listen to port 80&lt;/h3>
-&lt;p>&lt;code>lsof -i:80 -P -n | grep LISTEN&lt;/code>&lt;/p></description></item><item><title>Understanding Git</title><link>https://jiyongcheng.dev/post/devops/tool/git/understanding-git/</link><pubDate>Tue, 28 Sep 2021 15:35:23 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/git/understanding-git/</guid><description>&lt;h2 id="what-does-10064-mean-in-git">What does 10064 mean in Git?&lt;/h2>
+&lt;p>&lt;code>lsof -i:80 -P -n | grep LISTEN&lt;/code>&lt;/p></description></item><item><title>Understanding Git</title><link>https://jiyongcheng.dev/post/devops/git/understanding-git/</link><pubDate>Tue, 28 Sep 2021 15:35:23 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/git/understanding-git/</guid><description>&lt;h2 id="what-does-10064-mean-in-git">What does 10064 mean in Git?&lt;/h2>
 &lt;p>When you do &lt;code>git commit&lt;/code> command, you probably have seen this information&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -308,7 +418,7 @@ Symbolic links and gitlinks have value 0 in this field.
 &lt;p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);&lt;/p>
 &lt;p>directories are 040000 (permissions are ignored),&lt;/p>
 &lt;p>symbolic links 120000.&lt;/p>
-&lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/tool/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
+&lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/devops/jq/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/devops/jq/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>We have a list of &lt;code>IDs&lt;/code> generated into a file &lt;code>F&lt;/code> with this format:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -645,225 +755,4 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;li>&lt;a href="https://github.com/unknwon/the-way-to-go_ZH_CN">https://github.com/unknwon/the-way-to-go_ZH_CN&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Shortcut</title><link>https://jiyongcheng.dev/resource/shortcuts/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/shortcuts/</guid><description>&lt;ul>
-&lt;li>&lt;a href="https://www.shortcutfoo.com/">https://www.shortcutfoo.com/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Software Architecture and Infrastructure</title><link>https://jiyongcheng.dev/resource/architecture-and-infrastructure/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/architecture-and-infrastructure/</guid><description>&lt;h2 id="software-architecture">Software architecture&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://drive.google.com/file/d/1wfF7ZIPtY-TSzF8ZNmSOD5A2-5WVL9vo/view?usp=sharing">Software architecture patterns&lt;/a>&lt;/li>
-&lt;li>search #softwarearchitecture on youtube&lt;/li>
-&lt;li>c4 Model &lt;a href="https://c4model.com/">https://c4model.com/&lt;/a>&lt;/li>
-&lt;li>DDD &lt;a href="https://github.com/heynickc/awesome-ddd">https://github.com/heynickc/awesome-ddd&lt;/a>&lt;/li>
-&lt;li>example about hexagonal architecture.
-&lt;ul>
-&lt;li>&lt;a href="https://www.youtube.com/watch?v=ujb_O6myknY">https://www.youtube.com/watch?v=ujb_O6myknY&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/tedyoung/kid-bank">https://github.com/tedyoung/kid-bank&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.twitch.tv/videos/663668992">https://www.twitch.tv/videos/663668992&lt;/a>&lt;/li>
-&lt;li>related to hexagonal architecture: &lt;a href="https://www.jianshu.com/p/c2a361c2406c">https://www.jianshu.com/p/c2a361c2406c&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>architecture decision record: &lt;a href="https://adr.github.io/">https://adr.github.io/&lt;/a>&lt;/li>
-&lt;li>archunit is a java tool to help enforcing architecture, for php there is one as well &lt;a href="https://github.com/j6s/phparch">https://github.com/j6s/phparch&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://icyfenix.cn/">凤凰架构-构筑可靠的大型分布式系统&lt;/a>&lt;/li>
-&lt;li>explicit architecture &lt;a href="https://github.com/hgraca/explicit-architecture-php">https://github.com/hgraca/explicit-architecture-php&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="system-design">System Design&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance">https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.cloudsavvyit.com/9904/what-is-covariance-and-contravariance-in-programming/">https://www.cloudsavvyit.com/9904/what-is-covariance-and-contravariance-in-programming/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="aws">AWS&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c">https://app.cloudcraft.co/blueprint/23df5228-15cf-4521-bf0b-5e9da066c29c&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://app.cloudcraft.co">Draw AWS diagram&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://expeditedsecurity.com/aws-in-plain-english/">https://expeditedsecurity.com/aws-in-plain-english/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="salt">Salt&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/hbokh/awesome-saltstack">https://github.com/hbokh/awesome-saltstack&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Web development</title><link>https://jiyongcheng.dev/resource/web-development/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/web-development/</guid><description>&lt;h2 id="frontend">Frontend&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jiyongcheng/fks">https://github.com/jiyongcheng/fks&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/grab/front-end-guide">https://github.com/grab/front-end-guide&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="html">HTML&lt;/h2>
-&lt;ul>
-&lt;li>HTML head element explaination &lt;a href="https://github.com/joshbuchea/HEAD">https://github.com/joshbuchea/HEAD&lt;/a>&lt;/li>
-&lt;li>Every element I use for the basic structure of a HTML document &lt;a href="https://www.matuzo.at/blog/html-boilerplate/">https://www.matuzo.at/blog/html-boilerplate/&lt;/a>&lt;/li>
-&lt;li>CORS &lt;a href="https://jakearchibald.com/2021/cors/">https://jakearchibald.com/2021/cors/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="css">CSS&lt;/h2>
-&lt;ul>
-&lt;li>Google learn css course: &lt;a href="https://web.dev/learn/css/">https://web.dev/learn/css/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="icon">Icon&lt;/h2>
-&lt;ul>
-&lt;li>icon free download: &lt;a href="https://iconic.app/">https://iconic.app/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://openmoji.org/">https://openmoji.org/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="jquery">Jquery&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/hayageek/jquery-upload-file">https://github.com/hayageek/jquery-upload-file&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="react">React&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jiyongcheng/react-collection">https://github.com/jiyongcheng/react-collection&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/wellyshen/react-cool-starter">https://github.com/wellyshen/react-cool-starter&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
-&lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
-&lt;ul>
-&lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
-&lt;li>Why isn&amp;rsquo;t every type of object serializable?&lt;/li>
-&lt;/ul>
-&lt;h2 id="the-answer">The answer&lt;/h2>
-&lt;p>After some search, I found some useful information as follows. &lt;a href="https://stackoverflow.com/a/25435734">check this for details&lt;/a>&lt;/p>
-&lt;blockquote>
-&lt;p>A PDO object contains state that cannot be represented in the serialization format. For example, the PDO object contains an open connection to a database server.&lt;/p>
-&lt;/blockquote>
-&lt;p>And I copied the answer from &lt;a href="https://stackoverflow.com/a/1309686">here&lt;/a>:&lt;/p>
-&lt;p>Some objects encapsulate resources like file pointers or network sockets that can&amp;rsquo;t be deserialized to the state they were in when you serialized the object that contained them.&lt;/p>
-&lt;pre>&lt;code>Example: you shouldn't deserialize an object that serves as an authenticated database connection, because to do so, you'd need the serialized form to contain a plaintext password. This would not be a good practice, because someone might get a hold of the saved serialized form. You also have no idea when you deserialize that the database server is still running, can be accessed, the authentication credentials still valid, etc.
-&lt;/code>&lt;/pre>
-&lt;h2 id="why-the-test-written-by-the-author-can-work">Why the test written by the author can work&lt;/h2>
-&lt;p>Test code is here:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">class&lt;/span> &lt;span class="nc">NotSerializable&lt;/span> &lt;span class="k">implements&lt;/span> &lt;span class="nx">Serializable&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">serialize&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="k">throw&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">LogicException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;You cannot serialize or unserialize NotSerializable instances&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">unserialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$serialized&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="k">throw&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">LogicException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;You cannot serialize or unserialize NotSerializable instances&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If you write a test code like this:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="nv">$a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">NotSerializable&lt;/span>&lt;span class="p">();&lt;/span>
-&lt;span class="k">echo&lt;/span> &lt;span class="nx">serialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$a&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>It will throw the error:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="nx">PHP&lt;/span> &lt;span class="nx">Fatal&lt;/span> &lt;span class="nx">error&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">Uncaught&lt;/span> &lt;span class="nx">LogicException&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">You&lt;/span> &lt;span class="nx">cannot&lt;/span> &lt;span class="nx">serialize&lt;/span> &lt;span class="k">or&lt;/span> &lt;span class="nx">unserialize&lt;/span> &lt;span class="nx">NotSerializable&lt;/span> &lt;span class="nx">instances&lt;/span> &lt;span class="nx">in&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">home&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">jdoodle&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="nx">php&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="mi">7&lt;/span>
-&lt;span class="nx">Stack&lt;/span> &lt;span class="nx">trace&lt;/span>&lt;span class="o">:&lt;/span>
-&lt;span class="c1">#0 [internal function]: NotSerializable-&amp;gt;serialize()
-&lt;/span>&lt;span class="c1">#1 /home/jdoodle.php(23): serialize(Object(NotSerializable))
-&lt;/span>&lt;span class="c1">#2 {main}
-&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">thrown&lt;/span> &lt;span class="nx">in&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">home&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">jdoodle&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="nx">php&lt;/span> &lt;span class="nx">on&lt;/span> &lt;span class="nx">line&lt;/span> &lt;span class="mi">7&lt;/span>
-&lt;span class="nx">Command&lt;/span> &lt;span class="nx">exited&lt;/span> &lt;span class="nx">with&lt;/span> &lt;span class="nx">non&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">zero&lt;/span> &lt;span class="nx">status&lt;/span> &lt;span class="mi">255&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="my-understanding">My understanding&lt;/h2>
-&lt;p>Because the &lt;code>serialize()&lt;/code> function should return string or null to represent the object&amp;rsquo;s state, but it throws an Exception which isn&amp;rsquo;t it&amp;rsquo;s state. Thus in this scenario the object of class &lt;code>NotSerializable&lt;/code> is not serializable even though it implements the &lt;code>Serializable&lt;/code> interface.&lt;/p>
-&lt;h1 id="reference">Reference&lt;/h1>
-&lt;p>[^1] &lt;a href="http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html">PHP Serialization, Stack Traces, and Exceptions&lt;/a>&lt;/p></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/programming-language/php/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
-&lt;p>I saw in a PHP class using this method &lt;code>__invoke&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__invoke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorNumber&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorString&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorFile&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorLine&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">bool&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="o">...&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="why-using-this-method">Why using this method?&lt;/h2>
-&lt;p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.&lt;/p>
-&lt;h2 id="how-do-people-use-it">How do people use it?&lt;/h2>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">class&lt;/span> &lt;span class="nc">Invokable&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="sd">/**
-&lt;/span>&lt;span class="sd"> * This method will be called if object will be executed like a function:
-&lt;/span>&lt;span class="sd"> *
-&lt;/span>&lt;span class="sd"> * $invokable();
-&lt;/span>&lt;span class="sd"> *
-&lt;/span>&lt;span class="sd"> * Args will be passed as in regular method call.
-&lt;/span>&lt;span class="sd"> */&lt;/span>
-&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__invoke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$arg&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">$arg&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">...&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="nx">print_r&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">func_get_args&lt;/span>&lt;span class="p">());&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="c1">// Example:
-&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nv">$invokable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Invokable&lt;/span>&lt;span class="p">();&lt;/span>
-&lt;span class="nv">$invokable&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">]);&lt;/span>
-&lt;span class="c1">// optputs:
-&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="k">Array&lt;/span>
-&lt;span class="p">(&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">1&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">2&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">3&lt;/span>
-&lt;span class="p">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

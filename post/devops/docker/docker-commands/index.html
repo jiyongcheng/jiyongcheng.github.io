@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>Understanding Git - What, Why, How</title>
+<title>Docker commands - What, Why, How</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
 <meta name=MobileOptimized content="width">
@@ -14,314 +14,40 @@
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=mobile-web-app-capable content="yes">
 <meta name=author content="Aaron Ji">
-<meta name=description content="What does 10064 mean in Git? When you do git commit command, you probably have seen this information
-1 2  delete mode 100644 layouts/resource/index.html create mode 100644 layouts/resource/section.html   but what does this series of number mean?
-The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
-1 2 3 4 5 6 7 8 9 10  32-bit mode, split into (high to low bits) 4-bit object type valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink) 3-bit unused 9-bit unix permission. Only 0755 and 0644 are valid for regular files. Symbolic links and gitlinks have value 0 in this field.   If the file doesn’t mention directories; they are represented using object type 0100.
-Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
-1 2 3 4 5 6 7  Type|---|Perm bits 1000 000 111101101 1 0 0 7 5 5 1000 000 110100100 1 0 0 6 4 4   Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
-For files,
-you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
-directories are 040000 (permissions are ignored),
-symbolic links 120000.
-The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).
+<meta name=description content="Does Docker build &amp;ndash;no-cache actually download and refresh the base image The &amp;ndash;no-cache option will rebuild the image without using the local cached layers.
 ">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
 <meta name=generator content="Hugo 0.87.0">
-<link rel=canonical href=https://jiyongcheng.dev/post/devops/tool/git/understanding-git/>
+<link rel=canonical href=https://jiyongcheng.dev/post/devops/docker/docker-commands/>
 <link rel=icon href=/favicon.ico>
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
-<meta property="og:title" content="Understanding Git">
-<meta property="og:description" content="What does 10064 mean in Git?
-When you do git commit command, you probably have seen this information
-
-
-1
-2
-
-
- delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-
-
-but what does this series of number mean?
-The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
-
-  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-
-
-If the file doesn’t mention directories; they are represented using object type 0100.
-Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
-
-
-1
-2
-3
-4
-5
-6
-7
-
-
-Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-
-
-Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
-For files,
-you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
-directories are 040000 (permissions are ignored),
-symbolic links 120000.
-The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).">
+<meta property="og:title" content="Docker commands">
+<meta property="og:description" content="Does Docker build &ndash;no-cache actually download and refresh the base image
+The &ndash;no-cache option will rebuild the image without using the local cached layers.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jiyongcheng.dev/post/devops/tool/git/understanding-git/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-09-28T15:35:23+10:00">
-<meta property="article:modified_time" content="2021-09-28T15:35:23+10:00">
-<meta itemprop=name content="Understanding Git">
-<meta itemprop=description content="What does 10064 mean in Git?
-When you do git commit command, you probably have seen this information
-
-
-1
-2
-
-
- delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-
-
-but what does this series of number mean?
-The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
-
-  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-
-
-If the file doesn’t mention directories; they are represented using object type 0100.
-Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
-
-
-1
-2
-3
-4
-5
-6
-7
-
-
-Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-
-
-Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
-For files,
-you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
-directories are 040000 (permissions are ignored),
-symbolic links 120000.
-The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits)."><meta itemprop=datePublished content="2021-09-28T15:35:23+10:00">
-<meta itemprop=dateModified content="2021-09-28T15:35:23+10:00">
-<meta itemprop=wordCount content="274"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
-<meta itemprop=keywords content="git,"><meta name=twitter:card content="summary_large_image">
+<meta property="og:url" content="https://jiyongcheng.dev/post/devops/docker/docker-commands/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-10-11T14:31:07+10:00">
+<meta property="article:modified_time" content="2021-10-11T14:31:07+10:00">
+<meta itemprop=name content="Docker commands">
+<meta itemprop=description content="Does Docker build &ndash;no-cache actually download and refresh the base image
+The &ndash;no-cache option will rebuild the image without using the local cached layers."><meta itemprop=datePublished content="2021-10-11T14:31:07+10:00">
+<meta itemprop=dateModified content="2021-10-11T14:31:07+10:00">
+<meta itemprop=wordCount content="87"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=keywords content="docker,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
-<meta name=twitter:title content="Understanding Git">
-<meta name=twitter:description content="What does 10064 mean in Git?
-When you do git commit command, you probably have seen this information
-
-
-1
-2
-
-
- delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-
-
-but what does this series of number mean?
-The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
-
-  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-
-
-If the file doesn’t mention directories; they are represented using object type 0100.
-Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
-
-
-1
-2
-3
-4
-5
-6
-7
-
-
-Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-
-
-Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
-For files,
-you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
-directories are 040000 (permissions are ignored),
-symbolic links 120000.
-The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits)."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:title content="Docker commands">
+<meta name=twitter:description content="Does Docker build &ndash;no-cache actually download and refresh the base image
+The &ndash;no-cache option will rebuild the image without using the local cached layers."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="Understanding Git">
-<meta property="og:description" content="What does 10064 mean in Git?
-When you do git commit command, you probably have seen this information
-
-
-1
-2
-
-
- delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-
-
-but what does this series of number mean?
-The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-
-
-  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-
-
-If the file doesn’t mention directories; they are represented using object type 0100.
-Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
-
-
-1
-2
-3
-4
-5
-6
-7
-
-
-Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-
-
-Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
-For files,
-you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
-directories are 040000 (permissions are ignored),
-symbolic links 120000.
-The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).">
+<meta property="og:title" content="Docker commands">
+<meta property="og:description" content="Does Docker build &ndash;no-cache actually download and refresh the base image
+The &ndash;no-cache option will rebuild the image without using the local cached layers.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jiyongcheng.dev/post/devops/tool/git/understanding-git/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-09-28T15:35:23+10:00">
-<meta property="article:modified_time" content="2021-09-28T15:35:23+10:00">
+<meta property="og:url" content="https://jiyongcheng.dev/post/devops/docker/docker-commands/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-10-11T14:31:07+10:00">
+<meta property="article:modified_time" content="2021-10-11T14:31:07+10:00">
 </head>
 <body>
 <div id=mobile-navbar class=mobile-navbar>
@@ -443,16 +169,16 @@ What, Why, How
 <div id=content class="content container">
 <article class="post bg-white">
 <header class=post-header>
-<h1 class=post-title>Understanding Git</h1>
+<h1 class=post-title>Docker commands</h1>
 <div class=post-meta>
-<time datetime=2021-09-28 class=post-time>
-2021-09-28
+<time datetime=2021-10-11 class=post-time>
+2021-10-11
 </time>
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
 </div>
-<span class=more-meta> 274 words </span>
-<span class=more-meta> 2 min read </span>
+<span class=more-meta> 87 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
@@ -460,80 +186,18 @@ What, Why, How
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#what-does-10064-mean-in-git>What does 10064 mean in Git?</a></li>
+<li><a href=#does-docker-build---no-cache-actually-download-and-refresh-the-base-image>Does Docker build &ndash;no-cache actually download and refresh the base image</a></li>
 </ul>
 </nav>
 </div>
 </div>
 <div class=post-content>
-<h2 id=what-does-10064-mean-in-git>What does 10064 mean in Git?</h2>
-<p>When you do <code>git commit</code> command, you probably have seen this information</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-</code></pre></td></tr></table>
-</div>
-</div><p>but what does this series of number mean?</p>
-<p>The values shown are the 16-bit file modes as stored by Git, you can <a href=https://github.com/git/git/blob/master/Documentation/technical/index-format.txt>check here</a> to know more:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-</code></pre></td></tr></table>
-</div>
-</div><p>If the file doesn’t mention directories; they are represented using object type 0100.</p>
-<p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-</code></pre></td></tr></table>
-</div>
-</div><p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.</p>
-<p>For files,</p>
-<p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);</p>
-<p>directories are 040000 (permissions are ignored),</p>
-<p>symbolic links 120000.</p>
-<p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).</p>
+<h2 id=does-docker-build---no-cache-actually-download-and-refresh-the-base-image>Does Docker build &ndash;no-cache actually download and refresh the base image</h2>
+<p>The &ndash;no-cache option will rebuild the image without using the local cached layers.</p>
+<p>However, the FROM line will reuse the already pulled base image if it exists on the build host (the from line itself may not be cached, but the image it pulls is).</p>
+<p>If you want to pull the base image again, you can use the &ndash;pull option to the build command. E.g.</p>
+<p><code>docker build --no-cache --pull -t new-image-name:latest .</code></p>
+<p><a href=https://stackoverflow.com/questions/52664744/does-docker-build-no-cache-actually-download-and-refresh-the-base-image#52666415>check more from here</a></p>
 </div>
 <div class=addthis_inline_share_toolbox_taj0></div>
 <div class=post-copyright>
@@ -544,7 +208,7 @@ What, Why, How
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-09-28
+2021-10-11
 </span>
 </p>
 <p class=copyright-item>
@@ -564,17 +228,17 @@ What, Why, How
 </div>
 <footer class=post-footer>
 <div class=post-tags>
-<a href=https://jiyongcheng.dev/tags/git/>git</a>
+<a href=https://jiyongcheng.dev/tags/docker/>docker</a>
 </div>
 <nav class=post-nav>
-<a class=prev href=/post/devops/linux/check-port-being-used/>
+<a class=prev href=/post/system-design/upstream-downstream/>
 <i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
 </i>
-<span class="prev-text nav-default">Check Port Being Used</span>
+<span class="prev-text nav-default">Upstream and Downstream</span>
 <span class="prev-text nav-mobile">Prev</span>
 </a>
-<a class=next href=/post/devops/tool/jq/create-array-with-object-from-list/>
-<span class="next-text nav-default">Create Array With Object From List using jq</span>
+<a class=next href=/post/devops/linux/check-port-being-used/>
+<span class="next-text nav-default">Check Port Being Used</span>
 <span class="prev-text nav-mobile">Next</span>
 <i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
 </i>

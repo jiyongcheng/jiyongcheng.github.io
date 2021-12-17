@@ -160,186 +160,113 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/devops/tool/git/understanding-git/>Understanding Git</a>
+<a class=post-link href=/post/devops/git/commands/>Git Commands</a>
 </h1>
 <div class=post-meta>
-<time datetime=2021-09-28 class=post-time>
-2021-09-28
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
 </time>
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
 </div>
-<span class=more-meta> 274 words </span>
-<span class=more-meta> 2 min read </span>
+<span class=more-meta> 123 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<h2 id=what-does-10064-mean-in-git>What does 10064 mean in Git?</h2>
-<p>When you do <code>git commit</code> command, you probably have seen this information</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-</code></pre></td></tr></table>
-</div>
-</div><p>but what does this series of number mean?</p>
-<p>The values shown are the 16-bit file modes as stored by Git, you can <a href=https://github.com/git/git/blob/master/Documentation/technical/index-format.txt>check here</a> to know more:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-</code></pre></td></tr></table>
-</div>
-</div><p>If the file doesn’t mention directories; they are represented using object type 0100.</p>
-<p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-</code></pre></td></tr></table>
-</div>
-</div><p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.</p>
-<p>For files,</p>
-<p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);</p>
-<p>directories are 040000 (permissions are ignored),</p>
-<p>symbolic links 120000.</p>
-<p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).</p>
+<h2 id=git-commands>Git commands</h2>
+<p>list some commands often being used:</p>
 </div>
 <div class=read-more>
-<a href=/post/devops/tool/git/understanding-git/ class=read-more-link>Read more</a>
+<a href=/post/devops/git/commands/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/devops/tool/jq/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
+<a class=post-link href=/post/db/convert-sqlite-to-mysql/>Convert Sqlite to Mysql</a>
 </h1>
 <div class=post-meta>
-<time datetime=2021-09-22 class=post-time>
-2021-09-22
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+<a href=https://jiyongcheng.dev/categories/db/> DB </a>
 </div>
-<span class=more-meta> 728 words </span>
-<span class=more-meta> 2 min read </span>
+<span class=more-meta> 119 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<h2 id=problem>Problem</h2>
-<p>We have a list of <code>IDs</code> generated into a file <code>F</code> with this format:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>2f9921bc-a4c9-419a-b069-f8f23c7727f7
-26bf5cc3-73de-425e-9a6b-b70223387314
-30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
-</code></pre></td></tr></table>
-</div>
-</div><p>We want to generate a <code>JSON</code> object from the <code>IDs</code> with this structure:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
-        <span class=p>{</span>
-            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
-        <span class=p>}</span>
-    <span class=p>],</span>
-    <span class=nt>&#34;organisation_id&#34;</span><span class=p>:</span> <span class=mi>123</span><span class=p>,</span>
-    <span class=nt>&#34;user-type&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
-</div>
-<div class=read-more>
-<a href=/post/devops/tool/jq/create-array-with-object-from-list/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/programming-language/php/not-all-objects-serializable/>Not All Objects Serializable</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/programming-language/> Programming Language </a>
-</div>
-<span class=more-meta> 354 words </span>
-<span class=more-meta> 2 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=the-question-i-have>The question I have</h2>
-<p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
+<h2 id=is-it-possible-to-convert-sqlite-to-mysql-as-is>Is it possible to convert SQLite to MySQL &ldquo;as is&rdquo;?</h2>
+<p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:</p>
 <ul>
-<li>Why PDO isn&rsquo;t serializable?</li>
-<li>Why isn&rsquo;t every type of object serializable?</li>
+<li>Export SQLite database to dump file using SQLite .dump command.</li>
 </ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sqlite3 sample.db .dump &gt; dump.sql
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>You can then (in theory) import SQLite dump into the MySQL database.</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mysql -p -u root -h 127.0.0.1 <span class=nb>test</span> &lt; dump.sql
+</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class=read-more>
-<a href=/post/programming-language/php/not-all-objects-serializable/ class=read-more-link>Read more</a>
+<a href=/post/db/convert-sqlite-to-mysql/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/system-design/upstream-downstream/>Upstream and Downstream</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/system-design/> system-design </a>
+</div>
+<span class=more-meta> 161 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In the <code>LNMP</code> development process, we often configure the nginx, and we will set similar like this</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>upstream php-fpm <span class=o>{</span>
+    server php-fpm:9000<span class=p>;</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>and I want to know what does <code>upstream</code> here mean.</p>
+</div>
+<div class=read-more>
+<a href=/post/system-design/upstream-downstream/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
@@ -357,6 +284,12 @@ What, Why, How
 </li>
 <li>
 <a href=/page/4/>4</a>
+</li>
+<li>
+<a href=/page/5/>5</a>
+</li>
+<li>
+<a href=/page/6/>6</a>
 </li>
 </ul>
 </nav>
