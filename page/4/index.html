@@ -160,6 +160,44 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/system-design/upstream-downstream/>Upstream and Downstream</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/system-design/> system-design </a>
+</div>
+<span class=more-meta> 161 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In the <code>LNMP</code> development process, we often configure the nginx, and we will set similar like this</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>upstream php-fpm <span class=o>{</span>
+    server php-fpm:9000<span class=p>;</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>and I want to know what does <code>upstream</code> here mean.</p>
+</div>
+<div class=read-more>
+<a href=/post/system-design/upstream-downstream/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/devops/docker/docker-commands/>Docker commands</a>
 </h1>
 <div class=post-meta>
@@ -205,98 +243,6 @@ What, Why, How
 </div>
 <div class=read-more>
 <a href=/post/devops/linux/check-port-being-used/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/devops/git/understanding-git/>Understanding Git</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-09-28 class=post-time>
-2021-09-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
-</div>
-<span class=more-meta> 274 words </span>
-<span class=more-meta> 2 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=what-does-10064-mean-in-git>What does 10064 mean in Git?</h2>
-<p>When you do <code>git commit</code> command, you probably have seen this information</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> delete mode 100644 layouts/resource/index.html
- create mode 100644 layouts/resource/section.html
-</code></pre></td></tr></table>
-</div>
-</div><p>but what does this series of number mean?</p>
-<p>The values shown are the 16-bit file modes as stored by Git, you can <a href=https://github.com/git/git/blob/master/Documentation/technical/index-format.txt>check here</a> to know more:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  32-bit mode, split into (high to low bits)
-
-    4-bit object type
-      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
-    
-    3-bit unused
-
-    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
-    
-    Symbolic links and gitlinks have value 0 in this field.
-</code></pre></td></tr></table>
-</div>
-</div><p>If the file doesn’t mention directories; they are represented using object type 0100.</p>
-<p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Type|---|Perm bits
-
-1000 000 111101101
-1 0   0   7  5  5
-
-1000 000 110100100
-1 0   0   6  4  4
-</code></pre></td></tr></table>
-</div>
-</div><p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.</p>
-<p>For files,</p>
-<p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);</p>
-<p>directories are 040000 (permissions are ignored),</p>
-<p>symbolic links 120000.</p>
-<p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).</p>
-</div>
-<div class=read-more>
-<a href=/post/devops/git/understanding-git/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
@@ -349,7 +295,8 @@ Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane
 </span>
 <span class=copyright-year>
 &copy;
-2021
+2021 -
+2022
 <span class=heart>
 <i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
 </i>

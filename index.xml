@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 17 Dec 2021 16:18:49 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Mysql</title><link>https://jiyongcheng.dev/post/devops/docker/mysql/</link><pubDate>Fri, 17 Dec 2021 16:18:49 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/docker/mysql/</guid><description>&lt;p>docker-compose for mysql&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 07 Oct 2022 08:45:02 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sublime</title><link>https://jiyongcheng.dev/post/sublime/</link><pubDate>Fri, 07 Oct 2022 08:45:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/sublime/</guid><description>&lt;h1 id="column-selection">Column selection&lt;/h1>
+&lt;p>Column selection can be used to select a rectangular area of a file.&lt;/p>
+&lt;h2 id="mac">Mac&lt;/h2>
+&lt;h3 id="using-mouse">Using mouse&lt;/h3>
+&lt;pre>&lt;code>Left Mouse Button + ⌥
+OR: Middle Mouse Button
+Add to selection: ⌘
+Subtract from selection: ⇧+⌘
+&lt;/code>&lt;/pre>
+&lt;h3 id="using-keyboard">Using keyboard&lt;/h3>
+&lt;pre>&lt;code>Ctrl+Shift+⬆
+Ctrl+Shift+⬇
+&lt;/code>&lt;/pre></description></item><item><title>Docker Mysql</title><link>https://jiyongcheng.dev/post/devops/docker/mysql/</link><pubDate>Fri, 17 Dec 2021 16:18:49 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/docker/mysql/</guid><description>&lt;p>docker-compose for mysql&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -26,7 +38,7 @@ MYSQL_ROOT_PASSWORD: root
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this &lt;code>33069&lt;/code>.&lt;/p>
-&lt;p>Tnd then use the following parameters to connect the server.&lt;/p>
+&lt;p>then use the following parameters to connect the server.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -41,7 +53,14 @@ password:root
 port:33069
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Nginx knowledge</title><link>https://jiyongcheng.dev/post/devops/nginx/</link><pubDate>Fri, 17 Dec 2021 14:21:19 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/nginx/</guid><description>&lt;p>Some knowledge or questions related to NGINX&lt;/p>
+&lt;/div>&lt;h2 id="--initialize-specified-but-the-data-directory-has-files-in-it-aborting">&amp;ndash;initialize specified but the data directory has files in it. Aborting.&lt;/h2>
+&lt;p>When I run the docker mysql on my local, I got this issue.&lt;/p>
+&lt;p>How to solve it:&lt;/p>
+&lt;ul>
+&lt;li>First I changed the volumes name, but it didn&amp;rsquo;t solve it.&lt;/li>
+&lt;li>Then I run this command &lt;code>docker system prune --volumes&lt;/code>
+and run the &lt;code>docker compose up -d&lt;/code> again, it works.&lt;/li>
+&lt;/ul></description></item><item><title>Nginx knowledge</title><link>https://jiyongcheng.dev/post/devops/nginx/</link><pubDate>Fri, 17 Dec 2021 14:21:19 +1100</pubDate><guid>https://jiyongcheng.dev/post/devops/nginx/</guid><description>&lt;p>Some knowledge or questions related to NGINX&lt;/p>
 &lt;h2 id="understanding-nginx-server-and-location-block-selection-algorithms">Understanding Nginx Server and Location Block Selection Algorithms&lt;/h2>
 &lt;p>&lt;a href="https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms">checkout this article&lt;/a>&lt;/p>
 &lt;ul>
@@ -94,7 +113,17 @@ fastcgi_param SCRIPT_FILENAME
 &lt;p>Usually PHP &lt;code>notice&lt;/code> error will be turned off in production while leave it in development environment.
 If the &lt;code>notice&lt;/code> is turned on in the dev environment, even though it&amp;rsquo;s a notice for php, it will still show to developer, so the developer can fix it.
 in production, if it&amp;rsquo;s truned off, the logic might get passed through the &lt;code>notice&lt;/code> and go to further, then will probably show different error with local dev environment.&lt;/p>
-&lt;p>So sometimes, turn off the &lt;code>notice&lt;/code> error_reporting level is a good way to understand the production issue.&lt;/p></description></item><item><title>General</title><link>https://jiyongcheng.dev/post/programming-language/general/</link><pubDate>Wed, 08 Dec 2021 17:30:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/programming-language/general/</guid><description>&lt;p>For the general programming knowledge.&lt;/p>
+&lt;p>So sometimes, turn off the &lt;code>notice&lt;/code> error_reporting level is a good way to understand the production issue.&lt;/p>
+&lt;h2 id="composerlock-file">composer.lock file&lt;/h2>
+&lt;p>Committing the composer.lock file into version control is generally good practice for projects.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>It allows continuation testing tools (such as Travis CI) to run the tests against the exact same versions of libraries that you&amp;rsquo;re developing against.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>It also allows all people who are working on the project to use the exact same version of libraries&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>General</title><link>https://jiyongcheng.dev/post/programming-language/general/</link><pubDate>Wed, 08 Dec 2021 17:30:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/programming-language/general/</guid><description>&lt;p>For the general programming knowledge.&lt;/p>
 &lt;h2 id="off-by-one-溢出">Off-By-One [溢出]&lt;/h2>
 &lt;ul>
 &lt;li>严格来说，off-by-one是一种特殊的溢出漏洞，off-by-one指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。&lt;/li>
@@ -715,44 +744,4 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;h2 id="math">Math&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://mathlets.org/mathlets/">https://mathlets.org/mathlets/&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Programming language</title><link>https://jiyongcheng.dev/resource/programming-language/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/programming-language/</guid><description>&lt;h2 id="tools-for-programming-languages">Tools for programming languages&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://programming-idioms.org/about#about-block-all-idioms">https://programming-idioms.org/about#about-block-all-idioms&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="java">Java&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://programmingbydoing.com/">https://programmingbydoing.com/&lt;/a>&lt;/li>
-&lt;li>java-a-beginners-guide-eighth-edition: &lt;a href="https://pdfroom.com/books/java-a-beginners-guide-eighth-edition/PXn2GJrKgxV">https://pdfroom.com/books/java-a-beginners-guide-eighth-edition/PXn2GJrKgxV&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="python">Python&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://realpython.com/">https://realpython.com/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://au1lib.org/book/5973705/f707f1?id=5973705&amp;amp;secret=f707f1">https://au1lib.org/book/5973705/f707f1?id=5973705&amp;amp;secret=f707f1&lt;/a> books for download&lt;/li>
-&lt;li>free books :https://github.com/pamoroso/free-python-books&lt;/li>
-&lt;/ul>
-&lt;h2 id="php">PHP&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/jiyongcheng/awesome-php">https://github.com/jiyongcheng/awesome-php&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/codeguy/php-the-right-way">https://github.com/codeguy/php-the-right-way&lt;/a>&lt;/li>
-&lt;li>Design pattern &lt;a href="https://github.com/DesignPatternsPHP/DesignPatternsPHP">https://github.com/DesignPatternsPHP/DesignPatternsPHP&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/PatrickLouys/professional-php-sample-code">https://github.com/PatrickLouys/professional-php-sample-code&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="framework">Framework&lt;/h3>
-&lt;ul>
-&lt;li>Simovative PRG-HTTP-Framework &lt;a href="https://github.com/Simovative/zeus">https://github.com/Simovative/zeus&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/microinginer/yii2-dropdown-action-column">https://github.com/microinginer/yii2-dropdown-action-column&lt;/a>&lt;/li>
-&lt;li>Symfony 4 &lt;a href="https://github.com/eko/docker-symfony">https://github.com/eko/docker-symfony&lt;/a>&lt;/li>
-&lt;li>Magento 1.9 &lt;a href="https://github.com/andreaskoch/dockerized-magento">https://github.com/andreaskoch/dockerized-magento&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="javascript">Javascript&lt;/h2>
-&lt;ul>
-&lt;li>Javascript &lt;a href="https://masteringjs.io/fundamentals">https://masteringjs.io/fundamentals&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="golang">GoLang&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/unknwon/the-way-to-go_ZH_CN">https://github.com/unknwon/the-way-to-go_ZH_CN&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
 &lt;/ul></description></item></channel></rss>

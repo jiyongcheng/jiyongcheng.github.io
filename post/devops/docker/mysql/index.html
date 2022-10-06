@@ -16,7 +16,7 @@
 <meta name=author content="Aaron Ji">
 <meta name=description content="docker-compose for mysql
 1 2 3 4 5 6 7 8 9 10  mysql: image: mysql command: --default-authentication-plugin=mysql_native_password restart: always volumes: - ./.data/db:/var/lib/mysql ports: - 33069:3306 environment: MYSQL_ROOT_PASSWORD: root   If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this 33069.
-Tnd then use the following parameters to connect the server.
+then use the following parameters to connect the server.
 ">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
 <meta name=generator content="Hugo 0.87.0">
@@ -52,7 +52,7 @@ Tnd then use the following parameters to connect the server.
 
 
 If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this 33069.
-Tnd then use the following parameters to connect the server.">
+then use the following parameters to connect the server.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/devops/docker/mysql/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-12-17T16:18:49+11:00">
@@ -86,9 +86,9 @@ Tnd then use the following parameters to connect the server.">
 
 
 If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this 33069.
-Tnd then use the following parameters to connect the server."><meta itemprop=datePublished content="2021-12-17T16:18:49+11:00">
+then use the following parameters to connect the server."><meta itemprop=datePublished content="2021-12-17T16:18:49+11:00">
 <meta itemprop=dateModified content="2021-12-17T16:18:49+11:00">
-<meta itemprop=wordCount content="70"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=wordCount content="127"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta itemprop=keywords content="Docker mysql,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta name=twitter:title content="Docker Mysql">
@@ -120,7 +120,7 @@ Tnd then use the following parameters to connect the server."><meta itemprop=dat
 
 
 If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this 33069.
-Tnd then use the following parameters to connect the server."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+then use the following parameters to connect the server."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
@@ -153,7 +153,7 @@ Tnd then use the following parameters to connect the server."><!--[if lte IE 9]>
 
 
 If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this 33069.
-Tnd then use the following parameters to connect the server.">
+then use the following parameters to connect the server.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/devops/docker/mysql/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-12-17T16:18:49+11:00">
@@ -287,14 +287,18 @@ What, Why, How
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
 </div>
-<span class=more-meta> 70 words </span>
+<span class=more-meta> 127 words </span>
 <span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
 <h2 class=post-toc-title>Table of Contents</h2>
 <div class=post-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#--initialize-specified-but-the-data-directory-has-files-in-it-aborting>&ndash;initialize specified but the data directory has files in it. Aborting.</a></li>
+</ul>
+</nav>
 </div>
 </div>
 <div class=post-content>
@@ -326,7 +330,7 @@ What, Why, How
 </code></pre></td></tr></table>
 </div>
 </div><p>If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this <code>33069</code>.</p>
-<p>Tnd then use the following parameters to connect the server.</p>
+<p>then use the following parameters to connect the server.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -341,7 +345,14 @@ password:root
 port:33069
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><h2 id=--initialize-specified-but-the-data-directory-has-files-in-it-aborting>&ndash;initialize specified but the data directory has files in it. Aborting.</h2>
+<p>When I run the docker mysql on my local, I got this issue.</p>
+<p>How to solve it:</p>
+<ul>
+<li>First I changed the volumes name, but it didn&rsquo;t solve it.</li>
+<li>Then I run this command <code>docker system prune --volumes</code>
+and run the <code>docker compose up -d</code> again, it works.</li>
+</ul>
 </div>
 <div class=addthis_inline_share_toolbox_taj0></div>
 <div class=post-copyright>
@@ -375,6 +386,12 @@ port:33069
 <a href=https://jiyongcheng.dev/tags/docker-mysql/>Docker mysql</a>
 </div>
 <nav class=post-nav>
+<a class=prev href=/post/sublime/>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
+</i>
+<span class="prev-text nav-default">Sublime</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
 <a class=next href=/post/devops/nginx/>
 <span class="next-text nav-default">Nginx knowledge</span>
 <span class="prev-text nav-mobile">Next</span>
@@ -410,7 +427,8 @@ Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane
 </span>
 <span class=copyright-year>
 &copy;
-2021
+2021 -
+2022
 <span class=heart>
 <i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
 </i>

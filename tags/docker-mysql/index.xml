@@ -26,4 +26,4 @@ MYSQL_ROOT_PASSWORD: root
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this &lt;code>33069&lt;/code>.&lt;/p>
-&lt;p>Tnd then use the following parameters to connect the server.&lt;/p></description></item></channel></rss>
+&lt;p>then use the following parameters to connect the server.&lt;/p></description></item></channel></rss>
