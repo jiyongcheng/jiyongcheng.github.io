@@ -1,4 +1,1772 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 07 Oct 2022 08:45:02 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Sublime</title><link>https://jiyongcheng.dev/post/sublime/</link><pubDate>Fri, 07 Oct 2022 08:45:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/sublime/</guid><description>&lt;h1 id="column-selection">Column selection&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 07 Oct 2022 08:45:02 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Bash</title><link>https://jiyongcheng.dev/post/bash/</link><pubDate>Fri, 07 Oct 2022 08:45:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/bash/</guid><description>&lt;h1 id="bash-备忘清单">Bash 备忘清单&lt;/h1>
+&lt;p>这是开始使用 linux bash shell 脚本的快速参考备忘单。&lt;/p>
+&lt;h2 id="入门">入门&lt;/h2>
+&lt;h3 id="hellosh">hello.sh&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;span class="cp">&lt;/span>&lt;span class="nv">VAR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;world&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Hello &lt;/span>&lt;span class="nv">$VAR&lt;/span>&lt;span class="s2">!&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; Hello world!&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>执行脚本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">$ bash hello.sh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="变量">变量&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">NAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;John&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">NAME&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; John (变量)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$NAME&lt;/span> &lt;span class="c1"># =&amp;gt; John (变量)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$NAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; John (变量)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;$NAME&amp;#39;&lt;/span> &lt;span class="c1"># =&amp;gt; $NAME (确切的字符串)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">NAME&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">!&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; John! (变量)&lt;/span>
+&lt;span class="nv">NAME&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;John&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; Error (关于空间)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="注释">注释&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="c1"># 这是一个内联 Bash 注释。&lt;/span>
+: &lt;span class="s1">&amp;#39;
+&lt;/span>&lt;span class="s1">这是一个
+&lt;/span>&lt;span class="s1">非常整洁的评论
+&lt;/span>&lt;span class="s1">在 bash
+&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>多行注释使用 &lt;code>:'&lt;/code> 打开和 &lt;code>'&lt;/code> 关闭&lt;/p>
+&lt;h3 id="参数">参数&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表示&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$1&lt;/code> … &lt;code>$9&lt;/code>&lt;/td>
+&lt;td>参数 1 &amp;hellip; 9&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$0&lt;/code>&lt;/td>
+&lt;td>脚本本身的名称&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$1&lt;/code>&lt;/td>
+&lt;td>第一个论点&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${10}&lt;/code>&lt;/td>
+&lt;td>位置参数 10&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$#&lt;/code>&lt;/td>
+&lt;td>参数数量&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$$&lt;/code>&lt;/td>
+&lt;td>shell 的进程 id&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$*&lt;/code>&lt;/td>
+&lt;td>所有论据&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$@&lt;/code>&lt;/td>
+&lt;td>所有参数，从第一个开始&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$-&lt;/code>&lt;/td>
+&lt;td>当前选项&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$_&lt;/code>&lt;/td>
+&lt;td>上一个命令的最后一个参数&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>见：&lt;a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">特殊参数&lt;/a>&lt;/p>
+&lt;h3 id="函数">函数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">get_name&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;John&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;You are &lt;/span>&lt;span class="k">$(&lt;/span>get_name&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>见：&lt;a href="#bash-%E5%87%BD%E6%95%B0">函数&lt;/a>&lt;/p>
+&lt;h3 id="条件句">条件句&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$string&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;String is empty&amp;#34;&lt;/span>
+&lt;span class="k">elif&lt;/span> &lt;span class="o">[[&lt;/span> -n &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$string&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;String is not empty&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>见：&lt;a href="#bash-%E6%9D%A1%E4%BB%B6%E5%8F%A5">条件句&lt;/a>&lt;/p>
+&lt;h3 id="大括号扩展">大括号扩展&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="nb">echo&lt;/span> &lt;span class="o">{&lt;/span>A,B&lt;span class="o">}&lt;/span>.js
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表示&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>{A,B}&lt;/code>&lt;/td>
+&lt;td>与 &lt;code>A B&lt;/code> 相同&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>{A,B}.js&lt;/code>&lt;/td>
+&lt;td>与 &lt;code>A.js B.js&lt;/code> 相同&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>{1..5}&lt;/code>&lt;/td>
+&lt;td>与 &lt;code>1 2 3 4 5&lt;/code> 相同&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>见：&lt;a href="http://wiki.bash-hackers.org/syntax/expansion/brace">大括号扩展&lt;/a>&lt;/p>
+&lt;h3 id="shell-执行">Shell 执行&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># =&amp;gt; I&amp;#39;m in /当前/的/路径&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;I&amp;#39;m in &lt;/span>&lt;span class="k">$(&lt;/span>PWD&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="c1"># Same as:&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;I&amp;#39;m in `pwd`&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>见：&lt;a href="http://wiki.bash-hackers.org/syntax/expansion/cmdsubst">命令替换&lt;/a>&lt;/p>
+&lt;h2 id="bash-参数扩展">Bash 参数扩展&lt;/h2>
+&lt;h3 id="语法">语法&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">代码&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO%suffix}&lt;/code>&lt;/td>
+&lt;td>删除后缀&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO#prefix}&lt;/code>&lt;/td>
+&lt;td>删除前缀&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO%%suffix}&lt;/code>&lt;/td>
+&lt;td>去掉长后缀&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO##prefix}&lt;/code>&lt;/td>
+&lt;td>删除长前缀&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO/from/to}&lt;/code>&lt;/td>
+&lt;td>替换第一个匹配项&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO//from/to}&lt;/code>&lt;/td>
+&lt;td>全部替换&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO/%from/to}&lt;/code>&lt;/td>
+&lt;td>替换后缀&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO/#from/to}&lt;/code>&lt;/td>
+&lt;td>替换前缀&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="子字符串">子字符串&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表示&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:0:3}&lt;/code>&lt;/td>
+&lt;td>子串 &lt;em>(位置，长度)&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:(-3):3}&lt;/code>&lt;/td>
+&lt;td>从右边开始的子串&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="length">Length&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表示&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${#FOO}&lt;/code>&lt;/td>
+&lt;td>&lt;code>$FOO&lt;/code> 的长度&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="默认值">默认值&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表示&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:-val}&lt;/code>&lt;/td>
+&lt;td>&lt;code>$FOO&lt;/code>，如果未设置，则为 &lt;code>val&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:=val}&lt;/code>&lt;/td>
+&lt;td>如果未设置，则将 &lt;code>$FOO&lt;/code> 设置为 &lt;code>val&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:+val}&lt;/code>&lt;/td>
+&lt;td>&lt;code>val&lt;/code> 如果设置了&lt;code>$FOO&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${FOO:?message}&lt;/code>&lt;/td>
+&lt;td>如果 &lt;code>$FOO&lt;/code> 未设置，则显示消息并退出&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="替代-substitution">替代 Substitution&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">food&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">Cake&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1">#=&amp;gt; $food or &amp;#34;Cake&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">STR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/path/to/foo.cpp&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">%.cpp&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># /path/to/foo&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">%.cpp&lt;/span>&lt;span class="si">}&lt;/span>.o &lt;span class="c1"># /path/to/foo.o&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">%/*&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># /path/to&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">##*.&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># cpp (extension)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">##*/&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># foo.cpp (basepath)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">#*/&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># path/to/foo.cpp&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">##*/&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># foo.cpp&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">/foo/bar&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># /path/to/bar.cpp&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="切片-slicing">切片 Slicing&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;John&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; John&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nv">0&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; Jo&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">::&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; Jo&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">1&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; Joh&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:(-1)&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; n&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:(-2)&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; hn&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:(-2):&lt;/span>&lt;span class="nv">2&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; hn&lt;/span>
+&lt;span class="nv">length&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nv">0&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nv">length&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; Jo&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>见：&lt;a href="http://wiki.bash-hackers.org/syntax/pe">参数扩展&lt;/a>&lt;/p>
+&lt;h3 id="基本路径和目录路径">基本路径和目录路径&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">SRC&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/path/to/foo.cpp&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">BASEPATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">SRC&lt;/span>&lt;span class="p">##*/&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$BASEPATH&lt;/span> &lt;span class="c1"># =&amp;gt; &amp;#34;foo.cpp&amp;#34;&lt;/span>
+&lt;span class="nv">DIRPATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">SRC&lt;/span>&lt;span class="p">%&lt;/span>&lt;span class="nv">$BASEPATH&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$DIRPATH&lt;/span> &lt;span class="c1"># =&amp;gt; &amp;#34;/path/to/&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="transform">Transform&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">STR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;HELLO WORLD!&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; hELLO WORLD!&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">,,&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; hello world!&lt;/span>
+&lt;span class="nv">STR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;hello world!&amp;#34;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">^&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; Hello world!&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">STR&lt;/span>&lt;span class="p">^^&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># =&amp;gt; HELLO WORLD!&lt;/span>
+&lt;span class="nv">ARR&lt;/span>&lt;span class="o">=(&lt;/span>hello World&lt;span class="o">)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ARR&lt;/span>&lt;span class="p">[@],&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; hello world&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ARR&lt;/span>&lt;span class="p">[@]^&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># =&amp;gt; Hello World&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-数组">Bash 数组&lt;/h2>
+&lt;h3 id="定义数组">定义数组&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s1">&amp;#39;Apple&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Banana&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Orange&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+Fruits&lt;span class="o">[&lt;/span>0&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;Apple&amp;#34;&lt;/span>
+Fruits&lt;span class="o">[&lt;/span>1&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;Banana&amp;#34;&lt;/span>
+Fruits&lt;span class="o">[&lt;/span>2&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;Orange&amp;#34;&lt;/span>
+&lt;span class="nv">ARRAY1&lt;/span>&lt;span class="o">=(&lt;/span>foo&lt;span class="o">{&lt;/span>1..2&lt;span class="o">})&lt;/span> &lt;span class="c1"># =&amp;gt; foo1 foo2&lt;/span>
+&lt;span class="nv">ARRAY2&lt;/span>&lt;span class="o">=({&lt;/span>A..D&lt;span class="o">})&lt;/span> &lt;span class="c1"># =&amp;gt; A B C D&lt;/span>
+&lt;span class="c1"># 合并 =&amp;gt; foo1 foo2 A B C D&lt;/span>
+&lt;span class="nv">ARRAY3&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ARRAY1&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">ARRAY2&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;span class="c1"># 声明构造&lt;/span>
+&lt;span class="nb">declare&lt;/span> -a &lt;span class="nv">Numbers&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="m">2&lt;/span> 3&lt;span class="o">)&lt;/span>
+&lt;span class="nv">Numbers&lt;/span>&lt;span class="o">+=(&lt;/span>&lt;span class="m">4&lt;/span> 5&lt;span class="o">)&lt;/span> &lt;span class="c1"># 附加 =&amp;gt; 1 2 3 4 5&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="索引">索引&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">:-&lt;/th>
+&lt;th>-&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${Fruits[0]}&lt;/code>&lt;/td>
+&lt;td>第一个元素&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${Fruits[-1]}&lt;/code>&lt;/td>
+&lt;td>最后一个元素&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${Fruits[*]}&lt;/code>&lt;/td>
+&lt;td>所有元素&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${Fruits[@]}&lt;/code>&lt;/td>
+&lt;td>所有元素&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${#Fruits[@]}&lt;/code>&lt;/td>
+&lt;td>总数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${#Fruits}&lt;/code>&lt;/td>
+&lt;td>第一节长度&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${#Fruits[3]}&lt;/code>&lt;/td>
+&lt;td>第n个长度&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${Fruits[@]:3:2}&lt;/code>&lt;/td>
+&lt;td>范围&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>${!Fruits[@]}&lt;/code>&lt;/td>
+&lt;td>所有 Key&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="迭代-iteration">迭代 Iteration&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s1">&amp;#39;Apple&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Banana&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Orange&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;span class="k">for&lt;/span> e in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$e&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="with-index">With index&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> i in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="p">!Fruits[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;%s\t%s\n&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="操作">操作&lt;/h3>
+&lt;!--rehype:wrap-class=col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;Watermelon&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="c1"># 推&lt;/span>
+&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">+=(&lt;/span>&lt;span class="s1">&amp;#39;Watermelon&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="c1"># 也推&lt;/span>
+&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[@]/Ap*/&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="c1"># 通过正则表达式匹配删除&lt;/span>
+&lt;span class="nb">unset&lt;/span> Fruits&lt;span class="o">[&lt;/span>2&lt;span class="o">]&lt;/span> &lt;span class="c1"># 删除一项&lt;/span>
+&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="c1"># 复制&lt;/span>
+&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Fruits&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">Veggies&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="c1"># 连接&lt;/span>
+&lt;span class="nv">lines&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="sb">`&lt;/span>cat &lt;span class="s2">&amp;#34;logfile&amp;#34;&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="c1"># 从文件中读取&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="数组作为参数">数组作为参数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">function&lt;/span> extract&lt;span class="o">()&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="nb">local&lt;/span> -n &lt;span class="nv">myarray&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$1&lt;/span>
+&lt;span class="nb">local&lt;/span> &lt;span class="nv">idx&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$2&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">myarray&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nv">$idx&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="nv">Fruits&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s1">&amp;#39;Apple&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Banana&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;Orange&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+extract Fruits &lt;span class="m">2&lt;/span> &lt;span class="c1"># =&amp;gt; Orangle&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-字典">Bash 字典&lt;/h2>
+&lt;h3 id="定义">定义&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">declare&lt;/span> -A sounds
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sounds&lt;span class="o">[&lt;/span>dog&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;bark&amp;#34;&lt;/span>
+sounds&lt;span class="o">[&lt;/span>cow&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;moo&amp;#34;&lt;/span>
+sounds&lt;span class="o">[&lt;/span>bird&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;tweet&amp;#34;&lt;/span>
+sounds&lt;span class="o">[&lt;/span>wolf&lt;span class="o">]=&lt;/span>&lt;span class="s2">&amp;#34;howl&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="使用字典">使用字典&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">sounds&lt;/span>&lt;span class="p">[dog]&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># Dog&amp;#39;s sound&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">sounds&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># All values&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="p">!sounds[@]&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># All keys&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${#&lt;/span>&lt;span class="nv">sounds&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="c1"># Number of elements&lt;/span>
+&lt;span class="nb">unset&lt;/span> sounds&lt;span class="o">[&lt;/span>dog&lt;span class="o">]&lt;/span> &lt;span class="c1"># Delete dog&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="迭代">迭代&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> val in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">sounds&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$val&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> key in &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="p">!sounds[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$key&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-条件句">Bash 条件句&lt;/h2>
+&lt;h3 id="整数条件">整数条件&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">条件&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -eq NUM ]]&lt;/code>&lt;/td>
+&lt;td>等于 &lt;yel>Eq&lt;/yel>ual&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -ne NUM ]]&lt;/code>&lt;/td>
+&lt;td>不等于 &lt;yel>N&lt;/yel>ot &lt;yel>e&lt;/yel>qual&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -lt NUM ]]&lt;/code>&lt;/td>
+&lt;td>少于 &lt;yel>L&lt;/yel>ess &lt;yel>t&lt;/yel>han&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -le NUM ]]&lt;/code>&lt;/td>
+&lt;td>小于或等于 &lt;yel>L&lt;/yel>ess than or &lt;yel>e&lt;/yel>qual&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -gt NUM ]]&lt;/code>&lt;/td>
+&lt;td>大于 &lt;yel>G&lt;/yel>reater &lt;yel>t&lt;/yel>han&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ NUM -ge NUM ]]&lt;/code>&lt;/td>
+&lt;td>大于或等于 &lt;yel>G&lt;/yel>reater than or &lt;yel>e&lt;/yel>qual&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>(( NUM &amp;lt; NUM ))&lt;/code>&lt;/td>
+&lt;td>少于&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>(( NUM &amp;lt;= NUM ))&lt;/code>&lt;/td>
+&lt;td>小于或等于&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>(( NUM &amp;gt; NUM ))&lt;/code>&lt;/td>
+&lt;td>比&amp;hellip;更棒&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>(( NUM &amp;gt;= NUM ))&lt;/code>&lt;/td>
+&lt;td>大于或等于&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="字符串条件">字符串条件&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">条件&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -z STR ]]&lt;/code>&lt;/td>
+&lt;td>空字符串&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -n STR ]]&lt;/code>&lt;/td>
+&lt;td>&lt;yel>非&lt;/yel>空字符串&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR == STR ]]&lt;/code>&lt;/td>
+&lt;td>平等的&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR = STR ]]&lt;/code>&lt;/td>
+&lt;td>相等（同上）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR &amp;lt; STR ]]&lt;/code>&lt;/td>
+&lt;td>小于 &lt;em>(ASCII)&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR &amp;gt; STR ]]&lt;/code>&lt;/td>
+&lt;td>大于 &lt;em>(ASCII)&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR != STR ]]&lt;/code>&lt;/td>
+&lt;td>不相等&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ STR =~ STR ]]&lt;/code>&lt;/td>
+&lt;td>正则表达式&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="例子">例子&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-3-->
+&lt;h4 id="字符串">字符串&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> -z &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$string&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;String is empty&amp;#34;&lt;/span>
+&lt;span class="k">elif&lt;/span> &lt;span class="o">[[&lt;/span> -n &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$string&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;String is not empty&amp;#34;&lt;/span>
+&lt;span class="k">else&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;This never happens&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="组合">组合&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> X &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> Y &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+...
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="相等">相等&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$A&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$B&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+...
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="正则表达式">正则表达式&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="s1">&amp;#39;1. abc&amp;#39;&lt;/span> &lt;span class="o">=&lt;/span>~ &lt;span class="o">([&lt;/span>a-z&lt;span class="o">]&lt;/span>+&lt;span class="o">)&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">BASH_REMATCH&lt;/span>&lt;span class="p">[1]&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="更小">更小&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">((&lt;/span> &lt;span class="nv">$a&lt;/span> &amp;lt; &lt;span class="nv">$b&lt;/span> &lt;span class="o">))&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$a&lt;/span>&lt;span class="s2"> is smaller than &lt;/span>&lt;span class="nv">$b&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="存在">存在&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> -e &lt;span class="s2">&amp;#34;file.txt&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;file exists&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="文件条件">文件条件&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">条件&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -e FILE ]]&lt;/code>&lt;/td>
+&lt;td>存在&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -d FILE ]]&lt;/code>&lt;/td>
+&lt;td>目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -f FILE ]]&lt;/code>&lt;/td>
+&lt;td>文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -h FILE ]]&lt;/code>&lt;/td>
+&lt;td>符号链接&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -s FILE ]]&lt;/code>&lt;/td>
+&lt;td>大小 &amp;gt; 0 字节&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -r FILE ]]&lt;/code>&lt;/td>
+&lt;td>可读&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -w FILE ]]&lt;/code>&lt;/td>
+&lt;td>可写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -x FILE ]]&lt;/code>&lt;/td>
+&lt;td>可执行文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ f1 -nt f2 ]]&lt;/code>&lt;/td>
+&lt;td>f1 比 f2 新&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ f1 -ot f2 ]]&lt;/code>&lt;/td>
+&lt;td>f2 早于 f1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ f1 -ef f2 ]]&lt;/code>&lt;/td>
+&lt;td>相同的文件&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="更多条件">更多条件&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">条件&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ -o noclobber ]]&lt;/code>&lt;/td>
+&lt;td>如果启用 OPTION&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ ! EXPR ]]&lt;/code>&lt;/td>
+&lt;td>不是 Not&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ X &amp;amp;&amp;amp; Y ]]&lt;/code>&lt;/td>
+&lt;td>和 And&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>[[ X || Y ]]&lt;/code>&lt;/td>
+&lt;td>或者 Or&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="逻辑和或">逻辑和，或&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;y&amp;#39;&lt;/span> -a &lt;span class="nv">$2&lt;/span> -gt &lt;span class="m">0&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;yes&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;n&amp;#39;&lt;/span> -o &lt;span class="nv">$2&lt;/span> -lt &lt;span class="m">0&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;no&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-循环">Bash 循环&lt;/h2>
+&lt;h3 id="基本-for-循环">基本 for 循环&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> i in /etc/rc.*&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$i&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="类似-c-的-for-循环">类似 C 的 for 循环&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> &lt;span class="o">((&lt;/span>&lt;span class="nv">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="p">;&lt;/span> i &amp;lt; &lt;span class="m">100&lt;/span> &lt;span class="p">;&lt;/span> i++&lt;span class="o">))&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$i&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="范围">范围&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> i in &lt;span class="o">{&lt;/span>1..5&lt;span class="o">}&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Welcome &lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="具有步长">具有步长&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> i in &lt;span class="o">{&lt;/span>5..50..5&lt;span class="o">}&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Welcome &lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="自动递增">自动递增&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">i&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="k">while&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="nv">$i&lt;/span> -lt &lt;span class="m">4&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Number: &lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">((&lt;/span>i++&lt;span class="o">))&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="自动递增-1">自动递增&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">i&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">3&lt;/span>
+&lt;span class="k">while&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="nv">$i&lt;/span> -gt &lt;span class="m">0&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Number: &lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">((&lt;/span>i--&lt;span class="o">))&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="continue">Continue&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> number in &lt;span class="k">$(&lt;/span>seq &lt;span class="m">1&lt;/span> 3&lt;span class="k">)&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="nv">$number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="k">continue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$number&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="break">Break&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">for&lt;/span> number in &lt;span class="k">$(&lt;/span>seq &lt;span class="m">1&lt;/span> 3&lt;span class="k">)&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="nv">$number&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="c1"># Skip entire rest of loop.&lt;/span>
+break&lt;span class="p">;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;span class="c1"># This will only print 1&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$number&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="until">Until&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">count&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">0&lt;/span>
+&lt;span class="k">until&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$count&lt;/span> -gt &lt;span class="m">10&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$count&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">((&lt;/span>count++&lt;span class="o">))&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="永远">永远&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">while&lt;/span> true&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="c1"># here is some code.&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="永远简写">永远（简写）&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">while&lt;/span> :&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="c1"># here is some code.&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="正在读取行">正在读取行&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">cat file.txt &lt;span class="p">|&lt;/span> &lt;span class="k">while&lt;/span> &lt;span class="nb">read&lt;/span> line&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$line&lt;/span>
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-函数">Bash 函数&lt;/h2>
+&lt;h3 id="定义函数">定义函数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">myfunc&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;hello &lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 同上（替代语法）&lt;/span>
+&lt;span class="k">function&lt;/span> myfunc&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;hello &lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">myfunc &lt;span class="s2">&amp;#34;John&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="返回值">返回值&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">myfunc&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="nb">local&lt;/span> &lt;span class="nv">myresult&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;some value&amp;#39;&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$myresult&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">result&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>myfunc&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="正在引发错误">正在引发错误&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">myfunc&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> myfunc&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;success&amp;#34;&lt;/span>
+&lt;span class="k">else&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;failure&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-选项">Bash 选项&lt;/h2>
+&lt;!--rehype:body-class=cols-2-->
+&lt;h3 id="选项">选项&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 避免覆盖文件&lt;/span>
+&lt;span class="c1"># (echo &amp;#34;hi&amp;#34; &amp;gt; foo)&lt;/span>
+&lt;span class="nb">set&lt;/span> -o noclobber
+&lt;span class="c1"># 用于出错时退出&lt;/span>
+&lt;span class="c1"># 避免级联错误&lt;/span>
+&lt;span class="nb">set&lt;/span> -o errexit
+&lt;span class="c1"># 揭示隐藏的失败&lt;/span>
+&lt;span class="nb">set&lt;/span> -o pipefail
+&lt;span class="c1"># 公开未设置的变量&lt;/span>
+&lt;span class="nb">set&lt;/span> -o nounset
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="全局选项">全局选项&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 不匹配的 glob 被删除&lt;/span>
+&lt;span class="c1"># (&amp;#39;*.foo&amp;#39; =&amp;gt; &amp;#39;&amp;#39;)&lt;/span>
+&lt;span class="nb">shopt&lt;/span> -s nullglob
+&lt;span class="c1"># 不匹配的 glob 抛出错误&lt;/span>
+&lt;span class="nb">shopt&lt;/span> -s failglob
+&lt;span class="c1"># 不区分大小写的球体&lt;/span>
+&lt;span class="nb">shopt&lt;/span> -s nocaseglob
+&lt;span class="c1"># 通配符匹配点文件&lt;/span>
+&lt;span class="c1"># (&amp;#34;*.sh&amp;#34; =&amp;gt; &amp;#34;.foo.sh&amp;#34;)&lt;/span>
+&lt;span class="nb">shopt&lt;/span> -s dotglob
+&lt;span class="c1"># 允许 ** 进行递归匹配&lt;/span>
+&lt;span class="c1"># (&amp;#39;lib/**/*.rb&amp;#39; =&amp;gt; &amp;#39;lib/a/b/c.rb&amp;#39;)&lt;/span>
+&lt;span class="nb">shopt&lt;/span> -s globstar
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="bash-历史">Bash 历史&lt;/h2>
+&lt;!--rehype:body-class=cols-2-->
+&lt;h3 id="命令">命令&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">命令&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>history&lt;/code>&lt;/td>
+&lt;td>显示历史&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>sudo !!&lt;/code>&lt;/td>
+&lt;td>使用 sudo 运行上一个命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>shopt -s histverify&lt;/code>&lt;/td>
+&lt;td>不要立即执行扩展结果&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="表达式">表达式&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表达式&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!$&lt;/code>&lt;/td>
+&lt;td>展开最新命令的最后一个参数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!*&lt;/code>&lt;/td>
+&lt;td>展开最新命令的所有参数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!-n&lt;/code>&lt;/td>
+&lt;td>展开第 &lt;code>n&lt;/code> 个最近的命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!n&lt;/code>&lt;/td>
+&lt;td>展开历史中的第 &lt;code>n&lt;/code> 个命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!&amp;lt;command&amp;gt;&lt;/code>&lt;/td>
+&lt;td>展开最近调用的命令 &lt;code>&amp;lt;command&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="操作-1">操作&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">代码&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!&lt;/code>&lt;/td>
+&lt;td>再次执行最后一条命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!:s/&amp;lt;FROM&amp;gt;/&amp;lt;TO&amp;gt;/&lt;/code>&lt;/td>
+&lt;td>在最近的命令中将第一次出现的 &lt;code>&amp;lt;FROM&amp;gt;&lt;/code> 替换为 &lt;code>&amp;lt;TO&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!:gs/&amp;lt;FROM&amp;gt;/&amp;lt;TO&amp;gt;/&lt;/code>&lt;/td>
+&lt;td>在最近的命令中将所有出现的 &lt;code>&amp;lt;FROM&amp;gt;&lt;/code> 替换为 &lt;code>&amp;lt;TO&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!$:t&lt;/code>&lt;/td>
+&lt;td>仅从最近命令的最后一个参数扩展基本名称&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!$:h&lt;/code>&lt;/td>
+&lt;td>仅从最近命令的最后一个参数展开目录&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>!!&lt;/code> 和 &lt;code>!$&lt;/code> 可以替换为任何有效的扩展。&lt;/p>
+&lt;h3 id="切片-slices">切片 Slices&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">代码&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!:n&lt;/code>&lt;/td>
+&lt;td>仅扩展最近命令中的第 &lt;code>n&lt;/code> 个标记（命令为 &lt;code>0&lt;/code>；第一个参数为 &lt;code>1&lt;/code>）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!^&lt;/code>&lt;/td>
+&lt;td>从最近的命令展开第一个参数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!$&lt;/code>&lt;/td>
+&lt;td>从最近的命令中展开最后一个标记&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!:n-m&lt;/code>&lt;/td>
+&lt;td>从最近的命令扩展令牌范围&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>!!:n-$&lt;/code>&lt;/td>
+&lt;td>从最近的命令中将第 &lt;code>n&lt;/code> 个标记展开到最后&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;code>!!&lt;/code> 可以替换为任何有效的扩展，即 &lt;code>!cat&lt;/code>、&lt;code>!-2&lt;/code>、&lt;code>!42&lt;/code> 等。&lt;/p>
+&lt;h2 id="各种各样的">各种各样的&lt;/h2>
+&lt;h3 id="数值计算">数值计算&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">$((&lt;/span>a &lt;span class="o">+&lt;/span> &lt;span class="m">200&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="c1"># Add 200 to $a&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">$((&lt;/span>&lt;span class="nv">$RANDOM&lt;/span>&lt;span class="o">%&lt;/span>&lt;span class="m">200&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="c1"># Random number 0..199&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="子-shell">子 shell&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">(&lt;/span>&lt;span class="nb">cd&lt;/span> somedir&lt;span class="p">;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;I&amp;#39;m now in &lt;/span>&lt;span class="nv">$PWD&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># still in first directory&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="检查命令">检查命令&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">command&lt;/span> -V &lt;span class="nb">cd&lt;/span>
+&lt;span class="c1">#=&amp;gt; &amp;#34;cd is a function/alias/whatever&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="重定向">重定向&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2 col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">python hello.py &amp;gt; output.txt &lt;span class="c1"># 标准输出到（文件）&lt;/span>
+python hello.py &amp;gt;&amp;gt; output.txt &lt;span class="c1"># 标准输出到（文件），追加&lt;/span>
+python hello.py 2&amp;gt; error.log &lt;span class="c1"># 标准错误到（文件）&lt;/span>
+python hello.py 2&amp;gt;&lt;span class="p">&amp;amp;&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="c1"># 标准错误到标准输出&lt;/span>
+python hello.py 2&amp;gt;/dev/null &lt;span class="c1"># 标准错误到（空null）&lt;/span>
+python hello.py &lt;span class="p">&amp;amp;&lt;/span>&amp;gt;/dev/null &lt;span class="c1"># 标准输出和标准错误到（空null）&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">python hello.py &amp;lt; foo.txt &lt;span class="c1"># 将 foo.txt 提供给 python 的标准输入&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="来源相对">来源相对&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">source&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">0&lt;/span>&lt;span class="p">%/*&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">/../share/foo.sh&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="脚本目录">脚本目录&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">DIR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">0&lt;/span>&lt;span class="p">%/*&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="caseswitch">Case/switch&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">case&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> in
+start &lt;span class="p">|&lt;/span> up&lt;span class="o">)&lt;/span>
+vagrant up
+&lt;span class="p">;;&lt;/span>
+*&lt;span class="o">)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Usage: &lt;/span>&lt;span class="nv">$0&lt;/span>&lt;span class="s2"> {start|stop|ssh}&amp;#34;&lt;/span>
+&lt;span class="p">;;&lt;/span>
+&lt;span class="k">esac&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="陷阱错误">陷阱错误&lt;/h3>
+&lt;!--rehype:wrap-class=col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">trap&lt;/span> &lt;span class="s1">&amp;#39;echo Error at about $LINENO&amp;#39;&lt;/span> ERR
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或者&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">traperr&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;ERROR: &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">BASH_SOURCE&lt;/span>&lt;span class="p">[1]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2"> at about &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">BASH_LINENO&lt;/span>&lt;span class="p">[0]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="nb">set&lt;/span> -o errtrace
+&lt;span class="nb">trap&lt;/span> traperr ERR
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="printf">printf&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;Hello %s, I&amp;#39;m %s&amp;#34;&lt;/span> Sven Olga
+&lt;span class="c1">#=&amp;gt; &amp;#34;Hello Sven, I&amp;#39;m Olga&lt;/span>
+&lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;1 + 1 = %d&amp;#34;&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;span class="c1">#=&amp;gt; &amp;#34;1 + 1 = 2&amp;#34;&lt;/span>
+&lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;Print a float: %f&amp;#34;&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;span class="c1">#=&amp;gt; &amp;#34;Print a float: 2.000000&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="获取选项">获取选项&lt;/h3>
+&lt;!--rehype:wrap-class=col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">while&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span>~ ^- &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ! &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;--&amp;#34;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="k">case&lt;/span> &lt;span class="nv">$1&lt;/span> in
+-V &lt;span class="p">|&lt;/span> --version &lt;span class="o">)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$version&lt;/span>
+&lt;span class="nb">exit&lt;/span>
+&lt;span class="p">;;&lt;/span>
+-s &lt;span class="p">|&lt;/span> --string &lt;span class="o">)&lt;/span>
+shift&lt;span class="p">;&lt;/span> &lt;span class="nv">string&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$1&lt;/span>
+&lt;span class="p">;;&lt;/span>
+-f &lt;span class="p">|&lt;/span> --flag &lt;span class="o">)&lt;/span>
+&lt;span class="nv">flag&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="p">;;&lt;/span>
+&lt;span class="k">esac&lt;/span>&lt;span class="p">;&lt;/span> shift&lt;span class="p">;&lt;/span> &lt;span class="k">done&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;--&amp;#39;&lt;/span> &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span> shift&lt;span class="p">;&lt;/span> &lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="检查命令的结果">检查命令的结果&lt;/h3>
+&lt;!--rehype:wrap-class=col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> ping -c &lt;span class="m">1&lt;/span> google.com&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;看来您的互联网连接正常&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="特殊变量">特殊变量&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">表达式&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$?&lt;/code>&lt;/td>
+&lt;td>最后一个任务的退出状态&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$!&lt;/code>&lt;/td>
+&lt;td>最后一个后台任务的 PID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$$&lt;/code>&lt;/td>
+&lt;td>shell PID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>$0&lt;/code>&lt;/td>
+&lt;td>shell 脚本的文件名&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>见&lt;a href="http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables">特殊参数&lt;/a>。&lt;/p>
+&lt;h3 id="grep-检查">grep 检查&lt;/h3>
+&lt;!--rehype:wrap-class=col-span-2-->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="k">if&lt;/span> grep -q &lt;span class="s1">&amp;#39;foo&amp;#39;&lt;/span> ~/.bash_history&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;您过去似乎输入过“foo”&amp;#34;&lt;/span>
+&lt;span class="k">fi&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="反斜杠转义">反斜杠转义&lt;/h3>
+&lt;!--rehype:wrap-class=row-span-2-->
+&lt;ul>
+&lt;li> &lt;/li>
+&lt;li>!&lt;/li>
+&lt;li>&amp;quot;&lt;/li>
+&lt;li>#&lt;/li>
+&lt;li>&amp;amp;&lt;/li>
+&lt;li>'&lt;/li>
+&lt;li>(&lt;/li>
+&lt;li>)&lt;/li>
+&lt;li>,&lt;/li>
+&lt;li>;&lt;/li>
+&lt;li>&amp;lt;&lt;/li>
+&lt;li>&amp;gt;&lt;/li>
+&lt;li>[&lt;/li>
+&lt;li>|&lt;/li>
+&lt;li>\&lt;/li>
+&lt;li>]&lt;/li>
+&lt;li>^&lt;/li>
+&lt;li>{&lt;/li>
+&lt;li>}&lt;/li>
+&lt;li>`&lt;/li>
+&lt;li>$&lt;/li>
+&lt;li>*&lt;/li>
+&lt;li>?&lt;/li>
+&lt;/ul>
+&lt;!--rehype:className=cols-4 style-none-->
+&lt;p>使用 &lt;code>\&lt;/code> 转义这些特殊字符&lt;/p>
+&lt;h3 id="heredoc">Heredoc&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">cat &lt;span class="s">&amp;lt;&amp;lt;END
+&lt;/span>&lt;span class="s">hello world
+&lt;/span>&lt;span class="s">END&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="转到上一个目录">转到上一个目录&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># /home/user/foo&lt;/span>
+&lt;span class="nb">cd&lt;/span> bar/
+&lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># /home/user/foo/bar&lt;/span>
+&lt;span class="nb">cd&lt;/span> -
+&lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># /home/user/foo&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="读取输入">读取输入&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;Proceed? [y/n]: &amp;#34;&lt;/span>
+&lt;span class="nb">read&lt;/span> ans
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$ans&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">read&lt;/span> -n &lt;span class="m">1&lt;/span> ans &lt;span class="c1"># 只有一个字符&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="条件执行">条件执行&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git commit &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> git push
+git commit &lt;span class="o">||&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;Commit failed&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="严格模式">严格模式&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">set&lt;/span> -euo pipefail
+&lt;span class="nv">IFS&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">$&amp;#39;\n\t&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参见：&lt;a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">非官方 bash 严格模式&lt;/a>&lt;/p>
+&lt;h3 id="可选参数">可选参数&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">args&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$@&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;span class="nv">args&lt;/span>&lt;span class="o">+=(&lt;/span>foo&lt;span class="o">)&lt;/span>
+&lt;span class="nv">args&lt;/span>&lt;span class="o">+=(&lt;/span>bar&lt;span class="o">)&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">args&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>将参数放入数组中，然后追加&lt;/p>
+&lt;h2 id="另见">另见&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://jaywcjlove.github.io/shell-tutorial">Shell 教程&lt;/a> &lt;em>(jaywcjlove.github.io)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="https://devhints.io/bash">Devhints&lt;/a> &lt;em>(devhints.io)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="http://wiki.bash-hackers.org/">Bash-hackers wiki&lt;/a> &lt;em>(bash-hackers.org)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="http://wiki.bash-hackers.org/syntax/shellvars">Shell vars&lt;/a> &lt;em>(bash-hackers.org)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="https://learnxinyminutes.com/docs/bash/">Learn bash in y minutes&lt;/a> &lt;em>(learnxinyminutes.com)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="http://mywiki.wooledge.org/BashGuide">Bash Guide&lt;/a> &lt;em>(mywiki.wooledge.org)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="https://www.shellcheck.net/">ShellCheck&lt;/a> &lt;em>(shellcheck.net)&lt;/em>&lt;/li>
+&lt;li>&lt;a href="https://devmanual.gentoo.org/tools-reference/bash/index.html">shell - Standard Shell&lt;/a> &lt;em>(devmanual.gentoo.org)&lt;/em>&lt;/li>
+&lt;/ul></description></item><item><title>Sublime</title><link>https://jiyongcheng.dev/post/sublime/</link><pubDate>Fri, 07 Oct 2022 08:45:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/sublime/</guid><description>&lt;h1 id="column-selection">Column selection&lt;/h1>
 &lt;p>Column selection can be used to select a rectangular area of a file.&lt;/p>
 &lt;h2 id="mac">Mac&lt;/h2>
 &lt;h3 id="using-mouse">Using mouse&lt;/h3>
@@ -714,34 +2482,4 @@ Don&amp;rsquo;t read any input at all! Instead, the filter is run once using nul
 &lt;/ul></description></item><item><title>English</title><link>https://jiyongcheng.dev/resource/english/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/english/</guid><description>&lt;p>发音的本质是通过感官（耳朵+眼睛），协助嘴（口腔肌肉），养成正确的发音习惯。 眼（观察口型）+ 耳朵（辩音）+ 嘴（刻意练习）= 漂亮的音&lt;/p>
 &lt;ul>
 &lt;li>Master spoken english: &lt;a href="https://www.youtube.com/watch?v=ilrPvgs29v0&amp;amp;list=PL9YsEhi5oFAbjsAqP-3b-fAIip98pAsx9&amp;amp;index=3">https://www.youtube.com/watch?v=ilrPvgs29v0&amp;amp;list=PL9YsEhi5oFAbjsAqP-3b-fAIip98pAsx9&amp;amp;index=3&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Interesting</title><link>https://jiyongcheng.dev/resource/interesting/</link><pubDate>Wed, 22 Sep 2021 09:29:55 +1000</pubDate><guid>https://jiyongcheng.dev/resource/interesting/</guid><description>&lt;h2 id="uncategorised">Uncategorised&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://joelcalifa.com/work/">https://joelcalifa.com/work/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/laradock/laradock">https://github.com/laradock/laradock&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/google/eng-practices">https://github.com/google/eng-practices&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="blog">Blog&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/hawx1993/tech-blog">https://github.com/hawx1993/tech-blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/mqyqingfeng/Blog">https://github.com/mqyqingfeng/Blog&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/singpenguin/ppt">https://github.com/singpenguin/ppt&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="magazine">Magazine&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/rogerzhu/MNWeeklyCategory">https://github.com/rogerzhu/MNWeeklyCategory&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="interview">Interview&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/monklof/Back-End-Developer-Interview-Questions">https://github.com/monklof/Back-End-Developer-Interview-Questions&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/sharu725/online-cv">https://github.com/sharu725/online-cv&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/yangshun/front-end-interview-handbook">https://github.com/yangshun/front-end-interview-handbook&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="courses">Courses&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/prakhar1989/awesome-courses">https://github.com/prakhar1989/awesome-courses&lt;/a>&lt;/li>
-&lt;li>computer science &lt;a href="https://github.com/1c7/Crash-Course-Computer-Science-Chinese">https://github.com/1c7/Crash-Course-Computer-Science-Chinese&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="math">Math&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://mathlets.org/mathlets/">https://mathlets.org/mathlets/&lt;/a>&lt;/li>
 &lt;/ul></description></item></channel></rss>
