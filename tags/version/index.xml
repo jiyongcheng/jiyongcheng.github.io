@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>version on What, Why, How</title><link>https://jiyongcheng.dev/tags/version/</link><description>Recent content in version on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 25 Nov 2020 18:28:43 +0000</lastBuildDate><atom:link href="https://jiyongcheng.dev/tags/version/index.xml" rel="self" type="application/rss+xml"/><item><title>Git</title><link>https://jiyongcheng.dev/post/git/</link><pubDate>Wed, 25 Nov 2020 18:28:43 +0000</pubDate><guid>https://jiyongcheng.dev/post/git/</guid><description>Getting started Create a Repository Create a new local repository
+1 $ git init [project name] Clone a repository
+1 $ git clone git_url Clone a repository into a specified directory
+1 $ git clone git_url my_directory Make a change Show modified files in working directory, staged for your next commit
+1 $ git status Stages the file, ready for commit</description></item></channel></rss>

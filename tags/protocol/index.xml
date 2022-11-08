@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>protocol on What, Why, How</title><link>https://jiyongcheng.dev/tags/protocol/</link><description>Recent content in protocol on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 27 Jan 2021 11:48:05 +0000</lastBuildDate><atom:link href="https://jiyongcheng.dev/tags/protocol/index.xml" rel="self" type="application/rss+xml"/><item><title>SSH</title><link>https://jiyongcheng.dev/post/ssh/</link><pubDate>Wed, 27 Jan 2021 11:48:05 +0000</pubDate><guid>https://jiyongcheng.dev/post/ssh/</guid><description>Getting started Connecting Connect to a server (default port 22)
+1 $ ssh root@192.168.1.5 Connect on a specific port
+1 $ ssh root@192.168.1.5 -p 6222 Connect via pem file (0400 permissions)
+1 $ ssh -i /path/file.pem root@192.168.1.5 See: SSH Permissions
+Executing Executes remote command
+1 $ ssh root@192.168.1.5 &amp;#39;ls -l&amp;#39; Invoke a local script
+1 $ ssh root@192.</description></item></channel></rss>

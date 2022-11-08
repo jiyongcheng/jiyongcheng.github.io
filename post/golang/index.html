@@ -1,0 +1,2126 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Golang - What, Why, How</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name=MobileOptimized content="width">
+<meta name=HandheldFriendly content="true">
+<meta name=applicable-device content="pc,mobile">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=mobile-web-app-capable content="yes">
+<meta name=author content="Aaron Ji">
+<meta name=description content="Getting started hello.go 1 2 3 4 5 6 7  package main import &amp;#34;fmt&amp;#34; func main() { fmt.Println(&amp;#34;Hello, world!&amp;#34;) }   Run directly
+1 2  $ go run hello.go Hello, world!   Or try it out in the Go repl
+Variables 1 2 3 4 5 6  var s1 string s1 = &amp;#34;Learn Go!&amp;#34; // declare multiple variables at once var b, c int = 1, 2 var d = true   Short declaration">
+<meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
+<meta name=generator content="Hugo 0.87.0">
+<link rel=canonical href=https://jiyongcheng.dev/post/golang/>
+<link rel=icon href=/favicon.ico>
+<link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
+<meta property="og:title" content="Golang">
+<meta property="og:description" content="Getting started hello.go 1 2 3 4 5 6 7  package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world!&#34;) }   Run directly
+1 2  $ go run hello.go Hello, world!   Or try it out in the Go repl
+Variables 1 2 3 4 5 6  var s1 string s1 = &#34;Learn Go!&#34; // declare multiple variables at once var b, c int = 1, 2 var d = true   Short declaration">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/golang/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-12-17T21:51:44+00:00">
+<meta property="article:modified_time" content="2020-12-17T21:51:44+00:00">
+<meta itemprop=name content="Golang">
+<meta itemprop=description content="Getting started hello.go 1 2 3 4 5 6 7  package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world!&#34;) }   Run directly
+1 2  $ go run hello.go Hello, world!   Or try it out in the Go repl
+Variables 1 2 3 4 5 6  var s1 string s1 = &#34;Learn Go!&#34; // declare multiple variables at once var b, c int = 1, 2 var d = true   Short declaration"><meta itemprop=datePublished content="2020-12-17T21:51:44+00:00">
+<meta itemprop=dateModified content="2020-12-17T21:51:44+00:00">
+<meta itemprop=wordCount content="2456"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=keywords content="Go,"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta name=twitter:title content="Golang">
+<meta name=twitter:description content="Getting started hello.go 1 2 3 4 5 6 7  package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world!&#34;) }   Run directly
+1 2  $ go run hello.go Hello, world!   Or try it out in the Go repl
+Variables 1 2 3 4 5 6  var s1 string s1 = &#34;Learn Go!&#34; // declare multiple variables at once var b, c int = 1, 2 var d = true   Short declaration"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
+<meta property="og:title" content="Golang">
+<meta property="og:description" content="Getting started hello.go 1 2 3 4 5 6 7  package main import &#34;fmt&#34; func main() { fmt.Println(&#34;Hello, world!&#34;) }   Run directly
+1 2  $ go run hello.go Hello, world!   Or try it out in the Go repl
+Variables 1 2 3 4 5 6  var s1 string s1 = &#34;Learn Go!&#34; // declare multiple variables at once var b, c int = 1, 2 var d = true   Short declaration">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/golang/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-12-17T21:51:44+00:00">
+<meta property="article:modified_time" content="2020-12-17T21:51:44+00:00">
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>What, Why, How</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=mobile-menu-item>
+<a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+<link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css>
+<link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<div class=modal-dialog>
+<div class=modal-content>
+<div id=closeSearch title=Close class=close>X</div>
+<div class=modal-header>
+<div class=modal-title>Search</div>
+</div>
+<div class=modal-body>
+<script>(function(){var c='d9e76f04c191b111d',a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,a.src=(document.location.protocol=='https:'?'https:':'http:')+'//cse.google.com/cse.js?cx='+c,b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)})()</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+<header id=header class="header container">
+<div class=logo-wrapper>
+<a href=/ class=logo>
+What, Why, How
+</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=menu-item>
+<a id=openSearch class="menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div id=mobile-panel>
+<main id=main class="main bg-llight">
+<div class=content-wrapper>
+<div id=content class="content container">
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>Golang</h1>
+<div class=post-meta>
+<time datetime=2020-12-17 class=post-time>
+2020-12-17
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 2456 words </span>
+<span class=more-meta> 12 min read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Table of Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#getting-started>Getting started</a>
+<ul>
+<li><a href=#hellogo>hello.go</a></li>
+<li><a href=#variables>Variables</a></li>
+<li><a href=#functions>Functions</a></li>
+<li><a href=#comments>Comments</a></li>
+<li><a href=#if-statement>If statement</a></li>
+</ul>
+</li>
+<li><a href=#golang-basic-types>Golang Basic types</a>
+<ul>
+<li><a href=#strings>Strings</a></li>
+<li><a href=#numbers>Numbers</a></li>
+<li><a href=#booleans>Booleans</a></li>
+<li><a href=#arrays>Arrays</a></li>
+<li><a href=#pointers>Pointers</a></li>
+<li><a href=#slices>Slices</a></li>
+<li><a href=#constants>Constants</a></li>
+<li><a href=#type-conversions>Type conversions</a></li>
+</ul>
+</li>
+<li><a href=#golang-strings>Golang Strings</a>
+<ul>
+<li><a href=#strings-function>Strings function</a></li>
+<li><a href=#fmtprintf>fmt.Printf</a></li>
+<li><a href=#function-examples>Function examples</a></li>
+</ul>
+</li>
+<li><a href=#golang-flow-control>Golang Flow control</a>
+<ul>
+<li><a href=#conditional>Conditional</a></li>
+<li><a href=#statements-in-if>Statements in if</a></li>
+<li><a href=#switch>Switch</a></li>
+<li><a href=#for-loop>For loop</a></li>
+<li><a href=#for-range-loop>For-Range loop</a></li>
+<li><a href=#while-loop>While loop</a></li>
+<li><a href=#continue-keyword>Continue keyword</a></li>
+<li><a href=#break-keyword>Break keyword</a></li>
+</ul>
+</li>
+<li><a href=#golang-structs--maps>Golang Structs & Maps</a>
+<ul>
+<li><a href=#defining>Defining</a></li>
+<li><a href=#literals>Literals</a></li>
+<li><a href=#maps>Maps</a></li>
+<li><a href=#pointers-to-structs>Pointers to structs</a></li>
+</ul>
+</li>
+<li><a href=#golang-functions>Golang Functions</a>
+<ul>
+<li><a href=#multiple-arguments>Multiple arguments</a></li>
+<li><a href=#multiple-return>Multiple return</a></li>
+<li><a href=#anonymous-function>Anonymous function</a></li>
+<li><a href=#named-return>Named return</a></li>
+<li><a href=#variadic-functions>Variadic functions</a></li>
+<li><a href=#init-function>init function</a></li>
+<li><a href=#functions-as-values>Functions as values</a></li>
+<li><a href=#closures-1>Closures 1</a></li>
+<li><a href=#closures-2>Closures 2</a></li>
+</ul>
+</li>
+<li><a href=#golang-packages>Golang Packages</a>
+<ul>
+<li><a href=#importing>Importing</a></li>
+<li><a href=#aliases>Aliases</a></li>
+<li><a href=#packages>Packages</a></li>
+<li><a href=#exporting-names>Exporting names</a></li>
+</ul>
+</li>
+<li><a href=#golang-concurrency>Golang Concurrency</a>
+<ul>
+<li><a href=#goroutines>Goroutines</a></li>
+<li><a href=#waitgroup>WaitGroup </a></li>
+<li><a href=#closing-channels>Closing channels</a></li>
+<li><a href=#buffered-channels>Buffered channels</a></li>
+</ul>
+</li>
+<li><a href=#golang-error-control>Golang Error control</a>
+<ul>
+<li><a href=#deferring-functions>Deferring functions</a></li>
+<li><a href=#lambda-defer>Lambda defer</a></li>
+<li><a href=#defer>Defer</a></li>
+</ul>
+</li>
+<li><a href=#golang-methods>Golang Methods </a>
+<ul>
+<li><a href=#receivers>Receivers</a></li>
+<li><a href=#mutation>Mutation</a></li>
+</ul>
+</li>
+<li><a href=#golang-interfaces>Golang Interfaces</a>
+<ul>
+<li><a href=#a-basic-interface>A basic interface</a></li>
+<li><a href=#struct>Struct</a></li>
+<li><a href=#methods>Methods</a></li>
+<li><a href=#interface-example>Interface example</a></li>
+</ul>
+</li>
+<li><a href=#miscellaneous>Miscellaneous</a>
+<ul>
+<li><a href=#keywords>Keywords</a></li>
+<li><a href=#operators-and-punctuation>Operators and punctuation</a></li>
+</ul>
+</li>
+<li><a href=#also-see>Also see</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h2 class=cols-3 id=getting-started>Getting started</h2>
+<h3 id=hellogo>hello.go</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello, world!&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Run directly</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ go run hello.go
+Hello, world!
+</code></pre></td></tr></table>
+</div>
+</div><p>Or try it out in the <a href=https://repl.it/languages/go>Go repl</a></p>
+<h3 id=variables>Variables</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>var</span> <span class=nx>s1</span> <span class=kt>string</span>
+<span class=nx>s1</span> <span class=p>=</span> <span class=s>&#34;Learn Go!&#34;</span>
+
+<span class=c1>// declare multiple variables at once
+</span><span class=c1></span><span class=kd>var</span> <span class=nx>b</span><span class=p>,</span> <span class=nx>c</span> <span class=kt>int</span> <span class=p>=</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span>
+<span class=kd>var</span> <span class=nx>d</span> <span class=p>=</span> <span class=kc>true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Short declaration</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>s1</span> <span class=o>:=</span> <span class=s>&#34;Learn Go!&#34;</span>        <span class=c1>// string
+</span><span class=c1></span><span class=nx>b</span><span class=p>,</span> <span class=nx>c</span> <span class=o>:=</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span>             <span class=c1>// int
+</span><span class=c1></span><span class=nx>d</span> <span class=o>:=</span> <span class=kc>true</span>                <span class=c1>// bool
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#golang-basic-types>Basic types</a></p>
+<h3 id=functions>Functions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+
+<span class=c1>// The entry point of the programs
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello world!&#34;</span><span class=p>)</span>
+    <span class=nf>say</span><span class=p>(</span><span class=s>&#34;Hello Go!&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>say</span><span class=p>(</span><span class=nx>message</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;You said: &#34;</span><span class=p>,</span> <span class=nx>message</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#golang-functions>Functions</a></p>
+<h3 id=comments>Comments</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=c1>// Single line comment
+</span><span class=c1></span>
+<span class=cm>/* Multi-
+</span><span class=cm> line comment */</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=if-statement>If statement</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=k>if</span> <span class=kc>true</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Yes!&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#golang-flow-control>Flow control</a></p>
+<h2 class=cols-3 id=golang-basic-types>Golang Basic types</h2>
+<h3 id=strings>Strings</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>s1</span> <span class=o>:=</span> <span class=s>&#34;Hello&#34;</span> <span class=o>+</span> <span class=s>&#34;World&#34;</span>
+
+<span class=nx>s2</span> <span class=o>:=</span> <span class=s>`A &#34;raw&#34; string literal
+</span><span class=s>can include line breaks.`</span>
+
+<span class=c1>// Outputs: 10
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>s1</span><span class=p>))</span>
+
+<span class=c1>// Outputs: Hello
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>string</span><span class=p>(</span><span class=nx>s1</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span><span class=mi>5</span><span class=p>]))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Strings are of type <code>string</code>.</p>
+<h3 id=numbers>Numbers</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>num</span> <span class=o>:=</span> <span class=mi>3</span>         <span class=c1>// int
+</span><span class=c1></span><span class=nx>num</span> <span class=o>:=</span> <span class=mf>3.</span>        <span class=c1>// float64
+</span><span class=c1></span><span class=nx>num</span> <span class=o>:=</span> <span class=mi>3</span> <span class=o>+</span> <span class=m>4i</span>    <span class=c1>// complex128
+</span><span class=c1></span><span class=nx>num</span> <span class=o>:=</span> <span class=nb>byte</span><span class=p>(</span><span class=sc>&#39;a&#39;</span><span class=p>)</span> <span class=c1>// byte (alias: uint8)
+</span><span class=c1></span>
+<span class=kd>var</span> <span class=nx>u</span> <span class=kt>uint</span> <span class=p>=</span> <span class=mi>7</span>        <span class=c1>// uint (unsigned)
+</span><span class=c1></span><span class=kd>var</span> <span class=nx>p</span> <span class=kt>float32</span> <span class=p>=</span> <span class=mf>22.7</span>  <span class=c1>// 32-bit float
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=operators>Operators</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>x</span> <span class=o>:=</span> <span class=mi>5</span>
+<span class=nx>x</span><span class=o>++</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;x + 4 =&#34;</span><span class=p>,</span> <span class=nx>x</span> <span class=o>+</span> <span class=mi>4</span><span class=p>)</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;x * 4 =&#34;</span><span class=p>,</span> <span class=nx>x</span> <span class=o>*</span> <span class=mi>4</span><span class=p>)</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#golang-operators-and-punctuation>More Operators</a></p>
+<h3 id=booleans>Booleans</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>isTrue</span>   <span class=o>:=</span> <span class=kc>true</span>
+<span class=nx>isFalse</span>  <span class=o>:=</span> <span class=kc>false</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=operators-1>Operators</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=kc>true</span> <span class=o>&amp;&amp;</span> <span class=kc>true</span><span class=p>)</span>   <span class=c1>// true 
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=kc>true</span> <span class=o>&amp;&amp;</span> <span class=kc>false</span><span class=p>)</span>  <span class=c1>// false
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=kc>true</span> <span class=o>||</span> <span class=kc>true</span><span class=p>)</span>   <span class=c1>// true
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=kc>true</span> <span class=o>||</span> <span class=kc>false</span><span class=p>)</span>  <span class=c1>// true
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(!</span><span class=kc>true</span><span class=p>)</span>          <span class=c1>// false
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#golang-operators-and-punctuation>More Operators</a></p>
+<h3 class=row-span-2 id=arrays>Arrays</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=err>┌────┬────┬────┬────┬─────┬─────┐</span>
+<span class=p>|</span> <span class=mi>2</span>  <span class=p>|</span> <span class=mi>3</span>  <span class=p>|</span> <span class=mi>5</span>  <span class=p>|</span> <span class=mi>7</span>  <span class=p>|</span> <span class=mi>11</span>  <span class=p>|</span> <span class=mi>13</span>  <span class=p>|</span>
+<span class=err>└────┴────┴────┴────┴─────┴─────┘</span>
+  <span class=mi>0</span>    <span class=mi>1</span>    <span class=mi>2</span>    <span class=mi>3</span>     <span class=mi>4</span>     <span class=mi>5</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>primes</span> <span class=o>:=</span> <span class=p>[</span><span class=o>...</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>7</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>13</span><span class=p>}</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>primes</span><span class=p>))</span> <span class=c1>// =&gt; 6
+</span><span class=c1></span>
+<span class=c1>// Outputs: [2 3 5 7 11 13]
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>primes</span><span class=p>)</span>
+
+<span class=c1>// Same as [:3], Outputs: [2 3 5]
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>primes</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span><span class=mi>3</span><span class=p>])</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>var</span> <span class=nx>a</span> <span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=kt>string</span>
+<span class=nx>a</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;Hello&#34;</span>
+<span class=nx>a</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;World&#34;</span>
+
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>a</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=nx>a</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span> <span class=c1>//=&gt; Hello World
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>a</span><span class=p>)</span>   <span class=c1>// =&gt; [Hello World]
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=2d-array>2d array</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>var</span> <span class=nx>twoDimension</span> <span class=p>[</span><span class=mi>2</span><span class=p>][</span><span class=mi>3</span><span class=p>]</span><span class=kt>int</span>
+<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>2</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+    <span class=k>for</span> <span class=nx>j</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span> <span class=p>{</span>
+        <span class=nx>twoDimension</span><span class=p>[</span><span class=nx>i</span><span class=p>][</span><span class=nx>j</span><span class=p>]</span> <span class=p>=</span> <span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=c1>// =&gt; 2d:  [[0 1 2] [1 2 3]]
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;2d: &#34;</span><span class=p>,</span> <span class=nx>twoDimension</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=pointers>Pointers</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span> <span class=p>()</span> <span class=p>{</span>
+  <span class=nx>b</span> <span class=o>:=</span> <span class=o>*</span><span class=nf>getPointer</span><span class=p>()</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Value is&#34;</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>getPointer</span> <span class=p>()</span> <span class=p>(</span><span class=nx>myPointer</span> <span class=o>*</span><span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+  <span class=nx>a</span> <span class=o>:=</span> <span class=mi>234</span>
+  <span class=k>return</span> <span class=o>&amp;</span><span class=nx>a</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>a</span> <span class=o>:=</span> <span class=nb>new</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span>
+<span class=o>*</span><span class=nx>a</span> <span class=p>=</span> <span class=mi>234</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/moretypes/1>Pointers</a></p>
+<h3 id=slices>Slices</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>s</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=kt>string</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
+<span class=nx>s</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;a&#34;</span>
+<span class=nx>s</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;b&#34;</span>
+<span class=nx>s</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=s>&#34;d&#34;</span><span class=p>)</span>
+<span class=nx>s</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=s>&#34;e&#34;</span><span class=p>,</span> <span class=s>&#34;f&#34;</span><span class=p>)</span>
+
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>s</span><span class=p>))</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>[</span><span class=mi>1</span><span class=p>:</span><span class=mi>3</span><span class=p>])</span>
+
+<span class=nx>slice</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See also: <a href=https://gobyexample.com/slices>Slices example</a></p>
+<h3 id=constants>Constants</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>const</span> <span class=nx>s</span> <span class=kt>string</span> <span class=p>=</span> <span class=s>&#34;constant&#34;</span>
+<span class=kd>const</span> <span class=nx>Phi</span> <span class=p>=</span> <span class=mf>1.618</span>
+<span class=kd>const</span> <span class=nx>n</span> <span class=p>=</span> <span class=mi>500000000</span>
+<span class=kd>const</span> <span class=nx>d</span> <span class=p>=</span> <span class=mf>3e20</span> <span class=o>/</span> <span class=nx>n</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>d</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=type-conversions>Type conversions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>i</span> <span class=o>:=</span> <span class=mi>90</span>
+<span class=nx>f</span> <span class=o>:=</span> <span class=nb>float64</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+<span class=nx>u</span> <span class=o>:=</span> <span class=nb>uint</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+
+<span class=c1>// Will be equal to the character Z
+</span><span class=c1></span><span class=nx>s</span> <span class=o>:=</span> <span class=nb>string</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=how-to-get-int-string>How to get int string?</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>i</span> <span class=o>:=</span> <span class=mi>90</span>
+
+<span class=c1>// need import &#34;strconv&#34;
+</span><span class=c1></span><span class=nx>s</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>Itoa</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span> <span class=c1>// Outputs: 90
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=golang-strings>Golang Strings</h2>
+<h3 id=strings-function>Strings function</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=nx>s</span> <span class=s>&#34;strings&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=cm>/* Need to import strings as s */</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>.</span><span class=nf>Contains</span><span class=p>(</span><span class=s>&#34;test&#34;</span><span class=p>,</span> <span class=s>&#34;e&#34;</span><span class=p>))</span>
+
+    <span class=cm>/* Build in */</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=s>&#34;hello&#34;</span><span class=p>))</span>  <span class=c1>// =&gt; 5
+</span><span class=c1></span>    <span class=c1>// Outputs: 101
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;hello&#34;</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+    <span class=c1>// Outputs: e
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>string</span><span class=p>(</span><span class=s>&#34;hello&#34;</span><span class=p>[</span><span class=mi>1</span><span class=p>]))</span>
+
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class="row-span-2 col-span-2" id=fmtprintf>fmt.Printf</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;os&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>type</span> <span class=nx>point</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>x</span><span class=p>,</span> <span class=nx>y</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+	<span class=nx>p</span> <span class=o>:=</span> <span class=nx>point</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>}</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%v\n&#34;</span><span class=p>,</span> <span class=nx>p</span><span class=p>)</span>                        <span class=c1>// =&gt; {1 2}
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%+v\n&#34;</span><span class=p>,</span> <span class=nx>p</span><span class=p>)</span>                       <span class=c1>// =&gt; {x:1 y:2}
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%#v\n&#34;</span><span class=p>,</span> <span class=nx>p</span><span class=p>)</span>                       <span class=c1>// =&gt; main.point{x:1, y:2}
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%T\n&#34;</span><span class=p>,</span> <span class=nx>p</span><span class=p>)</span>                        <span class=c1>// =&gt; main.point
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%t\n&#34;</span><span class=p>,</span> <span class=kc>true</span><span class=p>)</span>                     <span class=c1>// =&gt; TRUE
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d\n&#34;</span><span class=p>,</span> <span class=mi>123</span><span class=p>)</span>                      <span class=c1>// =&gt; 123
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%b\n&#34;</span><span class=p>,</span> <span class=mi>14</span><span class=p>)</span>                       <span class=c1>// =&gt; 1110
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%c\n&#34;</span><span class=p>,</span> <span class=mi>33</span><span class=p>)</span>                       <span class=c1>// =&gt; !
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%x\n&#34;</span><span class=p>,</span> <span class=mi>456</span><span class=p>)</span>                      <span class=c1>// =&gt; 1c8
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%f\n&#34;</span><span class=p>,</span> <span class=mf>78.9</span><span class=p>)</span>                     <span class=c1>// =&gt; 78.9
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%e\n&#34;</span><span class=p>,</span> <span class=mf>123400000.0</span><span class=p>)</span>              <span class=c1>// =&gt; 1.23E+08
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%E\n&#34;</span><span class=p>,</span> <span class=mf>123400000.0</span><span class=p>)</span>              <span class=c1>// =&gt; 1.23E+08
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%s\n&#34;</span><span class=p>,</span> <span class=s>&#34;\&#34;string\&#34;&#34;</span><span class=p>)</span>             <span class=c1>// =&gt; &#34;string&#34;
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%q\n&#34;</span><span class=p>,</span> <span class=s>&#34;\&#34;string\&#34;&#34;</span><span class=p>)</span>             <span class=c1>// =&gt; &#34;\&#34;string\&#34;&#34;
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%x\n&#34;</span><span class=p>,</span> <span class=s>&#34;hex this&#34;</span><span class=p>)</span>               <span class=c1>// =&gt; 6.86578E+15
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%p\n&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>p</span><span class=p>)</span>                       <span class=c1>// =&gt; 0xc00002c040
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;|%6d|%6d|\n&#34;</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>345</span><span class=p>)</span>           <span class=c1>// =&gt; |    12|   345|
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;|%6.2f|%6.2f|\n&#34;</span><span class=p>,</span> <span class=mf>1.2</span><span class=p>,</span> <span class=mf>3.45</span><span class=p>)</span>     <span class=c1>// =&gt; |  1.20|  3.45|
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;|%-6.2f|%-6.2f|\n&#34;</span><span class=p>,</span> <span class=mf>1.2</span><span class=p>,</span> <span class=mf>3.45</span><span class=p>)</span>   <span class=c1>// =&gt; |1.20  |3.45  |
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;|%6s|%6s|\n&#34;</span><span class=p>,</span> <span class=s>&#34;foo&#34;</span><span class=p>,</span> <span class=s>&#34;b&#34;</span><span class=p>)</span>        <span class=c1>// =&gt; |   foo|     b|
+</span><span class=c1></span>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;|%-6s|%-6s|\n&#34;</span><span class=p>,</span> <span class=s>&#34;foo&#34;</span><span class=p>,</span> <span class=s>&#34;b&#34;</span><span class=p>)</span>      <span class=c1>// =&gt; |foo   |b     |
+</span><span class=c1></span>
+	<span class=nx>s</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;a %s&#34;</span><span class=p>,</span> <span class=s>&#34;string&#34;</span><span class=p>)</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span>
+
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stderr</span><span class=p>,</span> <span class=s>&#34;an %s\n&#34;</span><span class=p>,</span> <span class=s>&#34;error&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>See also: <a href=https://golang.org/pkg/fmt/>fmt</a></p>
+<h3 id=function-examples>Function examples</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contains(&ldquo;test&rdquo;, &ldquo;es&rdquo;)</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Count(&ldquo;test&rdquo;, &ldquo;t&rdquo;)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>HasPrefix(&ldquo;test&rdquo;, &ldquo;te&rdquo;)</td>
+<td>true</td>
+</tr>
+<tr>
+<td>HasSuffix(&ldquo;test&rdquo;, &ldquo;st&rdquo;)</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Index(&ldquo;test&rdquo;, &ldquo;e&rdquo;)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Join([]string{&ldquo;a&rdquo;, &ldquo;b&rdquo;}, &ldquo;-")</td>
+<td>a-b</td>
+</tr>
+<tr>
+<td>Repeat(&ldquo;a&rdquo;, 5)</td>
+<td>aaaaa</td>
+</tr>
+<tr>
+<td>Replace(&ldquo;foo&rdquo;, &ldquo;o&rdquo;, &ldquo;0&rdquo;, -1)</td>
+<td>f00</td>
+</tr>
+<tr>
+<td>Replace(&ldquo;foo&rdquo;, &ldquo;o&rdquo;, &ldquo;0&rdquo;, 1)</td>
+<td>f0o</td>
+</tr>
+<tr>
+<td>Split(&ldquo;a-b-c-d-e&rdquo;, &ldquo;-")</td>
+<td>[a b c d e]</td>
+</tr>
+<tr>
+<td>ToLower(&ldquo;TEST&rdquo;)</td>
+<td>test</td>
+</tr>
+<tr>
+<td>ToUpper(&ldquo;test&rdquo;)</td>
+<td>TEST</td>
+</tr>
+</tbody>
+</table>
+<h2 class=cols-3 id=golang-flow-control>Golang Flow control</h2>
+<h3 id=conditional>Conditional</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go>
+<span class=nx>a</span> <span class=o>:=</span> <span class=mi>10</span>
+
+<span class=k>if</span> <span class=nx>a</span> <span class=p>&gt;</span> <span class=mi>20</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;&gt;&#34;</span><span class=p>)</span>
+<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>a</span> <span class=p>&lt;</span> <span class=mi>20</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;&lt;&#34;</span><span class=p>)</span>
+<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;=&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=statements-in-if>Statements in if</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>x</span> <span class=o>:=</span> <span class=s>&#34;hello go!&#34;</span>
+
+<span class=k>if</span> <span class=nx>count</span> <span class=o>:=</span> <span class=nb>len</span><span class=p>(</span><span class=nx>x</span><span class=p>);</span> <span class=nx>count</span> <span class=p>&gt;</span> <span class=mi>0</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Yes&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go>
+<span class=k>if</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nf>doThing</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Uh oh&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=switch>Switch</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>x</span> <span class=o>:=</span> <span class=mf>42.0</span>
+<span class=k>switch</span> <span class=nx>x</span> <span class=p>{</span>
+<span class=k>case</span> <span class=mi>0</span><span class=p>:</span>
+<span class=k>case</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>:</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Multiple matches&#34;</span><span class=p>)</span>
+<span class=k>case</span> <span class=mi>42</span><span class=p>:</span>   <span class=c1>// Don&#39;t &#34;fall through&#34;.
+</span><span class=c1></span>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;reached&#34;</span><span class=p>)</span>
+<span class=k>case</span> <span class=mi>43</span><span class=p>:</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Unreached&#34;</span><span class=p>)</span>
+<span class=k>default</span><span class=p>:</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Optional&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://github.com/golang/go/wiki/Switch>Switch</a></p>
+<h3 id=for-loop>For loop</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=mi>10</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;i: &#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=for-range-loop>For-Range loop</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>nums</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>}</span>
+<span class=nx>sum</span> <span class=o>:=</span> <span class=mi>0</span>
+<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>num</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>nums</span> <span class=p>{</span>
+    <span class=nx>sum</span> <span class=o>+=</span> <span class=nx>num</span>
+<span class=p>}</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;sum:&#34;</span><span class=p>,</span> <span class=nx>sum</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=while-loop>While loop</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>i</span> <span class=o>:=</span> <span class=mi>1</span>
+<span class=k>for</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=mi>3</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+    <span class=nx>i</span><span class=o>++</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=continue-keyword>Continue keyword</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=mi>5</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+    <span class=k>if</span> <span class=nx>i</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>0</span> <span class=p>{</span>
+        <span class=k>continue</span>
+    <span class=p>}</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=break-keyword>Break keyword</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=k>for</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;loop&#34;</span><span class=p>)</span>
+    <span class=k>break</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=golang-structs--maps>Golang Structs & Maps</h2>
+<h3 class=row-span-2 id=defining>Defining</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>type</span> <span class=nx>Vertex</span> <span class=kd>struct</span> <span class=p>{</span>
+	<span class=nx>X</span> <span class=kt>int</span>
+	<span class=nx>Y</span> <span class=kt>int</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+	<span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>}</span>
+	<span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=p>=</span> <span class=mi>4</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>v</span><span class=p>.</span><span class=nx>X</span><span class=p>,</span> <span class=nx>v</span><span class=p>.</span><span class=nx>Y</span><span class=p>)</span> <span class=c1>// =&gt; 4 2
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/moretypes/2>Structs</a></p>
+<h3 id=literals>Literals</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=nx>X</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span> <span class=nx>Y</span><span class=p>:</span> <span class=mi>2</span><span class=p>}</span>
+<span class=c1>// Field names can be omitted
+</span><span class=c1></span><span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>}</span>
+<span class=c1>// Y is implicit
+</span><span class=c1></span><span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=nx>X</span><span class=p>:</span> <span class=mi>1</span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can also put field names.</p>
+<h3 class=row-span-2 id=maps>Maps</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>m</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span>
+<span class=nx>m</span><span class=p>[</span><span class=s>&#34;k1&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=mi>7</span>
+<span class=nx>m</span><span class=p>[</span><span class=s>&#34;k2&#34;</span><span class=p>]</span> <span class=p>=</span> <span class=mi>13</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>m</span><span class=p>)</span> <span class=c1>// =&gt; map[k1:7 k2:13]
+</span><span class=c1></span>
+<span class=nx>v1</span> <span class=o>:=</span> <span class=nx>m</span><span class=p>[</span><span class=s>&#34;k1&#34;</span><span class=p>]</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>v1</span><span class=p>)</span>     <span class=c1>// =&gt; 7
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>m</span><span class=p>))</span> <span class=c1>// =&gt; 2
+</span><span class=c1></span>
+<span class=nb>delete</span><span class=p>(</span><span class=nx>m</span><span class=p>,</span> <span class=s>&#34;k2&#34;</span><span class=p>)</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>m</span><span class=p>)</span> <span class=c1>// =&gt; map[k1:7]
+</span><span class=c1></span>
+<span class=nx>_</span><span class=p>,</span> <span class=nx>prs</span> <span class=o>:=</span> <span class=nx>m</span><span class=p>[</span><span class=s>&#34;k2&#34;</span><span class=p>]</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>prs</span><span class=p>)</span> <span class=c1>// =&gt; false
+</span><span class=c1></span>
+<span class=nx>n</span> <span class=o>:=</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span><span class=s>&#34;foo&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span> <span class=s>&#34;bar&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>}</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=c1>// =&gt; map[bar:2 foo:1]
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=pointers-to-structs>Pointers to structs</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>v</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>Vertex</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>}</span>
+<span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=p>=</span> <span class=mi>2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Doing <code>v.X</code> is the same as doing <code>(*v).X</code>, when <code>v</code> is a pointer.</p>
+<h2 class=cols-3 id=golang-functions>Golang Functions</h2>
+<h3 id=multiple-arguments>Multiple arguments</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>plus</span><span class=p>(</span><span class=nx>a</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>b</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>a</span> <span class=o>+</span> <span class=nx>b</span>
+<span class=p>}</span>
+<span class=kd>func</span> <span class=nf>plusPlus</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>,</span> <span class=nx>c</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>a</span> <span class=o>+</span> <span class=nx>b</span> <span class=o>+</span> <span class=nx>c</span>
+<span class=p>}</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>plus</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>))</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>plusPlus</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=multiple-return>Multiple return</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>vals</span><span class=p>()</span> <span class=p>(</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>7</span>
+<span class=p>}</span>
+
+<span class=nx>a</span><span class=p>,</span> <span class=nx>b</span> <span class=o>:=</span> <span class=nf>vals</span><span class=p>()</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>a</span><span class=p>)</span>    <span class=c1>// =&gt; 3
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>b</span><span class=p>)</span>    <span class=c1>// =&gt; 7
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=anonymous-function>Anonymous function</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>r1</span><span class=p>,</span> <span class=nx>r2</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>()</span> <span class=p>(</span><span class=kt>string</span><span class=p>,</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>x</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>string</span><span class=p>{</span><span class=s>&#34;hello&#34;</span><span class=p>,</span> <span class=s>&#34;world&#34;</span><span class=p>}</span>
+    <span class=k>return</span> <span class=nx>x</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=nx>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+<span class=p>}()</span>
+
+<span class=c1>// =&gt; hello world
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>r1</span><span class=p>,</span> <span class=nx>r2</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=named-return>Named return</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>split</span><span class=p>(</span><span class=nx>sum</span> <span class=kt>int</span><span class=p>)</span> <span class=p>(</span><span class=nx>x</span><span class=p>,</span> <span class=nx>y</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+  <span class=nx>x</span> <span class=p>=</span> <span class=nx>sum</span> <span class=o>*</span> <span class=mi>4</span> <span class=o>/</span> <span class=mi>9</span>
+  <span class=nx>y</span> <span class=p>=</span> <span class=nx>sum</span> <span class=o>-</span> <span class=nx>x</span>
+  <span class=k>return</span>
+<span class=p>}</span>
+
+<span class=nx>x</span><span class=p>,</span> <span class=nx>y</span> <span class=o>:=</span> <span class=nf>split</span><span class=p>(</span><span class=mi>17</span><span class=p>)</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span>   <span class=c1>// =&gt; 7
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>y</span><span class=p>)</span>   <span class=c1>// =&gt; 10
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=variadic-functions>Variadic functions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>sum</span><span class=p>(</span><span class=nx>nums</span> <span class=o>...</span><span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=nx>nums</span><span class=p>,</span> <span class=s>&#34; &#34;</span><span class=p>)</span>
+    <span class=nx>total</span> <span class=o>:=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>num</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>nums</span> <span class=p>{</span>
+        <span class=nx>total</span> <span class=o>+=</span> <span class=nx>num</span>
+    <span class=p>}</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>total</span><span class=p>)</span>
+<span class=p>}</span>
+<span class=nf>sum</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>     <span class=c1>//=&gt; [1 2] 3
+</span><span class=c1></span><span class=nf>sum</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>  <span class=c1>// =&gt; [1 2 3] 6
+</span><span class=c1></span>
+<span class=nx>nums</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>}</span>
+<span class=nf>sum</span><span class=p>(</span><span class=nx>nums</span><span class=o>...</span><span class=p>)</span>  <span class=c1>// =&gt; [1 2 3 4] 10
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=init-function>init function</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=o>--</span><span class=p>&gt;</span> <span class=kd>const</span> <span class=o>--</span><span class=p>&gt;</span> <span class=kd>var</span> <span class=o>--</span><span class=p>&gt;</span> <span class=nf>init</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>var</span> <span class=nx>num</span> <span class=p>=</span> <span class=nf>setNumber</span><span class=p>()</span>
+
+<span class=kd>func</span> <span class=nf>setNumber</span><span class=p>()</span> <span class=kt>int</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=mi>42</span>
+<span class=p>}</span>
+<span class=kd>func</span> <span class=nf>init</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>num</span> <span class=p>=</span> <span class=mi>0</span>
+<span class=p>}</span>
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span> <span class=c1>// =&gt; 0
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=functions-as-values>Functions as values</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// assign a function to a name
+</span><span class=c1></span>    <span class=nx>add</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span> <span class=kt>int</span><span class=p>)</span> <span class=kt>int</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>a</span> <span class=o>+</span> <span class=nx>b</span>
+    <span class=p>}</span>
+    <span class=c1>// use the name to call the function
+</span><span class=c1></span>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>add</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>))</span> <span class=c1>// =&gt; 7
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=closures-1>Closures 1</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>scope</span><span class=p>()</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>int</span><span class=p>{</span>
+    <span class=nx>outer_var</span> <span class=o>:=</span> <span class=mi>2</span>
+    <span class=nx>foo</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>int</span> <span class=p>{</span><span class=k>return</span> <span class=nx>outer_var</span><span class=p>}</span>
+    <span class=k>return</span> <span class=nx>foo</span>
+<span class=p>}</span>
+
+<span class=c1>// Outpus: 2
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>scope</span><span class=p>()())</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=closures-2>Closures 2</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>outer</span><span class=p>()</span> <span class=p>(</span><span class=kd>func</span><span class=p>()</span> <span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>outer_var</span> <span class=o>:=</span> <span class=mi>2</span>
+    <span class=nx>inner</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>()</span> <span class=kt>int</span> <span class=p>{</span>
+        <span class=nx>outer_var</span> <span class=o>+=</span> <span class=mi>99</span>
+        <span class=k>return</span> <span class=nx>outer_var</span>
+    <span class=p>}</span>
+    <span class=nf>inner</span><span class=p>()</span>
+    <span class=k>return</span> <span class=nx>inner</span><span class=p>,</span> <span class=nx>outer_var</span>
+<span class=p>}</span>
+<span class=nx>inner</span><span class=p>,</span> <span class=nx>val</span> <span class=o>:=</span> <span class=nf>outer</span><span class=p>()</span>
+<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nf>inner</span><span class=p>())</span> <span class=c1>// =&gt; 200
+</span><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>val</span><span class=p>)</span>     <span class=c1>// =&gt; 101
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=golang-packages>Golang Packages</h2>
+<h3 class=row-span-2 id=importing>Importing</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+<span class=kn>import</span> <span class=s>&#34;math/rand&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=same-as>Same as</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=p>(</span>
+  <span class=s>&#34;fmt&#34;</span>        <span class=c1>// gives fmt.Println
+</span><span class=c1></span>  <span class=s>&#34;math/rand&#34;</span>  <span class=c1>// gives rand.Intn
+</span><span class=c1></span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/basics/1>Importing</a></p>
+<h3 class=row-span-2 id=aliases>Aliases</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=nx>r</span> <span class=s>&#34;math/rand&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>import</span> <span class=p>(</span>
+    <span class=s>&#34;fmt&#34;</span>
+    <span class=nx>r</span> <span class=s>&#34;math/rand&#34;</span>
+<span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>r</span><span class=p>.</span><span class=nf>Intn</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=packages>Packages</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=c1>// An internal package may be imported only by another package
+</span><span class=c1>// that is inside the tree rooted at the parent of the internal directory
+</span><span class=c1></span><span class=kn>package</span> <span class=nx>internal</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://go.dev/doc/go1.4#internalpackages>Internal packages</a></p>
+<h3 id=exporting-names>Exporting names</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=c1>// Begin with a capital letter
+</span><span class=c1></span><span class=kd>func</span> <span class=nf>Hello</span> <span class=p>()</span> <span class=p>{</span>
+  <span class=err>···</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/basics/3>Exported names</a></p>
+<h2 class=cols-3 id=golang-concurrency>Golang Concurrency</h2>
+<h3 class=row-span-2 id=goroutines>Goroutines</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;time&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>f</span><span class=p>(</span><span class=nx>from</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>from</span><span class=p>,</span> <span class=s>&#34;:&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span>
+	<span class=p>}</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+	<span class=nf>f</span><span class=p>(</span><span class=s>&#34;direct&#34;</span><span class=p>)</span>
+	<span class=k>go</span> <span class=nf>f</span><span class=p>(</span><span class=s>&#34;goroutine&#34;</span><span class=p>)</span>
+
+	<span class=k>go</span> <span class=kd>func</span><span class=p>(</span><span class=nx>msg</span> <span class=kt>string</span><span class=p>)</span> <span class=p>{</span>
+		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span>
+	<span class=p>}(</span><span class=s>&#34;going&#34;</span><span class=p>)</span>
+
+	<span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;done&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/concurrency/1>Goroutines</a>, <a href=https://tour.golang.org/concurrency/2>Channels</a></p>
+<h3 class=row-span-2 id=waitgroup>WaitGroup </h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kn>package</span> <span class=nx>main</span>
+
+<span class=kn>import</span> <span class=p>(</span>
+	<span class=s>&#34;fmt&#34;</span>
+	<span class=s>&#34;sync&#34;</span>
+	<span class=s>&#34;time&#34;</span>
+<span class=p>)</span>
+
+<span class=kd>func</span> <span class=nf>w</span><span class=p>(</span><span class=nx>id</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>wg</span> <span class=o>*</span><span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span><span class=p>)</span> <span class=p>{</span>
+	<span class=k>defer</span> <span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>()</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d starting\n&#34;</span><span class=p>,</span> <span class=nx>id</span><span class=p>)</span>
+
+	<span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span>
+	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d done\n&#34;</span><span class=p>,</span> <span class=nx>id</span><span class=p>)</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+	<span class=kd>var</span> <span class=nx>wg</span> <span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span>
+	<span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=mi>5</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+		<span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+		<span class=k>go</span> <span class=nf>w</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=o>&amp;</span><span class=nx>wg</span><span class=p>)</span>
+	<span class=p>}</span>
+	<span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://golang.org/pkg/sync/#WaitGroup>WaitGroup</a></p>
+<h3 id=closing-channels>Closing channels</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>1</span>
+<span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>2</span>
+<span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>3</span>
+<span class=nb>close</span><span class=p>(</span><span class=nx>ch</span><span class=p>)</span> <span class=c1>// Closes a channel
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=c1>// Iterate the channel until closed
+</span><span class=c1></span><span class=k>for</span> <span class=nx>i</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>ch</span> <span class=p>{</span>
+  <span class=err>···</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=c1>// Closed if `ok == false`
+</span><span class=c1></span><span class=nx>v</span><span class=p>,</span> <span class=nx>ok</span> <span class=o>:=</span> <span class=o>&lt;-</span> <span class=nx>ch</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/concurrency/4>Range and close</a></p>
+<h3 id=buffered-channels>Buffered channels</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>ch</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>(</span><span class=kd>chan</span> <span class=kt>int</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+<span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>1</span>
+<span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>2</span>
+<span class=nx>ch</span> <span class=o>&lt;-</span> <span class=mi>3</span>
+<span class=c1>// fatal error:
+</span><span class=c1>// all goroutines are asleep - deadlock
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/concurrency/3>Buffered channels</a></p>
+<h2 class=cols-3 id=golang-error-control>Golang Error control</h2>
+<h3 id=deferring-functions>Deferring functions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=k>defer</span> <span class=kd>func</span><span class=p>()</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Done&#34;</span><span class=p>)</span>
+  <span class=p>}()</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Working...&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=lambda-defer>Lambda defer</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=kd>var</span> <span class=nx>d</span> <span class=p>=</span> <span class=nb>int64</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+  <span class=k>defer</span> <span class=kd>func</span><span class=p>(</span><span class=nx>d</span> <span class=o>*</span><span class=kt>int64</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;&amp; %v Unix Sec\n&#34;</span><span class=p>,</span> <span class=o>*</span><span class=nx>d</span><span class=p>)</span>
+  <span class=p>}(</span><span class=o>&amp;</span><span class=nx>d</span><span class=p>)</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;Done &#34;</span><span class=p>)</span>
+  <span class=nx>d</span> <span class=p>=</span> <span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>Unix</span><span class=p>()</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The defer func uses current value of d, unless we use a pointer to get final value at end of main.</p>
+<h3 id=defer>Defer</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=k>defer</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Done&#34;</span><span class=p>)</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Working...&#34;</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://blog.golang.org/defer-panic-and-recover>Defer, panic and recover</a></p>
+<h2 class=cols-2 id=golang-methods>Golang Methods </h2>
+<h3 id=receivers>Receivers</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>Vertex</span> <span class=kd>struct</span> <span class=p>{</span>
+  <span class=nx>X</span><span class=p>,</span> <span class=nx>Y</span> <span class=kt>float64</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>v</span> <span class=nx>Vertex</span><span class=p>)</span> <span class=nf>Abs</span><span class=p>()</span> <span class=kt>float64</span> <span class=p>{</span>
+  <span class=k>return</span> <span class=nx>math</span><span class=p>.</span><span class=nf>Sqrt</span><span class=p>(</span><span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=o>*</span> <span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=o>+</span> <span class=nx>v</span><span class=p>.</span><span class=nx>Y</span> <span class=o>*</span> <span class=nx>v</span><span class=p>.</span><span class=nx>Y</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>}</span>
+<span class=nx>v</span><span class=p>.</span><span class=nf>Abs</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/methods/1>Methods</a></p>
+<h3 id=mutation>Mutation</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>v</span> <span class=o>*</span><span class=nx>Vertex</span><span class=p>)</span> <span class=nf>Scale</span><span class=p>(</span><span class=nx>f</span> <span class=kt>float64</span><span class=p>)</span> <span class=p>{</span>
+  <span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=p>=</span> <span class=nx>v</span><span class=p>.</span><span class=nx>X</span> <span class=o>*</span> <span class=nx>f</span>
+  <span class=nx>v</span><span class=p>.</span><span class=nx>Y</span> <span class=p>=</span> <span class=nx>v</span><span class=p>.</span><span class=nx>Y</span> <span class=o>*</span> <span class=nx>f</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>v</span> <span class=o>:=</span> <span class=nx>Vertex</span><span class=p>{</span><span class=mi>6</span><span class=p>,</span> <span class=mi>12</span><span class=p>}</span>
+<span class=nx>v</span><span class=p>.</span><span class=nf>Scale</span><span class=p>(</span><span class=mf>0.5</span><span class=p>)</span>
+<span class=c1>// `v` is updated
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://tour.golang.org/methods/4>Pointer receivers</a></p>
+<h2 class=cols-2 id=golang-interfaces>Golang Interfaces</h2>
+<h3 id=a-basic-interface>A basic interface</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>Shape</span> <span class=kd>interface</span> <span class=p>{</span>
+  <span class=nf>Area</span><span class=p>()</span> <span class=kt>float64</span>
+  <span class=nf>Perimeter</span><span class=p>()</span> <span class=kt>float64</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=struct>Struct</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>type</span> <span class=nx>Rectangle</span> <span class=kd>struct</span> <span class=p>{</span>
+  <span class=nx>Length</span><span class=p>,</span> <span class=nx>Width</span> <span class=kt>float64</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Struct <code>Rectangle</code> implicitly implements interface <code>Shape</code> by implementing all of its methods.</p>
+<h3 id=methods>Methods</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=p>(</span><span class=nx>r</span> <span class=nx>Rectangle</span><span class=p>)</span> <span class=nf>Area</span><span class=p>()</span> <span class=kt>float64</span> <span class=p>{</span>
+  <span class=k>return</span> <span class=nx>r</span><span class=p>.</span><span class=nx>Length</span> <span class=o>*</span> <span class=nx>r</span><span class=p>.</span><span class=nx>Width</span>
+<span class=p>}</span>
+
+<span class=kd>func</span> <span class=p>(</span><span class=nx>r</span> <span class=nx>Rectangle</span><span class=p>)</span> <span class=nf>Perimeter</span><span class=p>()</span> <span class=kt>float64</span> <span class=p>{</span>
+  <span class=k>return</span> <span class=mi>2</span> <span class=o>*</span> <span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nx>Length</span> <span class=o>+</span> <span class=nx>r</span><span class=p>.</span><span class=nx>Width</span><span class=p>)</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The methods defined in <code>Shape</code> are implemented in <code>Rectangle</code>.</p>
+<h3 id=interface-example>Interface example</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+  <span class=kd>var</span> <span class=nx>r</span> <span class=nx>Shape</span> <span class=p>=</span> <span class=nx>Rectangle</span><span class=p>{</span><span class=nx>Length</span><span class=p>:</span> <span class=mi>3</span><span class=p>,</span> <span class=nx>Width</span><span class=p>:</span> <span class=mi>4</span><span class=p>}</span>
+  <span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type of r: %T, Area: %v, Perimeter: %v.&#34;</span><span class=p>,</span> <span class=nx>r</span><span class=p>,</span> <span class=nx>r</span><span class=p>.</span><span class=nf>Area</span><span class=p>(),</span> <span class=nx>r</span><span class=p>.</span><span class=nf>Perimeter</span><span class=p>())</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=miscellaneous>Miscellaneous</h2>
+<h3 id=keywords>Keywords</h3>
+<ul>
+<li>break</li>
+<li>default</li>
+<li>func</li>
+<li>interface</li>
+<li>select</li>
+<li>case</li>
+<li>defer</li>
+<li>go</li>
+<li>map</li>
+<li>struct</li>
+<li>chan</li>
+<li>else</li>
+<li>goto</li>
+<li>package</li>
+<li>switch</li>
+<li>const</li>
+<li>fallthrough</li>
+<li>if</li>
+<li>range</li>
+<li>type</li>
+<li>continue</li>
+<li>for</li>
+<li>import</li>
+<li>return</li>
+<li>var
+{.cols-3 .style-none}</li>
+</ul>
+<h3 id=operators-and-punctuation>Operators and punctuation</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>&</td>
+<td>+=</td>
+<td>&=</td>
+<td>&&</td>
+<td>==</td>
+<td>!=</td>
+<td>(</td>
+<td>)</td>
+</tr>
+<tr>
+<td>-</td>
+<td>|</td>
+<td>-=</td>
+<td>|=</td>
+<td>||</td>
+<td>&lt;</td>
+<td>&lt;=</td>
+<td>[</td>
+<td>]</td>
+</tr>
+<tr>
+<td>*</td>
+<td>^</td>
+<td>*=</td>
+<td>^=</td>
+<td>&lt;-</td>
+<td>></td>
+<td>>=</td>
+<td>{</td>
+<td>}</td>
+</tr>
+<tr>
+<td>/</td>
+<td>&#171;</td>
+<td>/=</td>
+<td>&#171;=</td>
+<td>++</td>
+<td>=</td>
+<td>:=</td>
+<td>,</td>
+<td>;</td>
+</tr>
+<tr>
+<td>%</td>
+<td>&#187;</td>
+<td>%=</td>
+<td>&#187;=</td>
+<td>&ndash;</td>
+<td>!</td>
+<td>&mldr;</td>
+<td>.</td>
+<td>:</td>
+</tr>
+<tr>
+<td></td>
+<td>&^</td>
+<td>&^=</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class=cols-1 id=also-see>Also see</h2>
+<ul>
+<li><a href=https://devhints.io/go>Devhints</a> <em>(devhints.io)</em></li>
+<li><a href=https://tour.golang.org/welcome/1>A tour of Go</a> <em>(tour.golang.org)</em></li>
+<li><a href=https://github.com/golang/go/wiki/>Golang wiki</a> <em>(github.com)</em></li>
+<li><a href=https://golang.org/doc/effective_go.html>Effective Go</a> <em>(golang.org)</em></li>
+<li><a href=https://gobyexample.com/>Go by Example</a> <em>(gobyexample.com)</em></li>
+<li><a href=https://awesome-go.com/>Awesome Go</a> <em>(awesome-go.com)</em></li>
+<li><a href=https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw>JustForFunc Youtube</a> <em>(youtube.com)</em></li>
+<li><a href=https://github.com/golang/go/wiki/CodeReviewComments>Style Guide</a> <em>(github.com)</em></li>
+</ul>
+</div>
+<div class=addthis_inline_share_toolbox_taj0></div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>Aaron Ji</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-12-17
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=https://jiyongcheng.dev/tags/go/>Go</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/sass/>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
+</i>
+<span class="prev-text nav-default">Sass</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/post/idea/>
+<span class="next-text nav-default">IntelliJ IDEA</span>
+<span class="prev-text nav-mobile">Next</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
+</i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=icon-links>
+<a href=https://twitter.com/ji_yongcheng rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg>
+</a>
+<a href=https://www.linkedin.com/in/jiyongcheng/ rel="me noopener" class=iconfont title=linkedin target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="33"><path d="M872.405333 872.618667H720.768V635.008c0-56.661333-1.152-129.578667-79.018667-129.578667-79.061333.0-91.136 61.653333-91.136 125.397334v241.792H398.976V384H544.64v66.602667h1.962667c20.352-38.4 69.845333-78.933333 143.786666-78.933334 153.642667.0 182.058667 101.12 182.058667 232.746667v268.202667zM227.712 317.141333a87.978667 87.978667.0 01-88.021333-88.106666A88.064 88.064.0 11227.712 317.141333zm76.032 555.477334H151.68V384h152.064v488.618667zM948.266667.0h-872.704C33.792.0.0 33.024.0 73.770667v876.458666C0 991.018667 33.792 1024 75.562667 1024h872.576C989.866667 1024 1024 991.018667 1024 950.229333V73.770667C1024 33.024 989.866667.0 948.138667.0h.128z"/></svg>
+</a>
+<a href=https://github.com/jiyongcheng rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg>
+</a>
+<a href=https://weibo.com/u/6118026886 rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg>
+</a>
+<a href=https://jiyongcheng.dev/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg>
+</a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a>
+</span>
+<span class=copyright-year>
+&copy;
+2021 -
+2022
+<span class=heart>
+<i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
+</i>
+</span><span class=author>
+Aaron Ji
+</span></span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg>
+</i>
+</div>
+</div>
+<script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
+<script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/load-photoswipe.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script>
+<script>$("#openSearch, #openSearchMobile").click(function(){$(".modal-dialog").addClass("visible")}),$("#closeSearch").click(function(){$(".modal-dialog").removeClass("visible")}),$(document).click(function(a){$(a.target).closest(".modal-content, #openSearch, #openSearchMobile").length||$("body").find(".modal-dialog").removeClass("visible")})</script>
+</body>
+</html>

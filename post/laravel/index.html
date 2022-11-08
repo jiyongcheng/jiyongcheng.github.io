@@ -1,0 +1,2909 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Laravel - What, Why, How</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name=MobileOptimized content="width">
+<meta name=HandheldFriendly content="true">
+<meta name=applicable-device content="pc,mobile">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=mobile-web-app-capable content="yes">
+<meta name=author content="Aaron Ji">
+<meta name=description content="Getting started Requirements  PHP version &amp;gt;= 7.3 BCMath PHP Extension Ctype PHP Extension Fileinfo PHP Extension JSON PHP Extension Mbstring PHP Extension OpenSSL PHP Extension PDO PHP Extension Tokenizer PHP Extension XML PHP Extension  Ensure your web server directs all requests to your application&amp;rsquo;s public/index.php file, See: Deployment
+Windows   Install Docker Desktop   Install &amp;amp; enable WSL2   Ensure that Docker Desktop is configured to use WSL2   In WSL2 terminal: 1 2 3  $ curl -s https://laravel.">
+<meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
+<meta name=generator content="Hugo 0.87.0">
+<link rel=canonical href=https://jiyongcheng.dev/post/laravel/>
+<link rel=icon href=/favicon.ico>
+<link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
+<meta property="og:title" content="Laravel">
+<meta property="og:description" content="Getting started Requirements  PHP version >= 7.3 BCMath PHP Extension Ctype PHP Extension Fileinfo PHP Extension JSON PHP Extension Mbstring PHP Extension OpenSSL PHP Extension PDO PHP Extension Tokenizer PHP Extension XML PHP Extension  Ensure your web server directs all requests to your application&rsquo;s public/index.php file, See: Deployment
+Windows   Install Docker Desktop   Install & enable WSL2   Ensure that Docker Desktop is configured to use WSL2   In WSL2 terminal: 1 2 3  $ curl -s https://laravel.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/laravel/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-09T18:26:55+00:00">
+<meta property="article:modified_time" content="2021-11-09T18:26:55+00:00">
+<meta itemprop=name content="Laravel">
+<meta itemprop=description content="Getting started Requirements  PHP version >= 7.3 BCMath PHP Extension Ctype PHP Extension Fileinfo PHP Extension JSON PHP Extension Mbstring PHP Extension OpenSSL PHP Extension PDO PHP Extension Tokenizer PHP Extension XML PHP Extension  Ensure your web server directs all requests to your application&rsquo;s public/index.php file, See: Deployment
+Windows   Install Docker Desktop   Install & enable WSL2   Ensure that Docker Desktop is configured to use WSL2   In WSL2 terminal: 1 2 3  $ curl -s https://laravel."><meta itemprop=datePublished content="2021-11-09T18:26:55+00:00">
+<meta itemprop=dateModified content="2021-11-09T18:26:55+00:00">
+<meta itemprop=wordCount content="4158"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=keywords content="web,framework,php,"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta name=twitter:title content="Laravel">
+<meta name=twitter:description content="Getting started Requirements  PHP version >= 7.3 BCMath PHP Extension Ctype PHP Extension Fileinfo PHP Extension JSON PHP Extension Mbstring PHP Extension OpenSSL PHP Extension PDO PHP Extension Tokenizer PHP Extension XML PHP Extension  Ensure your web server directs all requests to your application&rsquo;s public/index.php file, See: Deployment
+Windows   Install Docker Desktop   Install & enable WSL2   Ensure that Docker Desktop is configured to use WSL2   In WSL2 terminal: 1 2 3  $ curl -s https://laravel."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
+<meta property="og:title" content="Laravel">
+<meta property="og:description" content="Getting started Requirements  PHP version >= 7.3 BCMath PHP Extension Ctype PHP Extension Fileinfo PHP Extension JSON PHP Extension Mbstring PHP Extension OpenSSL PHP Extension PDO PHP Extension Tokenizer PHP Extension XML PHP Extension  Ensure your web server directs all requests to your application&rsquo;s public/index.php file, See: Deployment
+Windows   Install Docker Desktop   Install & enable WSL2   Ensure that Docker Desktop is configured to use WSL2   In WSL2 terminal: 1 2 3  $ curl -s https://laravel.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/laravel/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-11-09T18:26:55+00:00">
+<meta property="article:modified_time" content="2021-11-09T18:26:55+00:00">
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>What, Why, How</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=mobile-menu-item>
+<a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+<link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css>
+<link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<div class=modal-dialog>
+<div class=modal-content>
+<div id=closeSearch title=Close class=close>X</div>
+<div class=modal-header>
+<div class=modal-title>Search</div>
+</div>
+<div class=modal-body>
+<script>(function(){var c='d9e76f04c191b111d',a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,a.src=(document.location.protocol=='https:'?'https:':'http:')+'//cse.google.com/cse.js?cx='+c,b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)})()</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+<header id=header class="header container">
+<div class=logo-wrapper>
+<a href=/ class=logo>
+What, Why, How
+</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=menu-item>
+<a id=openSearch class="menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div id=mobile-panel>
+<main id=main class="main bg-llight">
+<div class=content-wrapper>
+<div id=content class="content container">
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>Laravel</h1>
+<div class=post-meta>
+<time datetime=2021-11-09 class=post-time>
+2021-11-09
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 4158 words </span>
+<span class=more-meta> 20 min read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Table of Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#getting-started>Getting started</a>
+<ul>
+<li><a href=#requirements>Requirements</a></li>
+<li><a href=#windows>Windows</a></li>
+<li><a href=#mac>Mac</a></li>
+<li><a href=#linux>Linux</a></li>
+</ul>
+</li>
+<li><a href=#configuration>Configuration</a>
+<ul>
+<li><a href=#env>.env</a></li>
+<li><a href=#debug-mode>Debug Mode</a></li>
+<li><a href=#maintenance-mode>Maintenance Mode</a></li>
+</ul>
+</li>
+<li><a href=#routing>Routing</a>
+<ul>
+<li><a href=#router-http-methods>Router HTTP Methods</a></li>
+<li><a href=#basic-definition>Basic Definition</a></li>
+<li><a href=#dependency-injection>Dependency Injection</a></li>
+<li><a href=#view-routes>View Routes</a></li>
+<li><a href=#route-model-binding>Route Model Binding</a></li>
+<li><a href=#route-parameters>Route Parameters</a></li>
+<li><a href=#redirect-routes>Redirect Routes</a></li>
+<li><a href=#regular-expression-constraints>Regular Expression Constraints</a></li>
+<li><a href=#named-routes>Named Routes</a></li>
+<li><a href=#fallback-routes>Fallback Routes</a></li>
+<li><a href=#route-groups>Route Groups</a></li>
+<li><a href=#accessing-current-route>Accessing current route</a></li>
+</ul>
+</li>
+<li><a href=#helpers>Helpers</a>
+<ul>
+<li><a href=#routes>routes</a></li>
+<li><a href=#url-generation>URL Generation</a></li>
+<li><a href=#named-route-url>Named Route URL</a></li>
+<li><a href=#error-handling>Error Handling</a></li>
+<li><a href=#http-exceptions>HTTP Exceptions</a></li>
+</ul>
+</li>
+<li><a href=#controllers>Controllers</a>
+<ul>
+<li><a href=#basic>Basic</a></li>
+</ul>
+</li>
+<li><a href=#requests>Requests</a>
+<ul>
+<li><a href=#csrf-protection>CSRF Protection</a></li>
+<li><a href=#accessing-request>Accessing Request</a></li>
+<li><a href=#path>Path</a></li>
+<li><a href=#url>URL</a></li>
+<li><a href=#request-method>Request Method</a></li>
+<li><a href=#client-ip>Client IP</a></li>
+<li><a href=#headers>Headers</a></li>
+<li><a href=#content-type>Content Type</a></li>
+<li><a href=#input>Input</a></li>
+<li><a href=#dynamic-properties>Dynamic Properties</a></li>
+<li><a href=#retrieve-partial-input>Retrieve Partial Input</a></li>
+<li><a href=#check-existence>Check Existence</a></li>
+<li><a href=#old-input>Old Input</a></li>
+<li><a href=#uploaded-files>Uploaded Files</a></li>
+</ul>
+</li>
+<li><a href=#views>Views</a>
+<ul>
+<li><a href=#intro>Intro</a></li>
+<li><a href=#pass-data-to-views>Pass Data to Views</a></li>
+<li><a href=#view-helper>view helper</a></li>
+<li><a href=#subdirectories>Subdirectories</a></li>
+</ul>
+</li>
+<li><a href=#blade-templates>Blade Templates</a>
+<ul>
+<li><a href=#intro-1>Intro</a></li>
+<li><a href=#views-1>Views</a></li>
+<li><a href=#comments>Comments</a></li>
+<li><a href=#directives>Directives</a></li>
+<li><a href=#displaying-data>Displaying Data</a></li>
+<li><a href=#including-subviews>Including Subviews</a></li>
+<li><a href=#raw-php>Raw PHP</a></li>
+<li><a href=#stacks>Stacks</a></li>
+</ul>
+</li>
+<li><a href=#forms>Forms</a>
+<ul>
+<li><a href=#intro-2>Intro</a></li>
+<li><a href=#csrf-field>CSRF Field</a></li>
+<li><a href=#method-field>Method Field</a></li>
+<li><a href=#validation-errors>Validation Errors</a></li>
+<li><a href=#repopulating-forms>Repopulating Forms</a></li>
+</ul>
+</li>
+<li><a href=#validation>Validation</a>
+<ul>
+<li><a href=#intro-3>Intro</a></li>
+<li><a href=#logic>Logic</a></li>
+<li><a href=#rules>Rules</a></li>
+<li><a href=#validate-passwords>Validate Passwords</a></li>
+<li><a href=#display-validation-errors>Display Validation Errors</a></li>
+<li><a href=#optional-fields>Optional Fields</a></li>
+<li><a href=#validated-input>Validated Input</a></li>
+</ul>
+</li>
+<li><a href=#session>Session</a>
+<ul>
+<li><a href=#intro-4>Intro</a></li>
+<li><a href=#check-isset--exists>Check Isset / Exists</a></li>
+<li><a href=#retrieving-data>Retrieving Data</a></li>
+<li><a href=#store-data>Store Data</a></li>
+</ul>
+</li>
+<li><a href=#logging>Logging</a>
+<ul>
+<li><a href=#configuration-2>Configuration</a></li>
+<li><a href=#levels>Levels</a></li>
+<li><a href=#log-facade>Log Facade</a></li>
+<li><a href=#contextual-info>Contextual Info</a></li>
+</ul>
+</li>
+<li><a href=#deployment>Deployment</a>
+<ul>
+<li><a href=#intro-5>Intro</a></li>
+<li><a href=#optimization>Optimization</a></li>
+<li><a href=#debug-mode-1>Debug Mode</a></li>
+</ul>
+</li>
+<li><a href=#also-see>Also see</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h2 class=cols-3 id=getting-started>Getting started</h2>
+<h3 class=row-span-2 id=requirements>Requirements</h3>
+<ul>
+<li>PHP version >= 7.3</li>
+<li>BCMath PHP Extension</li>
+<li>Ctype PHP Extension</li>
+<li>Fileinfo PHP Extension</li>
+<li>JSON PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+<li>XML PHP Extension</li>
+</ul>
+<p>Ensure your web server directs all requests to your application&rsquo;s
+<code>public/index.php</code> file, See: <a href=#deployment>Deployment</a></p>
+<h3 id=windows>Windows</h3>
+<ul>
+<li>
+<h4 id=install-docker-desktophttpswwwdockercomproductsdocker-desktop>Install <a href=https://www.docker.com/products/docker-desktop>Docker Desktop</a></h4>
+</li>
+<li>
+<h4 id=install--enable-wsl2httpsdocsmicrosoftcomen-uswindowswslinstall>Install & enable <a href=https://docs.microsoft.com/en-us/windows/wsl/install>WSL2</a></h4>
+</li>
+<li>
+<h4 id=ensure-that-docker-desktop-is-configured-to-use-wsl2httpsdocsdockercomdesktopwindowswsl>Ensure that Docker Desktop is <a href=https://docs.docker.com/desktop/windows/wsl/>configured to use WSL2</a></h4>
+</li>
+<li>
+<h4 id=in-wsl2-terminal>In WSL2 terminal:</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ curl -s https://laravel.build/example-app <span class=p>|</span> bash
+$ <span class=nb>cd</span> example-app
+$ ./vendor/bin/sail up
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>{.style-timeline}</p>
+<p>Access application via <code>http://localhost</code></p>
+<h3 id=mac>Mac</h3>
+<ul>
+<li>
+<h4 id=install-docker-desktophttpswwwdockercomproductsdocker-desktop-1>Install <a href=https://www.docker.com/products/docker-desktop>Docker Desktop</a></h4>
+</li>
+<li>
+<h4 id=in-terminal>In terminal:</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ curl -s https://laravel.build/example-app <span class=p>|</span> bash
+$ <span class=nb>cd</span> example-app
+$ ./vendor/bin/sail up
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>{.style-timeline}</p>
+<p>Access application via <code>http://localhost</code></p>
+<h3 id=linux>Linux</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ curl -s https://laravel.build/example-app <span class=p>|</span> bash
+$ <span class=nb>cd</span> example-app
+$ ./vendor/bin/sail up
+</code></pre></td></tr></table>
+</div>
+</div><p>Installation via <a href=https://getcomposer.org>Composer</a></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>$ composer create-project laravel/laravel example-app
+$ <span class=nb>cd</span> example-app
+$ php artisan serve
+</code></pre></td></tr></table>
+</div>
+</div><p>Access application via <code>http://localhost</code></p>
+<h2 class=cols-3 id=configuration>Configuration</h2>
+<h3 class=cols-2 id=env>.env</h3>
+<p>Retrieve values from <code>.env</code> file</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>env</span><span class=p>(</span><span class=s1>&#39;APP_DEBUG&#39;</span><span class=p>);</span>
+
+<span class=c1>// with default value
+</span><span class=c1></span><span class=nx>env</span><span class=p>(</span><span class=s1>&#39;APP_DEBUG&#39;</span><span class=p>,</span> <span class=k>false</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Determine current environment</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Support\Facades\App</span><span class=p>;</span>
+
+<span class=nv>$environment</span> <span class=o>=</span> <span class=nx>App</span><span class=o>::</span><span class=na>environment</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Accessing configuration values using &ldquo;dot&rdquo; syntax</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// config/app.php --&gt; [&#39;timezone&#39; =&gt; &#39;&#39;]
+</span><span class=c1></span><span class=nv>$value</span> <span class=o>=</span> <span class=nx>config</span><span class=p>(</span><span class=s1>&#39;app.timezone&#39;</span><span class=p>);</span>
+
+<span class=c1>// Retrieve a default value if the configuration value does not exist...
+</span><span class=c1></span><span class=nv>$value</span> <span class=o>=</span> <span class=nx>config</span><span class=p>(</span><span class=s1>&#39;app.timezone&#39;</span><span class=p>,</span> <span class=s1>&#39;Asia/Seoul&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Set configuration values at runtime:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>config</span><span class=p>([</span><span class=s1>&#39;app.timezone&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;America/Chicago&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=debug-mode>Debug Mode</h3>
+<p>Turn on (local dev):</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// .env file
+</span><span class=c1></span><span class=nx>APP_ENV</span><span class=o>=</span><span class=nx>local</span>
+<span class=nx>APP_DEBUG</span><span class=o>=</span><span class=k>true</span>
+<span class=c1>// ...
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Turn off (production):</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// .env file
+</span><span class=c1></span><span class=nx>APP_ENV</span><span class=o>=</span><span class=nx>production</span>
+<span class=nx>APP_DEBUG</span><span class=o>=</span><span class=k>false</span>
+<span class=c1>// ...
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=maintenance-mode>Maintenance Mode</h3>
+<p>Temporarily disable application (503 status code)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan down
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=disable-maintenance-mode>Disable maintenance mode</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan up
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=bypass-maintenance-mode>Bypass Maintenance Mode</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan down --secret<span class=o>=</span><span class=s2>&#34;1630542a-246b-4b66-afa1-dd72a4c43515&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Visit your application URL <code>https://example.com/1630542a-246b-4b66-afa1-dd72a4c43515</code> to set a cookie and bypass the maintenance screen</p>
+<h2 class=cols-3 id=routing>Routing</h2>
+<h3 class=row-span-2 id=router-http-methods>Router HTTP Methods</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>post</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>put</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>patch</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>delete</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>options</span><span class=p>(</span><span class=nv>$uri</span><span class=p>,</span> <span class=nv>$callback</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Multiple HTTP methods</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>match</span><span class=p>([</span><span class=s1>&#39;get&#39;</span><span class=p>,</span> <span class=s1>&#39;post&#39;</span><span class=p>],</span> <span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>});</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>any</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-2 id=basic-definition>Basic Definition</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Support\Facades\Route</span><span class=p>;</span>
+
+<span class=c1>// closure
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/greeting&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=s1>&#39;Hello World&#39;</span><span class=p>;</span>
+<span class=p>});</span>
+
+<span class=c1>// controller action
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span>
+    <span class=s1>&#39;/user/profile&#39;</span><span class=p>,</span>
+    <span class=p>[</span><span class=nx>UserProfileController</span><span class=o>::</span><span class=na>class</span><span class=p>,</span> <span class=s1>&#39;show&#39;</span><span class=p>]</span>
+<span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=dependency-injection>Dependency Injection</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Http\Request</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// ...
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Type hint concrete dependencies for auto-injection</p>
+<h3 id=view-routes>View Routes</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Argument 1: URI, Argument 2: view name
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>view</span><span class=p>(</span><span class=s1>&#39;/welcome&#39;</span><span class=p>,</span> <span class=s1>&#39;welcome&#39;</span><span class=p>);</span>
+
+<span class=c1>// with data
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>view</span><span class=p>(</span><span class=s1>&#39;/welcome&#39;</span><span class=p>,</span> <span class=s1>&#39;welcome&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;Taylor&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Route only needs to return a view.</p>
+<h3 class=row-span-4 id=route-model-binding>Route Model Binding</h3>
+<h4 id=implicit-binding>Implicit binding</h4>
+<p>With closure</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>App\Models\User</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users/{user}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>User</span> <span class=nv>$user</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nv>$user</span><span class=o>-&gt;</span><span class=na>email</span><span class=p>;</span>
+<span class=p>});</span>
+
+<span class=c1>// /user/1 --&gt; User::where(&#39;id&#39;, &#39;=&#39;, 1);
+</span></code></pre></td></tr></table>
+</div>
+</div><p>With controller action</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>App\Http\Controllers\UserController</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>App\Models\User</span><span class=p>;</span>
+
+<span class=c1>// Route definition...
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users/{user}&#39;</span><span class=p>,</span> <span class=p>[</span><span class=nx>UserController</span><span class=o>::</span><span class=na>class</span><span class=p>,</span> <span class=s1>&#39;show&#39;</span><span class=p>]);</span>
+
+<span class=c1>// Controller method definition...
+</span><span class=c1></span><span class=k>public</span> <span class=k>function</span> <span class=nf>show</span><span class=p>(</span><span class=nx>User</span> <span class=nv>$user</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;user.profile&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;user&#39;</span> <span class=o>=&gt;</span> <span class=nv>$user</span><span class=p>]);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>With custom resolution column</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>App\Models\Post</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/posts/{post:slug}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>Post</span> <span class=nv>$post</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nv>$post</span><span class=p>;</span>
+<span class=p>});</span>
+
+<span class=c1>// /posts/my-post --&gt; Post::where(&#39;slug&#39;, &#39;=&#39;, &#39;my-post&#39;);
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Always use a different column to resolve</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// in App\Models\Post
+</span><span class=c1></span><span class=k>public</span> <span class=k>function</span> <span class=nf>getRouteKeyName</span><span class=p>()</span>
+<span class=p>{</span>
+    <span class=k>return</span> <span class=s1>&#39;slug&#39;</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Multiple models - second is child of first</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>App\Models\Post</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>App\Models\User</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users/{user}/posts/{post:slug}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>User</span> <span class=nv>$user</span><span class=p>,</span> <span class=nx>Post</span> <span class=nv>$post</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nv>$post</span><span class=p>;</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Convenient way to automatically inject the model instances directly into your routes</p>
+<h3 class=row-span-2 id=route-parameters>Route Parameters</h3>
+<p>Capture segments of the URI within your route</p>
+<h4 id=required-parameters>Required parameters</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{id}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$id</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=s1>&#39;User &#39;</span><span class=o>.</span><span class=nv>$id</span><span class=p>;</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>With dependency injection</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Http\Request</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{id}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>,</span> <span class=nv>$id</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=s1>&#39;User &#39;</span><span class=o>.</span><span class=nv>$id</span><span class=p>;</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=optional-parameters>Optional Parameters</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{name?}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$name</span> <span class=o>=</span> <span class=k>null</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nv>$name</span><span class=p>;</span>
+<span class=p>});</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{name?}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$name</span> <span class=o>=</span> <span class=s1>&#39;John&#39;</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nv>$name</span><span class=p>;</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=redirect-routes>Redirect Routes</h3>
+<p>HTTP <code>302</code> status</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>redirect</span><span class=p>(</span><span class=s1>&#39;/here&#39;</span><span class=p>,</span> <span class=s1>&#39;/there&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Set the status code</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>redirect</span><span class=p>(</span><span class=s1>&#39;/here&#39;</span><span class=p>,</span> <span class=s1>&#39;/there&#39;</span><span class=p>,</span> <span class=mi>301</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Permanent <code>301</code> redirect</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>permanentRedirect</span><span class=p>(</span><span class=s1>&#39;/here&#39;</span><span class=p>,</span> <span class=s1>&#39;/there&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=cols-2 id=regular-expression-constraints>Regular Expression Constraints</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{name}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$name</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>})</span><span class=o>-&gt;</span><span class=na>where</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;[A-Za-z]+&#39;</span><span class=p>);</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{id}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$id</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>})</span><span class=o>-&gt;</span><span class=na>where</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>,</span> <span class=s1>&#39;[0-9]+&#39;</span><span class=p>);</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{id}/{name}&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nv>$id</span><span class=p>,</span> <span class=nv>$name</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>})</span><span class=o>-&gt;</span><span class=na>where</span><span class=p>([</span><span class=s1>&#39;id&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;[0-9]+&#39;</span><span class=p>,</span> <span class=s1>&#39;name&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;[a-z]+&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See also: <a href=/regex>Regex Cheatsheet</a></p>
+<h3 id=named-routes>Named Routes</h3>
+<p>Route names should always be unique</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/profile&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>})</span><span class=o>-&gt;</span><span class=na>name</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#helpers-cols-3>Helpers</a></p>
+<h3 id=fallback-routes>Fallback Routes</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>fallback</span><span class=p>(</span><span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Executed when no other routes match</p>
+<h3 id=route-groups>Route Groups</h3>
+<h4 id=middleware>Middleware</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>middleware</span><span class=p>([</span><span class=s1>&#39;first&#39;</span><span class=p>,</span> <span class=s1>&#39;second&#39;</span><span class=p>])</span><span class=o>-&gt;</span><span class=na>group</span><span class=p>(</span><span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+        <span class=c1>// Uses first &amp; second middleware...
+</span><span class=c1></span>    <span class=p>});</span>
+
+    <span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/profile&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+        <span class=c1>// Uses first &amp; second middleware...
+</span><span class=c1></span>    <span class=p>});</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=uri-prefixes>URI Prefixes</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>prefix</span><span class=p>(</span><span class=s1>&#39;admin&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>group</span><span class=p>(</span><span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+        <span class=c1>// Matches The &#34;/admin/users&#34; URL
+</span><span class=c1></span>    <span class=p>});</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=name-prefix>Name Prefix</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>name</span><span class=p>(</span><span class=s1>&#39;admin.&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>group</span><span class=p>(</span><span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/users&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+        <span class=c1>// Route assigned name &#34;admin.users&#34;...
+</span><span class=c1></span>    <span class=p>})</span><span class=o>-&gt;</span><span class=na>name</span><span class=p>(</span><span class=s1>&#39;users&#39;</span><span class=p>);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Share attributes across routes</p>
+<h3 id=accessing-current-route>Accessing current route</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Support\Facades\Route</span><span class=p>;</span>
+
+<span class=c1>// Illuminate\Routing\Route
+</span><span class=c1></span><span class=nv>$route</span> <span class=o>=</span> <span class=nx>Route</span><span class=o>::</span><span class=na>current</span><span class=p>();</span>
+
+<span class=c1>// string
+</span><span class=c1></span><span class=nv>$name</span> <span class=o>=</span> <span class=nx>Route</span><span class=o>::</span><span class=na>currentRouteName</span><span class=p>();</span>
+
+<span class=c1>// string
+</span><span class=c1></span><span class=nv>$action</span> <span class=o>=</span> <span class=nx>Route</span><span class=o>::</span><span class=na>currentRouteAction</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=helpers>Helpers</h2>
+<h3 class=row-span-2 id=routes>routes</h3>
+<h4 id=named-route>Named route</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$url</span> <span class=o>=</span> <span class=nx>route</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>With parameters</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Route::get(&#39;/user/{id}/profile&#39;, /*...*/ )-&gt;name(&#39;profile);
+</span><span class=c1></span>
+<span class=nv>$url</span> <span class=o>=</span> <span class=nx>route</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;id&#39;</span> <span class=o>=&gt;</span> <span class=mi>1</span><span class=p>]);</span>
+
+<span class=c1>// /user/1/profile/
+</span></code></pre></td></tr></table>
+</div>
+</div><p>With query string</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Route::get(&#39;/user/{id}/profile&#39;, /*...*/ )-&gt;name(&#39;profile);
+</span><span class=c1></span>
+<span class=nv>$url</span> <span class=o>=</span> <span class=nx>route</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;id&#39;</span> <span class=o>=&gt;</span> <span class=mi>1</span><span class=p>,</span> <span class=s1>&#39;photos&#39;</span><span class=o>=&gt;</span><span class=s1>&#39;yes&#39;</span><span class=p>]);</span>
+
+<span class=c1>// /user/1/profile?photos=yes
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=redirects>Redirects</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Generating Redirects...
+</span><span class=c1></span><span class=k>return</span> <span class=nx>redirect</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>route</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=eloquent-models>Eloquent Models</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>echo</span> <span class=nx>route</span><span class=p>(</span><span class=s1>&#39;post.show&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;post&#39;</span> <span class=o>=&gt;</span> <span class=nv>$post</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The route helper will automatically extract the model&rsquo;s route key.
+See <a href=#routing-cols-4>Routing</a></p>
+<h3 id=url-generation>URL Generation</h3>
+<p>Generate arbitrary URLs for your application that will
+automatically use the scheme (HTTP or HTTPS) and host
+from the current request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$post</span> <span class=o>=</span> <span class=nx>App\Models\Post</span><span class=o>::</span><span class=na>find</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+
+<span class=k>echo</span> <span class=nx>url</span><span class=p>(</span><span class=s2>&#34;/posts/</span><span class=si>{</span><span class=nv>$post</span><span class=o>-&gt;</span><span class=na>id</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>);</span>
+
+<span class=c1>// http://example.com/posts/1
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=current-url>Current URL</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Get the current URL without the query string...
+</span><span class=c1></span><span class=k>echo</span> <span class=nx>url</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>current</span><span class=p>();</span>
+
+<span class=c1>// Get the current URL including the query string...
+</span><span class=c1></span><span class=k>echo</span> <span class=nx>url</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>full</span><span class=p>();</span>
+
+<span class=c1>// Get the full URL for the previous request...
+</span><span class=c1></span><span class=k>echo</span> <span class=nx>url</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>previous</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=named-route-url>Named Route URL</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$url</span> <span class=o>=</span> <span class=nx>route</span><span class=p>(</span><span class=s1>&#39;profile&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See <a href=#named-route>Named Route</a></p>
+<h3 id=error-handling>Error Handling</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>public</span> <span class=k>function</span> <span class=nf>isValid</span><span class=p>(</span><span class=nv>$value</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=k>try</span> <span class=p>{</span>
+        <span class=c1>// Validate the value...
+</span><span class=c1></span>    <span class=p>}</span> <span class=k>catch</span> <span class=p>(</span><span class=nx>Throwable</span> <span class=nv>$e</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nx>report</span><span class=p>(</span><span class=nv>$e</span><span class=p>);</span>
+
+        <span class=k>return</span> <span class=k>false</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Report an exception but continue handling the current request</p>
+<h3 id=http-exceptions>HTTP Exceptions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// page not found
+</span><span class=c1></span><span class=nx>abort</span><span class=p>(</span><span class=mi>404</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Generate an HTTP exception response using status code</p>
+<h2 class=cols-3 id=controllers>Controllers</h2>
+<h3 id=basic>Basic</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>namespace</span> <span class=nx>App\Http\Controllers</span><span class=p>;</span>
+
+<span class=k>use</span> <span class=nx>App\Http\Controllers\Controller</span><span class=p>;</span>
+<span class=k>use</span> <span class=nx>App\Models\User</span><span class=p>;</span>
+
+<span class=k>class</span> <span class=nc>UserController</span> <span class=k>extends</span> <span class=nx>Controller</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>function</span> <span class=nf>show</span><span class=p>(</span><span class=nv>$id</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;user.profile&#39;</span><span class=p>,</span> <span class=p>[</span>
+            <span class=s1>&#39;user&#39;</span> <span class=o>=&gt;</span> <span class=nx>User</span><span class=o>::</span><span class=na>findOrFail</span><span class=p>(</span><span class=nv>$id</span><span class=p>)</span>
+        <span class=p>]);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Define a route for this controller method:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>App\Http\Controllers\UserController</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/user/{id}&#39;</span><span class=p>,</span> <span class=p>[</span><span class=nx>UserController</span><span class=o>::</span><span class=na>class</span><span class=p>,</span> <span class=s1>&#39;show&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=requests>Requests</h2>
+<h3 id=csrf-protection>CSRF Protection</h3>
+<p>Laravel automatically generates a CSRF &ldquo;token&rdquo; for each active user session.<br>
+This token is used to verify that the authenticated user is the person actually making the requests.</p>
+<p>Get current session&rsquo;s token:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/token&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>)</span> <span class=p>{</span>
+    <span class=nv>$token</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>token</span><span class=p>();</span>
+
+    <span class=nv>$token</span> <span class=o>=</span> <span class=nx>csrf_token</span><span class=p>();</span>
+
+    <span class=c1>// ...
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>POST</code>, <code>PUT</code>, <code>PATCH</code>, or <code>DELETE</code> forms should include a hidden CSRF <code>_token</code> field
+in the form to validate the request.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>form</span> <span class=na>method</span><span class=o>=</span><span class=s>&#34;POST&#34;</span> <span class=na>action</span><span class=o>=</span><span class=s>&#34;/profile&#34;</span><span class=p>&gt;</span>
+    @csrf
+
+    <span class=c>&lt;!-- Equivalent to... --&gt;</span>
+    <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;hidden&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;_token&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;{{ csrf_token() }}&#34;</span> <span class=p>/&gt;</span>
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See <a href=#forms-cols-3>Forms</a></p>
+<h3 id=accessing-request>Accessing Request</h3>
+<p>Get an instance of the current request by type-hinting the
+controller action or route closure</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// controller action
+</span><span class=c1></span><span class=k>class</span> <span class=nc>UserController</span> <span class=k>extends</span> <span class=nx>Controller</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>function</span> <span class=nf>store</span><span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+
+<span class=c1>// closure
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href=#routing>See Routing</a></p>
+<h3 id=path>Path</h3>
+<p>The request&rsquo;s path information</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$uri</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>path</span><span class=p>();</span>
+
+<span class=c1>// https://example.com/foo/bar --&gt; foo/bar
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=match-path-to-pattern>Match path to pattern</h4>
+<p>Verify that the incoming request path matches a given pattern</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// * is wildcard
+</span><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>is</span><span class=p>(</span><span class=s1>&#39;admin/*&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Determine if the incoming request matches a named route</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>routeIs</span><span class=p>(</span><span class=s1>&#39;admin.*&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=url>URL</h3>
+<p>Full URL for the incoming request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// URL without the query string
+</span><span class=c1></span><span class=nv>$url</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>url</span><span class=p>();</span>
+
+<span class=c1>// URL including query string
+</span><span class=c1></span><span class=nv>$urlWithQueryString</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>fullUrl</span><span class=p>();</span>
+
+<span class=c1>// append data to query string
+</span><span class=c1></span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>fullUrlWithQuery</span><span class=p>([</span><span class=s1>&#39;type&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;phone&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=request-method>Request Method</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$method</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>method</span><span class=p>();</span>
+
+<span class=c1>// verify that the HTTP verb matches a given string
+</span><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>isMethod</span><span class=p>(</span><span class=s1>&#39;post&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=client-ip>Client IP</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$ipAddress</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>ip</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=headers>Headers</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>header</span><span class=p>(</span><span class=s1>&#39;X-Header-Name&#39;</span><span class=p>);</span>
+
+<span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>header</span><span class=p>(</span><span class=s1>&#39;X-Header-Name&#39;</span><span class=p>,</span> <span class=s1>&#39;default value&#39;</span><span class=p>);</span>
+
+<span class=c1>// determine if the request contains a given header
+</span><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>hasHeader</span><span class=p>(</span><span class=s1>&#39;X-Header-Name&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=c1>// retrieve a bearer token from the Authorization header
+</span><span class=c1></span><span class=nv>$token</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>bearerToken</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=content-type>Content Type</h3>
+<p>Return an array containing all the content types accepted by the request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$contentTypes</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>getAcceptableContentTypes</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Boolean check for content types are accepted by the request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>accepts</span><span class=p>([</span><span class=s1>&#39;text/html&#39;</span><span class=p>,</span> <span class=s1>&#39;application/json&#39;</span><span class=p>]))</span> <span class=p>{</span>
+    <span class=c1>// ...
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-4 id=input>Input</h3>
+<p>Retrieve all the incoming request&rsquo;s input data as an array</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>all</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Retrieve all the incoming request&rsquo;s input data as a collection</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>collect</span><span class=p>();</span>
+
+<span class=c1>// retrieve subset as collection
+</span><span class=c1></span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>collect</span><span class=p>(</span><span class=s1>&#39;users&#39;</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>each</span><span class=p>(</span><span class=k>function</span> <span class=p>(</span><span class=nv>$user</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>// ...
+</span><span class=c1></span><span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See <a href=#helpers-cols-3>Helpers</a></p>
+<p>Retrieve user input (also gets values from query string)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>);</span>
+
+<span class=c1>// with default value if none present
+</span><span class=c1></span><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;Sally&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Access array inputs</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>(</span><span class=s1>&#39;products.0.name&#39;</span><span class=p>);</span>
+
+<span class=nv>$names</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>(</span><span class=s1>&#39;products.*.name&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Retrieve all the input values as an associative array:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>input</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Only retrieve values from the query string:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>query</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>);</span>
+
+<span class=c1>// with default value
+</span><span class=c1></span><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>query</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;Helen&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Retrieve all the query string values as an associative array:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$query</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>query</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=boolean-input-values>Boolean Input Values</h4>
+<p>Helpful for checkbox inputs or other booleans.
+Return <code>true</code> for <code>1</code>, <code>"1"</code>, <code>true</code>, <code>"true"</code>, <code>"on"</code>, and <code>"yes"</code>.<br>
+All other values will return <code>false</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$archived</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>boolean</span><span class=p>(</span><span class=s1>&#39;archived&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=dynamic-properties>Dynamic Properties</h3>
+<p>Access inputs via properties.<br>
+If not found as an input, the route parameters will be checked.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$name</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>name</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=retrieve-partial-input>Retrieve Partial Input</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>only</span><span class=p>([</span><span class=s1>&#39;username&#39;</span><span class=p>,</span> <span class=s1>&#39;password&#39;</span><span class=p>]);</span>
+
+<span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>only</span><span class=p>(</span><span class=s1>&#39;username&#39;</span><span class=p>,</span> <span class=s1>&#39;password&#39;</span><span class=p>);</span>
+
+<span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>except</span><span class=p>([</span><span class=s1>&#39;credit_card&#39;</span><span class=p>]);</span>
+
+<span class=nv>$input</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>except</span><span class=p>(</span><span class=s1>&#39;credit_card&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=check-existence>Check Existence</h3>
+<p>Determine if value(s) present</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>has</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=c1>// check if ALL values are present
+</span><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>has</span><span class=p>([</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;email&#39;</span><span class=p>]))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=c1>// if any values are present
+</span><span class=c1></span><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>hasAny</span><span class=p>([</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;email&#39;</span><span class=p>]))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=old-input>Old Input</h3>
+<p>Retrieve input from the previous request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$username</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>old</span><span class=p>(</span><span class=s1>&#39;username&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Or use the <code>old()</code> helper</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>&lt;</span><span class=nx>input</span> <span class=nx>type</span><span class=o>=</span><span class=s2>&#34;text&#34;</span> <span class=nx>name</span><span class=o>=</span><span class=s2>&#34;username&#34;</span> <span class=nx>value</span><span class=o>=</span><span class=s2>&#34;{{ old(&#39;username&#39;) }}&#34;</span><span class=o>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#helpers-cols-3>Helpers</a><br>
+See: <a href=#forms-cols-3>Forms</a></p>
+<h3 id=uploaded-files>Uploaded Files</h3>
+<p>Retrieve uploaded file from request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$file</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>file</span><span class=p>(</span><span class=s1>&#39;photo&#39;</span><span class=p>);</span>
+
+<span class=nv>$file</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Get file path or extension</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$path</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>path</span><span class=p>();</span>
+
+<span class=nv>$extension</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>extension</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Store uploaded file with a randomly generated filename</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// path where the file should be stored relative to
+</span><span class=c1>// the filesystem&#39;s configured root directory
+</span><span class=c1></span><span class=nv>$path</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>store</span><span class=p>(</span><span class=s1>&#39;images&#39;</span><span class=p>);</span> 
+
+<span class=c1>// optional 2nd param to specify the filesystem disk
+</span><span class=c1></span><span class=nv>$path</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>store</span><span class=p>(</span><span class=s1>&#39;images&#39;</span><span class=p>,</span> <span class=s1>&#39;s3&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Store uploaded file and specify the name</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$path</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>storeAs</span><span class=p>(</span><span class=s1>&#39;images&#39;</span><span class=p>,</span> <span class=s1>&#39;filename.jpg&#39;</span><span class=p>);</span>
+
+<span class=nv>$path</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>photo</span><span class=o>-&gt;</span><span class=na>storeAs</span><span class=p>(</span><span class=s1>&#39;images&#39;</span><span class=p>,</span> <span class=s1>&#39;filename.jpg&#39;</span><span class=p>,</span> <span class=s1>&#39;s3&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See More: <a href=https://laravel.com/docs/8.x/filesystem>Laravel File Storage</a></p>
+<h2 class=cols-3 id=views>Views</h2>
+<h3 id=intro>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/views>Laravel Docs - Views</a></li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=c>&lt;!-- View stored in resources/views/greeting.blade.php --&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello, <span class=cp>&lt;?php echo $name; ?&gt;</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Create a view by placing a file with the <code>.blade.php</code>
+extension in the <code>resources/views</code> directory.</p>
+<h3 id=pass-data-to-views>Pass Data to Views</h3>
+<h4 id=as-an-array>As an array</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;greetings&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;Victoria&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=using-with>Using with()</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;greeting&#39;</span><span class=p>)</span>
+            <span class=o>-&gt;</span><span class=na>with</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;Victoria&#39;</span><span class=p>)</span>
+            <span class=o>-&gt;</span><span class=na>with</span><span class=p>(</span><span class=s1>&#39;occupation&#39;</span><span class=p>,</span> <span class=s1>&#39;Astronaut&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Access each value using the data&rsquo;s keys</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello, {{ $name }}<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+        <span class=c>&lt;!-- Or --&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello, <span class=cp>&lt;?php echo $name; ?&gt;</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=view-helper>view helper</h3>
+<p>Return a view from a route with the <code>view()</code> helper</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;greeting&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;James&#39;</span><span class=p>]);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#view-routes>View Routes</a> and <a href=#helpers>Helpers</a></p>
+<h3 id=subdirectories>Subdirectories</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// resources/views/admin.profile.blade.php
+</span><span class=c1></span><span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;admin.profile&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=blade-templates>Blade Templates</h2>
+<h3 id=intro-1>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/blade>Laravel Docs - Blade Templates</a></li>
+</ul>
+<p>Blade is the templating engine included in Laravel
+that also allows you to use plain PHP.</p>
+<h3 id=views-1>Views</h3>
+<p>Blade views are returned using the <code>view()</code> helper</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>view</span><span class=p>(</span><span class=s1>&#39;welcome&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;Samantha&#39;</span><span class=p>]);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#view-helper>Views</a></p>
+<h3 id=comments>Comments</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>{{-- This comment will not be present in the rendered HTML --}}
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-3 id=directives>Directives</h3>
+<h4 id=if-statements>if Statements</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nx>count</span><span class=p>(</span><span class=nv>$records</span><span class=p>)</span> <span class=o>===</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=nx>I</span> <span class=nx>have</span> <span class=nx>one</span> <span class=nx>record</span><span class=o>!</span>
+<span class=o>@</span><span class=k>elseif</span> <span class=p>(</span><span class=nx>count</span><span class=p>(</span><span class=nv>$records</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=nx>I</span> <span class=nx>have</span> <span class=nx>multiple</span> <span class=nx>records</span><span class=o>!</span>
+<span class=o>@</span><span class=k>else</span>
+    <span class=nx>I</span> <span class=nx>don</span><span class=err>&#39;</span><span class=nx>t</span> <span class=nx>have</span> <span class=nx>any</span> <span class=nx>records</span><span class=o>!</span>
+<span class=o>@</span><span class=k>endif</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=isset--empty>isset & empty</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=nx>isset</span><span class=p>(</span><span class=nv>$records</span><span class=p>)</span>
+    <span class=c1>// $records is defined and is not null...
+</span><span class=c1></span><span class=o>@</span><span class=nx>endisset</span>
+
+<span class=o>@</span><span class=k>empty</span><span class=p>(</span><span class=nv>$records</span><span class=p>)</span>
+    <span class=c1>// $records is &#34;empty&#34;...
+</span><span class=c1></span><span class=o>@</span><span class=nx>endempty</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=authentication>Authentication</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=nx>auth</span>
+    <span class=c1>// The user is authenticated...
+</span><span class=c1></span><span class=o>@</span><span class=nx>endauth</span>
+
+<span class=o>@</span><span class=nx>guest</span>
+    <span class=c1>// The user is not authenticated...
+</span><span class=c1></span><span class=o>@</span><span class=nx>endguest</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=loops>Loops</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>@for ($i = 0; $i <span class=p>&lt;</span> <span class=nt>10</span><span class=err>;</span> <span class=err>$</span><span class=na>i</span><span class=err>++)</span>
+    <span class=na>The</span> <span class=na>current</span> <span class=na>value</span> <span class=na>is</span> <span class=err>{{</span> <span class=err>$</span><span class=na>i</span> <span class=err>}}</span>
+<span class=err>@</span><span class=na>endfor</span>
+
+<span class=err>@</span><span class=na>foreach</span> <span class=err>($</span><span class=na>users</span> <span class=na>as</span> <span class=err>$</span><span class=na>user</span><span class=err>)</span>
+    <span class=err>&lt;</span><span class=na>p</span><span class=p>&gt;</span>This is user {{ $user-&gt;id }}<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+@endforeach
+
+@forelse ($users as $user)
+    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ $user-&gt;name }}<span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+@empty
+    <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>No users<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+@endforelse
+
+@while (true)
+    <span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>I&#39;m looping forever.<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+@endwhile
+</code></pre></td></tr></table>
+</div>
+</div><p>Loop Iteration:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=k>foreach</span> <span class=p>(</span><span class=nv>$users</span> <span class=k>as</span> <span class=nv>$user</span><span class=p>)</span>
+    <span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$loop</span><span class=o>-&gt;</span><span class=na>first</span><span class=p>)</span>
+        <span class=k>This</span> <span class=nx>is</span> <span class=nx>the</span> <span class=nx>first</span> <span class=nx>iteration</span><span class=o>.</span>
+    <span class=o>@</span><span class=k>endif</span>
+
+    <span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$loop</span><span class=o>-&gt;</span><span class=na>last</span><span class=p>)</span>
+        <span class=k>This</span> <span class=nx>is</span> <span class=nx>the</span> <span class=nx>last</span> <span class=nx>iteration</span><span class=o>.</span>
+    <span class=o>@</span><span class=k>endif</span>
+
+    <span class=o>&lt;</span><span class=nx>p</span><span class=o>&gt;</span><span class=k>This</span> <span class=nx>is</span> <span class=nx>user</span> <span class=p>{{</span> <span class=nv>$user</span><span class=o>-&gt;</span><span class=na>id</span> <span class=p>}}</span><span class=o>&lt;/</span><span class=nx>p</span><span class=o>&gt;</span>
+<span class=o>@</span><span class=k>endforeach</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See more: <a href=https://laravel.com/docs/8.x/blade#the-loop-variable>Laravel Loop Variable</a></p>
+<h3 id=displaying-data>Displaying Data</h3>
+<p>Blade&rsquo;s echo statements <code>{{ }}</code> are automatically sent through
+PHP&rsquo;s <code>htmlspecialchars</code> function to prevent XSS attacks.</p>
+<p>Display the contents of the name variable:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>Hello, {{ $name }}.
+</code></pre></td></tr></table>
+</div>
+</div><p>Display results of a PHP function:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>The current UNIX timestamp is {{ time() }}.
+</code></pre></td></tr></table>
+</div>
+</div><p>Display data without escaping with <code>htmlspecialchars</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html>Hello, {!! $name !!}.
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=including-subviews>Including Subviews</h3>
+<p>Include a Blade view from within another view.<br>
+All variables that are available to the parent view are also available to the included view</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+    <span class=c>&lt;!-- resources/views/shared/errors/blade.php --&gt;</span>
+    @include(&#39;shared.errors&#39;)
+
+    <span class=p>&lt;</span><span class=nt>form</span><span class=p>&gt;</span>
+        <span class=c>&lt;!-- Form Contents --&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=raw-php>Raw PHP</h3>
+<p>Execute a block of plain PHP</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=nx>php</span>
+    <span class=nv>$counter</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+<span class=o>@</span><span class=nx>endphp</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=stacks>Stacks</h3>
+<p>Blade allows you to push to named stacks which can be rendered in another view or layout.<br>
+Useful for javascript libraries required by child views</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=c>&lt;!-- Add to the stack --&gt;</span>
+@push(&#39;scripts&#39;)
+    <span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/example.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+@endpush
+</code></pre></td></tr></table>
+</div>
+</div><p>Render the stack</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+    <span class=c>&lt;!-- Head Contents --&gt;</span>
+
+    @stack(&#39;scripts&#39;)
+<span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Prepend to the beginning of a stack</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>@</span><span class=nx>push</span><span class=p>(</span><span class=s1>&#39;scripts&#39;</span><span class=p>)</span>
+    <span class=k>This</span> <span class=nx>will</span> <span class=nx>be</span> <span class=nx>second</span><span class=o>...</span>
+<span class=o>@</span><span class=nx>endpush</span>
+
+<span class=c1>// Later...
+</span><span class=c1></span>
+<span class=o>@</span><span class=nx>prepend</span><span class=p>(</span><span class=s1>&#39;scripts&#39;</span><span class=p>)</span>
+    <span class=k>This</span> <span class=nx>will</span> <span class=nx>be</span> <span class=nx>first</span><span class=o>...</span>
+<span class=o>@</span><span class=nx>endprepend</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=forms>Forms</h2>
+<h3 id=intro-2>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/blade#forms>Laravel Docs - Forms</a></li>
+</ul>
+<h3 id=csrf-field>CSRF Field</h3>
+<p>Include a hidden CSRF token field to validate the request</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>form</span> <span class=na>method</span><span class=o>=</span><span class=s>&#34;POST&#34;</span> <span class=na>action</span><span class=o>=</span><span class=s>&#34;/profile&#34;</span><span class=p>&gt;</span>
+    @csrf
+    
+    ...
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#csrf-protection>CSRF Protection</a></p>
+<h3 id=method-field>Method Field</h3>
+<p>Since HTML forms can&rsquo;t make <code>PUT</code>, <code>PATCH</code>, or <code>DELETE</code> requests, you
+will need to add a hidden <code>_method</code> field to spoof these HTTP verbs:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>form</span> <span class=na>action</span><span class=o>=</span><span class=s>&#34;/post/my-post&#34;</span> <span class=na>method</span><span class=o>=</span><span class=s>&#34;POST&#34;</span><span class=p>&gt;</span>
+    @method(&#39;PUT&#39;)
+
+    ...
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=validation-errors>Validation Errors</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=c>&lt;!-- /resources/views/post/create.blade.php --&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&#34;title&#34;</span><span class=p>&gt;</span>Post Title<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>input</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;title&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;@error(&#39;title&#39;) is-invalid @enderror&#34;</span><span class=p>&gt;</span>
+
+@error(&#39;title&#39;)
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;alert alert-danger&#34;</span><span class=p>&gt;</span>{{ $message }}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+@enderror
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#validation-cols-3>Validation</a></p>
+<h3 id=repopulating-forms>Repopulating Forms</h3>
+<p>When redirecting due to a validation error, request input is flashed to the session.<br>
+Retrieve the input from the previous request with the <code>old</code> method</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$title</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>old</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Or the <code>old()</code> helper</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;title&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;{{ old(&#39;title&#39;) }}&#34;</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=validation>Validation</h2>
+<h3 id=intro-3>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/validation>Laravel Docs - Validation</a></li>
+</ul>
+<p>If validation fails, a redirect response to the previous URL will be generated.<br>
+If the incoming request is an XHR request, a JSON response with the
+validation error messages will be returned.</p>
+<h3 id=logic>Logic</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// in routes/web.php
+</span><span class=c1></span><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/post/create&#39;</span><span class=p>,</span> <span class=p>[</span><span class=nx>App\Http\Controllers\PostController</span><span class=o>::</span><span class=na>class</span><span class=p>,</span> <span class=s1>&#39;create&#39;</span><span class=p>]);</span>
+<span class=nx>Route</span><span class=o>::</span><span class=na>post</span><span class=p>(</span><span class=s1>&#39;/post&#39;</span><span class=p>,</span> <span class=p>[</span><span class=nx>App\Http\Controllers\PostController</span><span class=o>::</span><span class=na>class</span><span class=p>,</span> <span class=s1>&#39;store&#39;</span><span class=p>]);</span>
+
+<span class=c1>// in app/Http/Controllers/PostController...
+</span><span class=c1></span><span class=k>public</span> <span class=k>function</span> <span class=nf>store</span><span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>validate</span><span class=p>([</span>
+        <span class=c1>// input name =&gt; validation rules
+</span><span class=c1></span>        <span class=s1>&#39;title&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required|unique:posts|max:255&#39;</span><span class=p>,</span>
+        <span class=s1>&#39;body&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required&#39;</span><span class=p>,</span>
+    <span class=p>]);</span>
+
+    <span class=c1>// The blog post is valid...
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-5 id=rules>Rules</h3>
+<p>Can also be passed as an array</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$validatedData</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>validate</span><span class=p>([</span>
+    <span class=s1>&#39;title&#39;</span> <span class=o>=&gt;</span> <span class=p>[</span><span class=s1>&#39;required&#39;</span><span class=p>,</span> <span class=s1>&#39;unique:posts&#39;</span><span class=p>,</span> <span class=s1>&#39;max:255&#39;</span><span class=p>],</span>
+    <span class=s1>&#39;body&#39;</span> <span class=o>=&gt;</span> <span class=p>[</span><span class=s1>&#39;required&#39;</span><span class=p>],</span>
+<span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=afterdate>after:date</h4>
+<p>Field must be a value after a given date.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;start_date&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required|date|after:tomorrow&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Instead of a date string, you may specify another field to compare against the date</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;finish_date&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required|date|after:start_date&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See <a href=#beforedate>before:date</a></p>
+<h4 id=after_or_equaldate>after_or_equal:date</h4>
+<p>Field must be a value after or equal to the given date.<br>
+See <a href=#afterdate>after:date</a></p>
+<h4 id=beforedate>before:date</h4>
+<p>Field must be a value preceding the given date.<br>
+The name of another field may be supplied as the value of <code>date</code>.<br>
+See <a href=#afterdate>after:date</a></p>
+<h4 id=alpha_num>alpha_num</h4>
+<p>Field must be entirely alpha-numeric characters</p>
+<h4 id=boolean>boolean</h4>
+<p>Field must be able to be cast as a <code>boolean</code>.<br>
+Accepted input are <code>true</code>, <code>false</code>, <code>1</code>, <code>0</code>, <code>"1"</code>, and <code>"0"</code></p>
+<h4 id=confirmed>confirmed</h4>
+<p>Field must have a matching field of <code>{field}_confirmation</code>.<br>
+For example, if the field is password, a matching <code>password_confirmation</code> field must be present</p>
+<h4 id=current_password>current_password</h4>
+<p>Field must match the authenticated user&rsquo;s password.</p>
+<h4 id=date>date</h4>
+<p>Field must be a valid, non-relative date according to the <code>strtotime</code> PHP function.</p>
+<h4 id=email>email</h4>
+<p>Field must be formatted as an email address.</p>
+<h4 id=file>file</h4>
+<p>Field must be a successfully uploaded file.<br>
+See: <a href=#uploaded-files>Uploaded Files</a></p>
+<h4 id=maxvalue>max:value</h4>
+<p>Field must be less than or equal to a maximum value.<br>
+Strings, numerics, arrays, and files are evaluated like the <a href=#sizevalue>size</a> rule.</p>
+<h4 id=minvalue>min:value</h4>
+<p>Field must have a minimum value.<br>
+Strings, numerics, arrays, and files are evaluated like the <a href=#sizevalue>size</a> rule.</p>
+<h4 id=mimetypestextplain>mimetypes:text/plain,&mldr;</h4>
+<p>File must match one of the given MIME types:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;video&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;mimetypes:video/avi,video/mpeg,video/quicktime&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>File&rsquo;s contents will be read and the framework will attempt to guess the
+MIME type, regardless of the client&rsquo;s provided MIME type.</p>
+<h4 id=mimesfoobar>mimes:foo,bar,&mldr;</h4>
+<p>Field must have a MIME type corresponding to one of the listed extensions.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;photo&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;mimes:jpg,bmp,png&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>File&rsquo;s contents will be read and the framework will attempt to guess the
+MIME type, regardless of the client&rsquo;s provided MIME type.</p>
+<p><a href=https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>Full listing of MIME types & extensions</a></p>
+<h4 id=nullable>nullable</h4>
+<p>Field may be null.</p>
+<h4 id=numeric>numeric</h4>
+<p>Field must be numeric.</p>
+<h4 id=password>password</h4>
+<p>Field must match the authenticated user&rsquo;s password.</p>
+<h4 id=prohibited>prohibited</h4>
+<p>Field must be empty or not present.</p>
+<h4 id=prohibited_ifanotherfieldvalue>prohibited_if:anotherfield,value,&mldr;</h4>
+<p>Field must be empty or not present if the
+<em>anotherfield</em> field is equal to any value.</p>
+<h4 id=prohibited_unlessanotherfieldvalue>prohibited_unless:anotherfield,value,&mldr;</h4>
+<p>Field must be empty or not present unless the
+<em>anotherfield</em> field is equal to any value.</p>
+<h4 id=required>required</h4>
+<p>Field must be present in the input data and not empty.<br>
+A field is considered &ldquo;empty&rdquo; if one of the following conditions are true:</p>
+<ul>
+<li>The value is <code>null</code>.</li>
+<li>The value is an empty string.</li>
+<li>The value is an empty array or empty <code>Countable</code> object.</li>
+<li>The value is an uploaded file with no path.</li>
+</ul>
+<h4 id=required_withfoobar>required_with:foo,bar,&mldr;</h4>
+<p>Field must be present and not empty, only if any of the other
+specified fields are present and not empty</p>
+<h4 id=sizevalue>size:value</h4>
+<p>Field must have a size matching the given value.</p>
+<ul>
+<li>For strings: number of characters</li>
+<li>For numeric data: integer value (must also have the <code>numeric</code> or <code>integer</code> rule).</li>
+<li>For arrays: count of the array</li>
+<li>For files: file size in kilobytes</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Validate that a string is exactly 12 characters long...
+</span><span class=c1></span><span class=s1>&#39;title&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;size:12&#39;</span><span class=p>;</span>
+<span class=c1>// Validate that a provided integer equals 10...
+</span><span class=c1></span><span class=s1>&#39;seats&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;integer|size:10&#39;</span><span class=p>;</span>
+<span class=c1>// Validate that an array has exactly 5 elements...
+</span><span class=c1></span><span class=s1>&#39;tags&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;array|size:5&#39;</span><span class=p>;</span>
+<span class=c1>// Validate that an uploaded file is exactly 512 kilobytes...
+</span><span class=c1></span><span class=s1>&#39;image&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;file|size:512&#39;</span><span class=p>;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=uniquetablecolumn>unique:table,column</h4>
+<p>Field must not exist within the given database table</p>
+<h4 id=url-1>url</h4>
+<p>Field must be a valid URL</p>
+<p><a href=https://laravel.com/docs/8.x/validation#available-validation-rules>See all available rules</a></p>
+<h3 id=validate-passwords>Validate Passwords</h3>
+<p>Ensure passwords have an adequate level of complexity</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$validatedData</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>validate</span><span class=p>([</span>
+    <span class=s1>&#39;password&#39;</span> <span class=o>=&gt;</span> <span class=p>[</span><span class=s1>&#39;required&#39;</span><span class=p>,</span> <span class=s1>&#39;confirmed&#39;</span><span class=p>,</span> <span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)],</span>
+<span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>Password</code> rule object allows you to easily customize the password complexity requirements</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// Require at least 8 characters...
+</span><span class=c1></span><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span>
+
+<span class=c1>// Require at least one letter...
+</span><span class=c1></span><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>letters</span><span class=p>()</span>
+
+<span class=c1>// Require at least one uppercase and one lowercase letter...
+</span><span class=c1></span><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>mixedCase</span><span class=p>()</span>
+
+<span class=c1>// Require at least one number...
+</span><span class=c1></span><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>numbers</span><span class=p>()</span>
+
+<span class=c1>// Require at least one symbol...
+</span><span class=c1></span><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>symbols</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Ensure a password has not been compromised in a public password data breach leak</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span><span class=o>-&gt;</span><span class=na>uncompromised</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><em>Uses the <a href=https://en.wikipedia.org/wiki/K-anonymity>k-Anonymity</a> model via the <a href=https://haveibeenpwned.com>haveibeenpwned.com</a> service without sacrificing the user&rsquo;s privacy or security</em></p>
+</blockquote>
+<p>Methods can be chained</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Password</span><span class=o>::</span><span class=na>min</span><span class=p>(</span><span class=mi>8</span><span class=p>)</span>
+    <span class=o>-&gt;</span><span class=na>letters</span><span class=p>()</span>
+    <span class=o>-&gt;</span><span class=na>mixedCase</span><span class=p>()</span>
+    <span class=o>-&gt;</span><span class=na>numbers</span><span class=p>()</span>
+    <span class=o>-&gt;</span><span class=na>symbols</span><span class=p>()</span>
+    <span class=o>-&gt;</span><span class=na>uncompromised</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=display-validation-errors>Display Validation Errors</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=o>&lt;!--</span> <span class=o>/</span><span class=nx>resources</span><span class=o>/</span><span class=nx>views</span><span class=o>/</span><span class=nx>post</span><span class=o>/</span><span class=nx>create</span><span class=o>.</span><span class=nx>blade</span><span class=o>.</span><span class=nx>php</span> <span class=o>--&gt;</span>
+
+<span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Create</span> <span class=nx>Post</span><span class=o>&lt;/</span><span class=nx>h1</span><span class=o>&gt;</span>
+
+<span class=o>@</span><span class=k>if</span> <span class=p>(</span><span class=nv>$errors</span><span class=o>-&gt;</span><span class=na>any</span><span class=p>())</span>
+    <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>class</span><span class=o>=</span><span class=s2>&#34;alert alert-danger&#34;</span><span class=o>&gt;</span>
+        <span class=o>&lt;</span><span class=nx>ul</span><span class=o>&gt;</span>
+            <span class=o>@</span><span class=k>foreach</span> <span class=p>(</span><span class=nv>$errors</span><span class=o>-&gt;</span><span class=na>all</span><span class=p>()</span> <span class=k>as</span> <span class=nv>$error</span><span class=p>)</span>
+                <span class=o>&lt;</span><span class=nx>li</span><span class=o>&gt;</span><span class=p>{{</span> <span class=nv>$error</span> <span class=p>}}</span><span class=o>&lt;/</span><span class=nx>li</span><span class=o>&gt;</span>
+            <span class=o>@</span><span class=k>endforeach</span>
+        <span class=o>&lt;/</span><span class=nx>ul</span><span class=o>&gt;</span>
+    <span class=o>&lt;/</span><span class=nx>div</span><span class=o>&gt;</span>
+<span class=o>@</span><span class=k>endif</span>
+
+<span class=o>&lt;!--</span> <span class=nx>Create</span> <span class=nx>Post</span> <span class=nx>Form</span> <span class=o>--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#validation-errors>Validation Errors</a></p>
+<h3 id=optional-fields>Optional Fields</h3>
+<p>You will often need to mark your &ldquo;optional&rdquo; request fields as <code>nullable</code>
+if you do not want the validator to consider <code>null</code> values as invalid</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// publish_at field may be either null or a valid date representation
+</span><span class=c1></span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>validate</span><span class=p>([</span>
+    <span class=s1>&#39;title&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required|unique:posts|max:255&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;body&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;required&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;publish_at&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;nullable|date&#39;</span><span class=p>,</span>
+<span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=validated-input>Validated Input</h3>
+<p>Retrieve the request data that underwent validation</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>validated</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Or with <code>safe()</code>, which returns an instance of <code>Illuminate\Support\ValidatedInput</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>safe</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>only</span><span class=p>([</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;email&#39;</span><span class=p>]);</span>
+
+<span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>safe</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>except</span><span class=p>([</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;email&#39;</span><span class=p>]);</span>
+
+<span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>safe</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>all</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=iterate>Iterate</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>foreach</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>safe</span><span class=p>()</span> <span class=k>as</span> <span class=nv>$key</span> <span class=o>=&gt;</span> <span class=nv>$value</span><span class=p>)</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=access-as-an-array>Access as an array</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$validated</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>safe</span><span class=p>();</span>
+
+<span class=nv>$email</span> <span class=o>=</span> <span class=nv>$validated</span><span class=p>[</span><span class=s1>&#39;email&#39;</span><span class=p>];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=session>Session</h2>
+<h3 id=intro-4>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/session>Laravel Docs - Session</a></li>
+</ul>
+<p>Laravel ships with a variety of session backends that are accessed through
+a unified API. Memcached, Redis, and database support is included.</p>
+<h4 id=configuration-1>Configuration</h4>
+<p>Session configuration is in <code>config/session.php</code>.<br>
+By default, Laravel is configured to use the file session driver</p>
+<h3 id=check-isset--exists>Check Isset / Exists</h3>
+<p>Returns <code>true</code> if the item is present and is not <code>null</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>has</span><span class=p>(</span><span class=s1>&#39;users&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Returns <code>true</code> if present, even if it&rsquo;s <code>null</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>exists</span><span class=p>(</span><span class=s1>&#39;users&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Returns <code>true</code> if the item is <code>null</code> or is not present:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>if</span> <span class=p>(</span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>missing</span><span class=p>(</span><span class=s1>&#39;users&#39;</span><span class=p>))</span> <span class=p>{</span>
+    <span class=c1>//
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-2 id=retrieving-data>Retrieving Data</h3>
+<h4 id=via-request>Via Request</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// ...
+</span><span class=c1></span><span class=k>class</span> <span class=nc>UserController</span> <span class=k>extends</span> <span class=nx>Controller</span>
+<span class=p>{</span>
+    <span class=k>public</span> <span class=k>function</span> <span class=nf>show</span><span class=p>(</span><span class=nx>Request</span> <span class=nv>$request</span><span class=p>,</span> <span class=nv>$id</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>);</span>
+
+        <span class=c1>//
+</span><span class=c1></span>    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Pass a default value as the second argument to use
+if the key does not exist</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>,</span> <span class=s1>&#39;default&#39;</span><span class=p>);</span>
+
+<span class=c1>// closure can be passed and executed as a default
+</span><span class=c1></span><span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=s1>&#39;default&#39;</span><span class=p>;</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=via-session-helper>Via session helper</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/home&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=c1>// Retrieve a piece of data from the session...
+</span><span class=c1></span>    <span class=nv>$value</span> <span class=o>=</span> <span class=nx>session</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>);</span>
+
+    <span class=c1>// Specifying a default value...
+</span><span class=c1></span>    <span class=nv>$value</span> <span class=o>=</span> <span class=nx>session</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>,</span> <span class=s1>&#39;default&#39;</span><span class=p>);</span>
+
+    <span class=c1>// Store a piece of data in the session...
+</span><span class=c1></span>    <span class=nx>session</span><span class=p>([</span><span class=s1>&#39;key&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;value&#39;</span><span class=p>]);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>See: <a href>Session Helper</a></p>
+<h4 id=all-session-data>All Session Data</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$data</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>all</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=retrieve-and-delete>Retrieve and Delete</h4>
+<p>Retrieve and delete an item from the session</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$value</span> <span class=o>=</span> <span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>pull</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>,</span> <span class=s1>&#39;default&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=store-data>Store Data</h3>
+<p>Via a request instance</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>put</span><span class=p>(</span><span class=s1>&#39;key&#39;</span><span class=p>,</span> <span class=s1>&#39;value&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Via the global &ldquo;session&rdquo; helper</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>session</span><span class=p>([</span><span class=s1>&#39;key&#39;</span> <span class=o>=&gt;</span> <span class=s1>&#39;value&#39;</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Push a new value onto a session value that is an array</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=c1>// array of team names
+</span><span class=c1></span><span class=nv>$request</span><span class=o>-&gt;</span><span class=na>session</span><span class=p>()</span><span class=o>-&gt;</span><span class=na>push</span><span class=p>(</span><span class=s1>&#39;user.teams&#39;</span><span class=p>,</span> <span class=s1>&#39;developers&#39;</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=logging>Logging</h2>
+<h3 id=configuration-2>Configuration</h3>
+<p>Configuration options for logging behavior is in <code>config/logging.php</code>.<br>
+By default, Laravel will use the stack channel when logging messages, which aggregates multiple log channels into a single channel.</p>
+<h3 class=row-span-2 id=levels>Levels</h3>
+<p>All the log levels defined in the <a href=https://tools.ietf.org/html/rfc5424>RFC 5424 specification</a> are available:</p>
+<ul>
+<li>emergency</li>
+<li>alert</li>
+<li>critical</li>
+<li>error</li>
+<li>warning</li>
+<li>notice</li>
+<li>info</li>
+<li>debug</li>
+</ul>
+<h3 class=row-span-2 id=log-facade>Log Facade</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Support\Facades\Log</span><span class=p>;</span>
+
+<span class=nx>Log</span><span class=o>::</span><span class=na>emergency</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>alert</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>critical</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>error</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>warning</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>notice</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>info</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+<span class=nx>Log</span><span class=o>::</span><span class=na>debug</span><span class=p>(</span><span class=nv>$message</span><span class=p>);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=contextual-info>Contextual Info</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>use</span> <span class=nx>Illuminate\Support\Facades\Log</span><span class=p>;</span>
+
+<span class=nx>Log</span><span class=o>::</span><span class=na>info</span><span class=p>(</span><span class=s1>&#39;User failed to login.&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;id&#39;</span> <span class=o>=&gt;</span> <span class=nv>$user</span><span class=o>-&gt;</span><span class=na>id</span><span class=p>]);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=deployment>Deployment</h2>
+<h3 id=intro-5>Intro</h3>
+<ul>
+<li><a href=https://laravel.com/docs/8.x/deployment>Laravel Docs - Deployment</a></li>
+</ul>
+<p>Ensure your web server directs all requests to your application&rsquo;s <code>public/index.php</code> file</p>
+<h3 id=optimization>Optimization</h3>
+<h4 id=composers-autoloader-map>Composer&rsquo;s autoloader map</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>composer install --optimize-autoloader --no-dev
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=configuration-loading>Configuration Loading</h4>
+<p>Be sure that you are only calling the <code>env</code> function from within your configuration files.<br>
+Once the configuration has been cached, the <code>.env</code> file will not be loaded and all calls
+to the <code>env</code> function for <code>.env</code> variables will return <code>null</code></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan config:cache
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=route-loading>Route Loading</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan route:cache
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=view-loading>View Loading</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan view:cache
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=debug-mode-1>Debug Mode</h3>
+<p>The debug option in your <code>config/app.php</code> determines how much information
+about an error is actually displayed to the user.<br>
+By default, this option is set to the value of the <code>APP_DEBUG</code> environment
+variable in your <code>.env</code> file.
+In your production environment, this value should always be <code>false</code>.<br>
+If the <code>APP_DEBUG</code> variable is set to <code>true</code> in production, you risk exposing sensitive configuration values to end users.</p>
+<h2 id=also-see>Also see</h2>
+<ul>
+<li><a href=https://laravel.com/docs/8.x>Laravel Docs</a></li>
+<li><a href=https://laracasts.com/>Laracasts</a></li>
+<li><a href=https://laravel.com/api/8.x/>Laravel API</a></li>
+</ul>
+</div>
+<div class=addthis_inline_share_toolbox_taj0></div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>Aaron Ji</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-11-09
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=https://jiyongcheng.dev/tags/web/>web</a>
+<a href=https://jiyongcheng.dev/tags/framework/>framework</a>
+<a href=https://jiyongcheng.dev/tags/php/>php</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/post/postgresql-questions/>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
+</i>
+<span class="prev-text nav-default">Postgresql Questions</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/post/git-command/>
+<span class="next-text nav-default">Git Commands</span>
+<span class="prev-text nav-mobile">Next</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
+</i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=icon-links>
+<a href=https://twitter.com/ji_yongcheng rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg>
+</a>
+<a href=https://www.linkedin.com/in/jiyongcheng/ rel="me noopener" class=iconfont title=linkedin target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="33"><path d="M872.405333 872.618667H720.768V635.008c0-56.661333-1.152-129.578667-79.018667-129.578667-79.061333.0-91.136 61.653333-91.136 125.397334v241.792H398.976V384H544.64v66.602667h1.962667c20.352-38.4 69.845333-78.933333 143.786666-78.933334 153.642667.0 182.058667 101.12 182.058667 232.746667v268.202667zM227.712 317.141333a87.978667 87.978667.0 01-88.021333-88.106666A88.064 88.064.0 11227.712 317.141333zm76.032 555.477334H151.68V384h152.064v488.618667zM948.266667.0h-872.704C33.792.0.0 33.024.0 73.770667v876.458666C0 991.018667 33.792 1024 75.562667 1024h872.576C989.866667 1024 1024 991.018667 1024 950.229333V73.770667C1024 33.024 989.866667.0 948.138667.0h.128z"/></svg>
+</a>
+<a href=https://github.com/jiyongcheng rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg>
+</a>
+<a href=https://weibo.com/u/6118026886 rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg>
+</a>
+<a href=https://jiyongcheng.dev/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg>
+</a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a>
+</span>
+<span class=copyright-year>
+&copy;
+2021 -
+2022
+<span class=heart>
+<i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
+</i>
+</span><span class=author>
+Aaron Ji
+</span></span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg>
+</i>
+</div>
+</div>
+<script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
+<script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/load-photoswipe.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script>
+<script>$("#openSearch, #openSearchMobile").click(function(){$(".modal-dialog").addClass("visible")}),$("#closeSearch").click(function(){$(".modal-dialog").removeClass("visible")}),$(document).click(function(a){$(a.target).closest(".modal-content, #openSearch, #openSearchMobile").length||$("body").find(".modal-dialog").removeClass("visible")})</script>
+</body>
+</html>

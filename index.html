@@ -58,9 +58,7 @@
 </li><li class=mobile-menu-item>
 <a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
 </li><li class=mobile-menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
-</li><li class=mobile-menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
 </li>
 <li class=mobile-menu-item>
 <a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
@@ -138,10 +136,7 @@ What, Why, How
 <a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
 </li>
 <li class=menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
-</li>
-<li class=menu-item>
-<a class=menu-item-link href=https://jiyongcheng.dev/resource/>Resource</a>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
 </li>
 <li class=menu-item>
 <a id=openSearch class="menu-item-link menu-item-search" href=#>
@@ -157,31 +152,6 @@ What, Why, How
 <div class=content-wrapper>
 <div id=content class="content container">
 <section id=posts class=posts>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/bash/>Bash</a>
-</h1>
-<div class=post-meta>
-<time datetime=2022-10-07 class=post-time>
-2022-10-07
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/tool/> tool </a>
-</div>
-<span class=more-meta> 3073 words </span>
-<span class=more-meta> 7 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-Bash 备忘清单 这是开始使用 linux bash shell 脚本的快速参考备忘单。 入门 hello.sh 1 2 3 #!/bin/bash VAR="world" echo "Hello $VAR!" # => Hello world! 执行脚本 1 $ bash hello.sh 变量 1 2 3 4 5 6 7 NAME="John" echo ${NAME} # => John (变量) echo $NAME #
-</div>
-<div class=read-more>
-<a href=/post/bash/ class=read-more-link>Read more</a>
-</div>
-</div>
-</article>
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
@@ -211,53 +181,50 @@ Mac Using mouse Left Mouse Button + ⌥ OR: Middle Mouse Button Add to selection
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/devops/docker/mysql/>Docker Mysql</a>
+<a class=post-link href=/post/html-char/>HTML Characters Entities</a>
 </h1>
 <div class=post-meta>
-<time datetime=2021-12-17 class=post-time>
-2021-12-17
+<time datetime=2022-01-13 class=post-time>
+2022-01-13
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+<a href=https://jiyongcheng.dev/categories/other/> Other </a>
 </div>
-<span class=more-meta> 127 words </span>
-<span class=more-meta> 1 min read </span>
+<span class=more-meta> 2979 words </span>
+<span class=more-meta> 14 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<p>docker-compose for mysql</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  mysql:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    volumes:
-      - ./.data/db:/var/lib/mysql
-    ports:
-      - 33069:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-</code></pre></td></tr></table>
-</div>
-</div><p>If you have a mysql client want to connect to the mysql container, you need assign a port for it. like this <code>33069</code>.</p>
-<p>then use the following parameters to connect the server.</p>
+HTML Character Entity References HTML Special Characters HTML Symbol Numeric Description Hex CSS (ISO) JS (Octal) &amp;quot; " &amp;#34; quotation mark u+0022 ISOnum \0022 \42 &amp;num; # &amp;#35; number sign u+0023 ISOnum \0023 \43 &amp;dollar; $ &amp;#36; dollar sign u+0024 ISOnum \0024 \44 &amp;percnt; % &amp;#37; percent sign u+0025 ISOnum \0025 \45 &amp;amp; & &amp;#38; ampersand u+0026 ISOnum \0026 \46 &amp;apos; ' &amp;#39; apostrophe u+0027 ISOnum \0027 \47 &amp;lpar; ( &amp;#40; left parenthesis u+0028 ISOnum \0028 \50 &amp;rpar; ) &amp;#41; right parenthesis u+0029 ISOnum \0029 \51 &amp;ast; * &amp;#42; asterisk u+002A ISOnum \002a \52 &amp;plus; + &amp;#43; plus sign u+002B ISOnum \002b \53 &amp;comma; , &amp;#44; comma u+002C ISOnum \002c \54 &amp;minus; - &amp;#45; hyphen-minus u+002D ISOnum \002d \55 &amp;period; .
 </div>
 <div class=read-more>
-<a href=/post/devops/docker/mysql/ class=read-more-link>Read more</a>
+<a href=/post/html-char/ class=read-more-link>Read more</a>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/rust/>Rust</a>
+</h1>
+<div class=post-meta>
+<time datetime=2022-01-01 class=post-time>
+2022-01-01
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 1381 words </span>
+<span class=more-meta> 7 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+Getting Started Hello_World.rs 1 2 3 fn main(){println!("Hello, World!");} Compiling and Running 1 2 3 $ rustc Hello_World.rs $ ./Hello_World Hello, World! Primitive types bool Boolean (true / false) char character f32, f64 32-bits, 64-bits floats i64, i32, i16, i8 signed 16- &mldr; integers u64, u32, u16, u8 unsigned 16-bits, &mldr; integers isize pointer-sized signed integers usize pointer-sized unsigned integers See: Rust Types
+</div>
+<div class=read-more>
+<a href=/post/rust/ class=read-more-link>Read more</a>
 </div>
 </div>
 </article>
@@ -265,26 +232,72 @@ Mac Using mouse Left Mouse Button + ⌥ OR: Middle Mouse Button Add to selection
 <nav class=pagination>
 <ul>
 <li class=active>
-<a href=/>1</a>
+<a href=/>
+1
+</a>
 </li>
 <li>
-<a href=/page/2/>2</a>
+<a href=/page/2/>
+2
+</a>
 </li>
 <li>
-<a href=/page/3/>3</a>
+<a href=/page/3/>
+3
+</a>
 </li>
 <li>
-<a href=/page/4/>4</a>
+<a href=/page/4/>
+4
+</a>
 </li>
 <li>
-<a href=/page/5/>5</a>
+<a href=/page/5/>
+5
+</a>
 </li>
 <li>
-<a href=/page/6/>6</a>
+<a href=/page/6/>
+6
+</a>
 </li>
 <li>
-<a href=/page/7/>7</a>
+<a href=/page/7/>
+7
+</a>
 </li>
+<li>
+<a href=/page/8/>
+8
+</a>
+</li>
+<li>
+<a href=/page/9/>
+9
+</a>
+</li>
+<li>
+<a href=/page/10/>
+10
+</a>
+</li>
+<li>
+<a href=/page/11/>
+11
+</a>
+</li>
+<li>
+<a href=/page/12/>
+12
+</a>
+</li>
+<li>
+<a href=/page/13/>
+13
+</a>
+</li>
+<li><a href=/page/2/>»</a></li>
+<li><a href=/page/19/>»»</a></li>
 </ul>
 </nav>
 </div>

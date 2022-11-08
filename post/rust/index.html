@@ -1,0 +1,1694 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Rust - What, Why, How</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name=MobileOptimized content="width">
+<meta name=HandheldFriendly content="true">
+<meta name=applicable-device content="pc,mobile">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=mobile-web-app-capable content="yes">
+<meta name=author content="Aaron Ji">
+<meta name=description content="Getting Started  Hello_World.rs 1 2 3  fn main(){println!(&amp;#34;Hello, World!&amp;#34;);}  Compiling and Running 1 2 3  $ rustc Hello_World.rs $ ./Hello_World Hello, World!   Primitive types          bool Boolean (true / false)   char character   f32, f64 32-bits, 64-bits floats   i64, i32, i16, i8 signed 16- &amp;hellip; integers   u64, u32, u16, u8 unsigned 16-bits, &amp;hellip; integers   isize pointer-sized signed integers   usize pointer-sized unsigned integers    See: Rust Types">
+<meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
+<meta name=generator content="Hugo 0.87.0">
+<link rel=canonical href=https://jiyongcheng.dev/post/rust/>
+<link rel=icon href=/favicon.ico>
+<link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
+<meta property="og:title" content="Rust">
+<meta property="og:description" content="Getting Started  Hello_World.rs 1 2 3  fn main(){println!(&#34;Hello, World!&#34;);}  Compiling and Running 1 2 3  $ rustc Hello_World.rs $ ./Hello_World Hello, World!   Primitive types          bool Boolean (true / false)   char character   f32, f64 32-bits, 64-bits floats   i64, i32, i16, i8 signed 16- &mldr; integers   u64, u32, u16, u8 unsigned 16-bits, &mldr; integers   isize pointer-sized signed integers   usize pointer-sized unsigned integers    See: Rust Types">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/rust/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-01-01T11:51:44+00:00">
+<meta property="article:modified_time" content="2022-01-01T11:51:44+00:00">
+<meta itemprop=name content="Rust">
+<meta itemprop=description content="Getting Started  Hello_World.rs 1 2 3  fn main(){println!(&#34;Hello, World!&#34;);}  Compiling and Running 1 2 3  $ rustc Hello_World.rs $ ./Hello_World Hello, World!   Primitive types          bool Boolean (true / false)   char character   f32, f64 32-bits, 64-bits floats   i64, i32, i16, i8 signed 16- &mldr; integers   u64, u32, u16, u8 unsigned 16-bits, &mldr; integers   isize pointer-sized signed integers   usize pointer-sized unsigned integers    See: Rust Types"><meta itemprop=datePublished content="2022-01-01T11:51:44+00:00">
+<meta itemprop=dateModified content="2022-01-01T11:51:44+00:00">
+<meta itemprop=wordCount content="1381"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=keywords content><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta name=twitter:title content="Rust">
+<meta name=twitter:description content="Getting Started  Hello_World.rs 1 2 3  fn main(){println!(&#34;Hello, World!&#34;);}  Compiling and Running 1 2 3  $ rustc Hello_World.rs $ ./Hello_World Hello, World!   Primitive types          bool Boolean (true / false)   char character   f32, f64 32-bits, 64-bits floats   i64, i32, i16, i8 signed 16- &mldr; integers   u64, u32, u16, u8 unsigned 16-bits, &mldr; integers   isize pointer-sized signed integers   usize pointer-sized unsigned integers    See: Rust Types"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
+<meta property="og:title" content="Rust">
+<meta property="og:description" content="Getting Started  Hello_World.rs 1 2 3  fn main(){println!(&#34;Hello, World!&#34;);}  Compiling and Running 1 2 3  $ rustc Hello_World.rs $ ./Hello_World Hello, World!   Primitive types          bool Boolean (true / false)   char character   f32, f64 32-bits, 64-bits floats   i64, i32, i16, i8 signed 16- &mldr; integers   u64, u32, u16, u8 unsigned 16-bits, &mldr; integers   isize pointer-sized signed integers   usize pointer-sized unsigned integers    See: Rust Types">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/rust/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-01-01T11:51:44+00:00">
+<meta property="article:modified_time" content="2022-01-01T11:51:44+00:00">
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>What, Why, How</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=mobile-menu-item>
+<a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+<link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css>
+<link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<div class=modal-dialog>
+<div class=modal-content>
+<div id=closeSearch title=Close class=close>X</div>
+<div class=modal-header>
+<div class=modal-title>Search</div>
+</div>
+<div class=modal-body>
+<script>(function(){var c='d9e76f04c191b111d',a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,a.src=(document.location.protocol=='https:'?'https:':'http:')+'//cse.google.com/cse.js?cx='+c,b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)})()</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+<header id=header class="header container">
+<div class=logo-wrapper>
+<a href=/ class=logo>
+What, Why, How
+</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/reference/>Reference</a>
+</li>
+<li class=menu-item>
+<a id=openSearch class="menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div id=mobile-panel>
+<main id=main class="main bg-llight">
+<div class=content-wrapper>
+<div id=content class="content container">
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>Rust</h1>
+<div class=post-meta>
+<time datetime=2022-01-01 class=post-time>
+2022-01-01
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 1381 words </span>
+<span class=more-meta> 7 min read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Table of Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#getting-started>Getting Started </a>
+<ul>
+<li><a href=#hello_worldrs>Hello_World.rs</a></li>
+<li><a href=#primitive-types>Primitive types</a></li>
+<li><a href=#formatting>Formatting</a></li>
+<li><a href=#printing-styles>Printing Styles</a></li>
+<li><a href=#variables>Variables</a></li>
+<li><a href=#comments>Comments</a></li>
+<li><a href=#functions>Functions</a></li>
+</ul>
+</li>
+<li><a href=#rust-types>Rust Types</a>
+<ul>
+<li><a href=#integer>Integer</a></li>
+<li><a href=#floating-point>Floating-Point</a></li>
+<li><a href=#boolean>Boolean</a></li>
+<li><a href=#character>Character</a></li>
+<li><a href=#string-literal>String Literal</a></li>
+<li><a href=#arrays>Arrays</a></li>
+<li><a href=#multi-dimensional-array>Multi-Dimensional Array</a></li>
+<li><a href=#mutable-array>Mutable Array</a></li>
+<li><a href=#slices>Slices</a></li>
+<li><a href=#vectors>Vectors</a></li>
+<li><a href=#tuples>Tuples</a></li>
+</ul>
+</li>
+<li><a href=#rust-strings>Rust Strings</a>
+<ul>
+<li><a href=#string-literal-1>String Literal</a></li>
+<li><a href=#string-object>String Object</a></li>
+<li><a href=#capacity>.capacity()</a></li>
+<li><a href=#contains>.contains()</a></li>
+<li><a href=#pushing-a-single-character>Pushing a single character</a></li>
+<li><a href=#pushing-an-entire-string>Pushing an entire String</a></li>
+</ul>
+</li>
+<li><a href=#rust-operators>Rust Operators</a>
+<ul>
+<li><a href=#comparison-operators>Comparison Operators</a></li>
+<li><a href=#arithmetic-operators>Arithmetic Operators</a></li>
+<li><a href=#bitwise-operators>Bitwise Operators</a></li>
+<li><a href=#logical-operators>Logical Operators</a></li>
+<li><a href=#compound-assignment-operator>Compound Assignment Operator</a></li>
+</ul>
+</li>
+<li><a href=#rust-flow-control>Rust Flow Control</a>
+<ul>
+<li><a href=#if-expression>If Expression</a></li>
+<li><a href=#ifelse-expression>If&mldr;Else Expression</a></li>
+<li><a href=#ifelseifelse-expression>If&mldr;Else&mldr;if&mldr;Else Expression</a></li>
+<li><a href=#iflet-expression>If&mldr;Let Expression</a></li>
+<li><a href=#match-expression>Match Expression</a></li>
+<li><a href=#nestedif-expression>Nested&mldr;If Expression</a></li>
+<li><a href=#for-loop>For Loop</a></li>
+<li><a href=#while-loop>While Loop</a></li>
+<li><a href=#loop-keyword>Loop keyword</a></li>
+<li><a href=#break-statement>Break Statement</a></li>
+<li><a href=#continue-statement>Continue Statement</a></li>
+</ul>
+</li>
+<li><a href=#rust-functions>Rust Functions</a>
+<ul>
+<li><a href=#basic-function>Basic function</a></li>
+<li><a href=#pass-by-value>Pass by Value</a></li>
+<li><a href=#pass-by-reference>Pass by Reference</a></li>
+<li><a href=#returns>Returns</a></li>
+<li><a href=#arrays-as-arguments>Arrays as Arguments</a></li>
+<li><a href=#returning-arrays>Returning Arrays</a></li>
+</ul>
+</li>
+<li><a href=#misc>Misc</a>
+<ul>
+<li><a href=#type-casting>Type Casting</a></li>
+<li><a href=#borrowing>Borrowing</a></li>
+<li><a href=#de-referencing>De-referencing</a></li>
+<li><a href=#variable-scope>Variable Scope</a></li>
+</ul>
+</li>
+<li><a href=#also-see>Also see</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h2 class=cols-3 id=getting-started>Getting Started </h2>
+<h3 id=hello_worldrs>Hello_World.rs</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Hello, World!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id=compiling-and-running>Compiling and Running</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ rustc Hello_World.rs
+$ ./Hello_World
+Hello, World!
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=primitive-types>Primitive types</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool</code></td>
+<td>Boolean (<code>true</code> <em>/</em> <code>false</code>)</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>character</td>
+</tr>
+<tr>
+<td><code>f32</code>, <code>f64</code></td>
+<td>32-bits, 64-bits floats</td>
+</tr>
+<tr>
+<td><code>i64</code>, <code>i32</code>, <code>i16</code>, <code>i8</code></td>
+<td>signed 16- &mldr; integers</td>
+</tr>
+<tr>
+<td><code>u64</code>, <code>u32</code>, <code>u16</code>, <code>u8</code></td>
+<td>unsigned 16-bits, &mldr; integers</td>
+</tr>
+<tr>
+<td><code>isize</code></td>
+<td>pointer-sized signed integers</td>
+</tr>
+<tr>
+<td><code>usize</code></td>
+<td>pointer-sized unsigned integers</td>
+</tr>
+</tbody>
+</table>
+<p>See: <a href=#rust-types>Rust Types</a></p>
+<h3 class=row-span-2 id=formatting>Formatting</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// Single Placeholder
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Multiple Placeholder
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{} {}&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Positional Arguments
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{0} is {1} {2}, also {0} is a {3} programming language&#34;</span><span class=p>,</span><span class=w> </span><span class=s>&#34;Rust&#34;</span><span class=p>,</span><span class=w> </span><span class=s>&#34;cool&#34;</span><span class=p>,</span><span class=w> </span><span class=s>&#34;language&#34;</span><span class=p>,</span><span class=w> </span><span class=s>&#34;safe&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Named Arguments
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{country} is a diverse nation with unity.&#34;</span><span class=p>,</span><span class=w> </span><span class=n>country</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;India&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Placeholder traits :b for binary, :0x is for hex and :o is octal
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Let us print 76 is binary which is {:b} , and hex equivalent is {:0x} and octal equivalent is {:o}&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>76</span><span class=p>,</span><span class=w> </span><span class=mi>76</span><span class=p>,</span><span class=w> </span><span class=mi>76</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Debug Trait
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Print whatever we want to here using debug trait {:?}&#34;</span><span class=p>,</span><span class=w> </span><span class=p>(</span><span class=mi>76</span><span class=p>,</span><span class=w> </span><span class=sc>&#39;A&#39;</span><span class=p>,</span><span class=w> </span><span class=mi>90</span><span class=p>));</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// New Format Strings in 1.58
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>x</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;world&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Hello {x}!&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=printing-styles>Printing Styles</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// Prints the output
+</span><span class=c1></span><span class=n>print</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Hello World\n&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Appends a new line after printing
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Appending a new line&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Prints as an error
+</span><span class=c1></span><span class=n>eprint</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;This is an error\n&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Prints as an error with new line
+</span><span class=c1></span><span class=n>eprintln</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;This is an error with new line&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=variables>Variables</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// Initializing and declaring a variable
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>some_variable</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;This_is_a_variable&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Making a variable mutable
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>mutable_variable</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;Mutable&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Assigning multiple variables
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=n>name</span><span class=p>,</span><span class=w> </span><span class=n>age</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=s>&#34;ElementalX&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>20</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// (Global) constant
+</span><span class=c1></span><span class=k>const</span><span class=w> </span><span class=n>SCREAMING_SNAKE_CASE</span>:<span class=kt>i64</span> <span class=o>=</span><span class=w> </span><span class=mi>9</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=comments>Comments</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// Line Comments
+</span><span class=c1></span><span class=cm>/*.............Block Comments */</span><span class=w>
+</span><span class=w></span><span class=sd>/// Outer doc comments
+</span><span class=sd>//! Inner doc comments
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=https://doc.rust-lang.org/reference/comments.html>Comment</a></p>
+<h3 id=functions>Functions</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>test</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;This is a function!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=n>test</span><span class=p>();</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#rust-functions>Functions</a></p>
+<h2 class=cols-3 id=rust-types>Rust Types</h2>
+<h3 id=integer>Integer</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>a</span>: <span class=kt>u32</span> <span class=o>=</span><span class=w> </span><span class=mi>8</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>b</span>: <span class=kt>u64</span> <span class=o>=</span><span class=w> </span><span class=mi>877</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>c</span>: <span class=kt>i64</span> <span class=o>=</span><span class=w> </span><span class=mi>8999</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>d</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>-</span><span class=mi>90</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=floating-point>Floating-Point</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>sixty_bit_float</span>: <span class=kt>f64</span> <span class=o>=</span><span class=w> </span><span class=mf>89.90</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>thirty_two_bit_float</span>: <span class=kt>f32</span> <span class=o>=</span><span class=w> </span><span class=mf>7.90</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>just_a_float</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>69.69</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=boolean>Boolean</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>true_val</span>: <span class=kt>bool</span> <span class=o>=</span><span class=w> </span><span class=kc>true</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>false_val</span>: <span class=kt>bool</span> <span class=o>=</span><span class=w> </span><span class=kc>false</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>just_a_bool</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=kc>true</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>is_true</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>8</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mi>5</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; false
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=character>Character</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>first_letter_of_alphabet</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=sc>&#39;a&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>explicit_char</span>: <span class=nc>char</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=sc>&#39;F&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>implicit_char</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=sc>&#39;8&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>emoji</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;\u{1f600}&#34;</span><span class=p>;</span><span class=w>   </span><span class=c1>// =&gt; 😀
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=string-literal>String Literal</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>community_name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;AXIAL&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>no_of_members</span>: <span class=kp>&amp;</span><span class=kt>str</span> <span class=o>=</span><span class=w> </span><span class=s>&#34;ten&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The name of the community is {community_name} and it has {no_of_members} members&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>See: <a href=#rust-strings>Strings</a></p>
+<h3 id=arrays>Arrays</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=err>┌─────┬─────┬─────┬─────┬─────┬─────┐</span><span class=w>
+</span><span class=w></span><span class=o>|</span><span class=w> </span><span class=mi>92</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>97</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>98</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>99</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>98</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>94</span><span class=w>  </span><span class=o>|</span><span class=w>
+</span><span class=w></span><span class=err>└─────┴─────┴─────┴─────┴─────┴─────┘</span><span class=w>
+</span><span class=w>   </span><span class=mi>0</span><span class=w>     </span><span class=mi>1</span><span class=w>     </span><span class=mi>2</span><span class=w>     </span><span class=mi>3</span><span class=w>     </span><span class=mi>4</span><span class=w>     </span><span class=mi>5</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>array</span>: <span class=p>[</span><span class=kt>i64</span><span class=p>;</span><span class=w> </span><span class=mi>6</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>92</span><span class=p>,</span><span class=mi>97</span><span class=p>,</span><span class=mi>98</span><span class=p>,</span><span class=mi>99</span><span class=p>,</span><span class=mi>98</span><span class=p>,</span><span class=mi>94</span><span class=p>];</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-2 id=multi-dimensional-array>Multi-Dimensional Array</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=w>     </span><span class=n>j0</span><span class=w>   </span><span class=n>j1</span><span class=w>   </span><span class=n>j2</span><span class=w>   </span><span class=n>j3</span><span class=w>   </span><span class=n>j4</span><span class=w>   </span><span class=n>j5</span><span class=w>
+</span><span class=w>   </span><span class=err>┌────┬────┬────┬────┬────┬────┐</span><span class=w>
+</span><span class=w></span><span class=n>i0</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=mi>1</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>2</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>3</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>4</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>5</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>6</span><span class=w>  </span><span class=o>|</span><span class=w>
+</span><span class=w>   </span><span class=err>├────┼────┼────┼────┼────┼────┤</span><span class=w>
+</span><span class=w></span><span class=n>i1</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=mi>6</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>5</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>4</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>3</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>2</span><span class=w>  </span><span class=o>|</span><span class=w> </span><span class=mi>1</span><span class=w>  </span><span class=o>|</span><span class=w>
+</span><span class=w>   </span><span class=err>└────┴────┴────┴────┴────┴────┘</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>array</span>: <span class=p>[[</span><span class=kt>i64</span><span class=p>;</span><span class=w> </span><span class=mi>6</span><span class=p>]</span><span class=w> </span><span class=p>;</span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=w>
+</span><span class=w>            </span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>6</span><span class=p>],</span><span class=w>
+</span><span class=w>            </span><span class=p>[</span><span class=mi>6</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>1</span><span class=p>]];</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=mutable-array>Mutable Array</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>array</span>: <span class=p>[</span><span class=kt>i32</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=mi>3</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>2</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>10</span><span class=p>];</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=n>array</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>4</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=n>array</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>6</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Use the <code>mut</code> keyword to make it mutable.</p>
+<h3 id=slices>Slices</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>array</span>: <span class=p>[</span><span class=w> </span><span class=kt>i64</span><span class=p>;</span><span class=w> </span><span class=mi>4</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>slices</span>: <span class=kp>&amp;</span><span class=p>[</span><span class=kt>i64</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>array</span><span class=p>[</span><span class=mi>0</span><span class=p>..</span><span class=mi>3</span><span class=p>]</span><span class=w> </span><span class=c1>// Lower range is inclusive and upper range is exclusive
+</span><span class=c1></span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The elements of the slices are : {slices:?}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=vectors>Vectors</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>some_vector</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>vec</span><span class=o>!</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>];</span><span class=w> 
+</span></code></pre></td></tr></table>
+</div>
+</div><p>A vector is declared using the <code>vec!</code> macro.</p>
+<h3 id=tuples>Tuples</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>tuple</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=sc>&#39;A&#39;</span><span class=w> </span><span class=p>,</span><span class=w> </span><span class=s>&#34;Cool&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>78</span><span class=p>,</span><span class=w> </span><span class=kc>true</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=rust-strings>Rust Strings</h2>
+<h3 id=string-literal-1>String Literal</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>cs</span>:<span class=kp>&amp;</span><span class=kt>str</span> <span class=o>=</span><span class=w> </span><span class=s>&#34;cheat sheet&#34;</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// =&gt; Share cheat sheet for developers
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Share {cs} for developers&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=string-object>String Object</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=c1>// Creating an empty string object
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>my_string</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>new</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Converting to a string object
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>S_string</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>a_string</span><span class=p>.</span><span class=n>to_string</span><span class=p>()</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// Creating an initialized string object
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>lang</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Rust&#34;</span><span class=p>);</span><span class=w>  
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;First language is {lang}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=capacity>.capacity()</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>rand</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Random String&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=n>rand</span><span class=p>.</span><span class=n>capacity</span><span class=p>()</span><span class=w>  </span><span class=c1>// =&gt; 13
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Calculates the capacity of the string in bytes.</p>
+<h3 id=contains>.contains()</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;ElementalX&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=n>name</span><span class=p>.</span><span class=n>contains</span><span class=p>(</span><span class=s>&#34;Element&#34;</span><span class=p>)</span><span class=w> </span><span class=c1>// =&gt; true
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Checks if the substring is contained inside the original string or not.</p>
+<h3 id=pushing-a-single-character>Pushing a single character</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>half_text</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Hal&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=n>half_text</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=sc>&#39;f&#39;</span><span class=p>);</span><span class=w>    </span><span class=c1>// =&gt; Half
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=pushing-an-entire-string>Pushing an entire String</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>hi</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=nb>String</span>::<span class=n>from</span><span class=p>(</span><span class=s>&#34;Hey there...&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=n>hi</span><span class=p>.</span><span class=n>push_str</span><span class=p>(</span><span class=s>&#34;How are you doing??&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>// =&gt; Hey there...How are you doing??
+</span><span class=c1></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{hi}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=rust-operators>Rust Operators</h2>
+<h3 id=comparison-operators>Comparison Operators</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>e == f</code></td>
+<td><code>e</code> is equal to <code>f</code></td>
+</tr>
+<tr>
+<td><code>e != f</code></td>
+<td><code>e</code> is NOT equal to <code>f</code></td>
+</tr>
+<tr>
+<td><code>e &lt; f</code></td>
+<td><code>e</code> is less than <code>f</code></td>
+</tr>
+<tr>
+<td><code>e > f</code></td>
+<td><code>e</code> is greater <code>f</code></td>
+</tr>
+<tr>
+<td><code>e &lt;= f</code></td>
+<td><code>e</code> is less than or equal to <code>f</code></td>
+</tr>
+<tr>
+<td><code>e >= f</code></td>
+<td><code>e</code> is greater or equal to <code>f</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=n>e</span><span class=p>,</span><span class=w> </span><span class=n>f</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>100</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>greater</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>f</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=n>e</span><span class=p>;</span><span class=w>        </span><span class=c1>// =&gt; true
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>less</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>f</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=n>e</span><span class=p>;</span><span class=w>           </span><span class=c1>// =&gt; false
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>greater_equal</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>f</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>e</span><span class=p>;</span><span class=w> </span><span class=c1>// =&gt; true
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>less_equal</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>e</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=n>f</span><span class=p>;</span><span class=w>    </span><span class=c1>// =&gt; true
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>equal_to</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>e</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>f</span><span class=p>;</span><span class=w>      </span><span class=c1>// =&gt; false
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>not_equal_to</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>e</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=n>f</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; true
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=arithmetic-operators>Arithmetic Operators</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a + b</code></td>
+<td><code>a</code> is added to <code>b</code></td>
+</tr>
+<tr>
+<td><code>a - b</code></td>
+<td><code>b</code> is subtracted from <code>a</code></td>
+</tr>
+<tr>
+<td><code>a / b</code></td>
+<td><code>a</code> is divided by <code>b</code></td>
+</tr>
+<tr>
+<td><code>a % b</code></td>
+<td>Gets remainder of <code>a</code> by dividing with <code>b</code></td>
+</tr>
+<tr>
+<td><code>a * b</code></td>
+<td><code>a</code> is multiplied with <code>b</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=w> </span><span class=n>b</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=w> </span><span class=mi>5</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>sum</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w>            </span><span class=c1>// =&gt; 9
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>subtractions</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>-</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w>   </span><span class=c1>// =&gt; -1
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>multiplication</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w> </span><span class=c1>// =&gt; 20
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>division</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>/</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w>       </span><span class=c1>// =&gt; 0
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>modulus</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=o>%</span><span class=w> </span><span class=n>b</span><span class=p>;</span><span class=w>        </span><span class=c1>// =&gt; 4
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=bitwise-operators>Bitwise Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g & h</code></td>
+<td>Binary AND</td>
+</tr>
+<tr>
+<td>`g</td>
+<td>h`</td>
+</tr>
+<tr>
+<td><code>g ^ h</code></td>
+<td>Binary XOR</td>
+</tr>
+<tr>
+<td><code>g ~ h</code></td>
+<td>Binary one&rsquo;s complement</td>
+</tr>
+<tr>
+<td><code>g &lt;&lt; h</code></td>
+<td>Binary shift left</td>
+</tr>
+<tr>
+<td><code>g >> h</code></td>
+<td>Binary shift right</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=n>g</span><span class=p>,</span><span class=w> </span><span class=n>h</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mh>0x1</span><span class=p>,</span><span class=w> </span><span class=mh>0x2</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>bitwise_and</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>g</span><span class=w> </span><span class=o>&amp;</span><span class=w> </span><span class=n>h</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; 0
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>bitwise_or</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>g</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=n>h</span><span class=p>;</span><span class=w>   </span><span class=c1>// =&gt; 3
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>bitwise_xor</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>g</span><span class=w> </span><span class=o>^</span><span class=w> </span><span class=n>h</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; 3
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>right_shift</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>g</span><span class=w> </span><span class=o>&gt;&gt;</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w> </span><span class=c1>// =&gt; 0
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>left_shift</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>h</span><span class=w> </span><span class=o>&lt;&lt;</span><span class=w> </span><span class=mi>4</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; 32 
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=logical-operators>Logical Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c && d</code></td>
+<td>Both are true <em>(AND)</em></td>
+</tr>
+<tr>
+<td>`c</td>
+<td></td>
+</tr>
+<tr>
+<td><code>!c</code></td>
+<td><code>c</code> is false <em>(NOT)</em></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=n>c</span><span class=p>,</span><span class=w> </span><span class=n>d</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=kc>true</span><span class=p>,</span><span class=w> </span><span class=kc>false</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>and</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>c</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=n>d</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; false
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>or</span><span class=w>  </span><span class=o>=</span><span class=w> </span><span class=n>c</span><span class=w> </span><span class=o>||</span><span class=w> </span><span class=n>d</span><span class=p>;</span><span class=w>  </span><span class=c1>// =&gt; true
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>not</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>!</span><span class=n>c</span><span class=p>;</span><span class=w>      </span><span class=c1>// =&gt; false
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=compound-assignment-operator>Compound Assignment Operator</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>k</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>9</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>l</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>k</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>k += l</code></td>
+<td>Add a value and assign, then k=9</td>
+</tr>
+<tr>
+<td><code>k -= l</code></td>
+<td>Substrate a value and assign, then k=18</td>
+</tr>
+<tr>
+<td><code>k /= l</code></td>
+<td>Divide a value and assign, then k=9</td>
+</tr>
+<tr>
+<td><code>k *= l</code></td>
+<td>Multiply a value and assign, then k=81</td>
+</tr>
+<tr>
+<td>`k</td>
+<td>= l`</td>
+</tr>
+</tbody>
+</table>
+<h2 class=cols-3 id=rust-flow-control>Rust Flow Control</h2>
+<h3 id=if-expression>If Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>case1</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=mi>81</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>case2</span>: <span class=kt>i32</span> <span class=o>=</span><span class=w> </span><span class=mi>82</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=n>case1</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=n>case2</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;case1 is greater than case2&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=ifelse-expression>If&mldr;Else Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>case3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>8</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>case4</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>9</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=n>case3</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>case4</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;case3 is better than case4&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;case4 is greater than case3&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=ifelseifelse-expression>If&mldr;Else&mldr;if&mldr;Else Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>foo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>12</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>bar</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>13</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=n>foo</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>bar</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;foo is equal to bar&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=k>if</span><span class=w> </span><span class=n>foo</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=n>bar</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;foo less than bar&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=k>if</span><span class=w> </span><span class=n>foo</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=n>bar</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;foo is not equal to bar&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Nothing&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-3 id=iflet-expression>If&mldr;Let Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>arr1</span>:<span class=p>[</span><span class=kt>i64</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=mi>3</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=n>_</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>arr1</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Works with array&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>arr2</span>:<span class=p>[</span><span class=o>&amp;</span><span class=kt>str</span><span class=p>;</span><span class=w> </span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=s>&#34;one&#34;</span><span class=p>,</span><span class=w> </span><span class=s>&#34;two&#34;</span><span class=p>];</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=p>[</span><span class=s>&#34;Apple&#34;</span><span class=p>,</span><span class=w> </span><span class=n>_</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>arr2</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Works with str array too&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>tuple_1</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=s>&#34;India&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>7</span><span class=p>,</span><span class=w> </span><span class=mi>90</span><span class=p>,</span><span class=w> </span><span class=mf>90.432</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=p>(</span><span class=n>_</span><span class=p>,</span><span class=w> </span><span class=mi>7</span><span class=p>,</span><span class=w> </span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mf>78.99</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>tuple_1</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Works with tuples too&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>tuple_2</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=w> </span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mi>7</span><span class=p>,</span><span class=w> </span><span class=mi>89</span><span class=p>,</span><span class=w> </span><span class=mi>12</span><span class=p>,</span><span class=w> </span><span class=s>&#34;Okay&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=p>(</span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mi>7</span><span class=p>,</span><span class=mi>89</span><span class=p>,</span><span class=w> </span><span class=mi>12</span><span class=p>,</span><span class=w> </span><span class=n>blank</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>tuple_2</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Everything {blank} mate?&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>tuple_3</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mi>89</span><span class=p>,</span><span class=w> </span><span class=mi>90</span><span class=p>,</span><span class=w> </span><span class=s>&#34;Yes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=p>(</span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mi>89</span><span class=p>,</span><span class=w> </span><span class=s>&#34;Yes&#34;</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>tuple_3</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Pattern did match&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w></span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Pattern did not match&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 class=row-span-3 id=match-expression>Match Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>day_of_week</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=k>match</span><span class=w> </span><span class=n>day_of_week</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=mi>1</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Its Monday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>2</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Tuesday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>3</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Wednesday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>4</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Thursday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>5</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Friday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>6</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Saturday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=mi>7</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;It&#39;s Sunday my dudes&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>},</span><span class=w>
+</span><span class=w>    </span><span class=n>_</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Default!&#34;</span><span class=p>)</span><span class=w>
+</span><span class=w>    </span><span class=p>}</span><span class=w>
+</span><span class=w>  </span><span class=p>};</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=nestedif-expression>Nested&mldr;If Expression</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>nested_conditions</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>89</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=k>if</span><span class=w> </span><span class=n>nested_conditions</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>89</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=kd>let</span><span class=w> </span><span class=n>just_a_value</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>98</span><span class=p>;</span><span class=w>
+</span><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=n>just_a_value</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=mi>97</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>        </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Greater than 97&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=p>}</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=for-loop>For Loop</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>for</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=mi>0</span><span class=p>..</span><span class=mi>15</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>i</span><span class=o>-=</span><span class=mi>1</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The value of i is : {i}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=while-loop>While Loop</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>check</span><span class=w> </span><span class=o>=</span><span class=w>  </span><span class=mi>0</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=k>while</span><span class=w> </span><span class=n>check</span><span class=w> </span><span class=o>&lt;</span><span class=w> </span><span class=mi>11</span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Check is : {check}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=n>check</span><span class=o>+=</span><span class=mi>1</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;After incrementing: {check}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=k>if</span><span class=w> </span><span class=n>check</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>10</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=k>break</span><span class=p>;</span><span class=w> </span><span class=c1>// stop while
+</span><span class=c1></span><span class=w>  </span><span class=p>}</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=loop-keyword>Loop keyword</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>loop</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;hello world forever!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>The infinite loop indicated.</p>
+<h3 id=break-statement>Break Statement</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=k>loop</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;i is {i}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=k>if</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=mi>100</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=k>break</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=p>}</span><span class=w>
+</span><span class=w>  </span><span class=n>i</span><span class=w> </span><span class=o>*=</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=continue-statement>Continue Statement</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>for</span><span class=w> </span><span class=p>(</span><span class=n>v</span><span class=p>,</span><span class=w> </span><span class=n>c</span><span class=p>)</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=p>(</span><span class=mi>0</span><span class=p>..</span><span class=mi>10</span><span class=o>+</span><span class=mi>1</span><span class=p>).</span><span class=n>enumerate</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The {c} number loop&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=k>if</span><span class=w> </span><span class=n>v</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>9</span><span class=p>{</span><span class=w>
+</span><span class=w>    </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Here we go continue?&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w>    </span><span class=k>continue</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=p>}</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>{</span><span class=s>&#34;The value of v is : {v}&#34;</span><span class=p>};</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=rust-functions>Rust Functions</h2>
+<h3 id=basic-function>Basic function</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>print_message</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Hello, QuickRef.ME!&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=c1>//Invoking a function in Rust.
+</span><span class=c1></span><span class=w>  </span><span class=n>print_message</span><span class=p>();</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=pass-by-value>Pass by Value</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>()</span><span class=w>
+</span><span class=w></span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=n>x</span>:<span class=kt>u32</span> <span class=o>=</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=n>y</span>:<span class=kt>u32</span> <span class=o>=</span><span class=w> </span><span class=mi>20</span><span class=p>;</span><span class=w>
+</span><span class=w>  
+</span><span class=w>  </span><span class=c1>// =&gt; 200
+</span><span class=c1></span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;Calc: {}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>cal_rect</span><span class=p>(</span><span class=n>x</span><span class=p>,</span><span class=w> </span><span class=n>y</span><span class=p>));</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>cal_rect</span><span class=p>(</span><span class=n>x</span>:<span class=kt>u32</span><span class=p>,</span><span class=w> </span><span class=n>y</span>:<span class=kt>u32</span><span class=p>)</span><span class=w> </span>-&gt; <span class=kt>u32</span>
+<span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>x</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>y</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=pass-by-reference>Pass by Reference</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>by_ref</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>3</span><span class=p>;</span><span class=w>      </span><span class=c1>// =&gt; 3
+</span><span class=c1></span><span class=w>  </span><span class=n>power_of_three</span><span class=p>(</span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>by_ref</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{by_ref}&#34;</span><span class=p>);</span><span class=w>  </span><span class=c1>// =&gt; 9
+</span><span class=c1></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>power_of_three</span><span class=p>(</span><span class=n>by_ref</span>: <span class=kp>&amp;</span><span class=nc>mut</span><span class=w> </span><span class=kt>i32</span><span class=p>){</span><span class=w>
+</span><span class=w>  </span><span class=c1>// de-referencing is important
+</span><span class=c1></span><span class=w>  </span><span class=o>*</span><span class=n>by_ref</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>*</span><span class=n>by_ref</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=o>*</span><span class=n>by_ref</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{by_ref}&#34;</span><span class=p>);</span><span class=w>  </span><span class=c1>// =&gt; 9
+</span><span class=c1></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=returns>Returns</h3>
+<div class="highlight wrap"><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=p>(</span><span class=k>mut</span><span class=w> </span><span class=n>radius</span><span class=p>,</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>pi</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=mf>3.0</span><span class=p>,</span><span class=w> </span><span class=mf>3.14</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=p>(</span><span class=n>area</span><span class=p>,</span><span class=w> </span><span class=n>_perimeter</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>calculate</span><span class=w> </span><span class=p>(</span><span class=w>
+</span><span class=w>      </span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>radius</span><span class=p>,</span><span class=w>
+</span><span class=w>      </span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>pi</span><span class=w>
+</span><span class=w>  </span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The area and the perimeter of the circle are: {area} &amp; {_perimeter}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>calculate</span><span class=p>(</span><span class=n>radius</span><span class=w> </span>: <span class=kp>&amp;</span><span class=nc>mut</span><span class=w> </span><span class=kt>f64</span><span class=p>,</span><span class=w> </span><span class=n>pi</span>: <span class=kp>&amp;</span><span class=nc>mut</span><span class=w> </span><span class=kt>f64</span><span class=p>)</span><span class=w> </span>-&gt; <span class=p>(</span><span class=kt>f64</span><span class=p>,</span><span class=w> </span><span class=kt>f64</span><span class=p>){</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=n>perimeter</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mf>2.0</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=o>*</span><span class=n>pi</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=o>*</span><span class=n>radius</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=n>area</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>*</span><span class=n>pi</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=o>*</span><span class=n>radius</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=o>*</span><span class=n>radius</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=k>return</span><span class=w> </span><span class=p>(</span><span class=n>area</span><span class=p>,</span><span class=w> </span><span class=n>perimeter</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=arrays-as-arguments>Arrays as Arguments</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>array</span>: <span class=p>[</span><span class=kt>i32</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=mi>5</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>6</span><span class=p>];</span><span class=w>
+</span><span class=w>  </span><span class=n>print_arrays</span><span class=p>(</span><span class=n>array</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The elements: {array:?}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>print_arrays</span><span class=p>(</span><span class=k>mut</span><span class=w> </span><span class=n>array</span>:<span class=p>[</span><span class=kt>i32</span><span class=p>;</span><span class=w> </span><span class=mi>5</span><span class=p>])</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=n>array</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>89</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>array</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>90</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>array</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>91</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>array</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>92</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>array</span><span class=p>[</span><span class=mi>4</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>93</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The elements: {array:?}&#34;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=returning-arrays>Returning Arrays</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>main</span><span class=p>(){</span><span class=w>
+</span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>arr</span>:<span class=p>[</span><span class=kt>i32</span><span class=p>;</span><span class=w> </span><span class=mi>5</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>[</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>8</span><span class=p>,</span><span class=mi>10</span><span class=p>];</span><span class=w>
+</span><span class=w>  </span><span class=n>multiply</span><span class=p>(</span><span class=n>arr</span><span class=p>);</span><span class=w>
+</span><span class=w>  </span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;The array is : {:?}&#34;</span><span class=p>,</span><span class=w> </span><span class=n>multiply</span><span class=p>(</span><span class=n>arr</span><span class=p>));</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>fn</span> <span class=nf>multiply</span><span class=w> </span><span class=p>(</span><span class=k>mut</span><span class=w> </span><span class=n>arr</span>: <span class=p>[</span><span class=kt>i32</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=mi>5</span><span class=p>])</span><span class=w> </span>-&gt; <span class=p>[</span><span class=kt>i32</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=mi>5</span><span class=p>]{</span><span class=w>
+</span><span class=w>  </span><span class=n>arr</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>90</span><span class=p>;</span><span class=w>
+</span><span class=w>  </span><span class=k>for</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>i</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=mi>0</span><span class=p>..</span><span class=mi>5</span><span class=w> </span><span class=p>{</span><span class=w>
+</span><span class=w>      </span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=n>arr</span><span class=p>[</span><span class=mi>2</span><span class=p>];</span><span class=w>
+</span><span class=w>  </span><span class=p>}</span><span class=w>
+</span><span class=w>  </span><span class=k>return</span><span class=w> </span><span class=n>arr</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 class=cols-3 id=misc>Misc</h2>
+<h3 id=type-casting>Type Casting</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>a_int</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>90</span><span class=p>;</span><span class=w> </span><span class=c1>// int
+</span><span class=c1>// int to float
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>type_cast</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=p>(</span><span class=n>a_int</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=kt>f64</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=n>orginal</span>: <span class=nc>char</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=sc>&#39;I&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=c1>// char to int =&gt; 73
+</span><span class=c1></span><span class=kd>let</span><span class=w> </span><span class=n>type_casted</span>: <span class=kt>i64</span> <span class=o>=</span><span class=w> </span><span class=n>orginal</span><span class=w> </span><span class=k>as</span><span class=w> </span><span class=kt>i64</span><span class=p>;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>To perform type-casting in Rust one must use the <code>as</code> keyword.</p>
+<h3 id=borrowing>Borrowing</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>foo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>4</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>borrowed_foo</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=n>foo</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{borrowed_foo}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>bar</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>3</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>mutable_borrowed_bar</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>bar</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{mutable_borrowed_bar}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Here borrowed value borrows the value from value one using <code>&</code> operator.</p>
+<h3 id=de-referencing>De-referencing</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=kd>let</span><span class=w> </span><span class=k>mut</span><span class=w> </span><span class=n>borrow</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>10</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=kd>let</span><span class=w> </span><span class=n>deref</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=o>&amp;</span><span class=k>mut</span><span class=w> </span><span class=n>borrow</span><span class=p>;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{}&#34;</span><span class=p>,</span><span class=w> </span><span class=o>*</span><span class=n>deref</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>De-referencing in rust can be done using the <code>*</code> operator</p>
+<h3 id=variable-scope>Variable Scope</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=p>{</span><span class=w>
+</span><span class=w>  </span><span class=c1>// The scope limited to this braces
+</span><span class=c1></span><span class=w>  </span><span class=kd>let</span><span class=w> </span><span class=n>a_number</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=p>}</span><span class=w>
+</span><span class=w></span><span class=n>println</span><span class=o>!</span><span class=p>(</span><span class=s>&#34;{a_number}&#34;</span><span class=p>);</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>This will produce error as the scope of the variable <code>a_number</code> ends at the braces</p>
+<h2 id=also-see>Also see</h2>
+<ul>
+<li><a href=https://doc.rust-lang.org/book/ch00-00-introduction.html>The Rust Document</a> <em>(doc.rust-lang.org)</em></li>
+<li><a href=https://doc.rust-lang.org/reference/introduction.html>The Rust Reference</a> <em>(doc.rust-lang.org)</em></li>
+<li><a href=https://phaiax.github.io/rust-cheatsheet/>Rust Cheatsheet</a> <em>(phaiax.github.io)</em></li>
+</ul>
+</div>
+<div class=addthis_inline_share_toolbox_taj0></div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>Aaron Ji</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-01-01
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/post/html-char/>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417l277.93508-310.326815c11.338233-12.190647 11.035334-32.285311-.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"/></svg>
+</i>
+<span class="prev-text nav-default">HTML Characters Entities</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/post/nginx/>
+<span class="next-text nav-default">Nginx knowledge</span>
+<span class="prev-text nav-mobile">Next</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
+</i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=icon-links>
+<a href=https://twitter.com/ji_yongcheng rel="me noopener" class=iconfont title=twitter target=_blank><svg class="icon" viewBox="0 0 1264 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M1229.8616 18.043658s-117.852626 63.135335-164.151872 67.344358C960.484169-78.763856 560.627046-7.210476 627.971403 308.466201 278.622548 312.675223 89.216542 47.506814 89.216542 47.506814S-28.636084 236.91282 164.978944 392.646647C127.097743 396.85567 55.544363 371.601535 55.544363 371.601535S26.081207 535.753407 253.368414 615.724832c-21.045112 29.463156-113.643603 8.418045-113.643603 8.418045s25.254134 143.10676 231.496229 180.987961c-143.10676 130.479693-387.230056 92.598492-370.393967 105.225559 206.242095 189.406006 1119.599946 231.496229 1128.01799-643.98042 50.5082679999998-16.83609 134.688715-143.10676 134.688715-143.10676s-130.479693 37.881201-138.897738 33.672179C1225.652577 98.015083 1229.8616 18.043658 1229.8616 18.043658"/></svg>
+</a>
+<a href=https://www.linkedin.com/in/jiyongcheng/ rel="me noopener" class=iconfont title=linkedin target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33" height="33"><path d="M872.405333 872.618667H720.768V635.008c0-56.661333-1.152-129.578667-79.018667-129.578667-79.061333.0-91.136 61.653333-91.136 125.397334v241.792H398.976V384H544.64v66.602667h1.962667c20.352-38.4 69.845333-78.933333 143.786666-78.933334 153.642667.0 182.058667 101.12 182.058667 232.746667v268.202667zM227.712 317.141333a87.978667 87.978667.0 01-88.021333-88.106666A88.064 88.064.0 11227.712 317.141333zm76.032 555.477334H151.68V384h152.064v488.618667zM948.266667.0h-872.704C33.792.0.0 33.024.0 73.770667v876.458666C0 991.018667 33.792 1024 75.562667 1024h872.576C989.866667 1024 1024 991.018667 1024 950.229333V73.770667C1024 33.024 989.866667.0 948.138667.0h.128z"/></svg>
+</a>
+<a href=https://github.com/jiyongcheng rel="me noopener" class=iconfont title=github target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M512 12.672c-282.88.0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667.0-12.16-.426667-44.373333-.64-87.04C242.005334 929.664 211.968 830.08 211.968 830.08 188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333.0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333.0.0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667.0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72.0 68.522667-.64 123.562667-.64 140.202666.0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"/></svg>
+</a>
+<a href=https://weibo.com/u/6118026886 rel="me noopener" class=iconfont title=weibo target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36"><path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857Q513.142857 784 448.571429 811.428572t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571Q712 579.428572 666.285714 537.142858t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140T152.57143 366.857144q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857Q604 336.857143 665.142858 336.857143t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571T752.571429 492t6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zM850.857143 280q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571T836 430.857142q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20Q725.714286 308 713.714286 300.571428t-14.285714-21.142857Q696.571429 265.714285 704.000001 254t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857Q1004 241.714286 1018.571428 314t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571T935.999999 428q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429T712.571427 180q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"/></svg>
+</a>
+<a href=https://jiyongcheng.dev/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg>
+</a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a>
+</span>
+<span class=copyright-year>
+&copy;
+2021 -
+2022
+<span class=heart>
+<i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
+</i>
+</span><span class=author>
+Aaron Ji
+</span></span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg>
+</i>
+</div>
+</div>
+<script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
+<script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/load-photoswipe.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script>
+<script>$("#openSearch, #openSearchMobile").click(function(){$(".modal-dialog").addClass("visible")}),$("#closeSearch").click(function(){$(".modal-dialog").removeClass("visible")}),$(document).click(function(a){$(a.target).closest(".modal-content, #openSearch, #openSearchMobile").length||$("body").find(".modal-dialog").removeClass("visible")})</script>
+</body>
+</html>
