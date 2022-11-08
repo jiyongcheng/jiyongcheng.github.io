@@ -21,6 +21,7 @@
 <link rel=canonical href=https://jiyongcheng.dev/post/lsof/>
 <link rel=icon href=/favicon.ico>
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
+<link rel=stylesheet href=/css/homepage.css>
 <meta property="og:title" content="Lsof">
 <meta property="og:description" content="Getting started Introduction lsof meaning LiSt Open Files is used to find out which files are open by which process
 1 2  $ lsof $ sudo lsof -u root   Port-specific 1 2 3 4 5 6  $ lsof -i :8080 $ lsof -i :80 -i :22 $ lsof -i TCP:22 $ lsof -i TCP:1-1024 $ lsof -i UDP $ lsof -i @192.168.1.5   Process-specific 1 2 3 4 5  $ lsof -c mysql $ lsof -c java $ lsof -c ssh $ lsof -c nginx $ lsof -c ssh -c httpd   User-specific 1 2 3  $ lsof -u www-data $ lsof -u www-data -u ubuntu $ lsof -i -u ^root # Except certain user   Network-specific 1 2  $ lsof -i 4 # IPv4 only $ lsof -i 6 # IPv6 only   PID-specific 1 2  $ lsof -p 1753 $ lsof -p ^3 # Except certain pids   Filename-specific 1 2  $ lsof /var/log/messages $ lsof /etc/passwd   Directory-specific 1  $ lsof +D /var/log # Within a directory   Kill 1 2  $ kill -9 `lsof -t -u apache` $ kill -9 $(lsof -t -i :8080)   ">
