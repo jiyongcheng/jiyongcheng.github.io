@@ -14,8 +14,7 @@
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=mobile-web-app-capable content="yes">
 <meta name=author content="Aaron Ji">
-<meta name=description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation &amp;#39;Tommy is &amp;#39; + age + &amp;#39; years old.&amp;#39;; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? &amp;#39;I win&amp;#39;; // &amp;#39;I win&amp;#39; undefined ?">
+<meta name=description content="Getting started Frequent used remove a specific item from an array 1 2 3 4 5 6 7 8 9 10 11  const array = [2, 5, 9]; console.log(array); const index = array.indexOf(5); if (index &amp;gt; -1) { // only splice array when item is found array.splice(index, 1); // 2nd parameter means remove one item only } // array = [2, 9] console.log(array);   The second parameter of splice is the number of elements to remove.">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
 <meta name=generator content="Hugo 0.87.0">
 <link rel=canonical href=https://jiyongcheng.dev/post/javascript/>
@@ -23,28 +22,24 @@
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
 <link rel=stylesheet href=/css/homepage.css>
 <meta property="og:title" content="JavaScript">
-<meta property="og:description" content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?">
+<meta property="og:description" content="Getting started Frequent used remove a specific item from an array 1 2 3 4 5 6 7 8 9 10 11  const array = [2, 5, 9]; console.log(array); const index = array.indexOf(5); if (index > -1) { // only splice array when item is found array.splice(index, 1); // 2nd parameter means remove one item only } // array = [2, 9] console.log(array);   The second parameter of splice is the number of elements to remove.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/javascript/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-12-24T17:12:25+00:00">
 <meta property="article:modified_time" content="2020-12-24T17:12:25+00:00">
 <meta itemprop=name content="JavaScript">
-<meta itemprop=description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?"><meta itemprop=datePublished content="2020-12-24T17:12:25+00:00">
+<meta itemprop=description content="Getting started Frequent used remove a specific item from an array 1 2 3 4 5 6 7 8 9 10 11  const array = [2, 5, 9]; console.log(array); const index = array.indexOf(5); if (index > -1) { // only splice array when item is found array.splice(index, 1); // 2nd parameter means remove one item only } // array = [2, 9] console.log(array);   The second parameter of splice is the number of elements to remove."><meta itemprop=datePublished content="2020-12-24T17:12:25+00:00">
 <meta itemprop=dateModified content="2020-12-24T17:12:25+00:00">
-<meta itemprop=wordCount content="2625"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=wordCount content="2794"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta itemprop=keywords content="js,web,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta name=twitter:title content="JavaScript">
-<meta name=twitter:description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="Getting started Frequent used remove a specific item from an array 1 2 3 4 5 6 7 8 9 10 11  const array = [2, 5, 9]; console.log(array); const index = array.indexOf(5); if (index > -1) { // only splice array when item is found array.splice(index, 1); // 2nd parameter means remove one item only } // array = [2, 9] console.log(array);   The second parameter of splice is the number of elements to remove."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="JavaScript">
-<meta property="og:description" content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?">
+<meta property="og:description" content="Getting started Frequent used remove a specific item from an array 1 2 3 4 5 6 7 8 9 10 11  const array = [2, 5, 9]; console.log(array); const index = array.indexOf(5); if (index > -1) { // only splice array when item is found array.splice(index, 1); // 2nd parameter means remove one item only } // array = [2, 9] console.log(array);   The second parameter of splice is the number of elements to remove.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/javascript/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-12-24T17:12:25+00:00">
@@ -173,8 +168,8 @@ What, Why, How
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
 </div>
-<span class=more-meta> 2625 words </span>
-<span class=more-meta> 13 min read </span>
+<span class=more-meta> 2794 words </span>
+<span class=more-meta> 14 min read </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
@@ -182,8 +177,10 @@ What, Why, How
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#getting-started>Getting started</a>
+<li><a href=#getting-started>Getting started</a></li>
+<li><a href=#frequent-used>Frequent used</a>
 <ul>
+<li><a href=#remove-a-specific-item-from-an-array>remove a specific item from an array</a></li>
 <li><a href=#introduction>Introduction</a></li>
 <li><a href=#string-interpolation>String Interpolation</a></li>
 </ul>
@@ -283,7 +280,88 @@ What, Why, How
 </div>
 <div class=post-content>
 <h2 class=cols-3 id=getting-started>Getting started</h2>
-<h3 id=introduction>Introduction</h3>
+<h2 id=frequent-used>Frequent used</h2>
+<h3 id=remove-a-specific-item-from-an-array>remove a specific item from an array</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>const array = [2, 5, 9];
+
+console.log(array);
+
+const index = array.indexOf(5);
+if (index &gt; -1) { // only splice array when item is found
+  array.splice(index, 1); // 2nd parameter means remove one item only
+}
+
+// array = [2, 9]
+console.log(array); 
+</code></pre></td></tr></table>
+</div>
+</div><p>The second parameter of splice is the number of elements to remove. Note that splice modifies the array in place and returns a new array containing the elements that have been removed.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>function removeItemOnce(arr, value) {
+  var index = arr.indexOf(value);
+  if (index &gt; -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+function removeItemAll(arr, value) {
+  var i = 0;
+  while (i &lt; arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
+// Usage
+console.log(removeItemOnce([2,5,9,1,5,8,5], 5))
+console.log(removeItemAll([2,5,9,1,5,8,5], 5))
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=introduction>Introduction</h3>
 <p>JavaScript is a lightweight, interpreted programming language.</p>
 <ul>
 <li><a href=/json>JSON cheatsheet</a> <em>(quickref.me)</em></li>
