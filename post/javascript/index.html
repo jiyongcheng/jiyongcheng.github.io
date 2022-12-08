@@ -15,7 +15,7 @@
 <meta name=mobile-web-app-capable content="yes">
 <meta name=author content="Aaron Ji">
 <meta name=description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  Console 1 2 3 4 5 6 7 8  // =&amp;gt; Hello world! console.log(&amp;#39;Hello world!&amp;#39;); // =&amp;gt; Hello QuickRef.ME console.warn(&amp;#39;hello %s&amp;#39;, &amp;#39;QuickRef.ME&amp;#39;); // Prints error message to stderr console.error(new Error(&amp;#39;Oops!&amp;#39;));   Numbers 1 2  let amount = 6; let price = 4.99;   Variables 1 2 3 4 5 6 7 8 9  let x = null; let name = &amp;#34;Tammy&amp;#34;; const found = false; // =&amp;gt; Tammy, false, null console.">
+ JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation &amp;#39;Tommy is &amp;#39; + age + &amp;#39; years old.&amp;#39;; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? &amp;#39;I win&amp;#39;; // &amp;#39;I win&amp;#39; undefined ?">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
 <meta name=generator content="Hugo 0.87.0">
 <link rel=canonical href=https://jiyongcheng.dev/post/javascript/>
@@ -24,27 +24,27 @@
 <link rel=stylesheet href=/css/homepage.css>
 <meta property="og:title" content="JavaScript">
 <meta property="og:description" content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  Console 1 2 3 4 5 6 7 8  // => Hello world! console.log('Hello world!'); // => Hello QuickRef.ME console.warn('hello %s', 'QuickRef.ME'); // Prints error message to stderr console.error(new Error('Oops!'));   Numbers 1 2  let amount = 6; let price = 4.99;   Variables 1 2 3 4 5 6 7 8 9  let x = null; let name = &#34;Tammy&#34;; const found = false; // => Tammy, false, null console.">
+ JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/javascript/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-12-24T17:12:25+00:00">
 <meta property="article:modified_time" content="2020-12-24T17:12:25+00:00">
 <meta itemprop=name content="JavaScript">
 <meta itemprop=description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  Console 1 2 3 4 5 6 7 8  // => Hello world! console.log('Hello world!'); // => Hello QuickRef.ME console.warn('hello %s', 'QuickRef.ME'); // Prints error message to stderr console.error(new Error('Oops!'));   Numbers 1 2  let amount = 6; let price = 4.99;   Variables 1 2 3 4 5 6 7 8 9  let x = null; let name = &#34;Tammy&#34;; const found = false; // => Tammy, false, null console."><meta itemprop=datePublished content="2020-12-24T17:12:25+00:00">
+ JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?"><meta itemprop=datePublished content="2020-12-24T17:12:25+00:00">
 <meta itemprop=dateModified content="2020-12-24T17:12:25+00:00">
-<meta itemprop=wordCount content="3940"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
+<meta itemprop=wordCount content="2625"><meta itemprop=image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta itemprop=keywords content="js,web,"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://jiyongcheng.dev/site-feature-image.png">
 <meta name=twitter:title content="JavaScript">
 <meta name=twitter:description content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  Console 1 2 3 4 5 6 7 8  // => Hello world! console.log('Hello world!'); // => Hello QuickRef.ME console.warn('hello %s', 'QuickRef.ME'); // Prints error message to stderr console.error(new Error('Oops!'));   Numbers 1 2  let amount = 6; let price = 4.99;   Variables 1 2 3 4 5 6 7 8 9  let x = null; let name = &#34;Tammy&#34;; const found = false; // => Tammy, false, null console."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+ JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="JavaScript">
 <meta property="og:description" content="Getting started Introduction JavaScript is a lightweight, interpreted programming language.
- JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  Console 1 2 3 4 5 6 7 8  // => Hello world! console.log('Hello world!'); // => Hello QuickRef.ME console.warn('hello %s', 'QuickRef.ME'); // Prints error message to stderr console.error(new Error('Oops!'));   Numbers 1 2  let amount = 6; let price = 4.99;   Variables 1 2 3 4 5 6 7 8 9  let x = null; let name = &#34;Tammy&#34;; const found = false; // => Tammy, false, null console.">
+ JSON cheatsheet (quickref.me) Regex in JavaScript (quickref.me)  String Interpolation 1 2 3 4 5 6 7  let age = 7; // String concatenation 'Tommy is ' + age + ' years old.'; // String interpolation `Tommy is ${age}years old.`;   JavaScript Conditionals Nullish coalescing operator ?? 1 2 3 4 5 6  null ?? 'I win'; // 'I win' undefined ?">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/javascript/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-12-24T17:12:25+00:00">
@@ -173,8 +173,8 @@ What, Why, How
 <div class=post-category>
 <a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
 </div>
-<span class=more-meta> 3940 words </span>
-<span class=more-meta> 19 min read </span>
+<span class=more-meta> 2625 words </span>
+<span class=more-meta> 13 min read </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
@@ -185,73 +185,27 @@ What, Why, How
 <li><a href=#getting-started>Getting started</a>
 <ul>
 <li><a href=#introduction>Introduction</a></li>
-<li><a href=#console>Console</a></li>
-<li><a href=#numbers>Numbers</a></li>
-<li><a href=#variables>Variables</a></li>
-<li><a href=#strings>Strings</a></li>
-<li><a href=#arithmetic-operators>Arithmetic Operators</a></li>
-<li><a href=#comments>Comments</a></li>
-<li><a href=#assignment-operators>Assignment Operators</a></li>
 <li><a href=#string-interpolation>String Interpolation</a></li>
-<li><a href=#let-keyword>let Keyword</a></li>
-<li><a href=#const-keyword>const Keyword</a></li>
 </ul>
 </li>
 <li><a href=#javascript-conditionals>JavaScript Conditionals</a>
 <ul>
-<li><a href=#if-statement>if Statement</a></li>
-<li><a href=#ternary-operator>Ternary Operator</a></li>
-<li><a href=#operators>Operators</a></li>
-<li><a href=#else-if>else if</a></li>
-<li><a href=#switch-statement>switch Statement</a></li>
+<li></li>
 <li><a href=#-vs->== vs ===</a></li>
-</ul>
-</li>
-<li><a href=#javascript-functions>JavaScript Functions</a>
-<ul>
-<li><a href=#functions>Functions</a></li>
 <li><a href=#anonymous-functions>Anonymous Functions</a></li>
 <li><a href=#arrow-functions-es6>Arrow Functions (ES6)</a></li>
-<li><a href=#return-keyword>return Keyword</a></li>
-<li><a href=#calling-functions>Calling Functions</a></li>
-<li><a href=#function-expressions>Function Expressions</a></li>
-<li><a href=#function-parameters>Function Parameters</a></li>
-<li><a href=#function-declaration>Function Declaration</a></li>
-</ul>
-</li>
-<li><a href=#javascript-scope>JavaScript Scope </a>
-<ul>
-<li><a href=#scope>Scope</a></li>
-<li><a href=#block-scoped-variables>Block Scoped Variables</a></li>
-<li><a href=#global-variables>Global Variables</a></li>
 <li><a href=#let-vs-var>let vs var</a></li>
 <li><a href=#loops-with-closures>Loops with closures</a></li>
 </ul>
 </li>
 <li><a href=#javascript-arrays>JavaScript Arrays </a>
 <ul>
-<li><a href=#arrays>Arrays</a></li>
-<li><a href=#property-length>Property .length</a></li>
-<li><a href=#index>Index</a></li>
 <li><a href=#mutable-chart>Mutable chart</a></li>
 <li><a href=#method-push>Method .push()</a></li>
 <li><a href=#method-pop>Method .pop()</a></li>
 <li><a href=#method-shift>Method .shift()</a></li>
 <li><a href=#method-unshift>Method .unshift()</a></li>
 <li><a href=#method-concat>Method .concat()</a></li>
-</ul>
-</li>
-<li><a href=#javascript-loops>JavaScript Loops </a>
-<ul>
-<li><a href=#while-loop>While Loop</a></li>
-<li><a href=#reverse-loop>Reverse Loop</a></li>
-<li><a href=#dowhile-statement>Do…While Statement</a></li>
-<li><a href=#for-loop>For Loop</a></li>
-<li><a href=#looping-through-arrays>Looping Through Arrays</a></li>
-<li><a href=#break>Break</a></li>
-<li><a href=#continue>Continue</a></li>
-<li><a href=#nested>Nested</a></li>
-<li><a href=#forin-loop>for&mldr;in loop</a></li>
 <li><a href=#forof-loop>for&mldr;of loop</a></li>
 </ul>
 </li>
@@ -263,18 +217,8 @@ What, Why, How
 <li><a href=#array-method-map>Array Method .map()</a></li>
 <li><a href=#array-method-foreach>Array Method .forEach()</a></li>
 <li><a href=#array-method-filter>Array Method .filter()</a></li>
-</ul>
-</li>
-<li><a href=#javascript-objects>JavaScript Objects</a>
-<ul>
-<li><a href=#accessing-properties>Accessing Properties</a></li>
-<li><a href=#naming-properties>Naming Properties</a></li>
-<li><a href=#non-existent-properties>Non-existent properties</a></li>
-<li><a href=#mutable>Mutable</a></li>
 <li><a href=#assignment-shorthand-syntax>Assignment shorthand syntax</a></li>
 <li><a href=#delete-operator>Delete operator</a></li>
-<li><a href=#objects-as-arguments>Objects as arguments</a></li>
-<li><a href=#shorthand-object-creation>Shorthand object creation</a></li>
 <li><a href=#this-keyword>this Keyword</a></li>
 <li><a href=#factory-functions>Factory functions</a></li>
 <li><a href=#methods>Methods</a></li>
@@ -345,146 +289,7 @@ What, Why, How
 <li><a href=/json>JSON cheatsheet</a> <em>(quickref.me)</em></li>
 <li><a href=/regex#regex-in-javascript>Regex in JavaScript</a> <em>(quickref.me)</em></li>
 </ul>
-<h3 id=console>Console</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// =&gt; Hello world!
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Hello world!&#39;</span><span class=p>);</span>
-
-<span class=c1>// =&gt; Hello QuickRef.ME
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>warn</span><span class=p>(</span><span class=s1>&#39;hello %s&#39;</span><span class=p>,</span> <span class=s1>&#39;QuickRef.ME&#39;</span><span class=p>);</span>
-
-<span class=c1>// Prints error message to stderr
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Oops!&#39;</span><span class=p>));</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=numbers>Numbers</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>amount</span> <span class=o>=</span> <span class=mi>6</span><span class=p>;</span>
-<span class=kd>let</span> <span class=nx>price</span> <span class=o>=</span> <span class=mf>4.99</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=variables>Variables</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>x</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
-<span class=kd>let</span> <span class=nx>name</span> <span class=o>=</span> <span class=s2>&#34;Tammy&#34;</span><span class=p>;</span>
-<span class=kr>const</span> <span class=nx>found</span> <span class=o>=</span> <span class=kc>false</span><span class=p>;</span>
-
-<span class=c1>// =&gt; Tammy, false, null
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>name</span><span class=p>,</span> <span class=nx>found</span><span class=p>,</span> <span class=nx>x</span><span class=p>);</span>
-
-<span class=kd>var</span> <span class=nx>a</span><span class=p>;</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>a</span><span class=p>);</span> <span class=c1>// =&gt; undefined
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=strings>Strings</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>single</span> <span class=o>=</span> <span class=s1>&#39;Wheres my bandit hat?&#39;</span><span class=p>;</span>
-<span class=kd>let</span> <span class=kr>double</span> <span class=o>=</span> <span class=s2>&#34;Wheres my bandit hat?&#34;</span><span class=p>;</span>
-
-<span class=c1>// =&gt; 21
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>single</span><span class=p>.</span><span class=nx>length</span><span class=p>);</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=arithmetic-operators>Arithmetic Operators</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=mi>5</span> <span class=o>+</span> <span class=mi>5</span> <span class=o>=</span> <span class=mi>10</span>     <span class=c1>// Addition
-</span><span class=c1></span><span class=mi>10</span> <span class=o>-</span> <span class=mi>5</span> <span class=o>=</span> <span class=mi>5</span>     <span class=c1>// Subtraction
-</span><span class=c1></span><span class=mi>5</span> <span class=o>*</span> <span class=mi>10</span> <span class=o>=</span> <span class=mi>50</span>    <span class=c1>// Multiplication
-</span><span class=c1></span><span class=mi>10</span> <span class=o>/</span> <span class=mi>5</span> <span class=o>=</span> <span class=mi>2</span>     <span class=c1>// Division
-</span><span class=c1></span><span class=mi>10</span> <span class=o>%</span> <span class=mi>5</span> <span class=o>=</span> <span class=mi>0</span>     <span class=c1>// Modulo
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=comments>Comments</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// This line will denote a comment
-</span><span class=c1></span>
-<span class=cm>/*  
-</span><span class=cm>The below configuration must be 
-</span><span class=cm>changed before deployment. 
-</span><span class=cm>*/</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=assignment-operators>Assignment Operators</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>number</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>
-
-<span class=c1>// Both statements will add 10
-</span><span class=c1></span><span class=nx>number</span> <span class=o>=</span> <span class=nx>number</span> <span class=o>+</span> <span class=mi>10</span><span class=p>;</span>
-<span class=nx>number</span> <span class=o>+=</span> <span class=mi>10</span><span class=p>;</span>
-
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>number</span><span class=p>);</span> 
-<span class=c1>// =&gt; 120
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=string-interpolation>String Interpolation</h3>
+<h3 id=string-interpolation>String Interpolation</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -505,136 +310,8 @@ What, Why, How
 </span><span class=c1></span><span class=sb>`Tommy is </span><span class=si>${</span><span class=nx>age</span><span class=si>}</span><span class=sb> years old.`</span><span class=p>;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=let-keyword>let Keyword</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>count</span><span class=p>;</span> 
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>count</span><span class=p>);</span> <span class=c1>// =&gt; undefined
-</span><span class=c1></span><span class=nx>count</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>count</span><span class=p>);</span> <span class=c1>// =&gt; 10
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=const-keyword>const Keyword</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>numberOfColumns</span> <span class=o>=</span> <span class=mi>4</span><span class=p>;</span>
-
-<span class=c1>// TypeError: Assignment to constant...
-</span><span class=c1></span><span class=nx>numberOfColumns</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
 </div><h2 class=cols-3 id=javascript-conditionals>JavaScript Conditionals</h2>
-<h3 id=if-statement>if Statement</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>isMailSent</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
-
-<span class=k>if</span> <span class=p>(</span><span class=nx>isMailSent</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Mail sent to recipient&#39;</span><span class=p>);</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=ternary-operator>Ternary Operator</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>var</span> <span class=nx>x</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
-
-<span class=c1>// =&gt; true
-</span><span class=c1></span><span class=nx>result</span> <span class=o>=</span> <span class=p>(</span><span class=nx>x</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=o>?</span> <span class=kc>true</span> <span class=o>:</span> <span class=kc>false</span><span class=p>;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 class=row-span-2 id=operators>Operators</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kc>true</span> <span class=o>||</span> <span class=kc>false</span><span class=p>;</span>       <span class=c1>// true
-</span><span class=c1></span><span class=mi>10</span> <span class=o>&gt;</span> <span class=mi>5</span> <span class=o>||</span> <span class=mi>10</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>;</span>   <span class=c1>// true
-</span><span class=c1></span><span class=kc>false</span> <span class=o>||</span> <span class=kc>false</span><span class=p>;</span>      <span class=c1>// false
-</span><span class=c1></span><span class=mi>10</span> <span class=o>&gt;</span> <span class=mi>100</span> <span class=o>||</span> <span class=mi>10</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>;</span> <span class=c1>// false
-</span></code></pre></td></tr></table>
-</div>
-</div><h4 id=logical-operator->Logical Operator &&</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kc>true</span> <span class=o>&amp;&amp;</span> <span class=kc>true</span><span class=p>;</span>        <span class=c1>// true
-</span><span class=c1></span><span class=mi>1</span> <span class=o>&gt;</span> <span class=mi>2</span> <span class=o>&amp;&amp;</span> <span class=mi>2</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>;</span>      <span class=c1>// false
-</span><span class=c1></span><span class=kc>true</span> <span class=o>&amp;&amp;</span> <span class=kc>false</span><span class=p>;</span>       <span class=c1>// false
-</span><span class=c1></span><span class=mi>4</span> <span class=o>===</span> <span class=mi>4</span> <span class=o>&amp;&amp;</span> <span class=mi>3</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>;</span>    <span class=c1>// true
-</span></code></pre></td></tr></table>
-</div>
-</div><h4 id=comparison-operators>Comparison Operators</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=mi>1</span> <span class=o>&gt;</span> <span class=mi>3</span>                <span class=c1>// false
-</span><span class=c1></span><span class=mi>3</span> <span class=o>&gt;</span> <span class=mi>1</span>                <span class=c1>// true
-</span><span class=c1></span><span class=mi>250</span> <span class=o>&gt;=</span> <span class=mi>250</span>           <span class=c1>// true
-</span><span class=c1></span><span class=mi>1</span> <span class=o>===</span> <span class=mi>1</span>              <span class=c1>// true
-</span><span class=c1></span><span class=mi>1</span> <span class=o>===</span> <span class=mi>2</span>              <span class=c1>// false
-</span><span class=c1></span><span class=mi>1</span> <span class=o>===</span> <span class=s1>&#39;1&#39;</span>            <span class=c1>// false
-</span></code></pre></td></tr></table>
-</div>
-</div><h4 id=logical-operator--1>Logical Operator !</h4>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>let</span> <span class=nx>lateToWork</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
-<span class=kd>let</span> <span class=nx>oppositeValue</span> <span class=o>=</span> <span class=o>!</span><span class=nx>lateToWork</span><span class=p>;</span>
-
-<span class=c1>// =&gt; false
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>oppositeValue</span><span class=p>);</span> 
-</code></pre></td></tr></table>
-</div>
-</div><h4 id=nullish-coalescing-operator->Nullish coalescing operator ??</h4>
+<h4 id=nullish-coalescing-operator->Nullish coalescing operator ??</h4>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -652,68 +329,6 @@ What, Why, How
 </span><span class=c1></span><span class=mi>0</span> <span class=o>??</span> <span class=s1>&#39;I lose again&#39;</span>        <span class=c1>//  0
 </span><span class=c1></span><span class=s1>&#39;&#39;</span> <span class=o>??</span> <span class=s1>&#39;Damn it&#39;</span>            <span class=c1>//  &#39;&#39;
 </span></code></pre></td></tr></table>
-</div>
-</div><h3 id=else-if>else if</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>size</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>
-
-<span class=k>if</span> <span class=p>(</span><span class=nx>size</span> <span class=o>&gt;</span> <span class=mi>100</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Big&#39;</span><span class=p>);</span>
-<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>size</span> <span class=o>&gt;</span> <span class=mi>20</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Medium&#39;</span><span class=p>);</span>
-<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>size</span> <span class=o>&gt;</span> <span class=mi>4</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Small&#39;</span><span class=p>);</span>
-<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Tiny&#39;</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=c1>// Print: Small
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=switch-statement>switch Statement</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>food</span> <span class=o>=</span> <span class=s1>&#39;salad&#39;</span><span class=p>;</span>
-
-<span class=k>switch</span> <span class=p>(</span><span class=nx>food</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>case</span> <span class=s1>&#39;oyster&#39;</span><span class=o>:</span>
-    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;The taste of the sea&#39;</span><span class=p>);</span>
-    <span class=k>break</span><span class=p>;</span>
-  <span class=k>case</span> <span class=s1>&#39;pizza&#39;</span><span class=o>:</span>
-    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;A delicious pie&#39;</span><span class=p>);</span>
-    <span class=k>break</span><span class=p>;</span>
-  <span class=k>default</span><span class=o>:</span>
-    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Enjoy your meal&#39;</span><span class=p>);</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
 </div>
 </div><h3 id=-vs->== vs ===</h3>
 <div class=highlight><div class=chroma>
@@ -739,29 +354,7 @@ What, Why, How
 </span></code></pre></td></tr></table>
 </div>
 </div><p>The <code>==</code> just check the value, <code>===</code> check both the value and the type.</p>
-<h2 class=cols-3 id=javascript-functions>JavaScript Functions</h2>
-<h3 id=functions>Functions</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Defining the function:
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=nx>num1</span> <span class=o>+</span> <span class=nx>num2</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=c1>// Calling the function:
-</span><span class=c1></span><span class=nx>sum</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>6</span><span class=p>);</span> <span class=c1>// 9
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=anonymous-functions>Anonymous Functions</h3>
+<h3 id=anonymous-functions>Anonymous Functions</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -846,166 +439,7 @@ What, Why, How
 </code></pre></td></tr></table>
 </div>
 </div><p><a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions>Arrow function</a> available starting ES2015</p>
-<h3 id=return-keyword>return Keyword</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// With return
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=nx>num1</span> <span class=o>+</span> <span class=nx>num2</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=c1>// The function doesn&#39;t output the sum
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>num1</span> <span class=o>+</span> <span class=nx>num2</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=calling-functions>Calling Functions</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Defining the function
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=nx>num1</span> <span class=o>+</span> <span class=nx>num2</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=c1>// Calling the function
-</span><span class=c1></span><span class=nx>sum</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span> <span class=mi>4</span><span class=p>);</span> <span class=c1>// 6
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=function-expressions>Function Expressions</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>dog</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=s1>&#39;Woof!&#39;</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=function-parameters>Function Parameters</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// The parameter is name
-</span><span class=c1></span><span class=kd>function</span> <span class=nx>sayHello</span><span class=p>(</span><span class=nx>name</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=sb>`Hello, </span><span class=si>${</span><span class=nx>name</span><span class=si>}</span><span class=sb>!`</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=function-declaration>Function Declaration</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>add</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>return</span> <span class=nx>num1</span> <span class=o>+</span> <span class=nx>num2</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 class=cols-3 id=javascript-scope>JavaScript Scope </h2>
-<h3 id=scope>Scope</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kd>function</span> <span class=nx>myFunction</span><span class=p>()</span> <span class=p>{</span>
-  
-  <span class=kd>var</span> <span class=nx>pizzaName</span> <span class=o>=</span> <span class=s2>&#34;Margarita&#34;</span><span class=p>;</span>
-  <span class=c1>// Code here can use pizzaName
-</span><span class=c1></span>  
-<span class=p>}</span>
-
-<span class=c1>// Code here can&#39;t use pizzaName
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=block-scoped-variables>Block Scoped Variables</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>isLoggedIn</span> <span class=o>=</span> <span class=kc>true</span><span class=p>;</span>
-
-<span class=k>if</span> <span class=p>(</span><span class=nx>isLoggedIn</span> <span class=o>==</span> <span class=kc>true</span><span class=p>)</span> <span class=p>{</span>
-  <span class=kr>const</span> <span class=nx>statusMessage</span> <span class=o>=</span> <span class=s1>&#39;Logged in.&#39;</span><span class=p>;</span>
-<span class=p>}</span>
-
-<span class=c1>// Uncaught ReferenceError...
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>statusMessage</span><span class=p>);</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=global-variables>Global Variables</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Variable declared globally
-</span><span class=c1></span><span class=kr>const</span> <span class=nx>color</span> <span class=o>=</span> <span class=s1>&#39;blue&#39;</span><span class=p>;</span>
-
-<span class=kd>function</span> <span class=nx>printColor</span><span class=p>()</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>color</span><span class=p>);</span>
-<span class=p>}</span>
-
-<span class=nx>printColor</span><span class=p>();</span> <span class=c1>// =&gt; blue
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=let-vs-var>let vs var</h3>
+<h3 id=let-vs-var>let vs var</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -1047,12 +481,14 @@ What, Why, How
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
+</span><span class=lnt>5
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>// Prints 3 thrice, not what we meant.
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>// Prints 3 three times, not what we meant.
 for (var i = 0; i &lt; 3; i++) {
   setTimeout(_ =&gt; console.log(i), 10);
 }
+// it first goes through all the numbers 1,2,3 then about 10milliseconds, run the console log function when the i is 3, so this is why it prints out 3 times 3.
 </code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -1072,52 +508,7 @@ for (let j = 0; j &lt; 3; j++) {
 </div>
 </div><p>The variable has its own copy using <code>let</code>, and the variable has shared copy using <code>var</code>.</p>
 <h2 class=cols-3 id=javascript-arrays>JavaScript Arrays </h2>
-<h3 id=arrays>Arrays</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>fruits</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;apple&#34;</span><span class=p>,</span> <span class=s2>&#34;orange&#34;</span><span class=p>,</span> <span class=s2>&#34;banana&#34;</span><span class=p>];</span>
-
-<span class=c1>// Different data types
-</span><span class=c1></span><span class=kr>const</span> <span class=nx>data</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=s1>&#39;chicken&#39;</span><span class=p>,</span> <span class=kc>false</span><span class=p>];</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=property-length>Property .length</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>numbers</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>];</span>
-
-<span class=nx>numbers</span><span class=p>.</span><span class=nx>length</span> <span class=c1>// 4
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=index>Index</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Accessing an array element
-</span><span class=c1></span><span class=kr>const</span> <span class=nx>myArray</span> <span class=o>=</span> <span class=p>[</span><span class=mi>100</span><span class=p>,</span> <span class=mi>200</span><span class=p>,</span> <span class=mi>300</span><span class=p>];</span>
-
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>myArray</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span> <span class=c1>// 100
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>myArray</span><span class=p>[</span><span class=mi>1</span><span class=p>]);</span> <span class=c1>// 200
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=mutable-chart>Mutable chart</h3>
+<h3 id=mutable-chart>Mutable chart</h3>
 <table>
 <thead>
 <tr>
@@ -1264,193 +655,7 @@ for (let j = 0; j &lt; 3; j++) {
 </code></pre></td></tr></table>
 </div>
 </div><p>if you want to avoid mutating your original array, you can use concat.</p>
-<h2 class=cols-3 id=javascript-loops>JavaScript Loops </h2>
-<h3 id=while-loop>While Loop</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>while</span> <span class=p>(</span><span class=nx>condition</span><span class=p>)</span> <span class=p>{</span>
-  <span class=c1>// code block to be executed
-</span><span class=c1></span><span class=p>}</span>
-
-<span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-<span class=k>while</span> <span class=p>(</span><span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>)</span> <span class=p>{</span>        
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>i</span><span class=p>);</span>
-  <span class=nx>i</span><span class=o>++</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=reverse-loop>Reverse Loop</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>fruits</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;apple&#34;</span><span class=p>,</span> <span class=s2>&#34;orange&#34;</span><span class=p>,</span> <span class=s2>&#34;banana&#34;</span><span class=p>];</span>
-
-<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>fruits</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`</span><span class=si>${</span><span class=nx>i</span><span class=si>}</span><span class=sb>. </span><span class=si>${</span><span class=nx>fruits</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
-<span class=p>}</span>
-
-<span class=c1>// =&gt; 2. banana
-</span><span class=c1>// =&gt; 1. orange
-</span><span class=c1>// =&gt; 0. apple
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=dowhile-statement>Do…While Statement</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=nx>x</span> <span class=o>=</span> <span class=mi>0</span>
-<span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span>
-
-<span class=k>do</span> <span class=p>{</span>
-  <span class=nx>x</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>+</span> <span class=nx>i</span><span class=p>;</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span>
-  <span class=nx>i</span><span class=o>++</span><span class=p>;</span>
-<span class=p>}</span> <span class=k>while</span> <span class=p>(</span><span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>);</span>
-<span class=c1>// =&gt; 0 1 3 6 10
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=for-loop>For Loop</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>4</span><span class=p>;</span> <span class=nx>i</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>i</span><span class=p>);</span>
-<span class=p>};</span>
-
-<span class=c1>// =&gt; 0, 1, 2, 3
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=looping-through-arrays>Looping Through Arrays</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>array</span><span class=p>[</span><span class=nx>i</span><span class=p>]);</span>
-<span class=p>}</span>
-
-<span class=c1>// =&gt; Every item in the array
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=break>Break</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>99</span><span class=p>;</span> <span class=nx>i</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>if</span> <span class=p>(</span><span class=nx>i</span> <span class=o>&gt;</span> <span class=mi>5</span><span class=p>)</span> <span class=p>{</span>
-     <span class=k>break</span><span class=p>;</span>
-  <span class=p>}</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
-<span class=p>}</span>
-<span class=c1>// =&gt; 0 1 2 3 4 5
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=continue>Continue</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>for</span> <span class=p>(</span><span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>10</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>if</span> <span class=p>(</span><span class=nx>i</span> <span class=o>===</span> <span class=mi>3</span><span class=p>)</span> <span class=p>{</span> <span class=k>continue</span><span class=p>;</span> <span class=p>}</span>
-  <span class=nx>text</span> <span class=o>+=</span> <span class=s2>&#34;The number is &#34;</span> <span class=o>+</span> <span class=nx>i</span> <span class=o>+</span> <span class=s2>&#34;&lt;br&gt;&#34;</span><span class=p>;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=nested>Nested</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>2</span><span class=p>;</span> <span class=nx>i</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
-  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>j</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
-    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`</span><span class=si>${</span><span class=nx>i</span><span class=si>}</span><span class=sb>-</span><span class=si>${</span><span class=nx>j</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=forin-loop>for&mldr;in loop</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>fruits</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;apple&#34;</span><span class=p>,</span> <span class=s2>&#34;orange&#34;</span><span class=p>,</span> <span class=s2>&#34;banana&#34;</span><span class=p>];</span>
-
-<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>index</span> <span class=k>in</span> <span class=nx>fruits</span><span class=p>)</span> <span class=p>{</span>
-  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>index</span><span class=p>);</span>
-<span class=p>}</span>
-<span class=c1>// =&gt; 0
-</span><span class=c1>// =&gt; 1
-</span><span class=c1>// =&gt; 2
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=forof-loop>for&mldr;of loop</h3>
+<h3 id=forof-loop>for&mldr;of loop</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -1606,107 +811,6 @@ for (let j = 0; j &lt; 3; j++) {
 <span class=p>});</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 class=cols-2 id=javascript-objects>JavaScript Objects</h2>
-<h3 id=accessing-properties>Accessing Properties</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>apple</span> <span class=o>=</span> <span class=p>{</span> 
-  <span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;Green&#39;</span><span class=p>,</span>
-  <span class=nx>price</span><span class=o>:</span> <span class=p>{</span> <span class=nx>bulk</span><span class=o>:</span> <span class=s1>&#39;$3/kg&#39;</span><span class=p>,</span> <span class=nx>smallQty</span><span class=o>:</span> <span class=s1>&#39;$4/kg&#39;</span> <span class=p>}</span>
-<span class=p>};</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>apple</span><span class=p>.</span><span class=nx>color</span><span class=p>);</span> <span class=c1>// =&gt; Green
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>apple</span><span class=p>.</span><span class=nx>price</span><span class=p>.</span><span class=nx>bulk</span><span class=p>);</span> <span class=c1>// =&gt; $3/kg
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 id=naming-properties>Naming Properties</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=c1>// Example of invalid key names
-</span><span class=c1></span><span class=kr>const</span> <span class=nx>trainSchedule</span> <span class=o>=</span> <span class=p>{</span>
-  <span class=c1>// Invalid because of the space between words.
-</span><span class=c1></span>  <span class=nx>platform</span> <span class=nx>num</span><span class=o>:</span> <span class=mi>10</span><span class=p>,</span> 
-  <span class=c1>// Expressions cannot be keys.
-</span><span class=c1></span>  <span class=mi>40</span> <span class=o>-</span> <span class=mi>10</span> <span class=o>+</span> <span class=mi>2</span><span class=o>:</span> <span class=mi>30</span><span class=p>,</span>
-  <span class=c1>// A + sign is invalid unless it is enclosed in quotations.
-</span><span class=c1></span>  <span class=o>+</span><span class=nx>compartment</span><span class=o>:</span> <span class=s1>&#39;C&#39;</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=non-existent-properties>Non-existent properties</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>classElection</span> <span class=o>=</span> <span class=p>{</span>
-  <span class=nx>date</span><span class=o>:</span> <span class=s1>&#39;January 12&#39;</span>
-<span class=p>};</span>
-
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>classElection</span><span class=p>.</span><span class=nx>place</span><span class=p>);</span> <span class=c1>// undefined
-</span></code></pre></td></tr></table>
-</div>
-</div><h3 class=row-span-2 id=mutable>Mutable</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>student</span> <span class=o>=</span> <span class=p>{</span>
-  <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;Sheldon&#39;</span><span class=p>,</span>
-  <span class=nx>score</span><span class=o>:</span> <span class=mi>100</span><span class=p>,</span>
-  <span class=nx>grade</span><span class=o>:</span> <span class=s1>&#39;A&#39;</span><span class=p>,</span>
-<span class=p>}</span>
-
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>student</span><span class=p>)</span>
-<span class=c1>// { name: &#39;Sheldon&#39;, score: 100, grade: &#39;A&#39; }
-</span><span class=c1></span>
-<span class=k>delete</span> <span class=nx>student</span><span class=p>.</span><span class=nx>score</span>
-<span class=nx>student</span><span class=p>.</span><span class=nx>grade</span> <span class=o>=</span> <span class=s1>&#39;F&#39;</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>student</span><span class=p>)</span>
-<span class=c1>// { name: &#39;Sheldon&#39;, grade: &#39;F&#39; }
-</span><span class=c1></span>
-<span class=nx>student</span> <span class=o>=</span> <span class=p>{}</span>
-<span class=c1>// TypeError: Assignment to constant variable.
-</span></code></pre></td></tr></table>
-</div>
 </div><h3 id=assignment-shorthand-syntax>Assignment shorthand syntax</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -1770,58 +874,6 @@ for (let j = 0; j &lt; 3; j++) {
 </span><span class=cm>*/</span>
 	
 </code></pre></td></tr></table>
-</div>
-</div><h3 id=objects-as-arguments>Objects as arguments</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>origNum</span> <span class=o>=</span> <span class=mi>8</span><span class=p>;</span>
-<span class=kr>const</span> <span class=nx>origObj</span> <span class=o>=</span> <span class=p>{</span><span class=nx>color</span><span class=o>:</span> <span class=s1>&#39;blue&#39;</span><span class=p>};</span>
-
-<span class=kr>const</span> <span class=nx>changeItUp</span> <span class=o>=</span> <span class=p>(</span><span class=nx>num</span><span class=p>,</span> <span class=nx>obj</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-  <span class=nx>num</span> <span class=o>=</span> <span class=mi>7</span><span class=p>;</span>
-  <span class=nx>obj</span><span class=p>.</span><span class=nx>color</span> <span class=o>=</span> <span class=s1>&#39;red&#39;</span><span class=p>;</span>
-<span class=p>};</span>
-
-<span class=nx>changeItUp</span><span class=p>(</span><span class=nx>origNum</span><span class=p>,</span> <span class=nx>origObj</span><span class=p>);</span>
-
-<span class=c1>// Will output 8 since integers are passed by value.
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>origNum</span><span class=p>);</span>
-
-<span class=c1>// Will output &#39;red&#39; since objects are passed 
-</span><span class=c1>// by reference and are therefore mutable.
-</span><span class=c1></span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>origObj</span><span class=p>.</span><span class=nx>color</span><span class=p>);</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=shorthand-object-creation>Shorthand object creation</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>const</span> <span class=nx>activity</span> <span class=o>=</span> <span class=s1>&#39;Surfing&#39;</span><span class=p>;</span>
-<span class=kr>const</span> <span class=nx>beach</span> <span class=o>=</span> <span class=p>{</span> <span class=nx>activity</span> <span class=p>};</span>
-<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>beach</span><span class=p>);</span> <span class=c1>// { activity: &#39;Surfing&#39; }
-</span></code></pre></td></tr></table>
 </div>
 </div><h3 id=this-keyword>this Keyword</h3>
 <div class=highlight><div class=chroma>
