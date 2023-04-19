@@ -60,8 +60,4 @@ Symbolic links and gitlinks have value 0 in this field.
 &lt;p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);&lt;/p>
 &lt;p>directories are 040000 (permissions are ignored),&lt;/p>
 &lt;p>symbolic links 120000.&lt;/p>
-&lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item><item><title>Git</title><link>https://jiyongcheng.dev/post/git/</link><pubDate>Wed, 25 Nov 2020 18:28:43 +0000</pubDate><guid>https://jiyongcheng.dev/post/git/</guid><description>Getting started Create a Repository Create a new local repository
-1 $ git init [project name] Clone a repository
-1 $ git clone git_url Clone a repository into a specified directory
-1 $ git clone git_url my_directory Make a change Show modified files in working directory, staged for your next commit
-1 $ git status Stages the file, ready for commit</description></item></channel></rss>
+&lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item></channel></rss>
