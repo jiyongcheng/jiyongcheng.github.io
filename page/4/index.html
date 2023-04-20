@@ -142,6 +142,46 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/check-port-being-used/>Check Port Being Used</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-29 class=post-time>
+2021-09-29
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+</div>
+<span class=more-meta> 74 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><code>lsof</code> list open files</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>lsof -i -P -n <span class=p>|</span> grep LISTEN
+- -i selects the listing of all Internet and x.25 <span class=o>(</span>HP-UX<span class=o>)</span> network files
+- -P inhibit the conversion of port numbers to port names
+- -n inhibit the conversion of network numbers to host names
+</code></pre></td></tr></table>
+</div>
+</div><p><code>-P and -n will make the lookup faster</code></p>
+<h2 id=example>Example</h2>
+<h3 id=list-only-files-that-listen-to-port-80>List only files that listen to port 80</h3>
+<p><code>lsof -i:80 -P -n | grep LISTEN</code></p>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/understanding-git/>Understanding Git</a>
 </h1>
 <div class=post-meta>
@@ -505,114 +545,6 @@ Don&rsquo;t read any input at all! Instead, the filter is run once using null as
 </code></pre></td></tr></table>
 </div>
 </div>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/not-all-objects-serializable/>Not All Objects Serializable</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-08-27 class=post-time>
-2021-08-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/programming-language/> Programming Language </a>
-</div>
-<span class=more-meta> 354 words </span>
-<span class=more-meta> 2 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=the-question-i-have>The question I have</h2>
-<p>I was reading this article &ldquo;PHP Serialization, Stack Traces, and Exceptions&rdquo;[^1] and had these questions:</p>
-<ul>
-<li>Why PDO isn&rsquo;t serializable?</li>
-<li>Why isn&rsquo;t every type of object serializable?</li>
-</ul>
-<h2 id=the-answer>The answer</h2>
-<p>After some search, I found some useful information as follows. <a href=https://stackoverflow.com/a/25435734>check this for details</a></p>
-<blockquote>
-<p>A PDO object contains state that cannot be represented in the serialization format. For example, the PDO object contains an open connection to a database server.</p>
-</blockquote>
-<p>And I copied the answer from <a href=https://stackoverflow.com/a/1309686>here</a>:</p>
-<p>Some objects encapsulate resources like file pointers or network sockets that can&rsquo;t be deserialized to the state they were in when you serialized the object that contained them.</p>
-<pre><code>Example: you shouldn't deserialize an object that serves as an authenticated database connection, because to do so, you'd need the serialized form to contain a plaintext password. This would not be a good practice, because someone might get a hold of the saved serialized form. You also have no idea when you deserialize that the database server is still running, can be accessed, the authentication credentials still valid, etc.
-</code></pre>
-<h2 id=why-the-test-written-by-the-author-can-work>Why the test written by the author can work</h2>
-<p>Test code is here:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=k>class</span> <span class=nc>NotSerializable</span> <span class=k>implements</span> <span class=nx>Serializable</span>
-<span class=p>{</span>
-  <span class=k>public</span> <span class=k>function</span> <span class=nf>serialize</span><span class=p>()</span>
-  <span class=p>{</span>
-    <span class=k>throw</span> <span class=k>new</span> <span class=nx>LogicException</span><span class=p>(</span><span class=s1>&#39;You cannot serialize or unserialize NotSerializable instances&#39;</span><span class=p>);</span>
-  <span class=p>}</span>
-
-  <span class=k>public</span> <span class=k>function</span> <span class=nf>unserialize</span><span class=p>(</span><span class=nv>$serialized</span><span class=p>)</span>
-  <span class=p>{</span>
-    <span class=k>throw</span> <span class=k>new</span> <span class=nx>LogicException</span><span class=p>(</span><span class=s1>&#39;You cannot serialize or unserialize NotSerializable instances&#39;</span><span class=p>);</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>If you write a test code like this:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nv>$a</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>NotSerializable</span><span class=p>();</span>
-
-<span class=k>echo</span> <span class=nx>serialize</span><span class=p>(</span><span class=nv>$a</span><span class=p>);</span>
-
-</code></pre></td></tr></table>
-</div>
-</div><p>It will throw the error:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=nx>PHP</span> <span class=nx>Fatal</span> <span class=nx>error</span><span class=o>:</span>  <span class=nx>Uncaught</span> <span class=nx>LogicException</span><span class=o>:</span> <span class=nx>You</span> <span class=nx>cannot</span> <span class=nx>serialize</span> <span class=k>or</span> <span class=nx>unserialize</span> <span class=nx>NotSerializable</span> <span class=nx>instances</span> <span class=nx>in</span> <span class=o>/</span><span class=nx>home</span><span class=o>/</span><span class=nx>jdoodle</span><span class=o>.</span><span class=nx>php</span><span class=o>:</span><span class=mi>7</span>
-<span class=nx>Stack</span> <span class=nx>trace</span><span class=o>:</span>
-<span class=c1>#0 [internal function]: NotSerializable-&gt;serialize()
-</span><span class=c1>#1 /home/jdoodle.php(23): serialize(Object(NotSerializable))
-</span><span class=c1>#2 {main}
-</span><span class=c1></span>  <span class=nx>thrown</span> <span class=nx>in</span> <span class=o>/</span><span class=nx>home</span><span class=o>/</span><span class=nx>jdoodle</span><span class=o>.</span><span class=nx>php</span> <span class=nx>on</span> <span class=nx>line</span> <span class=mi>7</span>
-<span class=nx>Command</span> <span class=nx>exited</span> <span class=nx>with</span> <span class=nx>non</span><span class=o>-</span><span class=nx>zero</span> <span class=nx>status</span> <span class=mi>255</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=my-understanding>My understanding</h2>
-<p>Because the <code>serialize()</code> function should return string or null to represent the object&rsquo;s state, but it throws an Exception which isn&rsquo;t it&rsquo;s state. Thus in this scenario the object of class <code>NotSerializable</code> is not serializable even though it implements the <code>Serializable</code> interface.</p>
-<h1 id=reference>Reference</h1>
-<p>[^1] <a href=http://fabien.potencier.org/php-serialization-stack-traces-and-exceptions.html>PHP Serialization, Stack Traces, and Exceptions</a></p>
 </div>
 </div>
 </article>

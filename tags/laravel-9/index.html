@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>What, Why, How</title>
+<title>Laravel 9 · What, Why, How</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
 <meta name=MobileOptimized content="width">
@@ -17,18 +17,18 @@
 <meta name=description content="Aaron's personal website">
 <meta name=keywords content="jiyongcheng,technology,blog,php,computer science,LAMP,mysql,life,工作,技术,生活">
 <meta name=generator content="Hugo 0.87.0">
-<link rel=canonical href=https://jiyongcheng.dev/>
-<link href=/index.xml rel=alternate type=application/rss+xml title="What, Why, How">
+<link rel=canonical href=https://jiyongcheng.dev/tags/laravel-9/>
+<link href=/tags/laravel-9/index.xml rel=alternate type=application/rss+xml title="What, Why, How">
 <link rel=icon href=/favicon.ico>
 <link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous>
 <link rel=stylesheet href=/css/homepage.css><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GXNKKZWDS"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-0GXNKKZWDS',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="What, Why, How">
+<meta property="og:title" content="Laravel 9">
 <meta property="og:description" content="Aaron's personal website">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jiyongcheng.dev/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png">
+<meta property="og:url" content="https://jiyongcheng.dev/tags/laravel-9/"><meta property="og:image" content="https://jiyongcheng.dev/site-feature-image.png">
 </head>
 <body>
 <div id=mobile-navbar class=mobile-navbar>
@@ -138,187 +138,21 @@ What, Why, How
 <main id=main class="main bg-llight">
 <div class=content-wrapper>
 <div id=content class="content container">
-<section id=posts class=posts>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/convert-sqlite-to-mysql/>Convert Sqlite to Mysql</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-28 class=post-time>
-2021-10-28
+<section id=archive class=archive>
+<div class="archive-title tag">
+<h2 class=archive-name>Tag: Laravel 9</h2>
+</div>
+<div class=archive-post>
+<time datetime=2023-04-20 class=archive-post-time>
+2023-04-20
 </time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/db/> DB </a>
+<span class=archive-post-title>
+<a href=/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/ class=archive-post-link>
+How to create a custom user provider in Laravel 9
+</a>
+</span>
 </div>
-<span class=more-meta> 119 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=is-it-possible-to-convert-sqlite-to-mysql-as-is>Is it possible to convert SQLite to MySQL &ldquo;as is&rdquo;?</h2>
-<p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:</p>
-<ul>
-<li>Export SQLite database to dump file using SQLite .dump command.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sqlite3 sample.db .dump &gt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>You can then (in theory) import SQLite dump into the MySQL database.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mysql -p -u root -h 127.0.0.1 <span class=nb>test</span> &lt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><p>&ldquo;In theory&rdquo; means that solution wouldn&rsquo;t work as there are a few differences in grammars between MySQL and SQLite.</p>
-<p>There are just some differences between SQLite and MySQL syntax</p>
-<table>
-<thead>
-<tr>
-<th>SQLite</th>
-<th>MySQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AUTOINCREMENT</td>
-<td>AUTO_INCREMENT</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>varchars</td>
-</tr>
-<tr>
-<td>double quotes (" &ldquo;)</td>
-<td>backticks (` `)</td>
-</tr>
-<tr>
-<td><code>BEGIN TRANSACTION; COMMIT;</code></td>
-<td><code> BEGIN; COMMIT</code></td>
-</tr>
-<tr>
-<td>CLOB</td>
-<td>TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT</td>
-</tr>
-<tr>
-<td>PRAGMA foreign_keys=OFF;</td>
-<td>SET FOREIGN_KEY_CHECKS=0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/upstream-downstream/>Upstream and Downstream</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-28 class=post-time>
-2021-10-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/system-design/> system-design </a>
-</div>
-<span class=more-meta> 161 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<p>In the <code>LNMP</code> development process, we often configure the nginx, and we will set similar like this</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>upstream php-fpm <span class=o>{</span>
-    server php-fpm:9000<span class=p>;</span>
-<span class=o>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>and I want to know what does <code>upstream</code> here mean.</p>
-<p><img src=/image/stream.drawio.svg alt="Up stream and Down stream"></p>
-<p>So basically it&rsquo;s about dependency, the <code>Nginx</code> server depend on <code>PHP</code> server to return back data. So <code>PHP</code> server is upstream of <code>Nginx</code>.</p>
-<p>The <code>Browser</code> is depending on the <code>Nginx</code> server to return back data, so <code>Nginx</code> server is <code>upstream</code> of <code>Browser</code>.</p>
-<p>On the other hand, <code>Browser</code> is <code>downstream</code> of <code>Nginx</code> server, because the data from <code>Nginx</code> will flow into the <code>Browser</code>, same as <code>PHP</code>, <code>DB</code>.</p>
-<blockquote>
-<p>A production process is very similar to a river, so it’s easy to grasp that as the process goes from one step to the next, we’re moving downstream.</p>
-</blockquote>
-<blockquote>
-<p>We can deduct the following rules:</p>
-<ul>
-<li>Dependency Rule: each item depends on all the items upstream from its viewpoint</li>
-<li>Value Rule: moving downstream, each step adds more value to the product</li>
-</ul>
-</blockquote>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/docker-commands/>Docker commands</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-11 class=post-time>
-2021-10-11
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
-</div>
-<span class=more-meta> 87 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=does-docker-build---no-cache-actually-download-and-refresh-the-base-image>Does Docker build &ndash;no-cache actually download and refresh the base image</h2>
-<p>The &ndash;no-cache option will rebuild the image without using the local cached layers.</p>
-<p>However, the FROM line will reuse the already pulled base image if it exists on the build host (the from line itself may not be cached, but the image it pulls is).</p>
-<p>If you want to pull the base image again, you can use the &ndash;pull option to the build command. E.g.</p>
-<p><code>docker build --no-cache --pull -t new-image-name:latest .</code></p>
-<p><a href=https://stackoverflow.com/questions/52664744/does-docker-build-no-cache-actually-download-and-refresh-the-base-image#52666415>check more from here</a></p>
-</div>
-</div>
-</article>
 </section>
-<nav class=pagination>
-<ul>
-<li>
-<a href=/>1</a>
-</li>
-<li>
-<a href=/page/2/>2</a>
-</li>
-<li class=active>
-<a href=/page/3/>3</a>
-</li>
-<li>
-<a href=/page/4/>4</a>
-</li>
-<li>
-<a href=/page/5/>5</a>
-</li>
-<li>
-<a href=/page/6/>6</a>
-</li>
-</ul>
-</nav>
 </div>
 </div>
 </main>

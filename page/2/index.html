@@ -142,6 +142,35 @@ What, Why, How
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/general/>General</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-12-08 class=post-time>
+2021-12-08
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 318 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>For the general programming knowledge.</p>
+<h2 id=off-by-one-溢出>Off-By-One [溢出]</h2>
+<ul>
+<li>严格来说，off-by-one是一种特殊的溢出漏洞，off-by-one指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。</li>
+<li>off-by-one，是指单字节缓冲区溢出，这种漏洞的产生往往与边界验证不严和字符串操作有关，也不排除写入的size正好就只多了一个字节的情况。</li>
+<li>一般认为，单字节溢出是难以利用的，但是因为Linux的堆管理机制ptmalloc验证的松散性，基于Linux堆的off-by-one漏洞利用起来并不复杂，并且威力强大。</li>
+<li>off-by-one是可以基于各种缓冲区的，比如栈、bss段等等，但是堆上（heap based）的off-by-one是CTF中比较常见的。</li>
+</ul>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/postgresql-questions/>Postgresql Questions</a>
 </h1>
 <div class=post-meta>
@@ -314,87 +343,6 @@ git push origin -u quickfix
 </code></pre></td></tr></table>
 </div>
 </div>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/convert-sqlite-to-mysql/>Convert Sqlite to Mysql</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-28 class=post-time>
-2021-10-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/db/> DB </a>
-</div>
-<span class=more-meta> 119 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=is-it-possible-to-convert-sqlite-to-mysql-as-is>Is it possible to convert SQLite to MySQL &ldquo;as is&rdquo;?</h2>
-<p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:</p>
-<ul>
-<li>Export SQLite database to dump file using SQLite .dump command.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sqlite3 sample.db .dump &gt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>You can then (in theory) import SQLite dump into the MySQL database.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mysql -p -u root -h 127.0.0.1 <span class=nb>test</span> &lt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><p>&ldquo;In theory&rdquo; means that solution wouldn&rsquo;t work as there are a few differences in grammars between MySQL and SQLite.</p>
-<p>There are just some differences between SQLite and MySQL syntax</p>
-<table>
-<thead>
-<tr>
-<th>SQLite</th>
-<th>MySQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AUTOINCREMENT</td>
-<td>AUTO_INCREMENT</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>varchars</td>
-</tr>
-<tr>
-<td>double quotes (" &ldquo;)</td>
-<td>backticks (` `)</td>
-</tr>
-<tr>
-<td><code>BEGIN TRANSACTION; COMMIT;</code></td>
-<td><code> BEGIN; COMMIT</code></td>
-</tr>
-<tr>
-<td>CLOB</td>
-<td>TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT</td>
-</tr>
-<tr>
-<td>PRAGMA foreign_keys=OFF;</td>
-<td>SET FOREIGN_KEY_CHECKS=0;</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </article>

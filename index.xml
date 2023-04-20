@@ -1,4 +1,409 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Apr 2023 16:20:47 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Xdebug</title><link>https://jiyongcheng.dev/post/2023/xdebug/</link><pubDate>Wed, 19 Apr 2023 16:20:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/xdebug/</guid><description>&lt;p>I spent a bit of time to understand how Xdebug3.1.6 work in PHP8.1, the following is the UML sequence diagram for my understanding of Xdebug.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>What, Why, How</title><link>https://jiyongcheng.dev/</link><description>Recent content on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 20 Apr 2023 15:23:47 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>How to create a custom user provider in Laravel 9</title><link>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</link><pubDate>Thu, 20 Apr 2023 15:23:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</guid><description>&lt;p>Laravel provides several built-in user providers for authentication, including Eloquent and Database providers. However, sometimes you may want to use a custom data source or storage for user authentication. In such cases, you can create a custom user provider in Laravel.&lt;/p>
+&lt;p>For my case, our client has already had hash algorithm and function to work, I&amp;rsquo;m thinking how to use Laravel 9 to do same thing.&lt;/p>
+&lt;p>So in this tutorial, we will walk you through the steps of creating a custom user provider in Laravel.&lt;/p>
+&lt;h1 id="prerequisites">Prerequisites&lt;/h1>
+&lt;p>Before we get started, make sure you have the following:&lt;/p>
+&lt;ul>
+&lt;li>Laravel installed on your machine&lt;/li>
+&lt;li>A database setup for your Laravel application&lt;/li>
+&lt;/ul>
+&lt;h1 id="step-1-create-the-user-model">Step 1: Create the User Model&lt;/h1>
+&lt;p>The first step is to create a User model that extends the &lt;code>Illuminate\Database\Eloquent\Model&lt;/code> class and implement the &lt;code>Illuminate\Contracts\Auth\Authenticatable&lt;/code> interface. This model will be used to retrieve user information from the database.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Models&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Database\Eloquent\Factories\HasFactory&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Foundation\Auth\User&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nx">Authenticatable&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">Admin&lt;/span> &lt;span class="k">extends&lt;/span> &lt;span class="nx">Authenticatable&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">HasFactory&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="nv">$table&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cms_adminaccount&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">protected&lt;/span> &lt;span class="nv">$primaryKey&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;uid&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="nv">$timestamps&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="nv">$fillable&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;username&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;email&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;password&amp;#39;&lt;/span>&lt;span class="p">];&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="step-2-create-the-user-provider">Step 2: Create the User Provider&lt;/h1>
+&lt;p>The next step is to create a custom user provider that will handle user authentication. You can create a user provider using the &lt;code>make:provider&lt;/code> Artisan command:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">php artisan make:provider AdminUserProvider
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This command will create a new file called &lt;code>AdminUserProvider.php&lt;/code> in the &lt;code>app/Providers&lt;/code> directory. Because we want to use Eloquent to fetch user from DB, but just change how it validates the password. So we extend the class &lt;code>EloquentUserProvider&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Providers&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Auth\EloquentUserProvider&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Contracts\Auth\Authenticatable&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nx">UserContract&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">AdminUserProvider&lt;/span> &lt;span class="k">extends&lt;/span> &lt;span class="nx">EloquentUserProvider&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="sd">/**
+&lt;/span>&lt;span class="sd"> * Validate a user against the given credentials.
+&lt;/span>&lt;span class="sd"> *
+&lt;/span>&lt;span class="sd"> * @param \Illuminate\Contracts\Auth\Authenticatable $user
+&lt;/span>&lt;span class="sd"> * @param array $credentials
+&lt;/span>&lt;span class="sd"> * @return bool
+&lt;/span>&lt;span class="sd"> */&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">validateCredentials&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">UserContract&lt;/span> &lt;span class="nv">$user&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">array&lt;/span> &lt;span class="nv">$credentials&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">bool&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">is_null&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$plain&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nv">$credentials&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;password&amp;#39;&lt;/span>&lt;span class="p">]))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="k">false&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nv">$this&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">hasher&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">check&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$plain&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">$user&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">getAuthPassword&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;salt&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="nv">$user&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">salt&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>The &lt;code>retrieveById&lt;/code> method in the parent class should retrieve a user by their unique identifier, which is typically the user ID. But pay attention to some DB design may choose for example &lt;code>uid&lt;/code> as the primary key. So then you need to add &lt;code>protected $primaryKey = 'uid';&lt;/code> in your &lt;code>User&lt;/code> model.&lt;/p>
+&lt;p>The &lt;code>retrieveByCredentials&lt;/code> method in the parent class should retrieve a user by their credentials (e.g., email and password).&lt;/p>
+&lt;p>The &lt;code>validateCredentials&lt;/code> method should validate the user&amp;rsquo;s credentials. This is the methond we want to extend and put in our logic.&lt;/p>
+&lt;h1 id="step-3-register-the-user-provider">Step 3: Register the User Provider&lt;/h1>
+&lt;p>After creating the custom user provider, you need to register it with Laravel. To do this, open the &lt;code>config/auth.php&lt;/code> file and add your provider to the providers array:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="s1">&amp;#39;providers&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;users&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;driver&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;eloquent&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s1">&amp;#39;model&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="nx">App\Models\User&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="s1">&amp;#39;admin_provider&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;driver&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;admin_provider_driver&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s1">&amp;#39;model&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="nx">App\Models\Admin&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>In this example, we&amp;rsquo;ve added a new provider named &lt;code>admins&lt;/code> and set its driver to &lt;code>admin_driver&lt;/code>. The model key specifies the custom user model that we created in Step 1.&lt;/p>
+&lt;p>Note that you can choose any name for your provider and driver. It&amp;rsquo;s common to name them after your application or the type of user they represent.&lt;/p>
+&lt;h1 id="step-4-register-the-custom-guard">Step 4: Register the custom guard&lt;/h1>
+&lt;p>Define your guard in the guards array of the &lt;code>config/auth.php&lt;/code> file. We want to use the admin guard to authenticate admin users.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php"> &lt;span class="s1">&amp;#39;guards&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;admin&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;driver&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;session&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="s1">&amp;#39;provider&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;admin_provider&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="step-5-register-custom-provider-in-authserviceprovider">Step 5: Register custom provider in AuthServiceProvider&lt;/h1>
+&lt;p>In the &lt;code>boot&lt;/code> method of the &lt;code>AuthServiceProvider&lt;/code>, register the custom user provider using the &lt;code>Auth&lt;/code> facade:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php"> &lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">boot&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nv">$this&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">registerPolicies&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;span class="c1">// add custom guard provider
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">Auth&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">provider&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin_provider_driver&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nv">$app&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">array&lt;/span> &lt;span class="nv">$config&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">AdminUserProvider&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span> &lt;span class="nx">SimpleHasher&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="nv">$config&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;model&amp;#39;&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="p">});&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This code registers a new user provider named &lt;code>admin_provider_driver&lt;/code> that uses the &lt;code>AdminUserProvider&lt;/code> class. The second parameter passed to the &lt;code>AdminUserProvider&lt;/code> constructor is the user model class, which is defined in the &lt;code>config/auth.php&lt;/code> file.&lt;/p>
+&lt;p>The first parameter passed to the &lt;code>AdminUserProvider&lt;/code> constructor is the custom hasher we created for checking user password.&lt;/p>
+&lt;h1 id="step-6-create-custom-hasher">Step 6: Create custom hasher&lt;/h1>
+&lt;p>Because we just want to use the custom hasher for admin user, then we put this hasher in the &lt;code>services&lt;/code> folder:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Services&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Contracts\Hashing\Hasher&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Hashing\AbstractHasher&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">SimpleHasher&lt;/span> &lt;span class="k">extends&lt;/span> &lt;span class="nx">AbstractHasher&lt;/span> &lt;span class="k">implements&lt;/span> &lt;span class="nx">Hasher&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">make&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$value&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">array&lt;/span> &lt;span class="nv">$options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[])&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nv">$salt&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">substr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">uniqid&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">rand&lt;/span>&lt;span class="p">()),&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">md5&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">md5&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$value&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span> &lt;span class="nv">$salt&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">check&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$value&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">$hashedValue&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">array&lt;/span> &lt;span class="nv">$options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[])&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">md5&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">md5&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$value&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">.&lt;/span> &lt;span class="nv">$options&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s1">&amp;#39;salt&amp;#39;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">??&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="nv">$hashedValue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">needsRehash&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$hashedValue&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">array&lt;/span> &lt;span class="nv">$options&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[])&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="c1">// Your needsRehash implementation here
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>in our case we need to use extra info in the &lt;code>$options&lt;/code> array to check the password, so this is why we extend &lt;code>EloquentUserProvider&lt;/code> to have our custom &lt;code>AdminUserProvider&lt;/code> which in the &lt;code>validateCredentials&lt;/code> function passes the extra info for checking.&lt;/p>
+&lt;h1 id="step-7-create-admin-authenticate-middleware-to-guard-admin">Step 7: Create admin authenticate middleware to guard admin&lt;/h1>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Http\Middleware&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Closure&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Support\Facades\Auth&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">AdminAuthenticate&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$request&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Closure&lt;/span> &lt;span class="nv">$next&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Auth&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">guard&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">check&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nv">$next&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$request&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">redirect&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin.login&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You then need to register this middle in the &lt;code>Kernel.php&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Http&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Foundation\Http\Kernel&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="nx">HttpKernel&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">Kernel&lt;/span> &lt;span class="k">extends&lt;/span> &lt;span class="nx">HttpKernel&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">protected&lt;/span> &lt;span class="nv">$routeMiddleware&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s1">&amp;#39;admin.auth&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="nx">\App\Http\Middleware\AdminAuthenticate&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">];&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="step-8-set-admin-authenticate-middleware-in-the-controller">Step 8: Set admin authenticate middleware in the controller&lt;/h1>
+&lt;p>You could add &lt;code>admin.auth&lt;/code> middleware for this controller or add in the routes for a group of controllers.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="o">&amp;lt;?&lt;/span>&lt;span class="nx">php&lt;/span>
+&lt;span class="k">namespace&lt;/span> &lt;span class="nx">App\Http\Controllers\Admin&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">App\Http\Controllers\Controller&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Illuminate\Support\Facades\Auth&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">use&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">view&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">class&lt;/span> &lt;span class="nc">HomeController&lt;/span> &lt;span class="k">extends&lt;/span> &lt;span class="nx">Controller&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="sd">/**
+&lt;/span>&lt;span class="sd"> * Create a new controller instance.
+&lt;/span>&lt;span class="sd"> *
+&lt;/span>&lt;span class="sd"> * @return void
+&lt;/span>&lt;span class="sd"> */&lt;/span>
+&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__construct&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nv">$this&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">middleware&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin.auth&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="step-9-authenticate-admin-user">Step 9: Authenticate admin user&lt;/h1>
+&lt;p>You can use &lt;code>Auth::guard('admin')-&amp;gt;attempt&lt;/code> to login admin user now.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php"> &lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="nf">login&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">request&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">method&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;POST&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="c1">// validation
+&lt;/span>&lt;span class="c1">&lt;/span>
+&lt;span class="nv">$credentials&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">request&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">only&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;username&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;password&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">Auth&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">guard&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">attempt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$credentials&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">redirect&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin.index&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">redirect&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">back&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="na">withErrors&lt;/span>&lt;span class="p">([&lt;/span>
+&lt;span class="s1">&amp;#39;email&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s1">&amp;#39;Invalid credentials&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">]);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">view&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;admin.login&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="conclusion">Conclusion&lt;/h1>
+&lt;p>Creating a custom user provider in Laravel is a simple process that allows you to customize the way that users are authenticated in your application. By following the steps outlined in this article, you can create a custom user provider that uses a slight different way to validate password.&lt;/p></description></item><item><title>Xdebug</title><link>https://jiyongcheng.dev/post/2023/xdebug/</link><pubDate>Wed, 19 Apr 2023 16:20:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/xdebug/</guid><description>&lt;p>I spent a bit of time to understand how Xdebug3.1.6 work in PHP8.1, the following is the UML sequence diagram for my understanding of Xdebug.
 &lt;img src="https://jiyongcheng.dev/image/xdebug.jpg" alt="Xdebug UML Sequence Diagram">&lt;/p>
 &lt;h1 id="some-notes">Some notes&lt;/h1>
 &lt;ul>
