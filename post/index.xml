@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on What, Why, How</title><link>https://jiyongcheng.dev/post/</link><description>Recent content in Posts on What, Why, How</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 20 Apr 2023 15:23:47 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>How to create a custom user provider in Laravel 9</title><link>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</link><pubDate>Thu, 20 Apr 2023 15:23:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</guid><description>Laravel provides several built-in user providers for authentication, including Eloquent and Database providers. However, sometimes you may want to use a custom data source or storage for user authentication. In such cases, you can create a custom user provider in Laravel.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Yongcheng website</title><link>https://jiyongcheng.dev/post/</link><description>Recent content in Posts on Yongcheng website</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Apr 2023 15:23:47 +1000</lastBuildDate><atom:link href="https://jiyongcheng.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>How to create a custom user provider in Laravel 9</title><link>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</link><pubDate>Thu, 20 Apr 2023 15:23:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/how-to-create-a-custom-user-provider-in-laravel-9/</guid><description>Laravel provides several built-in user providers for authentication, including Eloquent and Database providers. However, sometimes you may want to use a custom data source or storage for user authentication. In such cases, you can create a custom user provider in Laravel.
 For my case, our client has already had hash algorithm and function to work, I&amp;rsquo;m thinking how to use Laravel 9 to do same thing.
 So in this tutorial, we will walk you through the steps of creating a custom user provider in Laravel.</description></item><item><title>Xdebug</title><link>https://jiyongcheng.dev/post/2023/xdebug/</link><pubDate>Wed, 19 Apr 2023 16:20:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/2023/xdebug/</guid><description>I spent a bit of time to understand how Xdebug3.1.6 work in PHP8.1, the following is the UML sequence diagram for my understanding of Xdebug. Some notes In a Docker container, you need to tell Xdebug where to make the debugging connection to, as it is Xdebug that initiates the communication to the IDE, and not the other way around.
 If we set xdebug.start_with_request=yes in 99-xdebug.ini, every request will trigger a debugging session.</description></item><item><title>Sublime</title><link>https://jiyongcheng.dev/post/sublime/</link><pubDate>Fri, 07 Oct 2022 08:45:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/sublime/</guid><description>Column selection Column selection can be used to select a rectangular area of a file.
@@ -8,161 +8,67 @@ Mac Using mouse Left Mouse Button + ⌥ OR: Middle Mouse Button Add to selection
 &lt;ul>
 &lt;li>Export SQLite database to dump file using SQLite .dump command.&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sqlite3 sample.db .dump &amp;gt; dump.sql
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sqlite3 sample.db .dump &amp;gt; dump.sql
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>You can then (in theory) import SQLite dump into the MySQL database.&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">mysql -p -u root -h 127.0.0.1 &lt;span class="nb">test&lt;/span> &amp;lt; dump.sql
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>Upstream and Downstream</title><link>https://jiyongcheng.dev/post/upstream-downstream/</link><pubDate>Thu, 28 Oct 2021 09:31:07 +1100</pubDate><guid>https://jiyongcheng.dev/post/upstream-downstream/</guid><description>&lt;p>In the &lt;code>LNMP&lt;/code> development process, we often configure the nginx, and we will set similar like this&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">upstream php-fpm &lt;span class="o">{&lt;/span>
-server php-fpm:9000&lt;span class="p">;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>and I want to know what does &lt;code>upstream&lt;/code> here mean.&lt;/p></description></item><item><title>Docker commands</title><link>https://jiyongcheng.dev/post/docker-commands/</link><pubDate>Mon, 11 Oct 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/docker-commands/</guid><description>&lt;h2 id="does-docker-build---no-cache-actually-download-and-refresh-the-base-image">Does Docker build &amp;ndash;no-cache actually download and refresh the base image&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mysql -p -u root -h 127.0.0.1 test &amp;lt; dump.sql
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Upstream and Downstream</title><link>https://jiyongcheng.dev/post/upstream-downstream/</link><pubDate>Thu, 28 Oct 2021 09:31:07 +1100</pubDate><guid>https://jiyongcheng.dev/post/upstream-downstream/</guid><description>&lt;p>In the &lt;code>LNMP&lt;/code> development process, we often configure the nginx, and we will set similar like this&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">upstream php-fpm &lt;span style="color:#f92672">{&lt;/span>
+server php-fpm:9000;
+&lt;span style="color:#f92672">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>and I want to know what does &lt;code>upstream&lt;/code> here mean.&lt;/p></description></item><item><title>Docker commands</title><link>https://jiyongcheng.dev/post/docker-commands/</link><pubDate>Mon, 11 Oct 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/docker-commands/</guid><description>&lt;h2 id="does-docker-build---no-cache-actually-download-and-refresh-the-base-image">Does Docker build &amp;ndash;no-cache actually download and refresh the base image&lt;/h2>
 &lt;p>The &amp;ndash;no-cache option will rebuild the image without using the local cached layers.&lt;/p></description></item><item><title>Check Port Being Used</title><link>https://jiyongcheng.dev/post/check-port-being-used/</link><pubDate>Wed, 29 Sep 2021 12:45:41 +1000</pubDate><guid>https://jiyongcheng.dev/post/check-port-being-used/</guid><description>&lt;p>&lt;code>lsof&lt;/code> list open files&lt;/p></description></item><item><title>Understanding Git</title><link>https://jiyongcheng.dev/post/understanding-git/</link><pubDate>Tue, 28 Sep 2021 15:35:23 +1000</pubDate><guid>https://jiyongcheng.dev/post/understanding-git/</guid><description>&lt;h2 id="what-does-10064-mean-in-git">What does 10064 mean in Git?&lt;/h2>
 &lt;p>When you do &lt;code>git commit&lt;/code> command, you probably have seen this information&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback"> delete mode 100644 layouts/resource/index.html
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"> delete mode 100644 layouts/resource/index.html
 create mode 100644 layouts/resource/section.html
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>but what does this series of number mean?&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>but what does this series of number mean?&lt;/p>
 &lt;p>The values shown are the 16-bit file modes as stored by Git, you can &lt;a href="https://github.com/git/git/blob/master/Documentation/technical/index-format.txt">check here&lt;/a> to know more:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback"> 32-bit mode, split into (high to low bits)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback"> 32-bit mode, split into (high to low bits)
 4-bit object type
 valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
 3-bit unused
 9-bit unix permission. Only 0755 and 0644 are valid for regular files.
 Symbolic links and gitlinks have value 0 in this field.
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If the file doesn’t mention directories; they are represented using object type 0100.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>If the file doesn’t mention directories; they are represented using object type 0100.&lt;/p>
 &lt;p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">Type|---|Perm bits
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">Type|---|Perm bits
 1000 000 111101101
 1 0 0 7 5 5
 1000 000 110100100
 1 0 0 6 4 4
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.&lt;/p>
 &lt;p>For files,&lt;/p>
 &lt;p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);&lt;/p>
 &lt;p>directories are 040000 (permissions are ignored),&lt;/p>
 &lt;p>symbolic links 120000.&lt;/p>
 &lt;p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).&lt;/p></description></item><item><title>Create Array With Object From List using jq</title><link>https://jiyongcheng.dev/post/create-array-with-object-from-list/</link><pubDate>Wed, 22 Sep 2021 14:31:07 +1000</pubDate><guid>https://jiyongcheng.dev/post/create-array-with-object-from-list/</guid><description>&lt;h2 id="problem">Problem&lt;/h2>
 &lt;p>We have a list of &lt;code>IDs&lt;/code> generated into a file &lt;code>F&lt;/code> with this format:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">2f9921bc-a4c9-419a-b069-f8f23c7727f7
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-fallback" data-lang="fallback">2f9921bc-a4c9-419a-b069-f8f23c7727f7
 26bf5cc3-73de-425e-9a6b-b70223387314
 30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>We want to generate a &lt;code>JSON&lt;/code> object from the &lt;code>IDs&lt;/code> with this structure:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;span class="lnt">8
-&lt;/span>&lt;span class="lnt">9
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;users&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;user_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&amp;#34;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">],&lt;/span>
-&lt;span class="nt">&amp;#34;organisation_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">123&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;user-type&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>We want to generate a &lt;code>JSON&lt;/code> object from the &lt;code>IDs&lt;/code> with this structure:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">{
+&lt;span style="color:#f92672">&amp;#34;users&amp;#34;&lt;/span>: [
+{
+&lt;span style="color:#f92672">&amp;#34;user_id&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&amp;#34;&lt;/span>
+}
+],
+&lt;span style="color:#f92672">&amp;#34;organisation_id&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">123&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;user-type&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;test&amp;#34;&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Not All Objects Serializable</title><link>https://jiyongcheng.dev/post/not-all-objects-serializable/</link><pubDate>Fri, 27 Aug 2021 16:21:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/not-all-objects-serializable/</guid><description>&lt;h2 id="the-question-i-have">The question I have&lt;/h2>
 &lt;p>I was reading this article &amp;ldquo;PHP Serialization, Stack Traces, and Exceptions&amp;rdquo;[^1] and had these questions:&lt;/p>
 &lt;ul>
 &lt;li>Why PDO isn&amp;rsquo;t serializable?&lt;/li>
 &lt;li>Why isn&amp;rsquo;t every type of object serializable?&lt;/li>
 &lt;/ul></description></item><item><title>PHP Magic Method Invoke</title><link>https://jiyongcheng.dev/post/php-magic-method-invoke/</link><pubDate>Fri, 27 Aug 2021 15:33:52 +1000</pubDate><guid>https://jiyongcheng.dev/post/php-magic-method-invoke/</guid><description>&lt;h2 id="what-did-i-see">What did I see?&lt;/h2>
 &lt;p>I saw in a PHP class using this method &lt;code>__invoke&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="k">public&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="fm">__invoke&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorNumber&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorString&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">string&lt;/span> &lt;span class="nv">$errorFile&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">int&lt;/span> &lt;span class="nv">$errorLine&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">bool&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="o">...&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="why-using-this-method">Why using this method?&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#66d9ef">public&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> __invoke(&lt;span style="color:#a6e22e">int&lt;/span> $errorNumber, &lt;span style="color:#a6e22e">string&lt;/span> $errorString, &lt;span style="color:#a6e22e">string&lt;/span> $errorFile, &lt;span style="color:#a6e22e">int&lt;/span> $errorLine)&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">bool&lt;/span>
+{
+&lt;span style="color:#f92672">...&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="why-using-this-method">Why using this method?&lt;/h2>
 &lt;p>This magic method is called when user tries to invoke object as a function. Possible use cases may include some approaches like functional programming or some callbacks.&lt;/p></description></item><item><title>Render Code Block in Bootstrap 5</title><link>https://jiyongcheng.dev/post/render-code-block-in-bootstrap5/</link><pubDate>Thu, 26 Aug 2021 10:39:47 +1000</pubDate><guid>https://jiyongcheng.dev/post/render-code-block-in-bootstrap5/</guid><description>&lt;h2 id="issue-found">Issue found:&lt;/h2>
 &lt;p>I found the post which has code block cannot render correctly in the small devices which width is less than 576px.&lt;/p></description></item><item><title>Phpstorm</title><link>https://jiyongcheng.dev/post/phpstorm/</link><pubDate>Thu, 17 Dec 2020 21:51:44 +0000</pubDate><guid>https://jiyongcheng.dev/post/phpstorm/</guid><description>phpstorm Mac Keymap shortcut description Ctrl Option O Optimize imports Ctrl G Next selection Ctrl Cmd G All selection Cmd D Duplicate code Option Cmd L Reformat code How to stop indexing System Settings -&amp;gt; Synchronize external changes when switching to the IDE window or opening an editor tab</description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
 &lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
