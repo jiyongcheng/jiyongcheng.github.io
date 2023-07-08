@@ -69,7 +69,7 @@ Task :app:installDebug FAILED</p>
 <code>/bin/sh: adb: command not found</code></p>
 <h2 id=how-to-solve>How to solve</h2>
 <p>After googling, I got answer:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export ANDROID_HOME<span style=color:#f92672>=</span>/Users/aron/Library/Android/sdk
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export ANDROID_HOME<span style=color:#f92672>=</span>/Users/aaron/Library/Android/sdk
 export PATH<span style=color:#f92672>=</span>$ANDROID_HOME/platform-tools:$PATH
 export PATH<span style=color:#f92672>=</span>$ANDROID_HOME/tools:$PATH
 </code></pre></div><p>and I ran it again, it works. But I think you should also have created an AVD as well.</p>
