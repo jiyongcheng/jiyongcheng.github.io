@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>system-design on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/categories/system-design/</link><description>Recent content in system-design on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 28 Oct 2021 09:31:07 +1100</lastBuildDate><atom:link href="https://jiyongcheng.dev/categories/system-design/index.xml" rel="self" type="application/rss+xml"/><item><title>Upstream and Downstream</title><link>https://jiyongcheng.dev/post/upstream-downstream/</link><pubDate>Thu, 28 Oct 2021 09:31:07 +1100</pubDate><guid>https://jiyongcheng.dev/post/upstream-downstream/</guid><description>&lt;p>In the &lt;code>LNMP&lt;/code> development process, we often configure the nginx, and we will set similar like this&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">upstream php-fpm &lt;span class="o">{&lt;/span>
+server php-fpm:9000&lt;span class="p">;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and I want to know what does &lt;code>upstream&lt;/code> here mean.&lt;/p></description></item></channel></rss>
