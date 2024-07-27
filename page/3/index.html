@@ -145,6 +145,286 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-22 class=post-time>
+2021-09-22
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+</div>
+<span class=more-meta> 728 words </span>
+<span class=more-meta> 2 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=problem>Problem</h2>
+<p>We have a list of <code>IDs</code> generated into a file <code>F</code> with this format:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>2f9921bc-a4c9-419a-b069-f8f23c7727f7
+26bf5cc3-73de-425e-9a6b-b70223387314
+30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
+</code></pre></td></tr></table>
+</div>
+</div><p>We want to generate a <code>JSON</code> object from the <code>IDs</code> with this structure:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
+        <span class=p>}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;organisation_id&#34;</span><span class=p>:</span> <span class=mi>123</span><span class=p>,</span>
+    <span class=nt>&#34;user-type&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=the-way-we-do-it>The way we do it</h2>
+<h3 id=we-use-jq>we use <code>jq</code></h3>
+<ul>
+<li>what is <code>jq</code>
+<ul>
+<li><code>jq</code> is a lightweight and flexible command-line JSON processor. 轻量级的命令行JSON处理器，非常灵活</li>
+</ul>
+</li>
+<li>what are the main features
+<ul>
+<li><code>jq</code> is like <code>sed</code> for <code>JSON</code> data
+<ul>
+<li>你可以方便的使用它对结构化的数据进行<code>slice</code> and <code>filter</code> and <code>map</code> and <code>transform</code></li>
+</ul>
+</li>
+<li><code>jq</code> is written in portable C, and it has zero runtime dependencies.
+<ul>
+<li>它没有运行时的依赖</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=https://stedolan.github.io/jq/tutorial/>Tutorial</a></li>
+<li><a href=https://stedolan.github.io/jq/manual/>Manual</a> or you can run <code>man jq</code></li>
+</ul>
+<h2 id=how-do-we-do-it>How do we do it</h2>
+<p>the following is the code</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>    <span class=nv>USER_IDS</span><span class=o>=</span><span class=k>$(</span>jq -Rn <span class=s1>&#39;
+</span><span class=s1>        def assemble_user($user_id): {
+</span><span class=s1>            &#34;user_id&#34;: $user_id
+</span><span class=s1>        };
+</span><span class=s1>        [
+</span><span class=s1>            inputs 
+</span><span class=s1>            | select(length&gt;0)
+</span><span class=s1>            | assemble_user(.)
+</span><span class=s1>        ]&#39;</span> <span class=o>&lt;&lt;&lt;</span> <span class=s2>&#34;</span><span class=nv>$USER_IDS</span><span class=s2>&#34;</span><span class=k>)</span>
+
+    <span class=nv>USER_JSON</span><span class=o>=</span><span class=k>$(</span> jq -n <span class=se>\
+</span><span class=se></span>                  --argjson user_ids <span class=s2>&#34;</span><span class=nv>$USER_IDS</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>                  --arg organisation_id <span class=s2>&#34;</span><span class=nv>$ORGANISATION_ID</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>                  --arg user_type <span class=s2>&#34;</span><span class=nv>$USER_TYPE</span><span class=s2>&#34;</span> <span class=se>\
+</span><span class=se></span>                  <span class=s1>&#39;{organisation_id: $organisation_id, user_type: $user_type, users: $user_ids}&#39;</span> <span class=k>)</span>
+
+    <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$USER_JSON</span><span class=s2>&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=syntax-of-jq>Syntax of jq</h3>
+<ul>
+<li>
+<p>&ndash;raw-input/-R:
+<strong>Don&rsquo;t parse the input as JSON</strong>. Instead, each line of text is <strong>passed to the filter as a <code>string</code></strong>. If combined with &ndash;slurp, then the entire input is passed to the filter as a single long string.</p>
+</li>
+<li>
+<p>&ndash;null-input/-n:
+Don&rsquo;t read any input at all! Instead, the filter is run once using null as the input. This is useful when using jq as a simple calculator or to construct JSON data from scratch.</p>
+</li>
+<li>
+<p><code>input</code> and <code>inputs</code>, that read from the same sources (e.g., stdin, files named on the command-line) as jq itself.</p>
+<ul>
+<li><code>input</code> Outputs one new input.</li>
+<li><code>inputs</code> Outputs all remaining inputs, one by one.</li>
+</ul>
+</li>
+</ul>
+<h3 id=explaination-of-the-process>Explaination of the process</h3>
+<ul>
+<li>
+<p><code>-R</code> means jq will treat the anything it gets as a string not a JSON. if you don&rsquo;t use <code>-R</code> and pass a string as input, it will throw error.</p>
+</li>
+<li>
+<p><code>-n</code> means jq will not read any input. so it can work together with <code>inputs</code> to construct a JSON data.</p>
+<ul>
+<li>if you do this <code>echo '1\n2\n3' | jq -R '[inputs]'</code> you will only get <code>["2","3"]</code>. why? because without <code>-n</code> jq will read a input, which is <code>1</code>, then the <code>inputs</code> will ouputs the <strong>remaining</strong> inputs, which are <code>2\n3</code>.</li>
+<li>if you do this <code>echo '1\n2\n3' | jq -Rn '[inputs]'</code>, you will get <code>["1","2","3"]</code>. why? because with <code>-n</code> jq will <strong>not</strong> read a input, so the <code>inputs</code> will outputs the <strong>remaining</strong> inputs, which are <code>1\n2\n3</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>select(length>0)</code> for each input, it will filter out the empty input</p>
+</li>
+<li>
+<p><code>assemble_user(.)</code> for each input, it will call the def <code>assemble_user</code></p>
+</li>
+<li>
+<p><code>def assemble_user($user_id): {"user_id": $user_id}</code> for each input like <code>123</code>, it will return a object like <code>{"user_id": 123}</code></p>
+</li>
+<li>
+<p><code>&lt;&lt;&lt;</code> this symbol means <code>Here string</code></p>
+<ul>
+<li><code>&lt;&lt;&lt;</code> is known as here-string. Instead of typing in text, you give a pre-made string of text to a program. For example, with such program as bc we can do bc &#171;&lt; 5<em>4 to just get output for that specific case, no need to run bc interactively. Think of it as the equivalent of echo &lsquo;5</em>4&rsquo; | bc.</li>
+</ul>
+<p>check the difference between <code>&lt;,&lt;&lt;,&lt;&lt;&lt;</code> <a href=https://askubuntu.com/questions/678915/whats-the-difference-between-and-in-bash>here</a></p>
+</li>
+<li>
+<p><code>--argjson</code> means it has a JSON data as the argument.</p>
+</li>
+<li>
+<p><code>--arg</code> means it has a string data as the argument</p>
+</li>
+<li>
+<p><code>jq -n --argjson user_ids "$USER_IDS" --arg organisation_id "$ORGANISATION_ID" </code> you can structure a JSON data easily.</p>
+</li>
+</ul>
+<h2 id=the-result>The result</h2>
+<ul>
+<li>So first step I get the array with objects.
+<ul>
+<li>if you do this quickly</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>echo</span> <span class=s1>&#39;2f9921bc-a4c9-419a-b069-f8f23c7727f7\n26bf5cc3-73de-425e-9a6b-b70223387314\n30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&#39;</span> <span class=p>|</span> jq -Rn <span class=s1>&#39;
+</span><span class=s1>        def assemble_users($user_id): {&#34;user_id&#34;: $user_id};
+</span><span class=s1>        [
+</span><span class=s1>            inputs 
+</span><span class=s1>            | select(length&gt;0)
+</span><span class=s1>            | assemble_users(.)
+</span><span class=s1>        ]&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>you will get:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>[</span>
+  <span class=p>{</span>
+    <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
+  <span class=p>},</span>
+  <span class=p>{</span>
+    <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;26bf5cc3-73de-425e-9a6b-b70223387314&#34;</span>
+  <span class=p>},</span>
+  <span class=p>{</span>
+    <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&#34;</span>
+  <span class=p>}</span>
+<span class=p>]</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Second, I assemble them together as a object. you will get</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+    <span class=nt>&#34;users&#34;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;26bf5cc3-73de-425e-9a6b-b70223387314&#34;</span>
+        <span class=p>},</span>
+        <span class=p>{</span>
+            <span class=nt>&#34;user_id&#34;</span><span class=p>:</span> <span class=s2>&#34;30ac5b4c-f4c6-42c6-901d-e8bdf16464b8&#34;</span>
+        <span class=p>}</span>
+    <span class=p>],</span>
+    <span class=nt>&#34;organisation_id&#34;</span><span class=p>:</span> <span class=mi>123</span><span class=p>,</span>
+    <span class=nt>&#34;user-type&#34;</span><span class=p>:</span> <span class=s2>&#34;test&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/not-all-objects-serializable/>Not All Objects Serializable</a>
 </h1>
 <div class=post-meta>
@@ -515,52 +795,6 @@ See the world
 </div>
 </div>
 </article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/android-app-with-react-native/>Android app with react native</a>
-</h1>
-<div class=post-meta>
-<time datetime=2020-01-17 class=post-time>
-2020-01-17
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/react/> react </a>
-</div>
-<span class=more-meta> 107 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=issue-i-met>Issue I met</h2>
-<p>I want to follow <a href=https://developer.okta.com/blog/2018/12/26/react-native-android-play-store>this article</a> to learn creating apps with react native. But I met several issues:</p>
-<blockquote>
-<p>error Failed to launch emulator. Reason: No emulators found as an output of <code>emulator -list-avds</code>.
-warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
-info Installing the app&mldr;
-Task :app:installDebug FAILED</p>
-</blockquote>
-<p>Then I realized the another issue prompted:
-<code>/bin/sh: adb: command not found</code></p>
-<h2 id=how-to-solve>How to solve</h2>
-<p>After googling, I got answer:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>ANDROID_HOME</span><span class=o>=</span>/Users/aaron/Library/Android/sdk
-<span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$ANDROID_HOME</span>/platform-tools:<span class=nv>$PATH</span>
-<span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$ANDROID_HOME</span>/tools:<span class=nv>$PATH</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>and I ran it again, it works. But I think you should also have created an AVD as well.</p>
-</div>
-</div>
-</article>
 </section>
 <nav class=pagination>
 <ul>
@@ -572,6 +806,9 @@ Task :app:installDebug FAILED</p>
 </li>
 <li class=active>
 <a href=/page/3/>3</a>
+</li>
+<li>
+<a href=/page/4/>4</a>
 </li>
 </ul>
 </nav>

@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Privacy Policy</title><link>https://jiyongcheng.dev/privacy/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/privacy/</guid><description>&lt;p>Last updated: July 26, 2024&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>如何关闭 Windows 更新功能</title><link>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</link><pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</guid><description>&lt;h2 id="如何关闭-windows-更新功能详细指南">如何关闭 Windows 更新功能：详细指南&lt;/h2>
+&lt;h3 id="前言">前言&lt;/h3>
+&lt;p>Windows 更新可以帮助您的电脑保持最新，确保安全和性能。但是，有时候您可能需要暂时关闭这些更新，避免在关键时刻被打断。本篇博客将为您详细介绍如何关闭 Windows 更新功能。&lt;/p>
+&lt;h3 id="方法一通过设置关闭更新">方法一：通过设置关闭更新&lt;/h3>
+&lt;p>这是最简单的方法，可以通过 Windows 设置来暂停更新。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>打开设置：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>按下 &lt;code>Win + I&lt;/code> 键打开设置，或点击开始菜单并选择设置。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>选择“更新和安全”：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在设置界面中，找到并点击“更新和安全”选项。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>暂停更新：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在“Windows 更新”选项卡中，点击“暂停更新”按钮。您可以选择暂停更新的时间段，最长可以暂停35天。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="方法二通过服务管理器关闭更新">方法二：通过服务管理器关闭更新&lt;/h3>
+&lt;p>此方法通过禁用 Windows Update 服务来彻底关闭更新。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>打开服务管理器：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>services.msc&lt;/code> 并按回车键。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>找到 Windows Update 服务：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在服务管理器中，向下滚动找到“Windows Update”服务。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>禁用服务：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>右键点击“Windows Update”服务，选择“属性”。&lt;/li>
+&lt;li>在“启动类型”下拉菜单中选择“禁用”，然后点击“停止”按钮以停止该服务。&lt;/li>
+&lt;li>点击“应用”并“确定”以保存更改。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="方法三通过组策略编辑器关闭更新仅适用于专业版和企业版">方法三：通过组策略编辑器关闭更新（仅适用于专业版和企业版）&lt;/h3>
+&lt;p>组策略编辑器可以提供更高级的控制选项。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>打开组策略编辑器：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>gpedit.msc&lt;/code> 并按回车键。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>导航到 Windows 更新设置：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>依次展开“计算机配置” -&amp;gt; “管理模板” -&amp;gt; “Windows 组件” -&amp;gt; “Windows 更新”。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>配置自动更新：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>双击“配置自动更新”选项。&lt;/li>
+&lt;li>在弹出的窗口中，选择“已禁用”选项，然后点击“应用”并“确定”。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="方法四通过注册表编辑器关闭更新">方法四：通过注册表编辑器关闭更新&lt;/h3>
+&lt;p>这种方法适用于对系统有较深入了解的用户，修改注册表存在一定风险，请谨慎操作。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>打开注册表编辑器：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>regedit&lt;/code> 并按回车键。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>导航到 Windows 更新设置：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>依次展开 &lt;code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows&lt;/code>。&lt;/li>
+&lt;li>右键点击“Windows”文件夹，选择“新建” -&amp;gt; “项”，命名为“WindowsUpdate”。&lt;/li>
+&lt;li>右键点击“WindowsUpdate”文件夹，选择“新建” -&amp;gt; “项”，命名为“AU”。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>创建 NoAutoUpdate 键：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>选择“AU”文件夹，右键点击右侧空白处，选择“新建” -&amp;gt; “DWORD（32位）值”。&lt;/li>
+&lt;li>将新值命名为“NoAutoUpdate”，双击它并将值数据设为“1”。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="结论">结论&lt;/h3>
+&lt;p>以上几种方法都可以帮助您关闭 Windows 更新功能，您可以根据自己的需求选择最合适的方法。请注意，禁用更新可能会使您的系统错过重要的安全补丁，建议在完成关键任务后尽快恢复更新。&lt;/p></description></item><item><title>Privacy Policy</title><link>https://jiyongcheng.dev/privacy/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/privacy/</guid><description>&lt;p>Last updated: July 26, 2024&lt;/p>
 &lt;p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.&lt;/p>
 &lt;p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the &lt;a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank">Privacy Policy Generator&lt;/a>.&lt;/p>
 &lt;h2>Interpretation and Definitions&lt;/h2>

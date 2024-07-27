@@ -145,6 +145,127 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/how-to-turn-off-windows-update/>如何关闭 Windows 更新功能</a>
+</h1>
+<div class=post-meta>
+<time datetime=2024-07-27 class=post-time>
+2024-07-27
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/%E6%8A%80%E6%9C%AF/> 技术 </a>
+<a href=https://jiyongcheng.dev/categories/windows/> Windows </a>
+</div>
+<span class=more-meta> 1027 words </span>
+<span class=more-meta> 3 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=如何关闭-windows-更新功能详细指南>如何关闭 Windows 更新功能：详细指南</h2>
+<h3 id=前言>前言</h3>
+<p>Windows 更新可以帮助您的电脑保持最新，确保安全和性能。但是，有时候您可能需要暂时关闭这些更新，避免在关键时刻被打断。本篇博客将为您详细介绍如何关闭 Windows 更新功能。</p>
+<h3 id=方法一通过设置关闭更新>方法一：通过设置关闭更新</h3>
+<p>这是最简单的方法，可以通过 Windows 设置来暂停更新。</p>
+<ol>
+<li>
+<p><strong>打开设置：</strong></p>
+<ul>
+<li>按下 <code>Win + I</code> 键打开设置，或点击开始菜单并选择设置。</li>
+</ul>
+</li>
+<li>
+<p><strong>选择“更新和安全”：</strong></p>
+<ul>
+<li>在设置界面中，找到并点击“更新和安全”选项。</li>
+</ul>
+</li>
+<li>
+<p><strong>暂停更新：</strong></p>
+<ul>
+<li>在“Windows 更新”选项卡中，点击“暂停更新”按钮。您可以选择暂停更新的时间段，最长可以暂停35天。</li>
+</ul>
+</li>
+</ol>
+<h3 id=方法二通过服务管理器关闭更新>方法二：通过服务管理器关闭更新</h3>
+<p>此方法通过禁用 Windows Update 服务来彻底关闭更新。</p>
+<ol>
+<li>
+<p><strong>打开服务管理器：</strong></p>
+<ul>
+<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>services.msc</code> 并按回车键。</li>
+</ul>
+</li>
+<li>
+<p><strong>找到 Windows Update 服务：</strong></p>
+<ul>
+<li>在服务管理器中，向下滚动找到“Windows Update”服务。</li>
+</ul>
+</li>
+<li>
+<p><strong>禁用服务：</strong></p>
+<ul>
+<li>右键点击“Windows Update”服务，选择“属性”。</li>
+<li>在“启动类型”下拉菜单中选择“禁用”，然后点击“停止”按钮以停止该服务。</li>
+<li>点击“应用”并“确定”以保存更改。</li>
+</ul>
+</li>
+</ol>
+<h3 id=方法三通过组策略编辑器关闭更新仅适用于专业版和企业版>方法三：通过组策略编辑器关闭更新（仅适用于专业版和企业版）</h3>
+<p>组策略编辑器可以提供更高级的控制选项。</p>
+<ol>
+<li>
+<p><strong>打开组策略编辑器：</strong></p>
+<ul>
+<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>gpedit.msc</code> 并按回车键。</li>
+</ul>
+</li>
+<li>
+<p><strong>导航到 Windows 更新设置：</strong></p>
+<ul>
+<li>依次展开“计算机配置” -> “管理模板” -> “Windows 组件” -> “Windows 更新”。</li>
+</ul>
+</li>
+<li>
+<p><strong>配置自动更新：</strong></p>
+<ul>
+<li>双击“配置自动更新”选项。</li>
+<li>在弹出的窗口中，选择“已禁用”选项，然后点击“应用”并“确定”。</li>
+</ul>
+</li>
+</ol>
+<h3 id=方法四通过注册表编辑器关闭更新>方法四：通过注册表编辑器关闭更新</h3>
+<p>这种方法适用于对系统有较深入了解的用户，修改注册表存在一定风险，请谨慎操作。</p>
+<ol>
+<li>
+<p><strong>打开注册表编辑器：</strong></p>
+<ul>
+<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>regedit</code> 并按回车键。</li>
+</ul>
+</li>
+<li>
+<p><strong>导航到 Windows 更新设置：</strong></p>
+<ul>
+<li>依次展开 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows</code>。</li>
+<li>右键点击“Windows”文件夹，选择“新建” -> “项”，命名为“WindowsUpdate”。</li>
+<li>右键点击“WindowsUpdate”文件夹，选择“新建” -> “项”，命名为“AU”。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建 NoAutoUpdate 键：</strong></p>
+<ul>
+<li>选择“AU”文件夹，右键点击右侧空白处，选择“新建” -> “DWORD（32位）值”。</li>
+<li>将新值命名为“NoAutoUpdate”，双击它并将值数据设为“1”。</li>
+</ul>
+</li>
+</ol>
+<h3 id=结论>结论</h3>
+<p>以上几种方法都可以帮助您关闭 Windows 更新功能，您可以根据自己的需求选择最合适的方法。请注意，禁用更新可能会使您的系统错过重要的安全补丁，建议在完成关键任务后尽快恢复更新。</p>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/sublime/>Sublime</a>
 </h1>
 <div class=post-meta>
@@ -387,87 +508,6 @@ git push origin -u quickfix
 </div>
 </div>
 </article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/convert-sqlite-to-mysql/>Convert Sqlite to Mysql</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-28 class=post-time>
-2021-10-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/db/> DB </a>
-</div>
-<span class=more-meta> 119 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=is-it-possible-to-convert-sqlite-to-mysql-as-is>Is it possible to convert SQLite to MySQL &ldquo;as is&rdquo;?</h2>
-<p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:</p>
-<ul>
-<li>Export SQLite database to dump file using SQLite .dump command.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sqlite3 sample.db .dump &gt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>You can then (in theory) import SQLite dump into the MySQL database.</li>
-</ul>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mysql -p -u root -h 127.0.0.1 <span class=nb>test</span> &lt; dump.sql
-</code></pre></td></tr></table>
-</div>
-</div><p>&ldquo;In theory&rdquo; means that solution wouldn&rsquo;t work as there are a few differences in grammars between MySQL and SQLite.</p>
-<p>There are just some differences between SQLite and MySQL syntax</p>
-<table>
-<thead>
-<tr>
-<th>SQLite</th>
-<th>MySQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AUTOINCREMENT</td>
-<td>AUTO_INCREMENT</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>varchars</td>
-</tr>
-<tr>
-<td>double quotes (" &ldquo;)</td>
-<td>backticks (` `)</td>
-</tr>
-<tr>
-<td><code>BEGIN TRANSACTION; COMMIT;</code></td>
-<td><code> BEGIN; COMMIT</code></td>
-</tr>
-<tr>
-<td>CLOB</td>
-<td>TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT</td>
-</tr>
-<tr>
-<td>PRAGMA foreign_keys=OFF;</td>
-<td>SET FOREIGN_KEY_CHECKS=0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</article>
 </section>
 <nav class=pagination>
 <ul>
@@ -479,6 +519,9 @@ git push origin -u quickfix
 </li>
 <li>
 <a href=/page/3/>3</a>
+</li>
+<li>
+<a href=/page/4/>4</a>
 </li>
 </ul>
 </nav>
