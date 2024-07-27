@@ -145,6 +145,95 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/understanding-git/>Understanding Git</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-09-28 class=post-time>
+2021-09-28
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
+</div>
+<span class=more-meta> 274 words </span>
+<span class=more-meta> 2 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h2 id=what-does-10064-mean-in-git>What does 10064 mean in Git?</h2>
+<p>When you do <code>git commit</code> command, you probably have seen this information</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> delete mode 100644 layouts/resource/index.html
+ create mode 100644 layouts/resource/section.html
+</code></pre></td></tr></table>
+</div>
+</div><p>but what does this series of number mean?</p>
+<p>The values shown are the 16-bit file modes as stored by Git, you can <a href=https://github.com/git/git/blob/master/Documentation/technical/index-format.txt>check here</a> to know more:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>  32-bit mode, split into (high to low bits)
+
+    4-bit object type
+      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
+    
+    3-bit unused
+
+    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
+    
+    Symbolic links and gitlinks have value 0 in this field.
+</code></pre></td></tr></table>
+</div>
+</div><p>If the file doesn’t mention directories; they are represented using object type 0100.</p>
+<p>Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Type|---|Perm bits
+
+1000 000 111101101
+1 0   0   7  5  5
+
+1000 000 110100100
+1 0   0   6  4  4
+</code></pre></td></tr></table>
+</div>
+</div><p>Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.</p>
+<p>For files,</p>
+<p>you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);</p>
+<p>directories are 040000 (permissions are ignored),</p>
+<p>symbolic links 120000.</p>
+<p>The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).</p>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/create-array-with-object-from-list/>Create Array With Object From List using jq</a>
 </h1>
 <div class=post-meta>
@@ -738,60 +827,6 @@ Don&rsquo;t read any input at all! Instead, the filter is run once using null as
 </div><p>If I tick off class <code>d-grid</code> display style, it will render correctly.</p>
 <h2 id=how-to-solve-it>How to solve it</h2>
 <p>remove the class <code>d-grid</code></p>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/phpstorm/>Phpstorm</a>
-</h1>
-<div class=post-meta>
-<time datetime=2020-12-17 class=post-time>
-2020-12-17
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/ide/> IDE </a>
-</div>
-<span class=more-meta> 49 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 class=cols-3 id=phpstorm-mac-keymap>phpstorm Mac Keymap</h2>
-<table>
-<thead>
-<tr>
-<th>shortcut</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Ctrl</code> <code>Option</code> <code>O</code></td>
-<td>Optimize imports</td>
-</tr>
-<tr>
-<td><code>Ctrl</code> <code>G</code></td>
-<td>Next selection</td>
-</tr>
-<tr>
-<td><code>Ctrl</code> <code>Cmd</code> <code>G</code></td>
-<td>All selection</td>
-</tr>
-<tr>
-<td><code>Cmd</code> <code>D</code></td>
-<td>Duplicate code</td>
-</tr>
-<tr>
-<td><code>Option</code> <code>Cmd</code> <code>L</code></td>
-<td>Reformat code</td>
-</tr>
-</tbody>
-</table>
-<h2 class=cols-3 id=how-to-stop-indexing>How to stop indexing</h2>
-<p>System Settings -> Synchronize external changes when switching to the IDE window or opening an editor tab</p>
 </div>
 </div>
 </article>
