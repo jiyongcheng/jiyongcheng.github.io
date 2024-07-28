@@ -145,6 +145,83 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/postgresql-questions/>Postgresql Questions</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-12-08 class=post-time>
+2021-12-08
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/db/> DB </a>
+</div>
+<span class=more-meta> 260 words </span>
+<span class=more-meta> 2 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I try to list out the questions during working on Postgresql here for the future reference.</p>
+<h2 id=how-to-convert-date-string-to-timestamp-in-postgresql>How to convert date string to timestamp in postgresql?</h2>
+<p>Use function <a href=https://www.postgresqltutorial.com/postgresql-to_timestamp/>TO_TIMESTAMP</a></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TO_TIMESTAMP</span><span class=p>(</span><span class=s1>&#39;2017-03-31 9:30:20&#39;</span><span class=p>,</span><span class=s1>&#39;YYYY-MM-DD HH:MI:SS&#39;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=c1>-- it will return as following:
+</span><span class=c1></span><span class=mi>2017</span><span class=o>-</span><span class=mi>03</span><span class=o>-</span><span class=mi>31</span><span class=w> </span><span class=mi>09</span><span class=p>:</span><span class=mi>30</span><span class=p>:</span><span class=mi>20</span><span class=p>.</span><span class=mi>000000</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id=how-to-return-a-string-value-from-jsonb-in-postgresql>How to return a string value from jsonb in Postgresql?</h2>
+<p>Use <code>jsonb->>key</code> operator, be carefuly if you use <code>jsonb->key</code> it will return back <code>jsonb</code> type, not a string.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>select</span><span class=w> </span><span class=s1>&#39;{
+</span><span class=s1>  &#34;first_name&#34;: &#34;Adam&#34;,
+</span><span class=s1>  &#34;last_name&#34;: &#34;Smith&#34;,
+</span><span class=s1>  &#34;created_at&#34;: &#34;2021-12-07 03:08:57&#34;,
+</span><span class=s1>  &#34;updated_at&#34;: &#34;2021-12-07 03:09:00&#34;
+</span><span class=s1>}&#39;</span><span class=p>::</span><span class=n>jsonb</span><span class=o>-&gt;&gt;</span><span class=s1>&#39;first_name&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=c1>-- it will return `Adam`
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id=can-i-extract-the-info-from-jsonb-in-postgresql>Can I extract the info from jsonb in postgresql?</h2>
+<p><code>jsonb_extract_path ( from_json jsonb, VARIADIC path_elems text[] ) → jsonb</code></p>
+<p>Extracts JSON sub-object at the specified path. (This is functionally equivalent to the #> operator, but writing the path out as a variadic list can be more convenient in some cases.)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=n>json_extract_path</span><span class=p>(</span><span class=s1>&#39;{&#34;f2&#34;:{&#34;f3&#34;:1},&#34;f4&#34;:{&#34;f5&#34;:99,&#34;f6&#34;:&#34;foo&#34;}}&#39;</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;f4&#39;</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;f6&#39;</span><span class=p>)</span><span class=w> </span><span class=err>→</span><span class=w> </span><span class=s2>&#34;foo&#34;</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id=how-to-put-log-in-stored-procedures>How to put log in stored procedures?</h2>
+<p>You need to change the config file <code>postgresql.conf</code> and set <code>log_min_messages = notice</code>, there are some options you can choose, check the config file.</p>
+<h2 id=is-not-null-work-with-composite-type-data>IS NOT NULL work with composite type data</h2>
+<p>If you have a value something that is a composite type, for example a row of a table, something <code>IS NOT NULL</code> is only true if none of the attributes of the composite are NULL.
+<a href=https://www.postgresonline.com/journal/archives/373-Composite-data-types-why-IS-NOT-NULL-is-not-the-same-as-NOT-IS-NULL.html>check more details here</a></p>
+<h2 id=how-to-save-24hours-time-format>How to save 24hours time format</h2>
+<p>if you see some error like this <code>Postgresql ERROR: hour "16" is invalid for the 12-hour clock</code>
+you could do this <code>TO_TIMESTAMP(i_test_date ->> 'created_at', 'YYYY-MM-DD HH24:MI:SS')</code> to save the time as 24hours format</p>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/git-command/>Git Commands</a>
 </h1>
 <div class=post-meta>
@@ -397,46 +474,6 @@ git push origin -u quickfix
 <p>If you want to pull the base image again, you can use the &ndash;pull option to the build command. E.g.</p>
 <p><code>docker build --no-cache --pull -t new-image-name:latest .</code></p>
 <p><a href=https://stackoverflow.com/questions/52664744/does-docker-build-no-cache-actually-download-and-refresh-the-base-image#52666415>check more from here</a></p>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/check-port-being-used/>Check Port Being Used</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-09-29 class=post-time>
-2021-09-29
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
-</div>
-<span class=more-meta> 74 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<p><code>lsof</code> list open files</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>lsof -i -P -n <span class=p>|</span> grep LISTEN
-- -i selects the listing of all Internet and x.25 <span class=o>(</span>HP-UX<span class=o>)</span> network files
-- -P inhibit the conversion of port numbers to port names
-- -n inhibit the conversion of network numbers to host names
-</code></pre></td></tr></table>
-</div>
-</div><p><code>-P and -n will make the lookup faster</code></p>
-<h2 id=example>Example</h2>
-<h3 id=list-only-files-that-listen-to-port-80>List only files that listen to port 80</h3>
-<p><code>lsof -i:80 -P -n | grep LISTEN</code></p>
 </div>
 </div>
 </article>

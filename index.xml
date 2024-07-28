@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>如何关闭 Windows 更新功能</title><link>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</link><pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</guid><description>&lt;h2 id="如何关闭-windows-更新功能详细指南">如何关闭 Windows 更新功能：详细指南&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>What is FIFO in Computer Science? An Easy-to-Understand Example</title><link>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</link><pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</guid><description>&lt;h3 id="understanding-fifo">Understanding FIFO&lt;/h3>
+&lt;p>FIFO stands for &amp;ldquo;First In, First Out.&amp;rdquo; It&amp;rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.&lt;/p>
+&lt;h3 id="fifo-in-data-structures">FIFO in Data Structures&lt;/h3>
+&lt;p>In data structures, FIFO is typically implemented using a &lt;strong>queue&lt;/strong>. A queue is a linear structure where elements are added at one end, called the rear, and removed from the other end, called the front. This structure ensures that the order of processing is maintained, providing a predictable and organized way to manage data.&lt;/p>
+&lt;h3 id="real-world-example-queue-at-a-grocery-store">Real-World Example: Queue at a Grocery Store&lt;/h3>
+&lt;p>To make FIFO easier to understand, let&amp;rsquo;s consider a real-world example: a queue at a grocery store checkout. Here&amp;rsquo;s how FIFO works in this scenario:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Arrival&lt;/strong>: Customers arrive at the checkout line. The first customer to arrive joins the front of the queue.&lt;/li>
+&lt;li>&lt;strong>Waiting&lt;/strong>: As more customers arrive, they join the queue at the rear, waiting for their turn.&lt;/li>
+&lt;li>&lt;strong>Service&lt;/strong>: The cashier serves the customer at the front of the queue first.&lt;/li>
+&lt;li>&lt;strong>Departure&lt;/strong>: Once served, the customer leaves the queue, and the next customer in line moves to the front.&lt;/li>
+&lt;li>&lt;strong>Continuity&lt;/strong>: This process continues, ensuring that customers are served in the order they arrived.&lt;/li>
+&lt;/ol>
+&lt;h3 id="fifo-in-computer-science-example-with-a-print-queue">FIFO in Computer Science: Example with a Print Queue&lt;/h3>
+&lt;p>Imagine you have a print queue where documents are lined up to be printed. Here&amp;rsquo;s how FIFO works in this scenario:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Adding Documents&lt;/strong>: You send three documents (Doc1, Doc2, Doc3) to the printer.&lt;/p>
+&lt;ul>
+&lt;li>Doc1 is added to the print queue first.&lt;/li>
+&lt;li>Doc2 is added next.&lt;/li>
+&lt;li>Doc3 is added last.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Processing Documents&lt;/strong>: The printer processes the documents in the order they were added.&lt;/p>
+&lt;ul>
+&lt;li>Doc1 is printed first because it was the first to enter the queue.&lt;/li>
+&lt;li>Doc2 is printed next.&lt;/li>
+&lt;li>Doc3 is printed last.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>This orderly processing ensures that documents are printed in the exact sequence they were queued, maintaining fairness and predictability.&lt;/p>
+&lt;h3 id="code-example-fifo-using-a-queue-in-python">Code Example: FIFO Using a Queue in Python&lt;/h3>
+&lt;p>Let&amp;rsquo;s look at a simple Python example to illustrate how FIFO works using a queue:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">from&lt;/span> &lt;span class="nn">collections&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">deque&lt;/span>
+&lt;span class="c1"># Create a queue&lt;/span>
+&lt;span class="n">queue&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">deque&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="c1"># Add elements to the queue&lt;/span>
+&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc1&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc3&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after adding elements:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="c1"># Remove elements from the queue in FIFO order&lt;/span>
+&lt;span class="n">first&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">first&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing first element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">second&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing second element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;span class="n">third&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">third&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing third element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="explanation-of-the-code">Explanation of the Code:&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Importing &lt;code>deque&lt;/code>&lt;/strong>: We use the &lt;code>deque&lt;/code> class from the &lt;code>collections&lt;/code> module to create a queue.&lt;/li>
+&lt;li>&lt;strong>Creating the Queue&lt;/strong>: We initialize an empty queue.&lt;/li>
+&lt;li>&lt;strong>Adding Elements&lt;/strong>: We add three documents (Doc1, Doc2, Doc3) to the queue.&lt;/li>
+&lt;li>&lt;strong>Removing Elements&lt;/strong>: We remove elements from the queue one by one using the &lt;code>popleft()&lt;/code> method, which ensures that elements are removed in the order they were added.&lt;/li>
+&lt;/ol>
+&lt;p>Output:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">Queue after adding elements: [&amp;#39;Doc1&amp;#39;, &amp;#39;Doc2&amp;#39;, &amp;#39;Doc3&amp;#39;]
+Removed: Doc1
+Queue after removing first element: [&amp;#39;Doc2&amp;#39;, &amp;#39;Doc3&amp;#39;]
+Removed: Doc2
+Queue after removing second element: [&amp;#39;Doc3&amp;#39;]
+Queue after removing third element: []
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This output demonstrates how FIFO works, with elements being removed in the same order they were added.&lt;/p>
+&lt;h3 id="conclusion">Conclusion&lt;/h3>
+&lt;p>FIFO is a fundamental concept in computer science that ensures orderly processing of data. Whether it&amp;rsquo;s managing a queue of tasks, handling print jobs, or organizing network packets, FIFO provides a straightforward and predictable way to manage data flow. Understanding FIFO and its applications can help you design more efficient and reliable systems.&lt;/p>
+&lt;hr>
+&lt;p>By following the FIFO principle, you can ensure that your applications handle data in a fair and orderly manner, providing a better user experience and more predictable performance.&lt;/p></description></item><item><title>如何关闭 Windows 更新功能</title><link>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</link><pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</guid><description>&lt;h2 id="如何关闭-windows-更新功能详细指南">如何关闭 Windows 更新功能：详细指南&lt;/h2>
 &lt;h3 id="前言">前言&lt;/h3>
 &lt;p>Windows 更新可以帮助您的电脑保持最新，确保安全和性能。但是，有时候您可能需要暂时关闭这些更新，避免在关键时刻被打断。本篇博客将为您详细介绍如何关闭 Windows 更新功能。&lt;/p>
 &lt;h3 id="方法一通过设置关闭更新">方法一：通过设置关闭更新&lt;/h3>

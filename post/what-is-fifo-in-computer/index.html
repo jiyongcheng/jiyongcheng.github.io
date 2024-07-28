@@ -1,0 +1,379 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>What is FIFO in Computer Science? An Easy-to-Understand Example - Tech & Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes">
+<meta name=MobileOptimized content="width">
+<meta name=HandheldFriendly content="true">
+<meta name=applicable-device content="pc,mobile">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=mobile-web-app-capable content="yes">
+<meta name=author content="Aaron">
+<meta name=description content="Understanding FIFO FIFO stands for &amp;ldquo;First In, First Out.&amp;rdquo; It&amp;rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.">
+<meta name=keywords content="IT news,Technology trends,Lifestyle tips,Tech updates,Latest gadgets,Digital lifestyle,Tech reviews,Software updates,Health and wellness tech,Smart home devices,Cybersecurity tips,Social media trends,Tech how-to guides,Productivity apps,Sustainable living,Digital health,Online privacy,Wearable technology,Smart living,Tech innovations">
+<meta name=generator content="Hugo 0.87.0">
+<link rel=canonical href=https://jiyongcheng.dev/post/what-is-fifo-in-computer/>
+<link rel=icon href=/favicon.ico>
+<link rel=stylesheet href=/sass/jane.min.fa4b2b9f31b5c6d0b683db81157a9226e17b06e61911791ab547242a4a0556f2.css integrity="sha256-+ksrnzG1xtC2g9uBFXqSJuF7BuYZEXkatUckKkoFVvI=" media=screen crossorigin=anonymous><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3454354759229767" crossorigin=anonymous></script>
+<meta property="og:title" content="What is FIFO in Computer Science? An Easy-to-Understand Example">
+<meta property="og:description" content="Understanding FIFO FIFO stands for &ldquo;First In, First Out.&rdquo; It&rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jiyongcheng.dev/post/what-is-fifo-in-computer/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2024-07-28T00:00:00+00:00">
+<meta property="article:modified_time" content="2024-07-28T16:40:37+10:00">
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>See the world</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li><li class=mobile-menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
+</li>
+<li class=mobile-menu-item>
+<a id=openSearchMobile class="mobile-menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+<link rel=stylesheet href=/lib/photoswipe/photoswipe.min.css>
+<link rel=stylesheet href=/lib/photoswipe/default-skin/default-skin.min.css>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<div class=modal-dialog>
+<div class=modal-content>
+<div id=closeSearch title=Close class=close>X</div>
+<div class=modal-header>
+<div class=modal-title>Search</div>
+</div>
+<div class=modal-body>
+<script>(function(){var c='d9e76f04c191b111d',a=document.createElement('script'),b;a.type='text/javascript',a.async=!0,a.src=(document.location.protocol=='https:'?'https:':'http:')+'//cse.google.com/cse.js?cx='+c,b=document.getElementsByTagName('script')[0],b.parentNode.insertBefore(a,b)})()</script>
+<gcse:search></gcse:search>
+</div>
+</div>
+</div>
+<header id=header class="header container">
+<div class=logo-wrapper>
+<a href=/ class=logo>
+See the world
+</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/>Home</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/post/>Archives</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/tags/>Tags</a>
+</li>
+<li class=menu-item>
+<a class=menu-item-link href=https://jiyongcheng.dev/categories/>Categories</a>
+</li>
+<li class=menu-item>
+<a id=openSearch class="menu-item-link menu-item-search" href=#>
+<i class=iconfont><svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="18" height="18" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M973.81454219 973.81454219a91.78207815 91.78207815.0 01-129.80999631.0L682.0297247 811.83972101a425.48527711 425.48527711.0 01-230.35931791 68.16531768 428.3346319 428.3346319.0 11428.3346319-428.3346319A425.48527711 425.48527711.0 01811.83972101 682.0297247l162.02961656 161.97482118a91.83687354 91.83687354.0 01-.05479538 129.80999631zm-522.1441354-828.1209266a305.97679241 305.97679241.0 100 611.95358361 305.97679241 305.97679241.0 000-611.95358361z"/></svg>
+</i>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<div id=mobile-panel>
+<main id=main class="main bg-llight">
+<div class=content-wrapper>
+<div id=content class="content container">
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>What is FIFO in Computer Science? An Easy-to-Understand Example</h1>
+<div class=post-meta>
+<time datetime=2024-07-28 class=post-time>
+2024-07-28
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/technology/> Technology </a>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+<a href=https://jiyongcheng.dev/categories/computer-science/> Computer Science </a>
+</div>
+<span class=more-meta> 671 words </span>
+<span class=more-meta> 4 min read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Table of Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#understanding-fifo>Understanding FIFO</a></li>
+<li><a href=#fifo-in-data-structures>FIFO in Data Structures</a></li>
+<li><a href=#real-world-example-queue-at-a-grocery-store>Real-World Example: Queue at a Grocery Store</a></li>
+<li><a href=#fifo-in-computer-science-example-with-a-print-queue>FIFO in Computer Science: Example with a Print Queue</a></li>
+<li><a href=#code-example-fifo-using-a-queue-in-python>Code Example: FIFO Using a Queue in Python</a></li>
+<li><a href=#explanation-of-the-code>Explanation of the Code:</a></li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<h3 id=understanding-fifo>Understanding FIFO</h3>
+<p>FIFO stands for &ldquo;First In, First Out.&rdquo; It&rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.</p>
+<h3 id=fifo-in-data-structures>FIFO in Data Structures</h3>
+<p>In data structures, FIFO is typically implemented using a <strong>queue</strong>. A queue is a linear structure where elements are added at one end, called the rear, and removed from the other end, called the front. This structure ensures that the order of processing is maintained, providing a predictable and organized way to manage data.</p>
+<h3 id=real-world-example-queue-at-a-grocery-store>Real-World Example: Queue at a Grocery Store</h3>
+<p>To make FIFO easier to understand, let&rsquo;s consider a real-world example: a queue at a grocery store checkout. Here&rsquo;s how FIFO works in this scenario:</p>
+<ol>
+<li><strong>Arrival</strong>: Customers arrive at the checkout line. The first customer to arrive joins the front of the queue.</li>
+<li><strong>Waiting</strong>: As more customers arrive, they join the queue at the rear, waiting for their turn.</li>
+<li><strong>Service</strong>: The cashier serves the customer at the front of the queue first.</li>
+<li><strong>Departure</strong>: Once served, the customer leaves the queue, and the next customer in line moves to the front.</li>
+<li><strong>Continuity</strong>: This process continues, ensuring that customers are served in the order they arrived.</li>
+</ol>
+<h3 id=fifo-in-computer-science-example-with-a-print-queue>FIFO in Computer Science: Example with a Print Queue</h3>
+<p>Imagine you have a print queue where documents are lined up to be printed. Here&rsquo;s how FIFO works in this scenario:</p>
+<ol>
+<li>
+<p><strong>Adding Documents</strong>: You send three documents (Doc1, Doc2, Doc3) to the printer.</p>
+<ul>
+<li>Doc1 is added to the print queue first.</li>
+<li>Doc2 is added next.</li>
+<li>Doc3 is added last.</li>
+</ul>
+</li>
+<li>
+<p><strong>Processing Documents</strong>: The printer processes the documents in the order they were added.</p>
+<ul>
+<li>Doc1 is printed first because it was the first to enter the queue.</li>
+<li>Doc2 is printed next.</li>
+<li>Doc3 is printed last.</li>
+</ul>
+</li>
+</ol>
+<p>This orderly processing ensures that documents are printed in the exact sequence they were queued, maintaining fairness and predictability.</p>
+<h3 id=code-example-fifo-using-a-queue-in-python>Code Example: FIFO Using a Queue in Python</h3>
+<p>Let&rsquo;s look at a simple Python example to illustrate how FIFO works using a queue:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>deque</span>
+
+<span class=c1># Create a queue</span>
+<span class=n>queue</span> <span class=o>=</span> <span class=n>deque</span><span class=p>()</span>
+
+<span class=c1># Add elements to the queue</span>
+<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc1&#39;</span><span class=p>)</span>
+<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc2&#39;</span><span class=p>)</span>
+<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc3&#39;</span><span class=p>)</span>
+
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after adding elements:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
+
+<span class=c1># Remove elements from the queue in FIFO order</span>
+<span class=n>first</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>first</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing first element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
+
+<span class=n>second</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>second</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing second element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
+
+<span class=n>third</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>third</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing third element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=explanation-of-the-code>Explanation of the Code:</h3>
+<ol>
+<li><strong>Importing <code>deque</code></strong>: We use the <code>deque</code> class from the <code>collections</code> module to create a queue.</li>
+<li><strong>Creating the Queue</strong>: We initialize an empty queue.</li>
+<li><strong>Adding Elements</strong>: We add three documents (Doc1, Doc2, Doc3) to the queue.</li>
+<li><strong>Removing Elements</strong>: We remove elements from the queue one by one using the <code>popleft()</code> method, which ensures that elements are removed in the order they were added.</li>
+</ol>
+<p>Output:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Queue after adding elements: [&#39;Doc1&#39;, &#39;Doc2&#39;, &#39;Doc3&#39;]
+Removed: Doc1
+Queue after removing first element: [&#39;Doc2&#39;, &#39;Doc3&#39;]
+Removed: Doc2
+Queue after removing second element: [&#39;Doc3&#39;]
+Queue after removing third element: []
+</code></pre></td></tr></table>
+</div>
+</div><p>This output demonstrates how FIFO works, with elements being removed in the same order they were added.</p>
+<h3 id=conclusion>Conclusion</h3>
+<p>FIFO is a fundamental concept in computer science that ensures orderly processing of data. Whether it&rsquo;s managing a queue of tasks, handling print jobs, or organizing network packets, FIFO provides a straightforward and predictable way to manage data flow. Understanding FIFO and its applications can help you design more efficient and reliable systems.</p>
+<hr>
+<p>By following the FIFO principle, you can ensure that your applications handle data in a fair and orderly manner, providing a better user experience and more predictable performance.</p>
+</div>
+<div class=addthis_inline_share_toolbox_taj0></div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>Aaron</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2024-07-28
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=https://jiyongcheng.dev/tags/fifo/>FIFO</a>
+<a href=https://jiyongcheng.dev/tags/computer-science/>Computer Science</a>
+<a href=https://jiyongcheng.dev/tags/data-structures/>Data Structures</a>
+<a href=https://jiyongcheng.dev/tags/queue/>Queue</a>
+<a href=https://jiyongcheng.dev/tags/python/>Python</a>
+</div>
+<nav class=post-nav>
+<a class=next href=/post/how-to-turn-off-windows-update/>
+<span class="next-text nav-default">如何关闭 Windows 更新功能</span>
+<span class="prev-text nav-mobile">Next</span>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18"><path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697c-11.777231-11.500939-30.216186-10.304694-41.178865 2.712784z"/></svg>
+</i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=icon-links>
+<a href=https://jiyongcheng.dev/index.xml rel="noopener alternate" type=application/rss+xml class=iconfont title=rss target=_blank><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30"><path d="M819.157333 1024C819.157333 574.592 449.408 204.8.0 204.8V0c561.706667.0 1024 462.293333 1024 1024H819.157333zM140.416 743.04a140.8 140.8.0 01140.501333 140.586667A140.928 140.928.0 01140.074667 1024C62.72 1024 0 961.109333.0 883.626667S62.933333 743.082667 140.416 743.04zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667v-199.04c372.352.0 678.784 306.517333 678.784 678.826667z"/></svg>
+</a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme - <a class=theme-link href=https://github.com/xianmin/hugo-theme-jane>Jane</a>
+</span>
+<span class=copyright-year>
+&copy;
+2024
+<span class=heart>
+<i class=iconfont><svg class="icon" viewBox="0 0 1025 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14"><path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7.0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1.0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2.0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3.1-42.5-8-83.6-24-122.2z" fill="#8a8a8a"/></svg>
+</i>
+</span><span class=author>
+Aaron
+</span></span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class=iconfont><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"><path d="M510.866688 227.694839 95.449397 629.218702h235.761562L329.15309 958.01517h362.40389L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777h894.052392v131.813095H63.840492V63.962777zm0 0"/></svg>
+</i>
+</div>
+</div>
+<script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script>
+<script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script>
+<script type=text/javascript src=/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/load-photoswipe.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe.min.js></script>
+<script type=text/javascript src=/lib/photoswipe/photoswipe-ui-default.min.js></script>
+<script>$("#openSearch, #openSearchMobile").click(function(){$(".modal-dialog").addClass("visible")}),$("#closeSearch").click(function(){$(".modal-dialog").removeClass("visible")}),$(document).click(function(a){$(a.target).closest(".modal-content, #openSearch, #openSearchMobile").length||$("body").find(".modal-dialog").removeClass("visible")})</script>
+</body>
+</html>
