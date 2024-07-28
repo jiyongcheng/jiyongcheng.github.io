@@ -105,7 +105,80 @@ The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they wo
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/understanding-git/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-09-28T15:35:23+10:00">
-<meta property="article:modified_time" content="2024-07-28T16:40:37+10:00">
+<meta property="article:modified_time" content="2024-07-28T22:35:33+10:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@ji_yongcheng">
+<meta name=twitter:title content="Understanding Git">
+<meta name=twitter:description content="What does 10064 mean in Git?
+When you do git commit command, you probably have seen this information
+
+
+1
+2
+
+
+ delete mode 100644 layouts/resource/index.html
+ create mode 100644 layouts/resource/section.html
+
+
+but what does this series of number mean?
+The values shown are the 16-bit file modes as stored by Git, you can check here to know more:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+
+
+  32-bit mode, split into (high to low bits)
+
+    4-bit object type
+      valid values in binary are 1000 (regular file), 1010 (symbolic link) and 1110 (gitlink)
+    
+    3-bit unused
+
+    9-bit unix permission. Only 0755 and 0644 are valid for regular files.
+    
+    Symbolic links and gitlinks have value 0 in this field.
+
+
+If the file doesn’t mention directories; they are represented using object type 0100.
+Each digit in the six-digit value is in octal, representing three bits; 16 bits thus need six digits, the first of which only represents one bit:
+
+
+1
+2
+3
+4
+5
+6
+7
+
+
+Type|---|Perm bits
+
+1000 000 111101101
+1 0   0   7  5  5
+
+1000 000 110100100
+1 0   0   6  4  4
+
+
+Git doesn’t store arbitrary modes, only a subset of the values are allowed, from the usual POSIX types and modes (in octal, 12 for a symbolic link, 10 for a regular file, 04 for a directory) to which git adds 16 for Git links. The mode is appended, using four octal digits.
+For files,
+you’ll only ever see 100755 or 100644 (although 100664 is also technically possible);
+directories are 040000 (permissions are ignored),
+symbolic links 120000.
+The set-user-ID, set-group-ID and sticky bits aren’t supported at all (they would be stored in the unused bits).">
+<meta name=twitter:image content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<meta name=twitter:creator content="@ji_yongcheng">
 </head>
 <body>
 <div id=mobile-navbar class=mobile-navbar>

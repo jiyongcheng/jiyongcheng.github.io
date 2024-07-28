@@ -68,7 +68,52 @@ We want to generate a JSON object from the IDs with this structure:
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jiyongcheng.dev/post/create-array-with-object-from-list/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-09-22T14:31:07+10:00">
-<meta property="article:modified_time" content="2024-07-28T16:40:37+10:00">
+<meta property="article:modified_time" content="2024-07-28T22:35:33+10:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@ji_yongcheng">
+<meta name=twitter:title content="Create Array With Object From List using jq">
+<meta name=twitter:description content="Problem
+We have a list of IDs generated into a file F with this format:
+
+
+1
+2
+3
+
+
+2f9921bc-a4c9-419a-b069-f8f23c7727f7
+26bf5cc3-73de-425e-9a6b-b70223387314
+30ac5b4c-f4c6-42c6-901d-e8bdf16464b8
+
+
+We want to generate a JSON object from the IDs with this structure:
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+{
+    &#34;users&#34;: [
+        {
+            &#34;user_id&#34;: &#34;2f9921bc-a4c9-419a-b069-f8f23c7727f7&#34;
+        }
+    ],
+    &#34;organisation_id&#34;: 123,
+    &#34;user-type&#34;: &#34;test&#34;
+}
+
+
+">
+<meta name=twitter:image content="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<meta name=twitter:creator content="@ji_yongcheng">
 </head>
 <body>
 <div id=mobile-navbar class=mobile-navbar>

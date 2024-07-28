@@ -1,4 +1,136 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>What is FIFO in Computer Science? An Easy-to-Understand Example</title><link>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</link><pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</guid><description>&lt;h3 id="understanding-fifo">Understanding FIFO&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>What's the Best Way to Study Vue.js 3?</title><link>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</link><pubDate>Sun, 28 Jul 2024 10:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</guid><description>&lt;p>&lt;img src="https://media.istockphoto.com/id/1322201800/photo/digitally-enhanced-shot-of-an-attractive-businesswoman-using-a-laptop-superimposed-over.jpg?s=2048x2048&amp;amp;w=is&amp;amp;k=20&amp;amp;c=NOPgckD3q0q2zbhYuOi3tX7CPyjp0ILEqkrvvNOYQjA=" alt="Stduy Vuesjs 3">&lt;/p>
+&lt;h1 id="whats-the-best-way-to-study-vuejs-3">What&amp;rsquo;s the Best Way to Study Vue.js 3?&lt;/h1>
+&lt;p>Vue.js 3 is a powerful JavaScript framework for building user interfaces and single-page applications. Whether you&amp;rsquo;re a beginner or an experienced developer, finding the best way to study Vue.js 3 can significantly impact your learning curve and project success. In this article, we&amp;rsquo;ll explore the most effective strategies, resources, and tips to master Vue.js 3.&lt;/p>
+&lt;h2 id="why-learn-vuejs-3">Why Learn Vue.js 3?&lt;/h2>
+&lt;p>Before diving into the learning methods, it&amp;rsquo;s essential to understand why Vue.js 3 is worth your time:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Ease of Use&lt;/strong>: Vue.js is known for its gentle learning curve and simple syntax.&lt;/li>
+&lt;li>&lt;strong>Performance&lt;/strong>: Vue.js 3 introduces significant performance improvements.&lt;/li>
+&lt;li>&lt;strong>Community and Ecosystem&lt;/strong>: A vibrant community and a rich ecosystem of tools and libraries.&lt;/li>
+&lt;li>&lt;strong>Flexibility&lt;/strong>: Suitable for small projects and large-scale applications.&lt;/li>
+&lt;/ul>
+&lt;h2 id="step-by-step-guide-to-learning-vuejs-3">Step-by-Step Guide to Learning Vue.js 3&lt;/h2>
+&lt;h3 id="1-understand-the-basics-of-javascript">1. Understand the Basics of JavaScript&lt;/h3>
+&lt;p>Since Vue.js is a JavaScript framework, having a solid understanding of JavaScript fundamentals is crucial. Make sure you&amp;rsquo;re comfortable with:&lt;/p>
+&lt;ul>
+&lt;li>Variables and Data Types&lt;/li>
+&lt;li>Functions and Scope&lt;/li>
+&lt;li>DOM Manipulation&lt;/li>
+&lt;li>ES6+ Features&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-official-documentation">2. Official Documentation&lt;/h3>
+&lt;p>The &lt;a href="https://v3.vuejs.org/">official Vue.js 3 documentation&lt;/a> is the best place to start. It provides comprehensive and up-to-date information about all aspects of the framework.&lt;/p>
+&lt;h3 id="3-online-courses-and-tutorials">3. Online Courses and Tutorials&lt;/h3>
+&lt;p>Consider enrolling in online courses that offer structured learning paths. Some highly recommended platforms include:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Udemy&lt;/strong>: Courses like &amp;ldquo;Vue JS 3 - The Complete Guide (incl. Router &amp;amp; Composition API)&amp;rdquo; by Maximilian Schwarzmüller.&lt;/li>
+&lt;li>&lt;strong>Coursera&lt;/strong>: Courses from renowned universities and institutions.&lt;/li>
+&lt;li>&lt;strong>Pluralsight&lt;/strong>: In-depth courses for different skill levels.&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-build-projects">4. Build Projects&lt;/h3>
+&lt;p>Applying what you&amp;rsquo;ve learned through projects is one of the most effective ways to solidify your knowledge. Start with simple projects like a to-do list app and gradually move to more complex applications.&lt;/p>
+&lt;h4 id="example-project-to-do-list-app">Example Project: To-Do List App&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">template&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">div&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;app&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">h1&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nx">Vue&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">js&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="nx">To&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Do&lt;/span> &lt;span class="nx">List&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/h1&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">input&lt;/span> &lt;span class="nx">v&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">model&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;newTodo&amp;#34;&lt;/span> &lt;span class="err">@&lt;/span>&lt;span class="nx">keyup&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">enter&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;addTodo&amp;#34;&lt;/span> &lt;span class="nx">placeholder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;Add a new task&amp;#34;&lt;/span> &lt;span class="o">/&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">ul&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">li&lt;/span> &lt;span class="nx">v&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;todo in todos&amp;#34;&lt;/span> &lt;span class="o">:&lt;/span>&lt;span class="nx">key&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;todo.id&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="p">{{&lt;/span> &lt;span class="nx">todo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">text&lt;/span> &lt;span class="p">}}&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">button&lt;/span> &lt;span class="err">@&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;removeTodo(todo.id)&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nx">X&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/button&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/li&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/ul&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/div&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/template&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">script&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">data&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">newTodo&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nx">todos&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nx">methods&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">addTodo&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">trim&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">push&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nb">Date&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">now&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="nx">text&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span> &lt;span class="p">});&lt;/span>
+&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nx">removeTodo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">todo&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">todo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/script&amp;gt;&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">style&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
+&lt;span class="err">#&lt;/span>&lt;span class="nx">app&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">Avenir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Helvetica&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Arial&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">sans&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">text&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">align&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">center&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">margin&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="nx">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/style&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>Join the Community
+Participating in the Vue.js community can provide additional support and resources. Consider joining:&lt;/li>
+&lt;/ol>
+&lt;p>Forums: Vue Forum, Stack Overflow.
+Social Media: Twitter, Reddit.
+Meetups and Conferences: Vue.js meetups, VueConf.
+6. Read Books and Articles
+There are several excellent books and articles available for deep diving into Vue.js 3:&lt;/p>
+&lt;p>Books: &amp;ldquo;The Vue.js 3 Cookbook&amp;rdquo; by Heitor Ramon Ribeiro, &amp;ldquo;Fullstack Vue&amp;rdquo; by Hassan Djirdeh, Nate Murray, and Ari Lerner.
+Blogs: Vue Mastery, Alligator.io, Vue.js Developers.
+Conclusion
+Learning Vue.js 3 can open many doors in web development, from building small interactive components to creating full-fledged applications. By following these strategies and utilizing the recommended resources, you&amp;rsquo;ll be well on your way to mastering Vue.js 3.&lt;/p>
+&lt;p>Happy coding!&lt;/p>
+&lt;p>By implementing these steps and continuously practicing, you&amp;rsquo;ll gain a solid understanding of Vue.js 3 and be able to create impressive web applications.&lt;/p></description></item><item><title>What is FIFO in Computer Science? An Easy-to-Understand Example</title><link>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</link><pubDate>Sun, 28 Jul 2024 04:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</guid><description>&lt;h3 id="understanding-fifo">Understanding FIFO&lt;/h3>
 &lt;p>FIFO stands for &amp;ldquo;First In, First Out.&amp;rdquo; It&amp;rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.&lt;/p>
 &lt;h3 id="fifo-in-data-structures">FIFO in Data Structures&lt;/h3>
 &lt;p>In data structures, FIFO is typically implemented using a &lt;strong>queue&lt;/strong>. A queue is a linear structure where elements are added at one end, called the rear, and removed from the other end, called the front. This structure ensures that the order of processing is maintained, providing a predictable and organized way to manage data.&lt;/p>
@@ -1293,63 +1425,4 @@ Task :app:installDebug FAILED&lt;/p>
 &lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item><item><title>Search Results</title><link>https://jiyongcheng.dev/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/search/</guid><description>&lt;p>This file exists solely to respond to /search URL with the related &lt;code>search&lt;/code> layout template.&lt;/p>
-&lt;p>No content shown here is rendered, all content is based in the template layouts/page/search.html&lt;/p>
-&lt;p>Setting a very low sitemap priority will tell search engines this is not important content.&lt;/p>
-&lt;p>This implementation uses Fusejs, jquery and mark.js&lt;/p>
-&lt;h2 id="initial-setup">Initial setup&lt;/h2>
-&lt;p>Search depends on additional output content type of JSON in config.toml&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">[outputs]
-home = [&amp;#34;HTML&amp;#34;, &amp;#34;JSON&amp;#34;]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h2 id="searching-additional-fileds">Searching additional fileds&lt;/h2>
-&lt;p>To search additional fields defined in front matter, you must add it in 2 places.&lt;/p>
-&lt;h3 id="edit-layouts_defaultindexjson">Edit layouts/_default/index.JSON&lt;/h3>
-&lt;p>This exposes the values in /index.json
-i.e. add &lt;code>category&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">...
-&amp;#34;contents&amp;#34;:{{ .Content | plainify | jsonify }}
-{{ if .Params.tags }},
-&amp;#34;tags&amp;#34;:{{ .Params.tags | jsonify }}{{end}},
-&amp;#34;categories&amp;#34; : {{ .Params.categories | jsonify }},
-...
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="edit-fusejs-options-to-search">Edit fuse.js options to Search&lt;/h3>
-&lt;p>&lt;code>static/js/search.js&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">keys: [
-&amp;#34;title&amp;#34;,
-&amp;#34;contents&amp;#34;,
-&amp;#34;tags&amp;#34;,
-&amp;#34;categories&amp;#34;
-]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item></channel></rss>
