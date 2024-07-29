@@ -1,4 +1,268 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>What's the Best Way to Study Vue.js 3?</title><link>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</link><pubDate>Sun, 28 Jul 2024 10:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</guid><description>&lt;p>&lt;img src="https://media.istockphoto.com/id/1322201800/photo/digitally-enhanced-shot-of-an-attractive-businesswoman-using-a-laptop-superimposed-over.jpg?s=2048x2048&amp;amp;w=is&amp;amp;k=20&amp;amp;c=NOPgckD3q0q2zbhYuOi3tX7CPyjp0ILEqkrvvNOYQjA=" alt="Stduy Vuesjs 3">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue</title><link>https://jiyongcheng.dev/post/laravel-inertia-reload-page-when-click-link/</link><pubDate>Mon, 29 Jul 2024 09:38:05 +1000</pubDate><guid>https://jiyongcheng.dev/post/laravel-inertia-reload-page-when-click-link/</guid><description>&lt;p>&lt;img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&amp;amp;w=3872&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;ixlib=rb-4.0.3&amp;amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue">&lt;/p>
+&lt;p>One common issue developers face when working with Laravel Inertia and Vue.js is page reloads when clicking links in the menu. This typically happens when the Inertia &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component is not used correctly. In this article, we&amp;rsquo;ll explore why this happens and how to fix it with a practical example.&lt;/p>
+&lt;h2 id="why-do-page-reloads-happen">Why Do Page Reloads Happen?&lt;/h2>
+&lt;p>When using Inertia.js to build single-page applications (SPAs), the navigation should be smooth and seamless without full page reloads. However, if you use standard HTML anchor (&lt;code>&amp;lt;a&amp;gt;&lt;/code>) tags instead of Inertia&amp;rsquo;s &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component, Inertia cannot intercept the link clicks, resulting in full page reloads.&lt;/p>
+&lt;h2 id="how-to-fix-page-reloads">How to Fix Page Reloads&lt;/h2>
+&lt;p>To prevent page reloads, you need to replace standard anchor tags with Inertia&amp;rsquo;s &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component. Here&amp;rsquo;s a step-by-step guide to achieve this in a Laravel Inertia project using Vue.js and PrimeVue components.&lt;/p>
+&lt;h3 id="step-1-install-and-set-up-inertiajs">Step 1: Install and Set Up Inertia.js&lt;/h3>
+&lt;p>If you haven&amp;rsquo;t already, install Inertia.js and its dependencies.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Install the server-side adapter&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">composer require inertiajs/inertia-laravel
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>Install the client-side adapter&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">npm install @inertiajs/inertia @inertiajs/inertia-vue3
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>&lt;strong>Add Inertia middleware in &lt;code>app/Http/Kernel.php&lt;/code>&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="s1">&amp;#39;web&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="nx">\App\Http\Middleware\HandleInertiaRequests&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="c1">// other middleware...
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="4">
+&lt;li>&lt;strong>Create the middleware&lt;/strong>:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">php artisan inertia:middleware
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="step-2-set-up-your-views-and-components">Step 2: Set Up Your Views and Components&lt;/h3>
+&lt;p>1.&lt;strong>App Layout (Blade file)&lt;/strong>&lt;/p>
+&lt;p>In your &lt;code>resources/views/app.blade.php&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Inertia App&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+@vite(&amp;#39;resources/js/app.js&amp;#39;)
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+@inertia
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>App Initialization (JavaScript)&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>In your &lt;code>resources/js/app.js&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">createApp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">h&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;vue&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">createInertiaApp&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">InertiaProgress&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/progress&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">createInertiaApp&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;span class="nx">resolve&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sb">`./Pages/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">),&lt;/span>
+&lt;span class="nx">setup&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">el&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">app&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">props&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">plugin&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">createApp&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">render&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">h&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">props&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">plugin&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">.&lt;/span>&lt;span class="nx">mount&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">el&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">});&lt;/span>
+&lt;span class="nx">InertiaProgress&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">init&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="step-3-create-page-components">Step 3: Create Page Components&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Home Page Component (Vue)&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Create &lt;code>resources/js/Pages/Home.vue&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-vue" data-lang="vue">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Home&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/about&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Go&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">About&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">Link&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">setup&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">Link&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>About Page Component (Vue)&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Create &lt;code>resources/js/Pages/About.vue&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-vue" data-lang="vue">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">About&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Go&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">Home&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">Link&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">setup&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">Link&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="step-4-define-routes">Step 4: Define Routes&lt;/h3>
+&lt;p>In your &lt;code>routes/web.php&lt;/code>, define routes for the pages:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">
+&lt;span class="k">use&lt;/span> &lt;span class="nx">Inertia\Inertia&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">Route&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">Inertia&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Home&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">});&lt;/span>
+&lt;span class="nx">Route&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/about&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="nx">Inertia&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;About&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;span class="p">});&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you have &lt;code>AppMenuItem.vue&lt;/code> file in your &lt;code>resourses/js/primevue/layout/&lt;/code> folder, you will need to do:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">import { Link } from &amp;#39;@inertiajs/vue3&amp;#39;;
+&amp;lt;template&amp;gt;
+&amp;lt;li :class=&amp;#34;{ &amp;#39;layout-root-menuitem&amp;#39;: root, &amp;#39;active-menuitem&amp;#39;: isActiveMenu }&amp;#34;&amp;gt;
+&amp;lt;div v-if=&amp;#34;root &amp;amp;&amp;amp; item.visible !== false&amp;#34; class=&amp;#34;layout-menuitem-root-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/div&amp;gt;
+&amp;lt;Link v-if=&amp;#34;(!item.to || item.items) &amp;amp;&amp;amp; item.visible !== false&amp;#34; :href=&amp;#34;item.url&amp;#34; @click=&amp;#34;itemClick($event, item, index)&amp;#34; :class=&amp;#34;item.class&amp;#34; :target=&amp;#34;item.target&amp;#34; tabindex=&amp;#34;0&amp;#34;&amp;gt;
+&amp;lt;i :class=&amp;#34;item.icon&amp;#34; class=&amp;#34;layout-menuitem-icon&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
+&amp;lt;span class=&amp;#34;layout-menuitem-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/span&amp;gt;
+&amp;lt;i class=&amp;#34;pi pi-fw pi-angle-down layout-submenu-toggler&amp;#34; v-if=&amp;#34;item.items&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
+&amp;lt;/Link&amp;gt;
+&amp;lt;Link v-if=&amp;#34;item.to &amp;amp;&amp;amp; !item.items &amp;amp;&amp;amp; item.visible !== false&amp;#34; :href=&amp;#34;item.to&amp;#34; :class=&amp;#34;[item.class, { &amp;#39;active-route&amp;#39;: $page.url === item.to }]&amp;#34;&amp;gt;
+&amp;lt;i :class=&amp;#34;item.icon&amp;#34; class=&amp;#34;layout-menuitem-icon&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
+&amp;lt;span class=&amp;#34;layout-menuitem-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/span&amp;gt;
+&amp;lt;i class=&amp;#34;pi pi-fw pi-angle-down layout-submenu-toggler&amp;#34; v-if=&amp;#34;item.items&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
+&amp;lt;/Link&amp;gt;
+&amp;lt;Transition v-if=&amp;#34;item.items &amp;amp;&amp;amp; item.visible !== false&amp;#34; name=&amp;#34;layout-submenu&amp;#34;&amp;gt;
+&amp;lt;ul v-show=&amp;#34;root ? true : isActiveMenu&amp;#34; class=&amp;#34;layout-submenu&amp;#34;&amp;gt;
+&amp;lt;app-menu-item v-for=&amp;#34;(child, i) in item.items&amp;#34; :key=&amp;#34;child&amp;#34; :index=&amp;#34;i&amp;#34; :item=&amp;#34;child&amp;#34; :parentItemKey=&amp;#34;itemKey&amp;#34; :root=&amp;#34;false&amp;#34;&amp;gt;&amp;lt;/app-menu-item&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;/Transition&amp;gt;
+&amp;lt;/li&amp;gt;
+&amp;lt;/template&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="conclusion">Conclusion&lt;/h3>
+&lt;p>By replacing standard anchor tags with Inertia&amp;rsquo;s &lt;Link> component, you can ensure smooth navigation without full page reloads in your Laravel Inertia application. This approach leverages the power of Inertia.js to create a seamless SPA experience, enhancing user experience and performance.&lt;/p>
+&lt;p>Implement these changes in your project, and enjoy a smoother, more responsive application!&lt;/p></description></item><item><title>What's the Best Way to Study Vue.js 3?</title><link>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</link><pubDate>Sun, 28 Jul 2024 10:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</guid><description>&lt;p>&lt;img src="https://media.istockphoto.com/id/1322201800/photo/digitally-enhanced-shot-of-an-attractive-businesswoman-using-a-laptop-superimposed-over.jpg?s=2048x2048&amp;amp;w=is&amp;amp;k=20&amp;amp;c=NOPgckD3q0q2zbhYuOi3tX7CPyjp0ILEqkrvvNOYQjA=" alt="Stduy Vuesjs 3">&lt;/p>
 &lt;h1 id="whats-the-best-way-to-study-vuejs-3">What&amp;rsquo;s the Best Way to Study Vue.js 3?&lt;/h1>
 &lt;p>Vue.js 3 is a powerful JavaScript framework for building user interfaces and single-page applications. Whether you&amp;rsquo;re a beginner or an experienced developer, finding the best way to study Vue.js 3 can significantly impact your learning curve and project success. In this article, we&amp;rsquo;ll explore the most effective strategies, resources, and tips to master Vue.js 3.&lt;/p>
 &lt;h2 id="why-learn-vuejs-3">Why Learn Vue.js 3?&lt;/h2>
@@ -1401,28 +1665,4 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/tbody>
 &lt;/table>
 &lt;h2 class="cols-3" id="how-to-stop-indexing">How to stop indexing&lt;/h2>
-&lt;p>System Settings -&amp;gt; Synchronize external changes when switching to the IDE window or opening an editor tab&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
-&lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
-&lt;blockquote>
-&lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
-warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
-info Installing the app&amp;hellip;
-Task :app:installDebug FAILED&lt;/p>
-&lt;/blockquote>
-&lt;p>Then I realized the another issue prompted:
-&lt;code>/bin/sh: adb: command not found&lt;/code>&lt;/p>
-&lt;h2 id="how-to-solve">How to solve&lt;/h2>
-&lt;p>After googling, I got answer:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ANDROID_HOME&lt;/span>&lt;span class="o">=&lt;/span>/Users/aaron/Library/Android/sdk
-&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/platform-tools:&lt;span class="nv">$PATH&lt;/span>
-&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item></channel></rss>
+&lt;p>System Settings -&amp;gt; Synchronize external changes when switching to the IDE window or opening an editor tab&lt;/p></description></item></channel></rss>

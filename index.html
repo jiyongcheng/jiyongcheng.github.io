@@ -149,6 +149,301 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/laravel-inertia-reload-page-when-click-link/>How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue</a>
+</h1>
+<div class=post-meta>
+<time datetime=2024-07-29 class=post-time>
+2024-07-29
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/web-development/> Web Development </a>
+<a href=https://jiyongcheng.dev/categories/javascript/> JavaScript </a>
+<a href=https://jiyongcheng.dev/categories/php/> PHP </a>
+</div>
+<span class=more-meta> 617 words </span>
+<span class=more-meta> 3 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue"></p>
+<p>One common issue developers face when working with Laravel Inertia and Vue.js is page reloads when clicking links in the menu. This typically happens when the Inertia <code>&lt;Link></code> component is not used correctly. In this article, we&rsquo;ll explore why this happens and how to fix it with a practical example.</p>
+<h2 id=why-do-page-reloads-happen>Why Do Page Reloads Happen?</h2>
+<p>When using Inertia.js to build single-page applications (SPAs), the navigation should be smooth and seamless without full page reloads. However, if you use standard HTML anchor (<code>&lt;a></code>) tags instead of Inertia&rsquo;s <code>&lt;Link></code> component, Inertia cannot intercept the link clicks, resulting in full page reloads.</p>
+<h2 id=how-to-fix-page-reloads>How to Fix Page Reloads</h2>
+<p>To prevent page reloads, you need to replace standard anchor tags with Inertia&rsquo;s <code>&lt;Link></code> component. Here&rsquo;s a step-by-step guide to achieve this in a Laravel Inertia project using Vue.js and PrimeVue components.</p>
+<h3 id=step-1-install-and-set-up-inertiajs>Step 1: Install and Set Up Inertia.js</h3>
+<p>If you haven&rsquo;t already, install Inertia.js and its dependencies.</p>
+<ol>
+<li><strong>Install the server-side adapter</strong>:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>composer require inertiajs/inertia-laravel
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li><strong>Install the client-side adapter</strong>:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install @inertiajs/inertia @inertiajs/inertia-vue3
+</code></pre></td></tr></table>
+</div>
+</div><ol start=3>
+<li><strong>Add Inertia middleware in <code>app/Http/Kernel.php</code></strong>:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;web&#39;</span> <span class=o>=&gt;</span> <span class=p>[</span>
+    <span class=nx>\App\Http\Middleware\HandleInertiaRequests</span><span class=o>::</span><span class=na>class</span><span class=p>,</span>
+    <span class=c1>// other middleware...
+</span><span class=c1></span><span class=p>],</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start=4>
+<li><strong>Create the middleware</strong>:</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan inertia:middleware
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=step-2-set-up-your-views-and-components>Step 2: Set Up Your Views and Components</h3>
+<p>1.<strong>App Layout (Blade file)</strong></p>
+<p>In your <code>resources/views/app.blade.php</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=cp>&lt;!DOCTYPE html&gt;</span>
+<span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;viewport&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;width=device-width, initial-scale=1.0&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Inertia App<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+    @vite(&#39;resources/js/app.js&#39;)
+<span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+    @inertia
+<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li><strong>App Initialization (JavaScript)</strong></li>
+</ol>
+<p>In your <code>resources/js/app.js</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>import</span> <span class=p>{</span> <span class=nx>createApp</span><span class=p>,</span> <span class=nx>h</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;vue&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>createInertiaApp</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>InertiaProgress</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/progress&#39;</span><span class=p>;</span>
+
+<span class=nx>createInertiaApp</span><span class=p>({</span>
+    <span class=nx>resolve</span><span class=o>:</span> <span class=nx>name</span> <span class=p>=&gt;</span> <span class=nx>require</span><span class=p>(</span><span class=sb>`./Pages/</span><span class=si>${</span><span class=nx>name</span><span class=si>}</span><span class=sb>`</span><span class=p>),</span>
+    <span class=nx>setup</span><span class=p>({</span> <span class=nx>el</span><span class=p>,</span> <span class=nx>app</span><span class=p>,</span> <span class=nx>props</span><span class=p>,</span> <span class=nx>plugin</span> <span class=p>})</span> <span class=p>{</span>
+        <span class=nx>createApp</span><span class=p>({</span> <span class=nx>render</span><span class=o>:</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>h</span><span class=p>(</span><span class=nx>app</span><span class=p>,</span> <span class=nx>props</span><span class=p>)</span> <span class=p>})</span>
+            <span class=p>.</span><span class=nx>use</span><span class=p>(</span><span class=nx>plugin</span><span class=p>)</span>
+            <span class=p>.</span><span class=nx>mount</span><span class=p>(</span><span class=nx>el</span><span class=p>)</span>
+    <span class=p>},</span>
+<span class=p>});</span>
+
+<span class=nx>InertiaProgress</span><span class=p>.</span><span class=nx>init</span><span class=p>();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=step-3-create-page-components>Step 3: Create Page Components</h3>
+<ol>
+<li><strong>Home Page Component (Vue)</strong></li>
+</ol>
+<p>Create <code>resources/js/Pages/Home.vue</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-vue data-lang=vue><span class=p>&lt;</span><span class=nt>template</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span><span class=nx>Home</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>Link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/about&#34;</span><span class=p>&gt;</span><span class=nx>Go</span> <span class=nx>to</span> <span class=nx>About</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>Link</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>template</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span> <span class=na>setup</span><span class=p>&gt;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>Link</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start=2>
+<li><strong>About Page Component (Vue)</strong></li>
+</ol>
+<p>Create <code>resources/js/Pages/About.vue</code>:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-vue data-lang=vue><span class=p>&lt;</span><span class=nt>template</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span><span class=nx>About</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>Link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/&#34;</span><span class=p>&gt;</span><span class=nx>Go</span> <span class=nx>to</span> <span class=nx>Home</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>Link</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>template</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>script</span> <span class=na>setup</span><span class=p>&gt;</span>
+<span class=kr>import</span> <span class=p>{</span> <span class=nx>Link</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=step-4-define-routes>Step 4: Define Routes</h3>
+<p>In your <code>routes/web.php</code>, define routes for the pages:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-php data-lang=php>
+<span class=k>use</span> <span class=nx>Inertia\Inertia</span><span class=p>;</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>Inertia</span><span class=o>::</span><span class=na>render</span><span class=p>(</span><span class=s1>&#39;Home&#39;</span><span class=p>);</span>
+<span class=p>});</span>
+
+<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/about&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
+    <span class=k>return</span> <span class=nx>Inertia</span><span class=o>::</span><span class=na>render</span><span class=p>(</span><span class=s1>&#39;About&#39;</span><span class=p>);</span>
+<span class=p>});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>If you have <code>AppMenuItem.vue</code> file in your <code>resourses/js/primevue/layout/</code> folder, you will need to do:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>import { Link } from &#39;@inertiajs/vue3&#39;;
+
+&lt;template&gt;
+    &lt;li :class=&#34;{ &#39;layout-root-menuitem&#39;: root, &#39;active-menuitem&#39;: isActiveMenu }&#34;&gt;
+        &lt;div v-if=&#34;root &amp;&amp; item.visible !== false&#34; class=&#34;layout-menuitem-root-text&#34;&gt;{{ item.label }}&lt;/div&gt;
+        &lt;Link v-if=&#34;(!item.to || item.items) &amp;&amp; item.visible !== false&#34; :href=&#34;item.url&#34; @click=&#34;itemClick($event, item, index)&#34; :class=&#34;item.class&#34; :target=&#34;item.target&#34; tabindex=&#34;0&#34;&gt;
+            &lt;i :class=&#34;item.icon&#34; class=&#34;layout-menuitem-icon&#34;&gt;&lt;/i&gt;
+            &lt;span class=&#34;layout-menuitem-text&#34;&gt;{{ item.label }}&lt;/span&gt;
+            &lt;i class=&#34;pi pi-fw pi-angle-down layout-submenu-toggler&#34; v-if=&#34;item.items&#34;&gt;&lt;/i&gt;
+        &lt;/Link&gt;
+        &lt;Link v-if=&#34;item.to &amp;&amp; !item.items &amp;&amp; item.visible !== false&#34; :href=&#34;item.to&#34;  :class=&#34;[item.class, { &#39;active-route&#39;: $page.url === item.to }]&#34;&gt;
+            &lt;i :class=&#34;item.icon&#34; class=&#34;layout-menuitem-icon&#34;&gt;&lt;/i&gt;
+            &lt;span class=&#34;layout-menuitem-text&#34;&gt;{{ item.label }}&lt;/span&gt;
+            &lt;i class=&#34;pi pi-fw pi-angle-down layout-submenu-toggler&#34; v-if=&#34;item.items&#34;&gt;&lt;/i&gt;
+        &lt;/Link&gt;
+        &lt;Transition v-if=&#34;item.items &amp;&amp; item.visible !== false&#34; name=&#34;layout-submenu&#34;&gt;
+            &lt;ul v-show=&#34;root ? true : isActiveMenu&#34; class=&#34;layout-submenu&#34;&gt;
+                &lt;app-menu-item v-for=&#34;(child, i) in item.items&#34; :key=&#34;child&#34; :index=&#34;i&#34; :item=&#34;child&#34; :parentItemKey=&#34;itemKey&#34; :root=&#34;false&#34;&gt;&lt;/app-menu-item&gt;
+            &lt;/ul&gt;
+        &lt;/Transition&gt;
+    &lt;/li&gt;
+&lt;/template&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=conclusion>Conclusion</h3>
+<p>By replacing standard anchor tags with Inertia&rsquo;s <link> component, you can ensure smooth navigation without full page reloads in your Laravel Inertia application. This approach leverages the power of Inertia.js to create a seamless SPA experience, enhancing user experience and performance.</p>
+<p>Implement these changes in your project, and enjoy a smoother, more responsive application!</p>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/what-is-the-best-way-to-study-vuejs3/>What's the Best Way to Study Vue.js 3?</a>
 </h1>
 <div class=post-meta>
@@ -632,44 +927,6 @@ Queue after removing third element: []
 </ul>
 <h3 id=结论>结论</h3>
 <p>通过合理的饮食习惯，我们可以显著降低心脏病的风险，保护心脏健康。希望这些建议对您有所帮助。</p>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/sublime/>Sublime</a>
-</h1>
-<div class=post-meta>
-<time datetime=2022-10-07 class=post-time>
-2022-10-07
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/tool/> tool </a>
-</div>
-<span class=more-meta> 39 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h1 id=column-selection>Column selection</h1>
-<p>Column selection can be used to select a rectangular area of a file.</p>
-<h2 id=mac>Mac</h2>
-<h3 id=using-mouse>Using mouse</h3>
-<pre><code>Left Mouse Button + ⌥
-
-OR: Middle Mouse Button
-
-Add to selection: ⌘
-
-Subtract from selection: ⇧+⌘
-</code></pre>
-<h3 id=using-keyboard>Using keyboard</h3>
-<pre><code>Ctrl+Shift+⬆
-
-Ctrl+Shift+⬇
-</code></pre>
 </div>
 </div>
 </article>

@@ -149,6 +149,44 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
+<a class=post-link href=/post/sublime/>Sublime</a>
+</h1>
+<div class=post-meta>
+<time datetime=2022-10-07 class=post-time>
+2022-10-07
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/tool/> tool </a>
+</div>
+<span class=more-meta> 39 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=column-selection>Column selection</h1>
+<p>Column selection can be used to select a rectangular area of a file.</p>
+<h2 id=mac>Mac</h2>
+<h3 id=using-mouse>Using mouse</h3>
+<pre><code>Left Mouse Button + ⌥
+
+OR: Middle Mouse Button
+
+Add to selection: ⌘
+
+Subtract from selection: ⇧+⌘
+</code></pre>
+<h3 id=using-keyboard>Using keyboard</h3>
+<pre><code>Ctrl+Shift+⬆
+
+Ctrl+Shift+⬇
+</code></pre>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
 <a class=post-link href=/post/general/>General</a>
 </h1>
 <div class=post-meta>
@@ -431,55 +469,6 @@ git push origin -u quickfix
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/upstream-downstream/>Upstream and Downstream</a>
-</h1>
-<div class=post-meta>
-<time datetime=2021-10-28 class=post-time>
-2021-10-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/system-design/> system-design </a>
-</div>
-<span class=more-meta> 161 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<p>In the <code>LNMP</code> development process, we often configure the nginx, and we will set similar like this</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>upstream php-fpm <span class=o>{</span>
-    server php-fpm:9000<span class=p>;</span>
-<span class=o>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>and I want to know what does <code>upstream</code> here mean.</p>
-<p><img src=/image/stream.drawio.svg alt="Up stream and Down stream"></p>
-<p>So basically it&rsquo;s about dependency, the <code>Nginx</code> server depend on <code>PHP</code> server to return back data. So <code>PHP</code> server is upstream of <code>Nginx</code>.</p>
-<p>The <code>Browser</code> is depending on the <code>Nginx</code> server to return back data, so <code>Nginx</code> server is <code>upstream</code> of <code>Browser</code>.</p>
-<p>On the other hand, <code>Browser</code> is <code>downstream</code> of <code>Nginx</code> server, because the data from <code>Nginx</code> will flow into the <code>Browser</code>, same as <code>PHP</code>, <code>DB</code>.</p>
-<blockquote>
-<p>A production process is very similar to a river, so it’s easy to grasp that as the process goes from one step to the next, we’re moving downstream.</p>
-</blockquote>
-<blockquote>
-<p>We can deduct the following rules:</p>
-<ul>
-<li>Dependency Rule: each item depends on all the items upstream from its viewpoint</li>
-<li>Value Rule: moving downstream, each step adds more value to the product</li>
-</ul>
-</blockquote>
 </div>
 </div>
 </article>
