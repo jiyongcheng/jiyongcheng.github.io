@@ -149,573 +149,194 @@ See the world
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/laravel-inertia-reload-page-when-click-link/>How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue</a>
+<a class=post-link href=/post/sublime/>Sublime</a>
 </h1>
 <div class=post-meta>
-<time datetime=2024-07-29 class=post-time>
-2024-07-29
+<time datetime=2022-10-07 class=post-time>
+2022-10-07
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/web-development/> Web Development </a>
-<a href=https://jiyongcheng.dev/categories/javascript/> JavaScript </a>
-<a href=https://jiyongcheng.dev/categories/php/> PHP </a>
+<a href=https://jiyongcheng.dev/categories/tool/> tool </a>
 </div>
-<span class=more-meta> 617 words </span>
-<span class=more-meta> 3 min read </span>
+<span class=more-meta> 39 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<p><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue"></p>
-<p>One common issue developers face when working with Laravel Inertia and Vue.js is page reloads when clicking links in the menu. This typically happens when the Inertia <code>&lt;Link></code> component is not used correctly. In this article, we&rsquo;ll explore why this happens and how to fix it with a practical example.</p>
-<h2 id=why-do-page-reloads-happen>Why Do Page Reloads Happen?</h2>
-<p>When using Inertia.js to build single-page applications (SPAs), the navigation should be smooth and seamless without full page reloads. However, if you use standard HTML anchor (<code>&lt;a></code>) tags instead of Inertia&rsquo;s <code>&lt;Link></code> component, Inertia cannot intercept the link clicks, resulting in full page reloads.</p>
-<h2 id=how-to-fix-page-reloads>How to Fix Page Reloads</h2>
-<p>To prevent page reloads, you need to replace standard anchor tags with Inertia&rsquo;s <code>&lt;Link></code> component. Here&rsquo;s a step-by-step guide to achieve this in a Laravel Inertia project using Vue.js and PrimeVue components.</p>
-<h3 id=step-1-install-and-set-up-inertiajs>Step 1: Install and Set Up Inertia.js</h3>
-<p>If you haven&rsquo;t already, install Inertia.js and its dependencies.</p>
-<ol>
-<li><strong>Install the server-side adapter</strong>:</li>
-</ol>
+<h1 id=column-selection>Column selection</h1>
+<p>Column selection can be used to select a rectangular area of a file.</p>
+<h2 id=mac>Mac</h2>
+<h3 id=using-mouse>Using mouse</h3>
+<pre><code>Left Mouse Button + ⌥
+
+OR: Middle Mouse Button
+
+Add to selection: ⌘
+
+Subtract from selection: ⇧+⌘
+</code></pre>
+<h3 id=using-keyboard>Using keyboard</h3>
+<pre><code>Ctrl+Shift+⬆
+
+Ctrl+Shift+⬇
+</code></pre>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/general/>Off By One</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-12-08 class=post-time>
+2021-12-08
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
+</div>
+<span class=more-meta> 318 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>For the general programming knowledge.</p>
+<h2 id=off-by-one-溢出>Off-By-One [溢出]</h2>
+<ul>
+<li>严格来说，off-by-one是一种特殊的溢出漏洞，off-by-one指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。</li>
+<li>off-by-one，是指单字节缓冲区溢出，这种漏洞的产生往往与边界验证不严和字符串操作有关，也不排除写入的size正好就只多了一个字节的情况。</li>
+<li>一般认为，单字节溢出是难以利用的，但是因为Linux的堆管理机制ptmalloc验证的松散性，基于Linux堆的off-by-one漏洞利用起来并不复杂，并且威力强大。</li>
+<li>off-by-one是可以基于各种缓冲区的，比如栈、bss段等等，但是堆上（heap based）的off-by-one是CTF中比较常见的。</li>
+</ul>
+</div>
+</div>
+</article>
+<article class="post bg-white">
+<header class=post-header>
+<h1 class=post-title>
+<a class=post-link href=/post/postgresql-questions/>Postgresql Questions</a>
+</h1>
+<div class=post-meta>
+<time datetime=2021-12-08 class=post-time>
+2021-12-08
+</time>
+<div class=post-category>
+<a href=https://jiyongcheng.dev/categories/db/> DB </a>
+</div>
+<span class=more-meta> 260 words </span>
+<span class=more-meta> 2 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I try to list out the questions during working on Postgresql here for the future reference.</p>
+<h2 id=how-to-convert-date-string-to-timestamp-in-postgresql>How to convert date string to timestamp in postgresql?</h2>
+<p>Use function <a href=https://www.postgresqltutorial.com/postgresql-to_timestamp/>TO_TIMESTAMP</a></p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>composer require inertiajs/inertia-laravel
-</code></pre></td></tr></table>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>SELECT</span><span class=w> </span><span class=n>TO_TIMESTAMP</span><span class=p>(</span><span class=s1>&#39;2017-03-31 9:30:20&#39;</span><span class=p>,</span><span class=s1>&#39;YYYY-MM-DD HH:MI:SS&#39;</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=c1>-- it will return as following:
+</span><span class=c1></span><span class=mi>2017</span><span class=o>-</span><span class=mi>03</span><span class=o>-</span><span class=mi>31</span><span class=w> </span><span class=mi>09</span><span class=p>:</span><span class=mi>30</span><span class=p>:</span><span class=mi>20</span><span class=p>.</span><span class=mi>000000</span><span class=w>
+</span></code></pre></td></tr></table>
 </div>
-</div><ol start=2>
-<li><strong>Install the client-side adapter</strong>:</li>
-</ol>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install @inertiajs/inertia @inertiajs/inertia-vue3
-</code></pre></td></tr></table>
-</div>
-</div><ol start=3>
-<li><strong>Add Inertia middleware in <code>app/Http/Kernel.php</code></strong>:</li>
-</ol>
+</div><h2 id=how-to-return-a-string-value-from-jsonb-in-postgresql>How to return a string value from jsonb in Postgresql?</h2>
+<p>Use <code>jsonb->>key</code> operator, be carefuly if you use <code>jsonb->key</code> it will return back <code>jsonb</code> type, not a string.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=s1>&#39;web&#39;</span> <span class=o>=&gt;</span> <span class=p>[</span>
-    <span class=nx>\App\Http\Middleware\HandleInertiaRequests</span><span class=o>::</span><span class=na>class</span><span class=p>,</span>
-    <span class=c1>// other middleware...
-</span><span class=c1></span><span class=p>],</span>
-</code></pre></td></tr></table>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>select</span><span class=w> </span><span class=s1>&#39;{
+</span><span class=s1>  &#34;first_name&#34;: &#34;Adam&#34;,
+</span><span class=s1>  &#34;last_name&#34;: &#34;Smith&#34;,
+</span><span class=s1>  &#34;created_at&#34;: &#34;2021-12-07 03:08:57&#34;,
+</span><span class=s1>  &#34;updated_at&#34;: &#34;2021-12-07 03:09:00&#34;
+</span><span class=s1>}&#39;</span><span class=p>::</span><span class=n>jsonb</span><span class=o>-&gt;&gt;</span><span class=s1>&#39;first_name&#39;</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=c1>-- it will return `Adam`
+</span></code></pre></td></tr></table>
 </div>
-</div><ol start=4>
-<li><strong>Create the middleware</strong>:</li>
-</ol>
+</div><h2 id=can-i-extract-the-info-from-jsonb-in-postgresql>Can I extract the info from jsonb in postgresql?</h2>
+<p><code>jsonb_extract_path ( from_json jsonb, VARIADIC path_elems text[] ) → jsonb</code></p>
+<p>Extracts JSON sub-object at the specified path. (This is functionally equivalent to the #> operator, but writing the path out as a variadic list can be more convenient in some cases.)</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>php artisan inertia:middleware
-</code></pre></td></tr></table>
+<pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=n>json_extract_path</span><span class=p>(</span><span class=s1>&#39;{&#34;f2&#34;:{&#34;f3&#34;:1},&#34;f4&#34;:{&#34;f5&#34;:99,&#34;f6&#34;:&#34;foo&#34;}}&#39;</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;f4&#39;</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;f6&#39;</span><span class=p>)</span><span class=w> </span><span class=err>→</span><span class=w> </span><span class=s2>&#34;foo&#34;</span><span class=w>
+</span></code></pre></td></tr></table>
 </div>
-</div><h3 id=step-2-set-up-your-views-and-components>Step 2: Set Up Your Views and Components</h3>
-<p>1.<strong>App Layout (Blade file)</strong></p>
-<p>In your <code>resources/views/app.blade.php</code>:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=cp>&lt;!DOCTYPE html&gt;</span>
-<span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;viewport&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;width=device-width, initial-scale=1.0&#34;</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Inertia App<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
-    @vite(&#39;resources/js/app.js&#39;)
-<span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
-<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
-    @inertia
-<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
-<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=2>
-<li><strong>App Initialization (JavaScript)</strong></li>
-</ol>
-<p>In your <code>resources/js/app.js</code>:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=kr>import</span> <span class=p>{</span> <span class=nx>createApp</span><span class=p>,</span> <span class=nx>h</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;vue&#39;</span><span class=p>;</span>
-<span class=kr>import</span> <span class=p>{</span> <span class=nx>createInertiaApp</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
-<span class=kr>import</span> <span class=p>{</span> <span class=nx>InertiaProgress</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/progress&#39;</span><span class=p>;</span>
-
-<span class=nx>createInertiaApp</span><span class=p>({</span>
-    <span class=nx>resolve</span><span class=o>:</span> <span class=nx>name</span> <span class=p>=&gt;</span> <span class=nx>require</span><span class=p>(</span><span class=sb>`./Pages/</span><span class=si>${</span><span class=nx>name</span><span class=si>}</span><span class=sb>`</span><span class=p>),</span>
-    <span class=nx>setup</span><span class=p>({</span> <span class=nx>el</span><span class=p>,</span> <span class=nx>app</span><span class=p>,</span> <span class=nx>props</span><span class=p>,</span> <span class=nx>plugin</span> <span class=p>})</span> <span class=p>{</span>
-        <span class=nx>createApp</span><span class=p>({</span> <span class=nx>render</span><span class=o>:</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=nx>h</span><span class=p>(</span><span class=nx>app</span><span class=p>,</span> <span class=nx>props</span><span class=p>)</span> <span class=p>})</span>
-            <span class=p>.</span><span class=nx>use</span><span class=p>(</span><span class=nx>plugin</span><span class=p>)</span>
-            <span class=p>.</span><span class=nx>mount</span><span class=p>(</span><span class=nx>el</span><span class=p>)</span>
-    <span class=p>},</span>
-<span class=p>});</span>
-
-<span class=nx>InertiaProgress</span><span class=p>.</span><span class=nx>init</span><span class=p>();</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=step-3-create-page-components>Step 3: Create Page Components</h3>
-<ol>
-<li><strong>Home Page Component (Vue)</strong></li>
-</ol>
-<p>Create <code>resources/js/Pages/Home.vue</code>:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-vue data-lang=vue><span class=p>&lt;</span><span class=nt>template</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
-        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span><span class=nx>Home</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
-        <span class=p>&lt;</span><span class=nt>Link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/about&#34;</span><span class=p>&gt;</span><span class=nx>Go</span> <span class=nx>to</span> <span class=nx>About</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>Link</span><span class=p>&gt;</span>
-    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-<span class=p>&lt;/</span><span class=nt>template</span><span class=p>&gt;</span>
-
-<span class=p>&lt;</span><span class=nt>script</span> <span class=na>setup</span><span class=p>&gt;</span>
-<span class=kr>import</span> <span class=p>{</span> <span class=nx>Link</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
-<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ol start=2>
-<li><strong>About Page Component (Vue)</strong></li>
-</ol>
-<p>Create <code>resources/js/Pages/About.vue</code>:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-vue data-lang=vue><span class=p>&lt;</span><span class=nt>template</span><span class=p>&gt;</span>
-    <span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
-        <span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span><span class=nx>About</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
-        <span class=p>&lt;</span><span class=nt>Link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/&#34;</span><span class=p>&gt;</span><span class=nx>Go</span> <span class=nx>to</span> <span class=nx>Home</span> <span class=nx>Page</span><span class=p>&lt;/</span><span class=nt>Link</span><span class=p>&gt;</span>
-    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-<span class=p>&lt;/</span><span class=nt>template</span><span class=p>&gt;</span>
-
-<span class=p>&lt;</span><span class=nt>script</span> <span class=na>setup</span><span class=p>&gt;</span>
-<span class=kr>import</span> <span class=p>{</span> <span class=nx>Link</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;@inertiajs/inertia-vue3&#39;</span><span class=p>;</span>
-<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=step-4-define-routes>Step 4: Define Routes</h3>
-<p>In your <code>routes/web.php</code>, define routes for the pages:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-php data-lang=php>
-<span class=k>use</span> <span class=nx>Inertia\Inertia</span><span class=p>;</span>
-
-<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nx>Inertia</span><span class=o>::</span><span class=na>render</span><span class=p>(</span><span class=s1>&#39;Home&#39;</span><span class=p>);</span>
-<span class=p>});</span>
-
-<span class=nx>Route</span><span class=o>::</span><span class=na>get</span><span class=p>(</span><span class=s1>&#39;/about&#39;</span><span class=p>,</span> <span class=k>function</span> <span class=p>()</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=nx>Inertia</span><span class=o>::</span><span class=na>render</span><span class=p>(</span><span class=s1>&#39;About&#39;</span><span class=p>);</span>
-<span class=p>});</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>If you have <code>AppMenuItem.vue</code> file in your <code>resourses/js/primevue/layout/</code> folder, you will need to do:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>import { Link } from &#39;@inertiajs/vue3&#39;;
-
-&lt;template&gt;
-    &lt;li :class=&#34;{ &#39;layout-root-menuitem&#39;: root, &#39;active-menuitem&#39;: isActiveMenu }&#34;&gt;
-        &lt;div v-if=&#34;root &amp;&amp; item.visible !== false&#34; class=&#34;layout-menuitem-root-text&#34;&gt;{{ item.label }}&lt;/div&gt;
-        &lt;Link v-if=&#34;(!item.to || item.items) &amp;&amp; item.visible !== false&#34; :href=&#34;item.url&#34; @click=&#34;itemClick($event, item, index)&#34; :class=&#34;item.class&#34; :target=&#34;item.target&#34; tabindex=&#34;0&#34;&gt;
-            &lt;i :class=&#34;item.icon&#34; class=&#34;layout-menuitem-icon&#34;&gt;&lt;/i&gt;
-            &lt;span class=&#34;layout-menuitem-text&#34;&gt;{{ item.label }}&lt;/span&gt;
-            &lt;i class=&#34;pi pi-fw pi-angle-down layout-submenu-toggler&#34; v-if=&#34;item.items&#34;&gt;&lt;/i&gt;
-        &lt;/Link&gt;
-        &lt;Link v-if=&#34;item.to &amp;&amp; !item.items &amp;&amp; item.visible !== false&#34; :href=&#34;item.to&#34;  :class=&#34;[item.class, { &#39;active-route&#39;: $page.url === item.to }]&#34;&gt;
-            &lt;i :class=&#34;item.icon&#34; class=&#34;layout-menuitem-icon&#34;&gt;&lt;/i&gt;
-            &lt;span class=&#34;layout-menuitem-text&#34;&gt;{{ item.label }}&lt;/span&gt;
-            &lt;i class=&#34;pi pi-fw pi-angle-down layout-submenu-toggler&#34; v-if=&#34;item.items&#34;&gt;&lt;/i&gt;
-        &lt;/Link&gt;
-        &lt;Transition v-if=&#34;item.items &amp;&amp; item.visible !== false&#34; name=&#34;layout-submenu&#34;&gt;
-            &lt;ul v-show=&#34;root ? true : isActiveMenu&#34; class=&#34;layout-submenu&#34;&gt;
-                &lt;app-menu-item v-for=&#34;(child, i) in item.items&#34; :key=&#34;child&#34; :index=&#34;i&#34; :item=&#34;child&#34; :parentItemKey=&#34;itemKey&#34; :root=&#34;false&#34;&gt;&lt;/app-menu-item&gt;
-            &lt;/ul&gt;
-        &lt;/Transition&gt;
-    &lt;/li&gt;
-&lt;/template&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=conclusion>Conclusion</h3>
-<p>By replacing standard anchor tags with Inertia&rsquo;s <link> component, you can ensure smooth navigation without full page reloads in your Laravel Inertia application. This approach leverages the power of Inertia.js to create a seamless SPA experience, enhancing user experience and performance.</p>
-<p>Implement these changes in your project, and enjoy a smoother, more responsive application!</p>
+</div><h2 id=how-to-put-log-in-stored-procedures>How to put log in stored procedures?</h2>
+<p>You need to change the config file <code>postgresql.conf</code> and set <code>log_min_messages = notice</code>, there are some options you can choose, check the config file.</p>
+<h2 id=is-not-null-work-with-composite-type-data>IS NOT NULL work with composite type data</h2>
+<p>If you have a value something that is a composite type, for example a row of a table, something <code>IS NOT NULL</code> is only true if none of the attributes of the composite are NULL.
+<a href=https://www.postgresonline.com/journal/archives/373-Composite-data-types-why-IS-NOT-NULL-is-not-the-same-as-NOT-IS-NULL.html>check more details here</a></p>
+<h2 id=how-to-save-24hours-time-format>How to save 24hours time format</h2>
+<p>if you see some error like this <code>Postgresql ERROR: hour "16" is invalid for the 12-hour clock</code>
+you could do this <code>TO_TIMESTAMP(i_test_date ->> 'created_at', 'YYYY-MM-DD HH24:MI:SS')</code> to save the time as 24hours format</p>
 </div>
 </div>
 </article>
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/what-is-the-best-way-to-study-vuejs3/>What's the Best Way to Study Vue.js 3?</a>
+<a class=post-link href=/post/git-command/>Git Commands</a>
 </h1>
 <div class=post-meta>
-<time datetime=2024-07-28 class=post-time>
-2024-07-28
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/web-development/> Web Development </a>
-<a href=https://jiyongcheng.dev/categories/javascript/> JavaScript </a>
+<a href=https://jiyongcheng.dev/categories/devops/> DevOps </a>
 </div>
-<span class=more-meta> 559 words </span>
-<span class=more-meta> 3 min read </span>
+<span class=more-meta> 123 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<p><img src="https://media.istockphoto.com/id/1322201800/photo/digitally-enhanced-shot-of-an-attractive-businesswoman-using-a-laptop-superimposed-over.jpg?s=2048x2048&w=is&k=20&c=NOPgckD3q0q2zbhYuOi3tX7CPyjp0ILEqkrvvNOYQjA=" alt="Stduy Vuesjs 3"></p>
-<h1 id=whats-the-best-way-to-study-vuejs-3>What&rsquo;s the Best Way to Study Vue.js 3?</h1>
-<p>Vue.js 3 is a powerful JavaScript framework for building user interfaces and single-page applications. Whether you&rsquo;re a beginner or an experienced developer, finding the best way to study Vue.js 3 can significantly impact your learning curve and project success. In this article, we&rsquo;ll explore the most effective strategies, resources, and tips to master Vue.js 3.</p>
-<h2 id=why-learn-vuejs-3>Why Learn Vue.js 3?</h2>
-<p>Before diving into the learning methods, it&rsquo;s essential to understand why Vue.js 3 is worth your time:</p>
+<h2 id=git-commands>Git commands</h2>
+<p>list some commands often being used:</p>
+<h2 id=delete-branch>Delete branch</h2>
 <ul>
-<li><strong>Ease of Use</strong>: Vue.js is known for its gentle learning curve and simple syntax.</li>
-<li><strong>Performance</strong>: Vue.js 3 introduces significant performance improvements.</li>
-<li><strong>Community and Ecosystem</strong>: A vibrant community and a rich ecosystem of tools and libraries.</li>
-<li><strong>Flexibility</strong>: Suitable for small projects and large-scale applications.</li>
+<li>Deleting local branches</li>
 </ul>
-<h2 id=step-by-step-guide-to-learning-vuejs-3>Step-by-Step Guide to Learning Vue.js 3</h2>
-<h3 id=1-understand-the-basics-of-javascript>1. Understand the Basics of JavaScript</h3>
-<p>Since Vue.js is a JavaScript framework, having a solid understanding of JavaScript fundamentals is crucial. Make sure you&rsquo;re comfortable with:</p>
-<ul>
-<li>Variables and Data Types</li>
-<li>Functions and Scope</li>
-<li>DOM Manipulation</li>
-<li>ES6+ Features</li>
-</ul>
-<h3 id=2-official-documentation>2. Official Documentation</h3>
-<p>The <a href=https://v3.vuejs.org/>official Vue.js 3 documentation</a> is the best place to start. It provides comprehensive and up-to-date information about all aspects of the framework.</p>
-<h3 id=3-online-courses-and-tutorials>3. Online Courses and Tutorials</h3>
-<p>Consider enrolling in online courses that offer structured learning paths. Some highly recommended platforms include:</p>
-<ul>
-<li><strong>Udemy</strong>: Courses like &ldquo;Vue JS 3 - The Complete Guide (incl. Router & Composition API)&rdquo; by Maximilian Schwarzmüller.</li>
-<li><strong>Coursera</strong>: Courses from renowned universities and institutions.</li>
-<li><strong>Pluralsight</strong>: In-depth courses for different skill levels.</li>
-</ul>
-<h3 id=4-build-projects>4. Build Projects</h3>
-<p>Applying what you&rsquo;ve learned through projects is one of the most effective ways to solidify your knowledge. Start with simple projects like a to-do list app and gradually move to more complex applications.</p>
-<h4 id=example-project-to-do-list-app>Example Project: To-Do List App</h4>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=o>&lt;</span><span class=nx>template</span><span class=o>&gt;</span>
-  <span class=o>&lt;</span><span class=nx>div</span> <span class=nx>id</span><span class=o>=</span><span class=s2>&#34;app&#34;</span><span class=o>&gt;</span>
-    <span class=o>&lt;</span><span class=nx>h1</span><span class=o>&gt;</span><span class=nx>Vue</span><span class=p>.</span><span class=nx>js</span> <span class=mi>3</span> <span class=nx>To</span><span class=o>-</span><span class=nx>Do</span> <span class=nx>List</span><span class=o>&lt;</span><span class=err>/h1&gt;</span>
-    <span class=o>&lt;</span><span class=nx>input</span> <span class=nx>v</span><span class=o>-</span><span class=nx>model</span><span class=o>=</span><span class=s2>&#34;newTodo&#34;</span> <span class=err>@</span><span class=nx>keyup</span><span class=p>.</span><span class=nx>enter</span><span class=o>=</span><span class=s2>&#34;addTodo&#34;</span> <span class=nx>placeholder</span><span class=o>=</span><span class=s2>&#34;Add a new task&#34;</span> <span class=o>/&gt;</span>
-    <span class=o>&lt;</span><span class=nx>ul</span><span class=o>&gt;</span>
-      <span class=o>&lt;</span><span class=nx>li</span> <span class=nx>v</span><span class=o>-</span><span class=k>for</span><span class=o>=</span><span class=s2>&#34;todo in todos&#34;</span> <span class=o>:</span><span class=nx>key</span><span class=o>=</span><span class=s2>&#34;todo.id&#34;</span><span class=o>&gt;</span>
-        <span class=p>{{</span> <span class=nx>todo</span><span class=p>.</span><span class=nx>text</span> <span class=p>}}</span>
-        <span class=o>&lt;</span><span class=nx>button</span> <span class=err>@</span><span class=nx>click</span><span class=o>=</span><span class=s2>&#34;removeTodo(todo.id)&#34;</span><span class=o>&gt;</span><span class=nx>X</span><span class=o>&lt;</span><span class=err>/button&gt;</span>
-      <span class=o>&lt;</span><span class=err>/li&gt;</span>
-    <span class=o>&lt;</span><span class=err>/ul&gt;</span>
-  <span class=o>&lt;</span><span class=err>/div&gt;</span>
-<span class=o>&lt;</span><span class=err>/template&gt;</span>
-
-<span class=o>&lt;</span><span class=nx>script</span><span class=o>&gt;</span>
-<span class=kr>export</span> <span class=k>default</span> <span class=p>{</span>
-  <span class=nx>data</span><span class=p>()</span> <span class=p>{</span>
-    <span class=k>return</span> <span class=p>{</span>
-      <span class=nx>newTodo</span><span class=o>:</span> <span class=s1>&#39;&#39;</span><span class=p>,</span>
-      <span class=nx>todos</span><span class=o>:</span> <span class=p>[]</span>
-    <span class=p>}</span>
-  <span class=p>},</span>
-  <span class=nx>methods</span><span class=o>:</span> <span class=p>{</span>
-    <span class=nx>addTodo</span><span class=p>()</span> <span class=p>{</span>
-      <span class=k>if</span> <span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>newTodo</span><span class=p>.</span><span class=nx>trim</span><span class=p>()</span> <span class=o>===</span> <span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
-      <span class=k>this</span><span class=p>.</span><span class=nx>todos</span><span class=p>.</span><span class=nx>push</span><span class=p>({</span> <span class=nx>id</span><span class=o>:</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>(),</span> <span class=nx>text</span><span class=o>:</span> <span class=k>this</span><span class=p>.</span><span class=nx>newTodo</span> <span class=p>});</span>
-      <span class=k>this</span><span class=p>.</span><span class=nx>newTodo</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
-    <span class=p>},</span>
-    <span class=nx>removeTodo</span><span class=p>(</span><span class=nx>id</span><span class=p>)</span> <span class=p>{</span>
-      <span class=k>this</span><span class=p>.</span><span class=nx>todos</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>todos</span><span class=p>.</span><span class=nx>filter</span><span class=p>(</span><span class=nx>todo</span> <span class=p>=&gt;</span> <span class=nx>todo</span><span class=p>.</span><span class=nx>id</span> <span class=o>!==</span> <span class=nx>id</span><span class=p>);</span>
-    <span class=p>}</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-<span class=o>&lt;</span><span class=err>/script&gt;</span>
-
-<span class=o>&lt;</span><span class=nx>style</span><span class=o>&gt;</span>
-<span class=err>#</span><span class=nx>app</span> <span class=p>{</span>
-  <span class=nx>font</span><span class=o>-</span><span class=nx>family</span><span class=o>:</span> <span class=nx>Avenir</span><span class=p>,</span> <span class=nx>Helvetica</span><span class=p>,</span> <span class=nx>Arial</span><span class=p>,</span> <span class=nx>sans</span><span class=o>-</span><span class=nx>serif</span><span class=p>;</span>
-  <span class=nx>text</span><span class=o>-</span><span class=nx>align</span><span class=o>:</span> <span class=nx>center</span><span class=p>;</span>
-  <span class=nx>margin</span><span class=o>-</span><span class=nx>top</span><span class=o>:</span> <span class=mi>60</span><span class=nx>px</span><span class=p>;</span>
-<span class=p>}</span>
-<span class=o>&lt;</span><span class=err>/style&gt;</span>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git branch -d feature/add-new-feature
 </code></pre></td></tr></table>
 </div>
-</div><ol start=5>
-<li>Join the Community
-Participating in the Vue.js community can provide additional support and resources. Consider joining:</li>
-</ol>
-<p>Forums: Vue Forum, Stack Overflow.
-Social Media: Twitter, Reddit.
-Meetups and Conferences: Vue.js meetups, VueConf.
-6. Read Books and Articles
-There are several excellent books and articles available for deep diving into Vue.js 3:</p>
-<p>Books: &ldquo;The Vue.js 3 Cookbook&rdquo; by Heitor Ramon Ribeiro, &ldquo;Fullstack Vue&rdquo; by Hassan Djirdeh, Nate Murray, and Ari Lerner.
-Blogs: Vue Mastery, Alligator.io, Vue.js Developers.
-Conclusion
-Learning Vue.js 3 can open many doors in web development, from building small interactive components to creating full-fledged applications. By following these strategies and utilizing the recommended resources, you&rsquo;ll be well on your way to mastering Vue.js 3.</p>
-<p>Happy coding!</p>
-<p>By implementing these steps and continuously practicing, you&rsquo;ll gain a solid understanding of Vue.js 3 and be able to create impressive web applications.</p>
-</div>
-</div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/what-is-fifo-in-computer/>What is FIFO in Computer Science? An Easy-to-Understand Example</a>
-</h1>
-<div class=post-meta>
-<time datetime=2024-07-28 class=post-time>
-2024-07-28
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/technology/> Technology </a>
-<a href=https://jiyongcheng.dev/categories/programming/> Programming </a>
-<a href=https://jiyongcheng.dev/categories/computer-science/> Computer Science </a>
-</div>
-<span class=more-meta> 671 words </span>
-<span class=more-meta> 4 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h3 id=understanding-fifo>Understanding FIFO</h3>
-<p>FIFO stands for &ldquo;First In, First Out.&rdquo; It&rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.</p>
-<h3 id=fifo-in-data-structures>FIFO in Data Structures</h3>
-<p>In data structures, FIFO is typically implemented using a <strong>queue</strong>. A queue is a linear structure where elements are added at one end, called the rear, and removed from the other end, called the front. This structure ensures that the order of processing is maintained, providing a predictable and organized way to manage data.</p>
-<h3 id=real-world-example-queue-at-a-grocery-store>Real-World Example: Queue at a Grocery Store</h3>
-<p>To make FIFO easier to understand, let&rsquo;s consider a real-world example: a queue at a grocery store checkout. Here&rsquo;s how FIFO works in this scenario:</p>
-<ol>
-<li><strong>Arrival</strong>: Customers arrive at the checkout line. The first customer to arrive joins the front of the queue.</li>
-<li><strong>Waiting</strong>: As more customers arrive, they join the queue at the rear, waiting for their turn.</li>
-<li><strong>Service</strong>: The cashier serves the customer at the front of the queue first.</li>
-<li><strong>Departure</strong>: Once served, the customer leaves the queue, and the next customer in line moves to the front.</li>
-<li><strong>Continuity</strong>: This process continues, ensuring that customers are served in the order they arrived.</li>
-</ol>
-<h3 id=fifo-in-computer-science-example-with-a-print-queue>FIFO in Computer Science: Example with a Print Queue</h3>
-<p>Imagine you have a print queue where documents are lined up to be printed. Here&rsquo;s how FIFO works in this scenario:</p>
-<ol>
-<li>
-<p><strong>Adding Documents</strong>: You send three documents (Doc1, Doc2, Doc3) to the printer.</p>
-<ul>
-<li>Doc1 is added to the print queue first.</li>
-<li>Doc2 is added next.</li>
-<li>Doc3 is added last.</li>
+</div><ul>
+<li>Deleting remote branches in Git</li>
 </ul>
-</li>
-<li>
-<p><strong>Processing Documents</strong>: The printer processes the documents in the order they were added.</p>
-<ul>
-<li>Doc1 is printed first because it was the first to enter the queue.</li>
-<li>Doc2 is printed next.</li>
-<li>Doc3 is printed last.</li>
-</ul>
-</li>
-</ol>
-<p>This orderly processing ensures that documents are printed in the exact sequence they were queued, maintaining fairness and predictability.</p>
-<h3 id=code-example-fifo-using-a-queue-in-python>Code Example: FIFO Using a Queue in Python</h3>
-<p>Let&rsquo;s look at a simple Python example to illustrate how FIFO works using a queue:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
+<pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>deque</span>
-
-<span class=c1># Create a queue</span>
-<span class=n>queue</span> <span class=o>=</span> <span class=n>deque</span><span class=p>()</span>
-
-<span class=c1># Add elements to the queue</span>
-<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc1&#39;</span><span class=p>)</span>
-<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc2&#39;</span><span class=p>)</span>
-<span class=n>queue</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s1>&#39;Doc3&#39;</span><span class=p>)</span>
-
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after adding elements:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
-
-<span class=c1># Remove elements from the queue in FIFO order</span>
-<span class=n>first</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>first</span><span class=p>)</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing first element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
-
-<span class=n>second</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>second</span><span class=p>)</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing second element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
-
-<span class=n>third</span> <span class=o>=</span> <span class=n>queue</span><span class=o>.</span><span class=n>popleft</span><span class=p>()</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Removed:&#34;</span><span class=p>,</span> <span class=n>third</span><span class=p>)</span>
-<span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Queue after removing third element:&#34;</span><span class=p>,</span> <span class=nb>list</span><span class=p>(</span><span class=n>queue</span><span class=p>))</span>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash> git push origin --delete feature/add-new-feature
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=explanation-of-the-code>Explanation of the Code:</h3>
-<ol>
-<li><strong>Importing <code>deque</code></strong>: We use the <code>deque</code> class from the <code>collections</code> module to create a queue.</li>
-<li><strong>Creating the Queue</strong>: We initialize an empty queue.</li>
-<li><strong>Adding Elements</strong>: We add three documents (Doc1, Doc2, Doc3) to the queue.</li>
-<li><strong>Removing Elements</strong>: We remove elements from the queue one by one using the <code>popleft()</code> method, which ensures that elements are removed in the order they were added.</li>
-</ol>
-<p>Output:</p>
+</div><h2 id=change-branch-name>Change branch name</h2>
+<ul>
+<li>change name of local branch</li>
+</ul>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -726,207 +347,128 @@ Learning Vue.js 3 can open many doors in web development, from building small in
 </span><span class=lnt>6
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Queue after adding elements: [&#39;Doc1&#39;, &#39;Doc2&#39;, &#39;Doc3&#39;]
-Removed: Doc1
-Queue after removing first element: [&#39;Doc2&#39;, &#39;Doc3&#39;]
-Removed: Doc2
-Queue after removing second element: [&#39;Doc3&#39;]
-Queue after removing third element: []
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git checkout &lt;branch&gt;
+git branch -m &lt;new_branch_name&gt;
+
+<span class=c1>##example</span>
+git checkout feature
+git branch -m quickfix
 </code></pre></td></tr></table>
 </div>
-</div><p>This output demonstrates how FIFO works, with elements being removed in the same order they were added.</p>
-<h3 id=conclusion>Conclusion</h3>
-<p>FIFO is a fundamental concept in computer science that ensures orderly processing of data. Whether it&rsquo;s managing a queue of tasks, handling print jobs, or organizing network packets, FIFO provides a straightforward and predictable way to manage data flow. Understanding FIFO and its applications can help you design more efficient and reliable systems.</p>
-<hr>
-<p>By following the FIFO principle, you can ensure that your applications handle data in a fair and orderly manner, providing a better user experience and more predictable performance.</p>
+</div><ul>
+<li>change name of remote branch
+<ul>
+<li>you have to change branch name locally first</li>
+<li>then do the following:</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git push &lt;remote&gt; :&lt;old_branch_name&gt; &lt;new_branch_name&gt;
+
+<span class=c1>#you have to set the upstream branch for the newly created branch using the “git upstream” command.</span>
+git push &lt;remote&gt; -u &lt;new_branch_name&gt;
+
+git push origin :feature quickfix
+git push origin -u quickfix
+<span class=c1>## example</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </article>
 <article class="post bg-white">
 <header class=post-header>
 <h1 class=post-title>
-<a class=post-link href=/post/how-to-turn-off-windows-update/>如何关闭 Windows 更新功能</a>
+<a class=post-link href=/post/convert-sqlite-to-mysql/>Convert Sqlite to Mysql</a>
 </h1>
 <div class=post-meta>
-<time datetime=2024-07-27 class=post-time>
-2024-07-27
+<time datetime=2021-10-28 class=post-time>
+2021-10-28
 </time>
 <div class=post-category>
-<a href=https://jiyongcheng.dev/categories/%E6%8A%80%E6%9C%AF/> 技术 </a>
-<a href=https://jiyongcheng.dev/categories/windows/> Windows </a>
+<a href=https://jiyongcheng.dev/categories/db/> DB </a>
 </div>
-<span class=more-meta> 1027 words </span>
-<span class=more-meta> 3 min read </span>
+<span class=more-meta> 119 words </span>
+<span class=more-meta> 1 min read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-<h2 id=如何关闭-windows-更新功能详细指南>如何关闭 Windows 更新功能：详细指南</h2>
-<h3 id=前言>前言</h3>
-<p>Windows 更新可以帮助您的电脑保持最新，确保安全和性能。但是，有时候您可能需要暂时关闭这些更新，避免在关键时刻被打断。本篇博客将为您详细介绍如何关闭 Windows 更新功能。</p>
-<h3 id=方法一通过设置关闭更新>方法一：通过设置关闭更新</h3>
-<p>这是最简单的方法，可以通过 Windows 设置来暂停更新。</p>
-<ol>
-<li>
-<p><strong>打开设置：</strong></p>
+<h2 id=is-it-possible-to-convert-sqlite-to-mysql-as-is>Is it possible to convert SQLite to MySQL &ldquo;as is&rdquo;?</h2>
+<p>Probably the quick and easiest way to convert SQLite to MySQL includes two general steps:</p>
 <ul>
-<li>按下 <code>Win + I</code> 键打开设置，或点击开始菜单并选择设置。</li>
+<li>Export SQLite database to dump file using SQLite .dump command.</li>
 </ul>
-</li>
-<li>
-<p><strong>选择“更新和安全”：</strong></p>
-<ul>
-<li>在设置界面中，找到并点击“更新和安全”选项。</li>
-</ul>
-</li>
-<li>
-<p><strong>暂停更新：</strong></p>
-<ul>
-<li>在“Windows 更新”选项卡中，点击“暂停更新”按钮。您可以选择暂停更新的时间段，最长可以暂停35天。</li>
-</ul>
-</li>
-</ol>
-<h3 id=方法二通过服务管理器关闭更新>方法二：通过服务管理器关闭更新</h3>
-<p>此方法通过禁用 Windows Update 服务来彻底关闭更新。</p>
-<ol>
-<li>
-<p><strong>打开服务管理器：</strong></p>
-<ul>
-<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>services.msc</code> 并按回车键。</li>
-</ul>
-</li>
-<li>
-<p><strong>找到 Windows Update 服务：</strong></p>
-<ul>
-<li>在服务管理器中，向下滚动找到“Windows Update”服务。</li>
-</ul>
-</li>
-<li>
-<p><strong>禁用服务：</strong></p>
-<ul>
-<li>右键点击“Windows Update”服务，选择“属性”。</li>
-<li>在“启动类型”下拉菜单中选择“禁用”，然后点击“停止”按钮以停止该服务。</li>
-<li>点击“应用”并“确定”以保存更改。</li>
-</ul>
-</li>
-</ol>
-<h3 id=方法三通过组策略编辑器关闭更新仅适用于专业版和企业版>方法三：通过组策略编辑器关闭更新（仅适用于专业版和企业版）</h3>
-<p>组策略编辑器可以提供更高级的控制选项。</p>
-<ol>
-<li>
-<p><strong>打开组策略编辑器：</strong></p>
-<ul>
-<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>gpedit.msc</code> 并按回车键。</li>
-</ul>
-</li>
-<li>
-<p><strong>导航到 Windows 更新设置：</strong></p>
-<ul>
-<li>依次展开“计算机配置” -> “管理模板” -> “Windows 组件” -> “Windows 更新”。</li>
-</ul>
-</li>
-<li>
-<p><strong>配置自动更新：</strong></p>
-<ul>
-<li>双击“配置自动更新”选项。</li>
-<li>在弹出的窗口中，选择“已禁用”选项，然后点击“应用”并“确定”。</li>
-</ul>
-</li>
-</ol>
-<h3 id=方法四通过注册表编辑器关闭更新>方法四：通过注册表编辑器关闭更新</h3>
-<p>这种方法适用于对系统有较深入了解的用户，修改注册表存在一定风险，请谨慎操作。</p>
-<ol>
-<li>
-<p><strong>打开注册表编辑器：</strong></p>
-<ul>
-<li>按下 <code>Win + R</code> 键打开运行对话框，输入 <code>regedit</code> 并按回车键。</li>
-</ul>
-</li>
-<li>
-<p><strong>导航到 Windows 更新设置：</strong></p>
-<ul>
-<li>依次展开 <code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows</code>。</li>
-<li>右键点击“Windows”文件夹，选择“新建” -> “项”，命名为“WindowsUpdate”。</li>
-<li>右键点击“WindowsUpdate”文件夹，选择“新建” -> “项”，命名为“AU”。</li>
-</ul>
-</li>
-<li>
-<p><strong>创建 NoAutoUpdate 键：</strong></p>
-<ul>
-<li>选择“AU”文件夹，右键点击右侧空白处，选择“新建” -> “DWORD（32位）值”。</li>
-<li>将新值命名为“NoAutoUpdate”，双击它并将值数据设为“1”。</li>
-</ul>
-</li>
-</ol>
-<h3 id=结论>结论</h3>
-<p>以上几种方法都可以帮助您关闭 Windows 更新功能，您可以根据自己的需求选择最合适的方法。请注意，禁用更新可能会使您的系统错过重要的安全补丁，建议在完成关键任务后尽快恢复更新。</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sqlite3 sample.db .dump &gt; dump.sql
+</code></pre></td></tr></table>
 </div>
+</div><ul>
+<li>You can then (in theory) import SQLite dump into the MySQL database.</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mysql -p -u root -h 127.0.0.1 <span class=nb>test</span> &lt; dump.sql
+</code></pre></td></tr></table>
 </div>
-</article>
-<article class="post bg-white">
-<header class=post-header>
-<h1 class=post-title>
-<a class=post-link href=/post/how-to-protect-your-heart-through-diet/>如何通过饮食保护心脏</a>
-</h1>
-<div class=post-meta>
-<time datetime=2024-07-27 class=post-time>
-2024-07-27
-</time>
-<div class=post-category>
-<a href=https://jiyongcheng.dev/categories/health/> Health </a>
-<a href=https://jiyongcheng.dev/categories/nutrition/> Nutrition </a>
-</div>
-<span class=more-meta> 571 words </span>
-<span class=more-meta> 2 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<h2 id=如何通过饮食保护心脏全面指南>如何通过饮食保护心脏：全面指南</h2>
-<p><img src="https://plus.unsplash.com/premium_photo-1661964396038-24ff4ca56699?q=80&w=3740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt=健康食物></p>
-<h3 id=前言>前言</h3>
-<p>心脏健康是我们整体健康的重要组成部分。通过饮食，我们可以有效地保护心脏，降低心脏病的风险。本文将介绍几种有助于心脏健康的饮食习惯和食物选择。</p>
-<h3 id=1-多吃富含纤维的食物>1. 多吃富含纤维的食物</h3>
-<p>纤维有助于降低胆固醇水平，保持心血管系统的健康。</p>
-<ul>
-<li><strong>全谷物</strong>：燕麦、糙米、全麦面包。</li>
-<li><strong>水果和蔬菜</strong>：苹果、梨、胡萝卜、西兰花。</li>
-</ul>
-<h3 id=2-增加健康脂肪的摄入>2. 增加健康脂肪的摄入</h3>
-<p>健康脂肪可以降低坏胆固醇，增加好胆固醇。</p>
-<ul>
-<li><strong>坚果和种子</strong>：杏仁、核桃、亚麻籽、奇亚籽。</li>
-<li><strong>鱼类</strong>：鲑鱼、沙丁鱼、鲭鱼，这些鱼类富含omega-3脂肪酸。</li>
-</ul>
-<h3 id=3-限制饱和脂肪和反式脂肪>3. 限制饱和脂肪和反式脂肪</h3>
-<p>这些不健康的脂肪会增加心脏病的风险。</p>
-<ul>
-<li><strong>避免的食物</strong>：加工食品、炸薯条、糕点、快餐。</li>
-</ul>
-<h3 id=4-控制盐的摄入量>4. 控制盐的摄入量</h3>
-<p>过多的盐会导致高血压，从而增加心脏病的风险。</p>
-<ul>
-<li><strong>减少盐的来源</strong>：少吃咸菜、酱油、加工食品。</li>
-<li><strong>使用香草和香料</strong>：用香草和香料代替盐来调味。</li>
-</ul>
-<h3 id=5-多吃富含抗氧化剂的食物>5. 多吃富含抗氧化剂的食物</h3>
-<p>抗氧化剂有助于保护心脏免受自由基的损伤。</p>
-<ul>
-<li><strong>水果和蔬菜</strong>：蓝莓、草莓、菠菜、甘蓝。</li>
-<li><strong>其他食物</strong>：黑巧克力、绿茶。</li>
-</ul>
-<h3 id=6-选择低脂蛋白质来源>6. 选择低脂蛋白质来源</h3>
-<p>低脂蛋白质有助于维持肌肉质量，减少心脏的负担。</p>
-<ul>
-<li><strong>优质蛋白质</strong>：鸡肉、鱼、豆类、豆腐。</li>
-</ul>
-<h3 id=7-控制酒精摄入>7. 控制酒精摄入</h3>
-<p>适量饮酒可以保护心脏，但过量饮酒会增加风险。</p>
-<ul>
-<li><strong>适度饮酒</strong>：男性每天不超过2杯，女性每天不超过1杯。</li>
-</ul>
-<h3 id=结论>结论</h3>
-<p>通过合理的饮食习惯，我们可以显著降低心脏病的风险，保护心脏健康。希望这些建议对您有所帮助。</p>
+</div><p>&ldquo;In theory&rdquo; means that solution wouldn&rsquo;t work as there are a few differences in grammars between MySQL and SQLite.</p>
+<p>There are just some differences between SQLite and MySQL syntax</p>
+<table>
+<thead>
+<tr>
+<th>SQLite</th>
+<th>MySQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUTOINCREMENT</td>
+<td>AUTO_INCREMENT</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>varchars</td>
+</tr>
+<tr>
+<td>double quotes (" &ldquo;)</td>
+<td>backticks (` `)</td>
+</tr>
+<tr>
+<td><code>BEGIN TRANSACTION; COMMIT;</code></td>
+<td><code> BEGIN; COMMIT</code></td>
+</tr>
+<tr>
+<td>CLOB</td>
+<td>TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT</td>
+</tr>
+<tr>
+<td>PRAGMA foreign_keys=OFF;</td>
+<td>SET FOREIGN_KEY_CHECKS=0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </article>
@@ -941,9 +483,6 @@ Queue after removing third element: []
 </li>
 <li>
 <a href=/page/3/>3</a>
-</li>
-<li>
-<a href=/page/4/>4</a>
 </li>
 </ul>
 </nav>

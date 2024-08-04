@@ -1,656 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue</title><link>https://jiyongcheng.dev/post/laravel-inertia-reload-page-when-click-link/</link><pubDate>Mon, 29 Jul 2024 09:38:05 +1000</pubDate><guid>https://jiyongcheng.dev/post/laravel-inertia-reload-page-when-click-link/</guid><description>&lt;p>&lt;img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&amp;amp;w=3872&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;ixlib=rb-4.0.3&amp;amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="How to Prevent Page Reloads in Laravel Inertia with Vue.js and PrimeVue">&lt;/p>
-&lt;p>One common issue developers face when working with Laravel Inertia and Vue.js is page reloads when clicking links in the menu. This typically happens when the Inertia &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component is not used correctly. In this article, we&amp;rsquo;ll explore why this happens and how to fix it with a practical example.&lt;/p>
-&lt;h2 id="why-do-page-reloads-happen">Why Do Page Reloads Happen?&lt;/h2>
-&lt;p>When using Inertia.js to build single-page applications (SPAs), the navigation should be smooth and seamless without full page reloads. However, if you use standard HTML anchor (&lt;code>&amp;lt;a&amp;gt;&lt;/code>) tags instead of Inertia&amp;rsquo;s &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component, Inertia cannot intercept the link clicks, resulting in full page reloads.&lt;/p>
-&lt;h2 id="how-to-fix-page-reloads">How to Fix Page Reloads&lt;/h2>
-&lt;p>To prevent page reloads, you need to replace standard anchor tags with Inertia&amp;rsquo;s &lt;code>&amp;lt;Link&amp;gt;&lt;/code> component. Here&amp;rsquo;s a step-by-step guide to achieve this in a Laravel Inertia project using Vue.js and PrimeVue components.&lt;/p>
-&lt;h3 id="step-1-install-and-set-up-inertiajs">Step 1: Install and Set Up Inertia.js&lt;/h3>
-&lt;p>If you haven&amp;rsquo;t already, install Inertia.js and its dependencies.&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Install the server-side adapter&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">composer require inertiajs/inertia-laravel
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="2">
-&lt;li>&lt;strong>Install the client-side adapter&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">npm install @inertiajs/inertia @inertiajs/inertia-vue3
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="3">
-&lt;li>&lt;strong>Add Inertia middleware in &lt;code>app/Http/Kernel.php&lt;/code>&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">&lt;span class="s1">&amp;#39;web&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="p">[&lt;/span>
-&lt;span class="nx">\App\Http\Middleware\HandleInertiaRequests&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="c1">// other middleware...
-&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="p">],&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="4">
-&lt;li>&lt;strong>Create the middleware&lt;/strong>:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">php artisan inertia:middleware
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="step-2-set-up-your-views-and-components">Step 2: Set Up Your Views and Components&lt;/h3>
-&lt;p>1.&lt;strong>App Layout (Blade file)&lt;/strong>&lt;/p>
-&lt;p>In your &lt;code>resources/views/app.blade.php&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span class="na">content&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Inertia App&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-@vite(&amp;#39;resources/js/app.js&amp;#39;)
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-@inertia
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="2">
-&lt;li>&lt;strong>App Initialization (JavaScript)&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;p>In your &lt;code>resources/js/app.js&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">createApp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">h&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;vue&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">createInertiaApp&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">InertiaProgress&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/progress&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="nx">createInertiaApp&lt;/span>&lt;span class="p">({&lt;/span>
-&lt;span class="nx">resolve&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sb">`./Pages/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">),&lt;/span>
-&lt;span class="nx">setup&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">el&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">app&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">props&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">plugin&lt;/span> &lt;span class="p">})&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nx">createApp&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">render&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">h&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">props&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">})&lt;/span>
-&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">plugin&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">.&lt;/span>&lt;span class="nx">mount&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">el&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="p">});&lt;/span>
-&lt;span class="nx">InertiaProgress&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">init&lt;/span>&lt;span class="p">();&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="step-3-create-page-components">Step 3: Create Page Components&lt;/h3>
-&lt;ol>
-&lt;li>&lt;strong>Home Page Component (Vue)&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;p>Create &lt;code>resources/js/Pages/Home.vue&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-vue" data-lang="vue">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Home&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/about&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Go&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">About&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">Link&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">setup&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">Link&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="2">
-&lt;li>&lt;strong>About Page Component (Vue)&lt;/strong>&lt;/li>
-&lt;/ol>
-&lt;p>Create &lt;code>resources/js/Pages/About.vue&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-vue" data-lang="vue">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">About&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">Link&lt;/span> &lt;span class="na">href&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Go&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">Home&lt;/span> &lt;span class="nx">Page&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">Link&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">script&lt;/span> &lt;span class="na">setup&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="kr">import&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">Link&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;@inertiajs/inertia-vue3&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">script&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="step-4-define-routes">Step 4: Define Routes&lt;/h3>
-&lt;p>In your &lt;code>routes/web.php&lt;/code>, define routes for the pages:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-php" data-lang="php">
-&lt;span class="k">use&lt;/span> &lt;span class="nx">Inertia\Inertia&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="nx">Route&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="nx">Inertia&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Home&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;span class="p">});&lt;/span>
-&lt;span class="nx">Route&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/about&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">function&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="nx">Inertia&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="na">render&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;About&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;span class="p">});&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>If you have &lt;code>AppMenuItem.vue&lt;/code> file in your &lt;code>resourses/js/primevue/layout/&lt;/code> folder, you will need to do:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">import { Link } from &amp;#39;@inertiajs/vue3&amp;#39;;
-&amp;lt;template&amp;gt;
-&amp;lt;li :class=&amp;#34;{ &amp;#39;layout-root-menuitem&amp;#39;: root, &amp;#39;active-menuitem&amp;#39;: isActiveMenu }&amp;#34;&amp;gt;
-&amp;lt;div v-if=&amp;#34;root &amp;amp;&amp;amp; item.visible !== false&amp;#34; class=&amp;#34;layout-menuitem-root-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/div&amp;gt;
-&amp;lt;Link v-if=&amp;#34;(!item.to || item.items) &amp;amp;&amp;amp; item.visible !== false&amp;#34; :href=&amp;#34;item.url&amp;#34; @click=&amp;#34;itemClick($event, item, index)&amp;#34; :class=&amp;#34;item.class&amp;#34; :target=&amp;#34;item.target&amp;#34; tabindex=&amp;#34;0&amp;#34;&amp;gt;
-&amp;lt;i :class=&amp;#34;item.icon&amp;#34; class=&amp;#34;layout-menuitem-icon&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
-&amp;lt;span class=&amp;#34;layout-menuitem-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/span&amp;gt;
-&amp;lt;i class=&amp;#34;pi pi-fw pi-angle-down layout-submenu-toggler&amp;#34; v-if=&amp;#34;item.items&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
-&amp;lt;/Link&amp;gt;
-&amp;lt;Link v-if=&amp;#34;item.to &amp;amp;&amp;amp; !item.items &amp;amp;&amp;amp; item.visible !== false&amp;#34; :href=&amp;#34;item.to&amp;#34; :class=&amp;#34;[item.class, { &amp;#39;active-route&amp;#39;: $page.url === item.to }]&amp;#34;&amp;gt;
-&amp;lt;i :class=&amp;#34;item.icon&amp;#34; class=&amp;#34;layout-menuitem-icon&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
-&amp;lt;span class=&amp;#34;layout-menuitem-text&amp;#34;&amp;gt;{{ item.label }}&amp;lt;/span&amp;gt;
-&amp;lt;i class=&amp;#34;pi pi-fw pi-angle-down layout-submenu-toggler&amp;#34; v-if=&amp;#34;item.items&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;
-&amp;lt;/Link&amp;gt;
-&amp;lt;Transition v-if=&amp;#34;item.items &amp;amp;&amp;amp; item.visible !== false&amp;#34; name=&amp;#34;layout-submenu&amp;#34;&amp;gt;
-&amp;lt;ul v-show=&amp;#34;root ? true : isActiveMenu&amp;#34; class=&amp;#34;layout-submenu&amp;#34;&amp;gt;
-&amp;lt;app-menu-item v-for=&amp;#34;(child, i) in item.items&amp;#34; :key=&amp;#34;child&amp;#34; :index=&amp;#34;i&amp;#34; :item=&amp;#34;child&amp;#34; :parentItemKey=&amp;#34;itemKey&amp;#34; :root=&amp;#34;false&amp;#34;&amp;gt;&amp;lt;/app-menu-item&amp;gt;
-&amp;lt;/ul&amp;gt;
-&amp;lt;/Transition&amp;gt;
-&amp;lt;/li&amp;gt;
-&amp;lt;/template&amp;gt;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="conclusion">Conclusion&lt;/h3>
-&lt;p>By replacing standard anchor tags with Inertia&amp;rsquo;s &lt;Link> component, you can ensure smooth navigation without full page reloads in your Laravel Inertia application. This approach leverages the power of Inertia.js to create a seamless SPA experience, enhancing user experience and performance.&lt;/p>
-&lt;p>Implement these changes in your project, and enjoy a smoother, more responsive application!&lt;/p></description></item><item><title>What's the Best Way to Study Vue.js 3?</title><link>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</link><pubDate>Sun, 28 Jul 2024 10:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-the-best-way-to-study-vuejs3/</guid><description>&lt;p>&lt;img src="https://media.istockphoto.com/id/1322201800/photo/digitally-enhanced-shot-of-an-attractive-businesswoman-using-a-laptop-superimposed-over.jpg?s=2048x2048&amp;amp;w=is&amp;amp;k=20&amp;amp;c=NOPgckD3q0q2zbhYuOi3tX7CPyjp0ILEqkrvvNOYQjA=" alt="Stduy Vuesjs 3">&lt;/p>
-&lt;h1 id="whats-the-best-way-to-study-vuejs-3">What&amp;rsquo;s the Best Way to Study Vue.js 3?&lt;/h1>
-&lt;p>Vue.js 3 is a powerful JavaScript framework for building user interfaces and single-page applications. Whether you&amp;rsquo;re a beginner or an experienced developer, finding the best way to study Vue.js 3 can significantly impact your learning curve and project success. In this article, we&amp;rsquo;ll explore the most effective strategies, resources, and tips to master Vue.js 3.&lt;/p>
-&lt;h2 id="why-learn-vuejs-3">Why Learn Vue.js 3?&lt;/h2>
-&lt;p>Before diving into the learning methods, it&amp;rsquo;s essential to understand why Vue.js 3 is worth your time:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Ease of Use&lt;/strong>: Vue.js is known for its gentle learning curve and simple syntax.&lt;/li>
-&lt;li>&lt;strong>Performance&lt;/strong>: Vue.js 3 introduces significant performance improvements.&lt;/li>
-&lt;li>&lt;strong>Community and Ecosystem&lt;/strong>: A vibrant community and a rich ecosystem of tools and libraries.&lt;/li>
-&lt;li>&lt;strong>Flexibility&lt;/strong>: Suitable for small projects and large-scale applications.&lt;/li>
-&lt;/ul>
-&lt;h2 id="step-by-step-guide-to-learning-vuejs-3">Step-by-Step Guide to Learning Vue.js 3&lt;/h2>
-&lt;h3 id="1-understand-the-basics-of-javascript">1. Understand the Basics of JavaScript&lt;/h3>
-&lt;p>Since Vue.js is a JavaScript framework, having a solid understanding of JavaScript fundamentals is crucial. Make sure you&amp;rsquo;re comfortable with:&lt;/p>
-&lt;ul>
-&lt;li>Variables and Data Types&lt;/li>
-&lt;li>Functions and Scope&lt;/li>
-&lt;li>DOM Manipulation&lt;/li>
-&lt;li>ES6+ Features&lt;/li>
-&lt;/ul>
-&lt;h3 id="2-official-documentation">2. Official Documentation&lt;/h3>
-&lt;p>The &lt;a href="https://v3.vuejs.org/">official Vue.js 3 documentation&lt;/a> is the best place to start. It provides comprehensive and up-to-date information about all aspects of the framework.&lt;/p>
-&lt;h3 id="3-online-courses-and-tutorials">3. Online Courses and Tutorials&lt;/h3>
-&lt;p>Consider enrolling in online courses that offer structured learning paths. Some highly recommended platforms include:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Udemy&lt;/strong>: Courses like &amp;ldquo;Vue JS 3 - The Complete Guide (incl. Router &amp;amp; Composition API)&amp;rdquo; by Maximilian Schwarzmüller.&lt;/li>
-&lt;li>&lt;strong>Coursera&lt;/strong>: Courses from renowned universities and institutions.&lt;/li>
-&lt;li>&lt;strong>Pluralsight&lt;/strong>: In-depth courses for different skill levels.&lt;/li>
-&lt;/ul>
-&lt;h3 id="4-build-projects">4. Build Projects&lt;/h3>
-&lt;p>Applying what you&amp;rsquo;ve learned through projects is one of the most effective ways to solidify your knowledge. Start with simple projects like a to-do list app and gradually move to more complex applications.&lt;/p>
-&lt;h4 id="example-project-to-do-list-app">Example Project: To-Do List App&lt;/h4>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;span class="lnt">25
-&lt;/span>&lt;span class="lnt">26
-&lt;/span>&lt;span class="lnt">27
-&lt;/span>&lt;span class="lnt">28
-&lt;/span>&lt;span class="lnt">29
-&lt;/span>&lt;span class="lnt">30
-&lt;/span>&lt;span class="lnt">31
-&lt;/span>&lt;span class="lnt">32
-&lt;/span>&lt;span class="lnt">33
-&lt;/span>&lt;span class="lnt">34
-&lt;/span>&lt;span class="lnt">35
-&lt;/span>&lt;span class="lnt">36
-&lt;/span>&lt;span class="lnt">37
-&lt;/span>&lt;span class="lnt">38
-&lt;/span>&lt;span class="lnt">39
-&lt;/span>&lt;span class="lnt">40
-&lt;/span>&lt;span class="lnt">41
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">template&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">div&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;app&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">h1&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nx">Vue&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">js&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="nx">To&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Do&lt;/span> &lt;span class="nx">List&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/h1&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">input&lt;/span> &lt;span class="nx">v&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">model&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;newTodo&amp;#34;&lt;/span> &lt;span class="err">@&lt;/span>&lt;span class="nx">keyup&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">enter&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;addTodo&amp;#34;&lt;/span> &lt;span class="nx">placeholder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;Add a new task&amp;#34;&lt;/span> &lt;span class="o">/&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">ul&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">li&lt;/span> &lt;span class="nx">v&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;todo in todos&amp;#34;&lt;/span> &lt;span class="o">:&lt;/span>&lt;span class="nx">key&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;todo.id&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="p">{{&lt;/span> &lt;span class="nx">todo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">text&lt;/span> &lt;span class="p">}}&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">button&lt;/span> &lt;span class="err">@&lt;/span>&lt;span class="nx">click&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;removeTodo(todo.id)&amp;#34;&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="nx">X&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/button&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/li&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/ul&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/div&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/template&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">script&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nx">data&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nx">newTodo&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nx">todos&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[]&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nx">methods&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nx">addTodo&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">trim&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">push&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nb">Date&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">now&lt;/span>&lt;span class="p">(),&lt;/span> &lt;span class="nx">text&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span> &lt;span class="p">});&lt;/span>
-&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">newTodo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nx">removeTodo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">todos&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">filter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">todo&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">todo&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span> &lt;span class="o">!==&lt;/span> &lt;span class="nx">id&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/script&amp;gt;&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">style&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>
-&lt;span class="err">#&lt;/span>&lt;span class="nx">app&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nx">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">Avenir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Helvetica&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Arial&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">sans&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">serif&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="nx">text&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">align&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nx">center&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="nx">margin&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="nx">px&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="err">/style&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ol start="5">
-&lt;li>Join the Community
-Participating in the Vue.js community can provide additional support and resources. Consider joining:&lt;/li>
-&lt;/ol>
-&lt;p>Forums: Vue Forum, Stack Overflow.
-Social Media: Twitter, Reddit.
-Meetups and Conferences: Vue.js meetups, VueConf.
-6. Read Books and Articles
-There are several excellent books and articles available for deep diving into Vue.js 3:&lt;/p>
-&lt;p>Books: &amp;ldquo;The Vue.js 3 Cookbook&amp;rdquo; by Heitor Ramon Ribeiro, &amp;ldquo;Fullstack Vue&amp;rdquo; by Hassan Djirdeh, Nate Murray, and Ari Lerner.
-Blogs: Vue Mastery, Alligator.io, Vue.js Developers.
-Conclusion
-Learning Vue.js 3 can open many doors in web development, from building small interactive components to creating full-fledged applications. By following these strategies and utilizing the recommended resources, you&amp;rsquo;ll be well on your way to mastering Vue.js 3.&lt;/p>
-&lt;p>Happy coding!&lt;/p>
-&lt;p>By implementing these steps and continuously practicing, you&amp;rsquo;ll gain a solid understanding of Vue.js 3 and be able to create impressive web applications.&lt;/p></description></item><item><title>What is FIFO in Computer Science? An Easy-to-Understand Example</title><link>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</link><pubDate>Sun, 28 Jul 2024 04:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/what-is-fifo-in-computer/</guid><description>&lt;h3 id="understanding-fifo">Understanding FIFO&lt;/h3>
-&lt;p>FIFO stands for &amp;ldquo;First In, First Out.&amp;rdquo; It&amp;rsquo;s a method used to manage and organize data, ensuring that the first element added is the first one to be removed. This principle is akin to the way people line up in a queue; the first person to join the line is the first one to be served. FIFO is widely used in various computer science applications, such as data structures, operating systems, and networking.&lt;/p>
-&lt;h3 id="fifo-in-data-structures">FIFO in Data Structures&lt;/h3>
-&lt;p>In data structures, FIFO is typically implemented using a &lt;strong>queue&lt;/strong>. A queue is a linear structure where elements are added at one end, called the rear, and removed from the other end, called the front. This structure ensures that the order of processing is maintained, providing a predictable and organized way to manage data.&lt;/p>
-&lt;h3 id="real-world-example-queue-at-a-grocery-store">Real-World Example: Queue at a Grocery Store&lt;/h3>
-&lt;p>To make FIFO easier to understand, let&amp;rsquo;s consider a real-world example: a queue at a grocery store checkout. Here&amp;rsquo;s how FIFO works in this scenario:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Arrival&lt;/strong>: Customers arrive at the checkout line. The first customer to arrive joins the front of the queue.&lt;/li>
-&lt;li>&lt;strong>Waiting&lt;/strong>: As more customers arrive, they join the queue at the rear, waiting for their turn.&lt;/li>
-&lt;li>&lt;strong>Service&lt;/strong>: The cashier serves the customer at the front of the queue first.&lt;/li>
-&lt;li>&lt;strong>Departure&lt;/strong>: Once served, the customer leaves the queue, and the next customer in line moves to the front.&lt;/li>
-&lt;li>&lt;strong>Continuity&lt;/strong>: This process continues, ensuring that customers are served in the order they arrived.&lt;/li>
-&lt;/ol>
-&lt;h3 id="fifo-in-computer-science-example-with-a-print-queue">FIFO in Computer Science: Example with a Print Queue&lt;/h3>
-&lt;p>Imagine you have a print queue where documents are lined up to be printed. Here&amp;rsquo;s how FIFO works in this scenario:&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>Adding Documents&lt;/strong>: You send three documents (Doc1, Doc2, Doc3) to the printer.&lt;/p>
-&lt;ul>
-&lt;li>Doc1 is added to the print queue first.&lt;/li>
-&lt;li>Doc2 is added next.&lt;/li>
-&lt;li>Doc3 is added last.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Processing Documents&lt;/strong>: The printer processes the documents in the order they were added.&lt;/p>
-&lt;ul>
-&lt;li>Doc1 is printed first because it was the first to enter the queue.&lt;/li>
-&lt;li>Doc2 is printed next.&lt;/li>
-&lt;li>Doc3 is printed last.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;p>This orderly processing ensures that documents are printed in the exact sequence they were queued, maintaining fairness and predictability.&lt;/p>
-&lt;h3 id="code-example-fifo-using-a-queue-in-python">Code Example: FIFO Using a Queue in Python&lt;/h3>
-&lt;p>Let&amp;rsquo;s look at a simple Python example to illustrate how FIFO works using a queue:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="kn">from&lt;/span> &lt;span class="nn">collections&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">deque&lt;/span>
-&lt;span class="c1"># Create a queue&lt;/span>
-&lt;span class="n">queue&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">deque&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="c1"># Add elements to the queue&lt;/span>
-&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc1&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc2&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Doc3&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after adding elements:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="c1"># Remove elements from the queue in FIFO order&lt;/span>
-&lt;span class="n">first&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">first&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing first element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">second&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">second&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing second element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;span class="n">third&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">queue&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">popleft&lt;/span>&lt;span class="p">()&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Removed:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">third&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Queue after removing third element:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">list&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">queue&lt;/span>&lt;span class="p">))&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="explanation-of-the-code">Explanation of the Code:&lt;/h3>
-&lt;ol>
-&lt;li>&lt;strong>Importing &lt;code>deque&lt;/code>&lt;/strong>: We use the &lt;code>deque&lt;/code> class from the &lt;code>collections&lt;/code> module to create a queue.&lt;/li>
-&lt;li>&lt;strong>Creating the Queue&lt;/strong>: We initialize an empty queue.&lt;/li>
-&lt;li>&lt;strong>Adding Elements&lt;/strong>: We add three documents (Doc1, Doc2, Doc3) to the queue.&lt;/li>
-&lt;li>&lt;strong>Removing Elements&lt;/strong>: We remove elements from the queue one by one using the &lt;code>popleft()&lt;/code> method, which ensures that elements are removed in the order they were added.&lt;/li>
-&lt;/ol>
-&lt;p>Output:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">Queue after adding elements: [&amp;#39;Doc1&amp;#39;, &amp;#39;Doc2&amp;#39;, &amp;#39;Doc3&amp;#39;]
-Removed: Doc1
-Queue after removing first element: [&amp;#39;Doc2&amp;#39;, &amp;#39;Doc3&amp;#39;]
-Removed: Doc2
-Queue after removing second element: [&amp;#39;Doc3&amp;#39;]
-Queue after removing third element: []
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>This output demonstrates how FIFO works, with elements being removed in the same order they were added.&lt;/p>
-&lt;h3 id="conclusion">Conclusion&lt;/h3>
-&lt;p>FIFO is a fundamental concept in computer science that ensures orderly processing of data. Whether it&amp;rsquo;s managing a queue of tasks, handling print jobs, or organizing network packets, FIFO provides a straightforward and predictable way to manage data flow. Understanding FIFO and its applications can help you design more efficient and reliable systems.&lt;/p>
-&lt;hr>
-&lt;p>By following the FIFO principle, you can ensure that your applications handle data in a fair and orderly manner, providing a better user experience and more predictable performance.&lt;/p></description></item><item><title>如何关闭 Windows 更新功能</title><link>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</link><pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/how-to-turn-off-windows-update/</guid><description>&lt;h2 id="如何关闭-windows-更新功能详细指南">如何关闭 Windows 更新功能：详细指南&lt;/h2>
-&lt;h3 id="前言">前言&lt;/h3>
-&lt;p>Windows 更新可以帮助您的电脑保持最新，确保安全和性能。但是，有时候您可能需要暂时关闭这些更新，避免在关键时刻被打断。本篇博客将为您详细介绍如何关闭 Windows 更新功能。&lt;/p>
-&lt;h3 id="方法一通过设置关闭更新">方法一：通过设置关闭更新&lt;/h3>
-&lt;p>这是最简单的方法，可以通过 Windows 设置来暂停更新。&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>打开设置：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>按下 &lt;code>Win + I&lt;/code> 键打开设置，或点击开始菜单并选择设置。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>选择“更新和安全”：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>在设置界面中，找到并点击“更新和安全”选项。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>暂停更新：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>在“Windows 更新”选项卡中，点击“暂停更新”按钮。您可以选择暂停更新的时间段，最长可以暂停35天。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="方法二通过服务管理器关闭更新">方法二：通过服务管理器关闭更新&lt;/h3>
-&lt;p>此方法通过禁用 Windows Update 服务来彻底关闭更新。&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>打开服务管理器：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>services.msc&lt;/code> 并按回车键。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>找到 Windows Update 服务：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>在服务管理器中，向下滚动找到“Windows Update”服务。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>禁用服务：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>右键点击“Windows Update”服务，选择“属性”。&lt;/li>
-&lt;li>在“启动类型”下拉菜单中选择“禁用”，然后点击“停止”按钮以停止该服务。&lt;/li>
-&lt;li>点击“应用”并“确定”以保存更改。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="方法三通过组策略编辑器关闭更新仅适用于专业版和企业版">方法三：通过组策略编辑器关闭更新（仅适用于专业版和企业版）&lt;/h3>
-&lt;p>组策略编辑器可以提供更高级的控制选项。&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>打开组策略编辑器：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>gpedit.msc&lt;/code> 并按回车键。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>导航到 Windows 更新设置：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>依次展开“计算机配置” -&amp;gt; “管理模板” -&amp;gt; “Windows 组件” -&amp;gt; “Windows 更新”。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>配置自动更新：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>双击“配置自动更新”选项。&lt;/li>
-&lt;li>在弹出的窗口中，选择“已禁用”选项，然后点击“应用”并“确定”。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="方法四通过注册表编辑器关闭更新">方法四：通过注册表编辑器关闭更新&lt;/h3>
-&lt;p>这种方法适用于对系统有较深入了解的用户，修改注册表存在一定风险，请谨慎操作。&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>打开注册表编辑器：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>按下 &lt;code>Win + R&lt;/code> 键打开运行对话框，输入 &lt;code>regedit&lt;/code> 并按回车键。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>导航到 Windows 更新设置：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>依次展开 &lt;code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows&lt;/code>。&lt;/li>
-&lt;li>右键点击“Windows”文件夹，选择“新建” -&amp;gt; “项”，命名为“WindowsUpdate”。&lt;/li>
-&lt;li>右键点击“WindowsUpdate”文件夹，选择“新建” -&amp;gt; “项”，命名为“AU”。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>创建 NoAutoUpdate 键：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>选择“AU”文件夹，右键点击右侧空白处，选择“新建” -&amp;gt; “DWORD（32位）值”。&lt;/li>
-&lt;li>将新值命名为“NoAutoUpdate”，双击它并将值数据设为“1”。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="结论">结论&lt;/h3>
-&lt;p>以上几种方法都可以帮助您关闭 Windows 更新功能，您可以根据自己的需求选择最合适的方法。请注意，禁用更新可能会使您的系统错过重要的安全补丁，建议在完成关键任务后尽快恢复更新。&lt;/p></description></item><item><title>如何通过饮食保护心脏</title><link>https://jiyongcheng.dev/post/how-to-protect-your-heart-through-diet/</link><pubDate>Sat, 27 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/how-to-protect-your-heart-through-diet/</guid><description>&lt;h2 id="如何通过饮食保护心脏全面指南">如何通过饮食保护心脏：全面指南&lt;/h2>
-&lt;p>&lt;img src="https://plus.unsplash.com/premium_photo-1661964396038-24ff4ca56699?q=80&amp;amp;w=3740&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;ixlib=rb-4.0.3&amp;amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="健康食物">&lt;/p>
-&lt;h3 id="前言">前言&lt;/h3>
-&lt;p>心脏健康是我们整体健康的重要组成部分。通过饮食，我们可以有效地保护心脏，降低心脏病的风险。本文将介绍几种有助于心脏健康的饮食习惯和食物选择。&lt;/p>
-&lt;h3 id="1-多吃富含纤维的食物">1. 多吃富含纤维的食物&lt;/h3>
-&lt;p>纤维有助于降低胆固醇水平，保持心血管系统的健康。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>全谷物&lt;/strong>：燕麦、糙米、全麦面包。&lt;/li>
-&lt;li>&lt;strong>水果和蔬菜&lt;/strong>：苹果、梨、胡萝卜、西兰花。&lt;/li>
-&lt;/ul>
-&lt;h3 id="2-增加健康脂肪的摄入">2. 增加健康脂肪的摄入&lt;/h3>
-&lt;p>健康脂肪可以降低坏胆固醇，增加好胆固醇。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>坚果和种子&lt;/strong>：杏仁、核桃、亚麻籽、奇亚籽。&lt;/li>
-&lt;li>&lt;strong>鱼类&lt;/strong>：鲑鱼、沙丁鱼、鲭鱼，这些鱼类富含omega-3脂肪酸。&lt;/li>
-&lt;/ul>
-&lt;h3 id="3-限制饱和脂肪和反式脂肪">3. 限制饱和脂肪和反式脂肪&lt;/h3>
-&lt;p>这些不健康的脂肪会增加心脏病的风险。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>避免的食物&lt;/strong>：加工食品、炸薯条、糕点、快餐。&lt;/li>
-&lt;/ul>
-&lt;h3 id="4-控制盐的摄入量">4. 控制盐的摄入量&lt;/h3>
-&lt;p>过多的盐会导致高血压，从而增加心脏病的风险。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>减少盐的来源&lt;/strong>：少吃咸菜、酱油、加工食品。&lt;/li>
-&lt;li>&lt;strong>使用香草和香料&lt;/strong>：用香草和香料代替盐来调味。&lt;/li>
-&lt;/ul>
-&lt;h3 id="5-多吃富含抗氧化剂的食物">5. 多吃富含抗氧化剂的食物&lt;/h3>
-&lt;p>抗氧化剂有助于保护心脏免受自由基的损伤。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>水果和蔬菜&lt;/strong>：蓝莓、草莓、菠菜、甘蓝。&lt;/li>
-&lt;li>&lt;strong>其他食物&lt;/strong>：黑巧克力、绿茶。&lt;/li>
-&lt;/ul>
-&lt;h3 id="6-选择低脂蛋白质来源">6. 选择低脂蛋白质来源&lt;/h3>
-&lt;p>低脂蛋白质有助于维持肌肉质量，减少心脏的负担。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>优质蛋白质&lt;/strong>：鸡肉、鱼、豆类、豆腐。&lt;/li>
-&lt;/ul>
-&lt;h3 id="7-控制酒精摄入">7. 控制酒精摄入&lt;/h3>
-&lt;p>适量饮酒可以保护心脏，但过量饮酒会增加风险。&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>适度饮酒&lt;/strong>：男性每天不超过2杯，女性每天不超过1杯。&lt;/li>
-&lt;/ul>
-&lt;h3 id="结论">结论&lt;/h3>
-&lt;p>通过合理的饮食习惯，我们可以显著降低心脏病的风险，保护心脏健康。希望这些建议对您有所帮助。&lt;/p></description></item><item><title>Privacy Policy</title><link>https://jiyongcheng.dev/privacy/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/privacy/</guid><description>&lt;p>Last updated: July 26, 2024&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</title><link>https://jiyongcheng.dev/</link><description>Recent content in Home on Tech &amp; Lifestyle Hub: Your Source for IT News, Trends, and Everyday Tips</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Feb 2018 18:56:13 -0500</lastBuildDate><atom:link href="https://jiyongcheng.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Privacy Policy</title><link>https://jiyongcheng.dev/privacy/</link><pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/privacy/</guid><description>&lt;p>Last updated: July 26, 2024&lt;/p>
 &lt;p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.&lt;/p>
 &lt;p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the &lt;a href="https://www.termsfeed.com/privacy-policy-generator/" target="_blank">Privacy Policy Generator&lt;/a>.&lt;/p>
 &lt;h2>Interpretation and Definitions&lt;/h2>
@@ -822,7 +170,7 @@ Subtract from selection: ⇧+⌘
 &lt;h3 id="using-keyboard">Using keyboard&lt;/h3>
 &lt;pre>&lt;code>Ctrl+Shift+⬆
 Ctrl+Shift+⬇
-&lt;/code>&lt;/pre></description></item><item><title>General</title><link>https://jiyongcheng.dev/post/general/</link><pubDate>Wed, 08 Dec 2021 17:30:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/general/</guid><description>&lt;p>For the general programming knowledge.&lt;/p>
+&lt;/code>&lt;/pre></description></item><item><title>Off By One</title><link>https://jiyongcheng.dev/post/general/</link><pubDate>Wed, 08 Dec 2021 17:30:02 +1100</pubDate><guid>https://jiyongcheng.dev/post/general/</guid><description>&lt;p>For the general programming knowledge.&lt;/p>
 &lt;h2 id="off-by-one-溢出">Off-By-One [溢出]&lt;/h2>
 &lt;ul>
 &lt;li>严格来说，off-by-one是一种特殊的溢出漏洞，off-by-one指程序向缓冲区中写入时，写入的字节数超过了这个缓冲区本身所申请的字节数并且只越界了一个字节。&lt;/li>
@@ -1665,4 +1013,87 @@ export PATH&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/spa
 &lt;/tbody>
 &lt;/table>
 &lt;h2 class="cols-3" id="how-to-stop-indexing">How to stop indexing&lt;/h2>
-&lt;p>System Settings -&amp;gt; Synchronize external changes when switching to the IDE window or opening an editor tab&lt;/p></description></item></channel></rss>
+&lt;p>System Settings -&amp;gt; Synchronize external changes when switching to the IDE window or opening an editor tab&lt;/p></description></item><item><title>Android app with react native</title><link>https://jiyongcheng.dev/post/android-app-with-react-native/</link><pubDate>Fri, 17 Jan 2020 10:18:00 +0000</pubDate><guid>https://jiyongcheng.dev/post/android-app-with-react-native/</guid><description>&lt;h2 id="issue-i-met">Issue I met&lt;/h2>
+&lt;p>I want to follow &lt;a href="https://developer.okta.com/blog/2018/12/26/react-native-android-play-store">this article&lt;/a> to learn creating apps with react native. But I met several issues:&lt;/p>
+&lt;blockquote>
+&lt;p>error Failed to launch emulator. Reason: No emulators found as an output of &lt;code>emulator -list-avds&lt;/code>.
+warn Please launch an emulator manually or connect a device. Otherwise app may fail to launch.
+info Installing the app&amp;hellip;
+Task :app:installDebug FAILED&lt;/p>
+&lt;/blockquote>
+&lt;p>Then I realized the another issue prompted:
+&lt;code>/bin/sh: adb: command not found&lt;/code>&lt;/p>
+&lt;h2 id="how-to-solve">How to solve&lt;/h2>
+&lt;p>After googling, I got answer:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ANDROID_HOME&lt;/span>&lt;span class="o">=&lt;/span>/Users/aaron/Library/Android/sdk
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/platform-tools:&lt;span class="nv">$PATH&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ANDROID_HOME&lt;/span>/tools:&lt;span class="nv">$PATH&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and I ran it again, it works. But I think you should also have created an AVD as well.&lt;/p></description></item><item><title>Search Results</title><link>https://jiyongcheng.dev/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jiyongcheng.dev/search/</guid><description>&lt;p>This file exists solely to respond to /search URL with the related &lt;code>search&lt;/code> layout template.&lt;/p>
+&lt;p>No content shown here is rendered, all content is based in the template layouts/page/search.html&lt;/p>
+&lt;p>Setting a very low sitemap priority will tell search engines this is not important content.&lt;/p>
+&lt;p>This implementation uses Fusejs, jquery and mark.js&lt;/p>
+&lt;h2 id="initial-setup">Initial setup&lt;/h2>
+&lt;p>Search depends on additional output content type of JSON in config.toml&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">[outputs]
+home = [&amp;#34;HTML&amp;#34;, &amp;#34;JSON&amp;#34;]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="searching-additional-fileds">Searching additional fileds&lt;/h2>
+&lt;p>To search additional fields defined in front matter, you must add it in 2 places.&lt;/p>
+&lt;h3 id="edit-layouts_defaultindexjson">Edit layouts/_default/index.JSON&lt;/h3>
+&lt;p>This exposes the values in /index.json
+i.e. add &lt;code>category&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">...
+&amp;#34;contents&amp;#34;:{{ .Content | plainify | jsonify }}
+{{ if .Params.tags }},
+&amp;#34;tags&amp;#34;:{{ .Params.tags | jsonify }}{{end}},
+&amp;#34;categories&amp;#34; : {{ .Params.categories | jsonify }},
+...
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="edit-fusejs-options-to-search">Edit fuse.js options to Search&lt;/h3>
+&lt;p>&lt;code>static/js/search.js&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">keys: [
+&amp;#34;title&amp;#34;,
+&amp;#34;contents&amp;#34;,
+&amp;#34;tags&amp;#34;,
+&amp;#34;categories&amp;#34;
+]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
